@@ -1,23 +1,5 @@
 [
   {
-    "date": "2026-06-13T17:25:29.676024+00:00",
-    "oni": 0.48,
-    "nino34": 28.82,
-    "soi": -1.5,
-    "dmi": 0.149,
-    "rainfall_departure_pct": null,
-    "alert_status": "El Niño Advisory"
-  },
-  {
-    "date": "2026-06-13T17:27:59.561457+00:00",
-    "oni": 0.48,
-    "nino34": 0.94,
-    "soi": -1.5,
-    "dmi": 0.149,
-    "rainfall_departure_pct": 50,
-    "alert_status": "El Niño Advisory"
-  },
-  {
     "date": "2026-06-13T17:29:43.151833+00:00",
     "oni": 0.48,
     "nino34": 0.94,
@@ -27,12 +9,25 @@
     "alert_status": "El Niño Advisory"
   },
   {
-    "date": "2026-06-13T17:41:08.386145+00:00",
+    "date": "2026-06-13T18:07:37.387945+00:00",
     "oni": 0.48,
     "nino34": 0.94,
     "soi": -1.5,
     "dmi": 0.149,
     "rainfall_departure_pct": -26,
-    "alert_status": "El Niño Advisory"
+    "alert_status": "El Niño Advisory",
+    "stress_index": 64,
+    "iri_elnino_prob": null
+  },
+  {
+    "date": "2026-06-13T18:18:52.778469+00:00",
+    "oni": 0.48,
+    "nino34": 0.94,
+    "soi": -1.5,
+    "dmi": 0.149,
+    "rainfall_departure_pct": -26,
+    "alert_status": "El Niño Advisory",
+    "stress_index": 64,
+    "iri_elnino_prob": 98
   }
 ]

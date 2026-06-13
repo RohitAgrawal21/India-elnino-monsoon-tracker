@@ -8,6 +8,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scraper import noaa_oni, noaa_nino34, noaa_enso_discussion, noaa_soi
 from scraper import noaa_dmi, imd_rainfall, imd_lrf, cwc_reservoir, kharif_sowing
+from scraper import iri_forecast
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT_DIR, "data")
@@ -23,7 +24,40 @@ SCRAPERS = [
     ("imd_lrf", imd_lrf),
     ("cwc_reservoir", cwc_reservoir),
     ("kharif_sowing", kharif_sowing),
+    ("iri_forecast", iri_forecast),
 ]
+
+def calc_stress_index(results):
+    """Monsoon Stress Index: 0 (no concern) to 100 (extreme concern).
+    Blends Nino-3.4, SOI, IOD, and rainfall departure."""
+    score = 50
+    nino34 = results.get("nino34", {}).get("value")
+    if nino34 is not None:
+        if nino34 >= 2.0: score += 25
+        elif nino34 >= 1.5: score += 20
+        elif nino34 >= 1.0: score += 15
+        elif nino34 >= 0.5: score += 8
+        elif nino34 >= 0: score += 2
+        else: score -= 5
+
+    soi = results.get("soi", {}).get("value")
+    if soi is not None:
+        if soi <= -15: score += 10
+        elif soi <= -7: score += 5
+        elif soi >= 7: score -= 5
+
+    dmi = results.get("iod_dmi", {}).get("value")
+    if dmi is not None:
+        if dmi < -0.4: score += 8
+        elif dmi > 0.4: score -= 8
+
+    dep = results.get("imd_rainfall", {}).get("country_departure_pct")
+    if dep is not None:
+        if dep <= -40: score += 12
+        elif dep <= -20: score += 6
+        elif dep >= 20: score -= 6
+
+    return max(0, min(100, score))
 
 def run():
     os.makedirs(DATA_DIR, exist_ok=True)
@@ -66,6 +100,12 @@ def run():
     else:
         history = []
 
+    stress = calc_stress_index(results)
+    latest["stress_index"] = stress
+
+    with open(latest_path, "w", encoding="utf-8") as f:
+        json.dump(latest, f, indent=2, ensure_ascii=False)
+
     snapshot = {
         "date": run_time,
         "oni": results.get("oni", {}).get("value"),
@@ -74,6 +114,8 @@ def run():
         "dmi": results.get("iod_dmi", {}).get("value"),
         "rainfall_departure_pct": results.get("imd_rainfall", {}).get("country_departure_pct"),
         "alert_status": results.get("enso_status", {}).get("alert_status"),
+        "stress_index": stress,
+        "iri_elnino_prob": results.get("iri_forecast", {}).get("elnino_probability"),
     }
     history.append(snapshot)
 
