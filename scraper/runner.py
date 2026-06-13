@@ -1,5 +1,6 @@
 import json
 import os
+import shutil
 import sys
 from datetime import datetime, timezone
 
@@ -8,7 +9,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scraper import noaa_oni, noaa_nino34, noaa_enso_discussion, noaa_soi
 from scraper import noaa_dmi, imd_rainfall, imd_lrf, cwc_reservoir, kharif_sowing
 
-DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data")
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(ROOT_DIR, "data")
+DOCS_DIR = os.path.join(ROOT_DIR, "docs")
 
 SCRAPERS = [
     ("oni", noaa_oni),
@@ -77,6 +80,10 @@ def run():
     with open(history_path, "w", encoding="utf-8") as f:
         json.dump(history, f, indent=2, ensure_ascii=False)
     print(f"  Appended to history.json ({len(history)} entries)")
+
+    shutil.copy2(latest_path, os.path.join(DOCS_DIR, "latest.json"))
+    shutil.copy2(history_path, os.path.join(DOCS_DIR, "history.json"))
+    print(f"  Copied data files to docs/")
 
     ok_count = sum(1 for v in results.values() if v.get("status") == "ok")
     total = len(results)
