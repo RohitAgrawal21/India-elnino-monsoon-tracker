@@ -1,0 +1,141 @@
+{
+  "last_updated": "2026-06-13T17:29:43.151833+00:00",
+  "metrics": {
+    "oni": {
+      "metric": "ONI",
+      "value": 0.48,
+      "unit": "°C",
+      "season": "MAM 2026",
+      "trend": "rising",
+      "previous_value": 0.13,
+      "source": "NOAA/CPC ONI",
+      "source_url": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt",
+      "fetched_at": "2026-06-13T17:29:44.825685+00:00",
+      "status": "ok"
+    },
+    "nino34": {
+      "metric": "Niño-3.4 SST Anomaly",
+      "value": 0.94,
+      "unit": "°C",
+      "period": "May 2026",
+      "trend": "rising",
+      "previous_value": 0.47,
+      "nino12_anom": 1.81,
+      "nino3_anom": 1.14,
+      "nino4_anom": 0.98,
+      "source": "NOAA/CPC Niño-3.4 Monthly",
+      "source_url": "https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices",
+      "fetched_at": "2026-06-13T17:29:47.157587+00:00",
+      "status": "ok"
+    },
+    "enso_status": {
+      "metric": "ENSO Alert Status",
+      "alert_status": "El Niño Advisory",
+      "nino34_weekly": 0.7,
+      "elnino_probability": 63,
+      "strong_elnino_probability": 63,
+      "unit": "%",
+      "source": "NOAA/CPC ENSO Discussion",
+      "source_url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+      "fetched_at": "2026-06-13T17:29:48.854501+00:00",
+      "status": "ok"
+    },
+    "soi": {
+      "metric": "SOI",
+      "value": -1.5,
+      "unit": "index",
+      "period": "May 2026",
+      "interpretation": "near neutral",
+      "source": "NOAA/PSL SOI",
+      "source_url": "https://psl.noaa.gov/data/correlation/soi.data",
+      "fetched_at": "2026-06-13T17:29:50.173455+00:00",
+      "status": "ok"
+    },
+    "iod_dmi": {
+      "metric": "IOD / DMI",
+      "value": 0.149,
+      "unit": "°C",
+      "phase": "Neutral",
+      "india_impact_note": "Neutral IOD — El Niño impact on India monsoon depends on other factors",
+      "period": "Apr 2025",
+      "source": "NOAA/PSL DMI (IOD)",
+      "source_url": "https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmi.had.long.data",
+      "fetched_at": "2026-06-13T17:29:51.466491+00:00",
+      "status": "ok",
+      "note": "DMI data lags 1-2 months; this is normal for this dataset"
+    },
+    "imd_rainfall": {
+      "metric": "IMD Subdivision Rainfall",
+      "country_actual_mm": 37.2,
+      "country_normal_mm": 50.4,
+      "country_departure_pct": -26,
+      "country_category": "Deficient",
+      "category_counts": {
+        "Large Excess": {
+          "subdivisions": 3,
+          "pct_area": 8
+        },
+        "Excess": {
+          "subdivisions": 5,
+          "pct_area": 12
+        },
+        "Normal": {
+          "subdivisions": 11,
+          "pct_area": 29
+        },
+        "Deficient": {
+          "subdivisions": 11,
+          "pct_area": 35
+        },
+        "Large Deficient": {
+          "subdivisions": 6,
+          "pct_area": 16
+        },
+        "No Rain": {
+          "subdivisions": 0,
+          "pct_area": 0
+        }
+      },
+      "report_period": "01-06-2026 to 13-06-2026",
+      "unit": "mm / %departure",
+      "source": "IMD Subdivision Rainfall",
+      "source_url": "https://mausam.imd.gov.in/Rainfall/SUBDIVISION_RAINFALL_DISTRIBUTION_COUNTRY_INDIA_cd.pdf",
+      "fetched_at": "2026-06-13T17:29:52.521387+00:00",
+      "status": "ok"
+    },
+    "imd_lrf": {
+      "metric": "IMD LRF (SW Monsoon)",
+      "value": 90,
+      "unit": "% of LPA",
+      "error_margin": 5,
+      "category": "Below Normal",
+      "issue_date": "13 April,2026",
+      "source": "IMD Long Range Forecast",
+      "source_url": "https://mausam.imd.gov.in/Forecast/marquee_data/Long%20Range%20Forecast%20for%20Southwest%20Monsoon%20Season%20Rainfall_Press_release_13.4.2026.pdf",
+      "fetched_at": "2026-06-13T17:29:53.736740+00:00",
+      "status": "ok"
+    },
+    "cwc_reservoir": {
+      "metric": "Reservoir Storage",
+      "live_storage_bcm": 35.299,
+      "pct_capacity": 33.26,
+      "last_year_bcm": null,
+      "avg_10yr_bcm": 53.142,
+      "report_date": "01.05.2025",
+      "unit": "BCM",
+      "source": "CWC Reservoir Storage",
+      "source_url": "https://cwc.gov.in/sites/default/files/fb-01052025.pdf",
+      "fetched_at": "2026-06-13T17:30:00.367277+00:00",
+      "status": "ok"
+    },
+    "kharif_sowing": {
+      "metric": "Kharif Sowing Progress",
+      "value": null,
+      "source": "Dept of Agriculture - Kharif Sowing",
+      "source_url": "https://pib.gov.in/allRel.aspx",
+      "fetched_at": "2026-06-13T17:30:25.100023+00:00",
+      "status": "stale",
+      "note": "Could not parse kharif sowing data. This source is brittle and may require manual URL updates."
+    }
+  }
+}

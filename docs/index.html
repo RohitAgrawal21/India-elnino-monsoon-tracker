@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>India El Niño Monsoon Tracker</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f5f6fa;
+  color: #2d3436;
+  line-height: 1.5;
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+  color: #2d3436;
+}
+.subtitle {
+  font-size: 0.85rem;
+  color: #636e72;
+  margin-bottom: 16px;
+}
+.current-read {
+  background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.current-read .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+.last-updated {
+  font-size: 0.75rem;
+  color: #b2bec3;
+  margin-top: 8px;
+}
+.tracks {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+@media (max-width: 900px) {
+  .tracks { grid-template-columns: 1fr; }
+}
+.track {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.track-header {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid;
+}
+.track-a .track-header { color: #e17055; border-color: #e17055; }
+.track-b .track-header { color: #6c5ce7; border-color: #6c5ce7; }
+.track-iod .track-header { color: #00b894; border-color: #00b894; }
+.metric-tile {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.metric-tile:last-child { border-bottom: none; }
+.metric-name {
+  font-size: 0.78rem;
+  color: #636e72;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.metric-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 2px 0;
+}
+.metric-detail {
+  font-size: 0.8rem;
+  color: #636e72;
+}
+.metric-source {
+  font-size: 0.68rem;
+  color: #b2bec3;
+  margin-top: 4px;
+}
+.metric-source a { color: #74b9ff; text-decoration: none; }
+.trend-up { color: #d63031; }
+.trend-down { color: #0984e3; }
+.trend-steady { color: #636e72; }
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.badge-stale { background: #ffeaa7; color: #6c5200; }
+.badge-error { background: #fab1a0; color: #6b1500; }
+.badge-ok { background: #dfe6e9; color: #2d3436; }
+.badge-advisory { background: #ff7675; color: #fff; }
+.badge-watch { background: #ffeaa7; color: #6c5200; }
+.badge-warning { background: #d63031; color: #fff; }
+.cat-bar {
+  display: flex;
+  height: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 6px 0;
+}
+.cat-bar div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+  min-width: 2px;
+}
+.cat-le { background: #0984e3; }
+.cat-e { background: #74b9ff; }
+.cat-n { background: #00b894; }
+.cat-d { background: #e17055; }
+.cat-ld { background: #d63031; }
+.cat-nr { background: #2d3436; }
+.cat-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.cat-legend span {
+  font-size: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.cat-legend .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.chart-container {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+}
+.chart-container h3 {
+  font-size: 0.85rem;
+  color: #636e72;
+  margin-bottom: 10px;
+}
+canvas { width: 100% !important; height: 250px !important; }
+.footer {
+  text-align: center;
+  font-size: 0.72rem;
+  color: #b2bec3;
+  padding: 20px 0;
+}
+.footer a { color: #74b9ff; }
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: #636e72;
+}
+</style>
+</head>
+<body>
+
+<h1>India El Nino Monsoon Tracker</h1>
+<p class="subtitle">How hard will the 2026 El Nino hit the Indian monsoon?</p>
+
+<div id="app" class="loading">Loading data...</div>
+
+<script>
+const DATA_URL = '../data/latest.json';
+const HISTORY_URL = '../data/history.json';
+
+async function loadData() {
+  try {
+    const [latestRes, historyRes] = await Promise.all([
+      fetch(DATA_URL),
+      fetch(HISTORY_URL)
+    ]);
+    if (!latestRes.ok) throw new Error('Could not load latest.json');
+    const latest = await latestRes.json();
+    let history = [];
+    try { history = await historyRes.json(); } catch(e) {}
+    render(latest, history);
+  } catch (e) {
+    document.getElementById('app').innerHTML =
+      '<p style="color:#d63031">Error loading data: ' + e.message + '</p>' +
+      '<p style="margin-top:8px;font-size:0.85rem">If this is your first visit, the scraper may not have run yet.</p>';
+  }
+}
+
+function trendArrow(t) {
+  if (t === 'rising') return '<span class="trend-up">&#9650; Rising</span>';
+  if (t === 'falling') return '<span class="trend-down">&#9660; Falling</span>';
+  return '<span class="trend-steady">&#9654; Steady</span>';
+}
+
+function staleOrValue(metric, valueFn) {
+  if (!metric || metric.status === 'error' || metric.status === 'stale') {
+    return '<span class="badge badge-stale">STALE / UNREACHABLE</span>';
+  }
+  return valueFn(metric);
+}
+
+function sourceLine(metric) {
+  if (!metric) return '';
+  const ts = metric.fetched_at ? new Date(metric.fetched_at).toLocaleString() : '?';
+  const src = metric.source || '?';
+  const url = metric.source_url || '#';
+  return '<div class="metric-source"><a href="' + url + '" target="_blank">' + src + '</a> &middot; as of ' + ts + '</div>';
+}
+
+function alertBadge(status) {
+  if (!status) return '<span class="badge badge-stale">UNKNOWN</span>';
+  const s = status.toLowerCase();
+  if (s.includes('warning')) return '<span class="badge badge-warning">' + status + '</span>';
+  if (s.includes('advisory')) return '<span class="badge badge-advisory">' + status + '</span>';
+  if (s.includes('watch')) return '<span class="badge badge-watch">' + status + '</span>';
+  return '<span class="badge badge-ok">' + status + '</span>';
+}
+
+function buildCurrentRead(m) {
+  const oni = m.oni, nino = m.nino34, enso = m.enso_status, soi = m.soi;
+  const iod = m.iod_dmi, rain = m.imd_rainfall;
+
+  let strength = 'developing';
+  const oniVal = oni && oni.value;
+  if (oniVal !== null && oniVal !== undefined) {
+    if (Math.abs(oniVal) >= 2.0) strength = 'very strong';
+    else if (Math.abs(oniVal) >= 1.5) strength = 'strong';
+    else if (Math.abs(oniVal) >= 1.0) strength = 'moderate';
+    else if (Math.abs(oniVal) >= 0.5) strength = 'weak';
+    else strength = 'borderline';
+  }
+
+  const oniTrend = oni ? oni.trend || 'unknown' : 'unknown';
+  const iodPhase = iod && iod.phase ? iod.phase.toLowerCase() : 'unknown';
+  let iodEffect = 'neutral effect on India';
+  if (iodPhase === 'positive') iodEffect = 'offsetting El Nino drought risk';
+  else if (iodPhase === 'negative') iodEffect = 'amplifying El Nino drought risk';
+
+  const rainDep = rain && rain.country_departure_pct;
+  let rainStr = 'data pending';
+  if (rainDep !== null && rainDep !== undefined) {
+    rainStr = (rainDep >= 0 ? '+' : '') + rainDep + '% departure';
+  }
+
+  const ninoVal = nino && nino.value !== null ? nino.value.toFixed(2) + ' C' : '?';
+
+  return 'El Nino ' + strength + ' (Nino-3.4: ' + ninoVal + ') and ' + oniTrend +
+    '; IOD ' + iodPhase + ', ' + iodEffect +
+    '; India rainfall currently ' + rainStr + '.' +
+    ' Historically, this configuration leans ' +
+    (rainDep !== null && rainDep < -10 ? 'toward' : 'against') +
+    ' a below-normal monsoon, but the El Nino–monsoon link is only moderate (~–0.5 correlation) and not deterministic.';
+}
+
+function catBar(counts) {
+  if (!counts) return '<span class="badge badge-stale">No category data</span>';
+  const cats = [
+    { key: 'Large Excess', cls: 'cat-le', short: 'LE' },
+    { key: 'Excess', cls: 'cat-e', short: 'E' },
+    { key: 'Normal', cls: 'cat-n', short: 'N' },
+    { key: 'Deficient', cls: 'cat-d', short: 'D' },
+    { key: 'Large Deficient', cls: 'cat-ld', short: 'LD' },
+    { key: 'No Rain', cls: 'cat-nr', short: 'NR' },
+  ];
+  const total = cats.reduce((s, c) => s + ((counts[c.key] && counts[c.key].subdivisions) || 0), 0);
+  if (total === 0) return '<span class="badge badge-stale">No data</span>';
+
+  let bar = '<div class="cat-bar">';
+  cats.forEach(c => {
+    const n = (counts[c.key] && counts[c.key].subdivisions) || 0;
+    if (n === 0) return;
+    const pct = (n / total * 100).toFixed(1);
+    bar += '<div class="' + c.cls + '" style="width:' + pct + '%" title="' + c.key + ': ' + n + ' subdivisions">' +
+           (pct > 8 ? n : '') + '</div>';
+  });
+  bar += '</div>';
+
+  bar += '<div class="cat-legend">';
+  cats.forEach(c => {
+    const n = (counts[c.key] && counts[c.key].subdivisions) || 0;
+    if (n === 0) return;
+    const a = (counts[c.key] && counts[c.key].pct_area) || 0;
+    bar += '<span><span class="dot ' + c.cls + '"></span>' + c.short + ': ' + n + ' (' + a + '% area)</span>';
+  });
+  bar += '</div>';
+  return bar;
+}
+
+function render(latest, history) {
+  const m = latest.metrics;
+  const updatedAt = new Date(latest.last_updated).toLocaleString();
+
+  let html = '';
+
+  html += '<div class="current-read">';
+  html += '<div class="label">Current Read</div>';
+  html += '<div>' + buildCurrentRead(m) + '</div>';
+  html += '<div class="last-updated">Dashboard last updated: ' + updatedAt + '</div>';
+  html += '</div>';
+
+  html += '<div class="tracks">';
+
+  // TRACK A - ENSO
+  html += '<div class="track track-a">';
+  html += '<div class="track-header">A: ENSO Ocean State</div>';
+
+  // ENSO Alert
+  html += '<div class="metric-tile">';
+  html += '<div class="metric-name">ENSO Alert</div>';
+  html += staleOrValue(m.enso_status, function(d) {
+    let v = '<div class="metric-value">' + alertBadge(d.alert_status) + '</div>';
+    if (d.elnino_probability) v += '<div class="metric-detail">El Nino probability: ' + d.elnino_probability + '%</div>';
+    if (d.strong_elnino_probability) v += '<div class="metric-detail">Very strong chance: ' + d.strong_elnino_probability + '%</div>';
+    if (d.nino34_weekly) v += '<div class="metric-detail">Weekly Nino-3.4: +' + d.nino34_weekly + ' C</div>';
+    return v;
+  });
+  html += sourceLine(m.enso_status);
+  html += '</div>';
+
+  // Nino 3.4
+  html += '<div class="metric-tile">';
+  html += '<div class="metric-name">Nino-3.4 Anomaly (Monthly)</div>';
+  html += staleOrValue(m.nino34, function(d) {
+    let v = '<div class="metric-value">' + (d.value >= 0 ? '+' : '') + d.value.toFixed(2) + ' C ' + trendArrow(d.trend) + '</div>';
+    v += '<div class="metric-detail">' + d.period + ' &middot; Previous: ' + (d.previous_value >= 0 ? '+' : '') + d.previous_value.toFixed(2) + ' C</div>';
+    return v;
+  });
+  html += sourceLine(m.nino34);
+  html += '</div>';
+
+  // ONI
+  html += '<div class="metric-tile">';
+  html += '<div class="metric-name">ONI (Seasonal)</div>';
+  html += staleOrValue(m.oni, function(d) {
+    let v = '<div class="metric-value">' + (d.value >= 0 ? '+' : '') + d.value.toFixed(2) + ' C ' + trendArrow(d.trend) + '</div>';
+    v += '<div class="metric-detail">' + d.season + ' &middot; Previous: ' + (d.previous_value >= 0 ? '+' : '') + d.previous_value.toFixed(2) + ' C</div>';
+    return v;
+  });
+  html += sourceLine(m.oni);
+  html += '</div>';
+
+  // SOI
+  html += '<div class="metric-tile">';
+  html += '<div class="metric-name">SOI</div>';
+  html += staleOrValue(m.soi, function(d) {
+    let v = '<div class="metric-value">' + d.value.toFixed(1) + '</div>';
+    v += '<div class="metric-detail">' + d.period + ' &middot; ' + (d.interpretation || '') + '</div>';
+    return v;
+  });
+  html += sourceLine(m.soi);
+  html += '</div>';
+
+  html += '</div>'; // end track A
+
+  // IOD MODIFIER
+  html += '<div class="track track-iod">';
+  html += '<div class="track-header">Modifier: Indian Ocean Dipole</div>';
+
+  html += '<div class="metric-tile">';
+  html += '<div class="metric-name">DMI (Dipole Mode Index)</div>';
+  html += staleOrValue(m.iod_dmi, function(d) {
+    let v = '<div class="metric-value">' + (d.value >= 0 ? '+' : '') + d.value.toFixed(3) + ' C</div>';
+    v += '<div class="metric-detail">Phase: <strong>' + d.phase + '</strong></div>';
+    v += '<div class="metric-detail" style="margin-top:6px;padding:8px;background:#f0fff4;border-radius:6px">' + d.india_impact_note + '</div>';
+    if (d.note) v += '<div class="metric-detail" style="margin-top:4px;font-style:italic">' + d.note + '</div>';
+    v += '<div class="metric-detail">' + d.period + '</div>';
+    return v;
+  });
+  html += sourceLine(m.iod_dmi);
+  html += '</div>';
+
+  html += '<div class="metric-tile">';
+  html += '<div class="metric-name">How IOD Modifies El Nino</div>';
+  html += '<div class="metric-detail" style="padding:8px 0">';
+  html += '<strong>Positive IOD (+)</strong>: Tends to bring more rain to India, offsetting El Nino drought.<br>';
+  html += '<strong>Negative IOD (-)</strong>: Tends to reduce India rain, amplifying El Nino drought.<br>';
+  html += '<strong>Neutral</strong>: El Nino impact depends on other factors (subtropical jet, MJO).';
+  html += '</div>';
+  html += '</div>';
+
+  html += '</div>'; // end IOD
+
+  // TRACK B - INDIA IMPACT
+  html += '<div class="track track-b">';
+  html += '<div class="track-header">B: India Ground Impact</div>';
+
+  // Rainfall departure
+  html += '<div class="metric-tile">';
+  html += '<div class="metric-name">All-India Rainfall Departure</div>';
+  html += staleOrValue(m.imd_rainfall, function(d) {
+    const dep = d.country_departure_pct;
+    let color = '#00b894';
+    if (dep !== null && dep !== undefined) {
+      if (dep <= -60) color = '#d63031';
+      else if (dep <= -20) color = '#e17055';
+      else if (dep >= 60) color = '#0984e3';
+      else if (dep >= 20) color = '#74b9ff';
+    }
+    let v = '<div class="metric-value" style="color:' + color + '">' +
+            (dep !== null && dep !== undefined ? (dep >= 0 ? '+' : '') + dep + '%' : 'N/A') + '</div>';
+    if (d.country_actual_mm !== null) {
+      v += '<div class="metric-detail">Actual: ' + d.country_actual_mm + ' mm | Normal: ' + d.country_normal_mm + ' mm</div>';
+    }
+    v += '<div class="metric-detail">' + (d.report_period || '') + '</div>';
+    return v;
+  });
+  html += sourceLine(m.imd_rainfall);
+  html += '</div>';
+
+  // Category breakdown
+  html += '<div class="metric-tile">';
+  html += '<div class="metric-name">Subdivision Category Breakdown</div>';
+  if (m.imd_rainfall && m.imd_rainfall.category_counts) {
+    html += catBar(m.imd_rainfall.category_counts);
+  } else {
+    html += '<span class="badge badge-stale">No data</span>';
+  }
+  html += '</div>';
+
+  // LRF
+  html += '<div class="metric-tile">';
+  html += '<div class="metric-name">IMD Season Forecast (LRF)</div>';
+  html += staleOrValue(m.imd_lrf, function(d) {
+    let v = '';
+    if (d.value) {
+      v += '<div class="metric-value">' + d.value + '% of LPA</div>';
+      if (d.category) v += '<div class="metric-detail">Category: <strong>' + d.category + '</strong></div>';
+      if (d.error_margin) v += '<div class="metric-detail">Error margin: +/-' + d.error_margin + '%</div>';
+      if (d.issue_date) v += '<div class="metric-detail">Issued: ' + d.issue_date + '</div>';
+    } else {
+      v = '<span class="badge badge-stale">Not yet available</span>';
+    }
+    return v;
+  });
+  html += sourceLine(m.imd_lrf);
+  html += '</div>';
+
+  // Reservoir
+  html += '<div class="metric-tile">';
+  html += '<div class="metric-name">Reservoir Storage</div>';
+  html += staleOrValue(m.cwc_reservoir, function(d) {
+    let v = '';
+    if (d.live_storage_bcm) {
+      v += '<div class="metric-value">' + d.live_storage_bcm + ' BCM</div>';
+      if (d.pct_capacity) v += '<div class="metric-detail">' + d.pct_capacity + '% of capacity</div>';
+      if (d.avg_10yr_bcm) v += '<div class="metric-detail">10-yr avg: ' + d.avg_10yr_bcm + ' BCM</div>';
+      if (d.last_year_bcm) v += '<div class="metric-detail">Last year: ' + d.last_year_bcm + ' BCM</div>';
+      if (d.report_date) v += '<div class="metric-detail">Bulletin date: ' + d.report_date + '</div>';
+    } else {
+      v = '<span class="badge badge-stale">Could not parse bulletin</span>';
+    }
+    return v;
+  });
+  html += sourceLine(m.cwc_reservoir);
+  html += '</div>';
+
+  // Kharif sowing
+  html += '<div class="metric-tile">';
+  html += '<div class="metric-name">Kharif Sowing Progress</div>';
+  html += staleOrValue(m.kharif_sowing, function(d) {
+    if (d.area_current_lakh_ha) {
+      let v = '<div class="metric-value">' + d.area_current_lakh_ha + ' lakh ha</div>';
+      if (d.area_last_year_lakh_ha) v += '<div class="metric-detail">Last year: ' + d.area_last_year_lakh_ha + ' lakh ha</div>';
+      if (d.change_pct !== null && d.change_pct !== undefined) {
+        v += '<div class="metric-detail">Change: ' + (d.change_pct >= 0 ? '+' : '') + d.change_pct + '%</div>';
+      }
+      return v;
+    }
+    return '<span class="badge badge-stale">Source unreachable (brittle gov site)</span>';
+  });
+  html += sourceLine(m.kharif_sowing);
+  html += '</div>';
+
+  html += '</div>'; // end track B
+
+  html += '</div>'; // end tracks
+
+  // History chart
+  if (history.length > 1) {
+    html += '<div class="chart-container">';
+    html += '<h3>Daily Trend (from history)</h3>';
+    html += '<canvas id="historyChart"></canvas>';
+    html += '</div>';
+  }
+
+  html += '<div class="footer">';
+  html += 'Data updates daily via GitHub Actions. Some metrics update weekly/monthly — ';
+  html += '"STALE" means the source was unreachable, not that data is wrong.<br>';
+  html += 'The El Nino–monsoon link is only moderate (~–0.5 correlation). This dashboard shows data, not predictions.';
+  html += '</div>';
+
+  document.getElementById('app').innerHTML = html;
+
+  if (history.length > 1) drawChart(history);
+}
+
+function drawChart(history) {
+  const canvas = document.getElementById('historyChart');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.parentElement.clientWidth - 32;
+  const H = 250;
+  canvas.width = W * 2;
+  canvas.height = H * 2;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+  ctx.scale(2, 2);
+
+  const pad = { top: 20, right: 20, bottom: 40, left: 50 };
+  const cw = W - pad.left - pad.right;
+  const ch = H - pad.top - pad.bottom;
+
+  const nino = history.map(h => h.nino34).filter(v => v !== null && v !== undefined);
+  const rain = history.map(h => h.rainfall_departure_pct).filter(v => v !== null && v !== undefined);
+
+  if (nino.length < 2 && rain.length < 2) {
+    ctx.fillStyle = '#636e72';
+    ctx.font = '13px sans-serif';
+    ctx.fillText('Need at least 2 days of data for a chart', pad.left, H/2);
+    return;
+  }
+
+  const data = nino.length >= rain.length ? nino : rain;
+  const label = nino.length >= rain.length ? 'Nino-3.4 Anomaly (C)' : 'Rainfall Departure (%)';
+  const color = nino.length >= rain.length ? '#e17055' : '#6c5ce7';
+
+  const minV = Math.min(...data) - 0.2;
+  const maxV = Math.max(...data) + 0.2;
+  const range = maxV - minV || 1;
+
+  ctx.strokeStyle = '#dfe6e9';
+  ctx.lineWidth = 0.5;
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.top + (ch * i / 4);
+    ctx.beginPath();
+    ctx.moveTo(pad.left, y);
+    ctx.lineTo(pad.left + cw, y);
+    ctx.stroke();
+    ctx.fillStyle = '#b2bec3';
+    ctx.font = '10px sans-serif';
+    ctx.textAlign = 'right';
+    const val = maxV - (range * i / 4);
+    ctx.fillText(val.toFixed(1), pad.left - 6, y + 4);
+  }
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  data.forEach((v, i) => {
+    const x = pad.left + (cw * i / (data.length - 1));
+    const y = pad.top + ch - ((v - minV) / range * ch);
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  data.forEach((v, i) => {
+    const x = pad.left + (cw * i / (data.length - 1));
+    const y = pad.top + ch - ((v - minV) / range * ch);
+    ctx.beginPath();
+    ctx.arc(x, y, 3, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+  });
+
+  ctx.fillStyle = '#636e72';
+  ctx.font = '11px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(label, pad.left + cw / 2, H - 8);
+
+  const dates = history.map(h => {
+    const d = new Date(h.date);
+    return d.toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
+  });
+  if (dates.length <= 10) {
+    dates.forEach((d, i) => {
+      const x = pad.left + (cw * i / (dates.length - 1));
+      ctx.fillText(d, x, pad.top + ch + 20);
+    });
+  } else {
+    const step = Math.ceil(dates.length / 8);
+    for (let i = 0; i < dates.length; i += step) {
+      const x = pad.left + (cw * i / (dates.length - 1));
+      ctx.fillText(dates[i], x, pad.top + ch + 20);
+    }
+  }
+}
+
+loadData();
+</script>
+
+</body>
+</html>
