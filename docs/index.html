@@ -129,16 +129,26 @@ body {
 .sec-enso .section-header { background: linear-gradient(135deg, #2d1b1b, #1a1215); color: #ff6b6b; border-bottom: 1px solid #ff6b6b33; }
 .sec-iod .section-header { background: linear-gradient(135deg, #1b2d1e, #121a15); color: #6bcb77; border-bottom: 1px solid #6bcb7733; }
 .sec-india .section-header { background: linear-gradient(135deg, #1b1f2d, #12151a); color: #4ecdc4; border-bottom: 1px solid #4ecdc433; }
-.section-body { padding: 6px 0; }
+.section-body { padding: 2px 0 0; }
 
 /* Metric Cards */
 .metric {
   padding: 16px 18px;
-  border-bottom: 1px solid #1a1a28;
-  transition: background 0.2s;
+  margin: 8px 10px;
+  background: #0e0e16;
+  border: 1px solid #1e1e30;
+  border-radius: 10px;
+  transition: background 0.2s, border-color 0.2s;
 }
-.metric:last-child { border-bottom: none; }
-.metric:hover { background: #16161f; }
+.metric:first-child { margin-top: 10px; }
+.metric:last-child { margin-bottom: 10px; }
+.metric:hover { background: #14141e; border-color: #2a2a44; }
+.sec-enso .metric { border-top: 2px solid #ff6b6b33; }
+.sec-iod .metric { border-top: 2px solid #6bcb7733; }
+.sec-india .metric { border-top: 2px solid #4ecdc433; }
+.sec-enso .metric:hover { border-top-color: #ff6b6b66; }
+.sec-iod .metric:hover { border-top-color: #6bcb7766; }
+.sec-india .metric:hover { border-top-color: #4ecdc466; }
 .metric-top {
   display: flex;
   justify-content: space-between;
