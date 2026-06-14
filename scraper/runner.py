@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scraper import noaa_oni, noaa_nino34, noaa_enso_discussion, noaa_soi
 from scraper import noaa_dmi, imd_rainfall, imd_lrf, cwc_reservoir, kharif_sowing
-from scraper import iri_forecast
+from scraper import iri_forecast, noaa_pdo
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT_DIR, "data")
@@ -25,6 +25,7 @@ SCRAPERS = [
     ("cwc_reservoir", cwc_reservoir),
     ("kharif_sowing", kharif_sowing),
     ("iri_forecast", iri_forecast),
+    ("pdo", noaa_pdo),
 ]
 
 def calc_stress_index(results):
@@ -56,6 +57,11 @@ def calc_stress_index(results):
         if dep <= -40: score += 12
         elif dep <= -20: score += 6
         elif dep >= 20: score -= 6
+
+    pdo = results.get("pdo", {}).get("value")
+    if pdo is not None:
+        if pdo > 0.5: score += 5
+        elif pdo < -0.5: score -= 5
 
     return max(0, min(100, score))
 
@@ -116,6 +122,7 @@ def run():
         "alert_status": results.get("enso_status", {}).get("alert_status"),
         "stress_index": stress,
         "iri_elnino_prob": results.get("iri_forecast", {}).get("elnino_probability"),
+        "pdo": results.get("pdo", {}).get("value"),
     }
     history.append(snapshot)
 

@@ -405,6 +405,78 @@ canvas { width: 100% !important; height: 200px !important; }
   font-size: 1.1rem;
 }
 
+/* Hero Split Numbers */
+.hero-split {
+  display: flex;
+  gap: 20px;
+  margin: 14px 0;
+}
+@media (max-width: 600px) { .hero-split { flex-direction: column; gap: 12px; } }
+.hero-num-card {
+  flex: 1;
+  background: rgba(0,0,0,0.25);
+  border-radius: 12px;
+  padding: 16px 20px;
+  border: 1px solid #2a2a4a;
+}
+.hero-num-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #888;
+  font-weight: 700;
+}
+.hero-num-value {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin: 2px 0;
+}
+.hero-num-sub {
+  font-size: 0.78rem;
+  color: #999;
+  line-height: 1.4;
+}
+
+/* Section Summary Badge */
+.sec-summary {
+  padding: 10px 18px;
+  font-size: 0.78rem;
+  color: #bbb;
+  border-bottom: 1px solid #1a1a28;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sec-summary .sum-val {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+/* India Cartogram */
+.cartogram-wrap {
+  margin: 10px 0 4px;
+}
+.cartogram-grid {
+  display: inline-grid;
+  gap: 2px;
+}
+.carto-cell {
+  width: 36px;
+  height: 28px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: default;
+  position: relative;
+}
+.carto-cell:hover { opacity: 0.85; outline: 1px solid #fff; }
+.carto-empty { background: transparent; }
+
 /* Gauge */
 .gauge-wrap {
   display: flex;
@@ -599,6 +671,56 @@ function stressArcSVG(score) {
     '</svg>';
 }
 
+function indiaCartogram(subdivData) {
+  if (!subdivData || Object.keys(subdivData).length === 0) return '';
+  var GRID = [
+    [null,null,'jammu_kashmir','himachal_pradesh',null,null,'arunachal_pradesh',null],
+    [null,'punjab','haryana_delhi','uttarakhand',null,'shwb_sikkim','assam_meghalaya','nmmt'],
+    ['west_rajasthan','east_rajasthan','west_up','east_up','bihar','jharkhand','gangetic_wb',null],
+    ['saurashtra_kutch','gujarat','west_mp','east_mp','chhattisgarh',null,'odisha',null],
+    [null,'konkan_goa','madhya_maharashtra','marathwada','vidarbha',null,null,null],
+    [null,'coastal_karnataka','north_interior_karnataka','telangana','coastal_ap',null,null,null],
+    ['kerala','south_interior_karnataka',null,'rayalaseema','tamilnadu',null,null,null],
+    ['lakshadweep',null,null,null,null,null,'andaman_nicobar',null],
+  ];
+  var LABELS = {
+    jammu_kashmir:'J&K',himachal_pradesh:'HP',punjab:'Pun',haryana_delhi:'Har',uttarakhand:'Utk',
+    arunachal_pradesh:'ArP',shwb_sikkim:'SWB',assam_meghalaya:'A&M',nmmt:'NE',
+    west_rajasthan:'WRj',east_rajasthan:'ERj',west_up:'WUP',east_up:'EUP',bihar:'Bih',
+    jharkhand:'Jhk',gangetic_wb:'GWB',saurashtra_kutch:'S&K',gujarat:'Guj',
+    west_mp:'WMP',east_mp:'EMP',chhattisgarh:'Chh',odisha:'Odi',
+    konkan_goa:'Kon',madhya_maharashtra:'MMh',marathwada:'Mar',vidarbha:'Vid',
+    coastal_karnataka:'CKa',north_interior_karnataka:'NIK',telangana:'Tel',coastal_ap:'CAP',
+    kerala:'Ker',south_interior_karnataka:'SIK',rayalaseema:'Ray',tamilnadu:'TN',
+    lakshadweep:'Lak',andaman_nicobar:'A&N',
+  };
+  var CAT_COLORS = {LE:'#0984e3',E:'#74b9ff',N:'#6bcb77',D:'#ffa502',LD:'#ff4757',NR:'#555'};
+  var h = '';
+  h += '<div class="cartogram-wrap">';
+  h += '<div class="cartogram-grid" style="grid-template-columns:repeat(8,36px)">';
+  GRID.forEach(function(row) {
+    row.forEach(function(key) {
+      if (!key) { h += '<div class="carto-cell carto-empty"></div>'; return; }
+      var d = subdivData[key];
+      var cc = d ? d.category_code : '?';
+      var bg = CAT_COLORS[cc] || '#333';
+      var dep = d ? d.departure_pct : '?';
+      var lbl = LABELS[key] || key.substring(0,3);
+      var title = (LABELS[key]||key) + ': ' + (d ? dep + '% (' + d.category + ')' : 'no data');
+      h += '<div class="carto-cell" style="background:' + bg + '" title="' + title + '">' + lbl + '</div>';
+    });
+  });
+  h += '</div>';
+  h += '<div class="cat-legend" style="margin-top:8px">';
+  h += '<span><span class="dot" style="background:#0984e3"></span>L.Excess</span>';
+  h += '<span><span class="dot" style="background:#74b9ff"></span>Excess</span>';
+  h += '<span><span class="dot" style="background:#6bcb77"></span>Normal</span>';
+  h += '<span><span class="dot" style="background:#ffa502"></span>Deficit</span>';
+  h += '<span><span class="dot" style="background:#ff4757"></span>L.Deficit</span>';
+  h += '</div></div>';
+  return h;
+}
+
 function render(latest, history) {
   const m = latest.metrics;
   const updatedAt = new Date(latest.last_updated).toLocaleString('en-IN', {dateStyle:'medium',timeStyle:'short'});
@@ -608,24 +730,42 @@ function render(latest, history) {
 
   let html = '';
 
-  // Hero with Stress Index
+  // Hero with split numbers
   html += '<div class="hero">';
 
-  // Stress Index Arc + Summary side by side
   const stressColor = stress >= 70 ? '#ff4757' : stress >= 50 ? '#ffa502' : stress >= 30 ? '#ffd93d' : '#6bcb77';
   const stressVerdict = stress >= 70 ? 'High Risk' : stress >= 50 ? 'Moderate Risk' : stress >= 30 ? 'Low Risk' : 'Minimal Risk';
   const stressHistory = getHistoryValues(history, 'stress_index');
+  const iriProb = m.iri_forecast && m.iri_forecast.elnino_probability;
+  const dep = m.imd_rainfall && m.imd_rainfall.country_departure_pct;
 
-  html += '<div class="stress-wrap">';
-  html += '<div><div class="stress-arc">' + stressArcSVG(stress) + '<div class="stress-number" style="color:' + stressColor + '">' + stress + '</div></div>';
-  html += '<div class="stress-label-row"><span>0</span><span>50</span><span>100</span></div></div>';
-  html += '<div class="stress-info">';
-  html += '<div class="stress-title">Monsoon Stress Index</div>';
-  html += '<div class="stress-verdict" style="color:' + stressColor + '">' + stressVerdict + (stressHistory.length > 1 ? ' ' + sparklineSVG(stressHistory, stressColor, 50, 16) : '') + '</div>';
-  html += '<div class="stress-explain">Blends El Nino strength, IOD phase, air pressure, and actual rainfall into one 0-100 score. Higher = more drought concern for India\'s monsoon.</div>';
+  // Two big numbers side by side
+  html += '<div class="hero-split">';
+
+  // Card 1: El Nino Status
+  html += '<div class="hero-num-card">';
+  html += '<div class="hero-num-label">El Nino Probability</div>';
+  html += '<div class="hero-num-value val-hot">' + (iriProb ? iriProb + '%' : strength.label) + '</div>';
+  html += '<div class="hero-num-sub">';
+  if (iriProb) html += 'IRI/Columbia model says <strong style="color:#ff6b6b">' + iriProb + '% chance</strong> El Nino continues. ';
+  html += 'Pacific is ' + (m.nino34 && m.nino34.value !== null ? '<strong>' + (m.nino34.value >= 0 ? '+' : '') + m.nino34.value.toFixed(2) + '°C</strong> above normal — ' + strength.label.toLowerCase() + ' and ' + (m.nino34.trend || 'steady') : 'data pending') + '.';
   html += '</div></div>';
 
-  html += '<div class="hero-label">Today\'s Summary</div>';
+  // Card 2: Monsoon Impact
+  html += '<div class="hero-num-card">';
+  html += '<div class="hero-num-label">India Monsoon Stress</div>';
+  html += '<div class="hero-num-value" style="color:' + stressColor + '">' + stress + '<span style="font-size:1rem;font-weight:500;color:#666">/100</span>' + (stressHistory.length > 1 ? ' ' + sparklineSVG(stressHistory, stressColor, 50, 18) : '') + '</div>';
+  html += '<div class="hero-num-sub">';
+  html += '<strong style="color:' + stressColor + '">' + stressVerdict + '.</strong> ';
+  if (dep !== null && dep !== undefined) {
+    html += 'Rainfall is <strong>' + (dep >= 0 ? dep + '% above' : Math.abs(dep) + '% below') + ' normal</strong>. ';
+  }
+  html += 'Blends ocean temperature, air pressure, IOD, and actual rainfall.';
+  html += '</div></div>';
+
+  html += '</div>'; // end hero-split
+
+  html += '<div class="hero-label">What\'s happening</div>';
   html += '<div class="hero-text">' + buildHeroText(m, strength) + '</div>';
   html += '<div class="hero-updated">Last updated: ' + updatedAt + '</div>';
   html += '</div>';
@@ -636,6 +776,8 @@ function render(latest, history) {
   // === ENSO ===
   html += '<div class="section sec-enso">';
   html += '<div class="section-header"><span class="icon">&#127754;</span> El Nino Status</div>';
+  var ensoSum = iriProb ? iriProb + '% likely' : (strength.label + ' El Nino');
+  html += '<div class="sec-summary"><span class="sum-val val-hot">' + ensoSum + '</span> &mdash; ' + (m.nino34 && m.nino34.trend ? m.nino34.trend : 'trend unknown') + '</div>';
   html += '<div class="section-body">';
 
   // Alert
@@ -732,7 +874,10 @@ function render(latest, history) {
 
   // === IOD ===
   html += '<div class="section sec-iod">';
-  html += '<div class="section-header"><span class="icon">&#127758;</span> Indian Ocean Dipole</div>';
+  html += '<div class="section-header"><span class="icon">&#127758;</span> Ocean Modifiers</div>';
+  var iodPhase = m.iod_dmi && m.iod_dmi.phase ? m.iod_dmi.phase : '?';
+  var iodImpact = iodPhase === 'Positive' ? 'Helping India' : iodPhase === 'Negative' ? 'Hurting India' : 'Neutral effect';
+  html += '<div class="sec-summary"><span class="sum-val ' + (iodPhase === 'Positive' ? 'val-green' : iodPhase === 'Negative' ? 'val-red' : 'val-neutral') + '">' + iodPhase + ' IOD</span> &mdash; ' + iodImpact + '</div>';
   html += '<div class="section-body">';
 
   html += '<div class="metric">';
@@ -765,11 +910,34 @@ function render(latest, history) {
   html += sourceLine(m.iod_dmi);
   html += '</div>';
 
+  // PDO
+  html += '<div class="metric">';
+  html += '<div class="metric-label">Pacific Decadal Oscillation (PDO)</div>';
+  if (m.pdo && m.pdo.status === 'ok') {
+    var pv = m.pdo.value;
+    var pp = m.pdo.phase;
+    var pvc = pp === 'Negative' ? 'val-green' : pp === 'Positive' ? 'val-red' : 'val-neutral';
+    html += '<div class="metric-value ' + pvc + '">' + (pv >= 0 ? '+' : '') + pv.toFixed(2) + '</div>';
+    html += '<div style="margin:6px 0"><span class="badge ' + (pp === 'Negative' ? 'badge-neutral' : pp === 'Positive' ? 'badge-advisory' : 'badge-stale') + '">' + pp + ' Phase</span></div>';
+    html += '<div class="metric-sub">' + m.pdo.period + '</div>';
+    html += '<div class="explain"><strong>Why this matters:</strong> PDO is a <strong>long-term ocean cycle</strong> in the North Pacific (changes over decades, not months).<br><br>';
+    html += '&#9989; <strong>Negative PDO</strong> (current) = tends to <strong>weaken</strong> El Nino\'s drought effect on India — this is a protective factor right now<br>';
+    html += '&#10060; <strong>Positive PDO</strong> = tends to <strong>amplify</strong> El Nino\'s drought effect on India<br><br>';
+    html += 'Currently at <strong>' + pv.toFixed(2) + '</strong> (' + pp.toLowerCase() + ') — ' + m.pdo.india_impact_note.toLowerCase() + '.</div>';
+  } else {
+    html += staleBlock();
+  }
+  html += sourceLine(m.pdo);
+  html += '</div>';
+
   html += '</div></div>'; // end IOD
 
   // === INDIA IMPACT ===
   html += '<div class="section sec-india">';
   html += '<div class="section-header"><span class="icon">&#127470;&#127475;</span> India Monsoon Impact</div>';
+  var indiaVerdict = dep === null ? 'Awaiting data' : dep <= -20 ? Math.abs(dep) + '% below normal' : dep >= 20 ? dep + '% above normal' : 'Near normal';
+  var indiaVc = dep === null ? 'val-neutral' : dep <= -20 ? 'val-warm' : dep >= 20 ? 'val-cool' : 'val-green';
+  html += '<div class="sec-summary"><span class="sum-val ' + indiaVc + '">' + (dep !== null ? (dep >= 0 ? '+' : '') + dep + '%' : '?') + '</span> &mdash; Rainfall ' + indiaVerdict.toLowerCase() + '</div>';
   html += '<div class="section-body">';
 
   // Rainfall
@@ -799,10 +967,13 @@ function render(latest, history) {
   html += sourceLine(m.imd_rainfall);
   html += '</div>';
 
-  // Category breakdown
+  // Region-wise breakdown - cartogram + bar
   html += '<div class="metric">';
-  html += '<div class="metric-label">Region-wise Breakdown</div>';
-  if (m.imd_rainfall && m.imd_rainfall.category_counts) {
+  html += '<div class="metric-label">Region-wise Rainfall Map</div>';
+  if (m.imd_rainfall && m.imd_rainfall.subdivision_data) {
+    html += indiaCartogram(m.imd_rainfall.subdivision_data);
+    html += '<div class="explain"><strong>What this means:</strong> Each coloured cell is one of India\'s 36 weather subdivisions. <strong style="color:#0984e3">Blue = excess rain</strong>, <strong style="color:#6bcb77">green = normal</strong>, <strong style="color:#ffa502">orange = deficit</strong>, <strong style="color:#ff4757">red = severe deficit</strong>. Hover on any cell to see details. More red/orange = drought spreading.</div>';
+  } else if (m.imd_rainfall && m.imd_rainfall.category_counts) {
     html += catBar(m.imd_rainfall.category_counts);
     html += '<div class="explain"><strong>What this means:</strong> India is divided into 36 weather regions. This bar shows how many have excess rain (blue), normal (green), or deficit (orange/red). More red = more areas are dry.</div>';
   } else {
@@ -835,9 +1006,10 @@ function render(latest, history) {
     if (d.pct_capacity) {
       html += '<div class="gauge-wrap"><div class="gauge"><div class="gauge-fill" style="width:' + Math.min(100, d.pct_capacity) + '%;background:' + (d.pct_capacity < 30 ? '#ff6b6b' : d.pct_capacity < 60 ? '#ffa502' : '#4ecdc4') + '"></div></div><span class="gauge-label">' + d.pct_capacity + '%</span></div>';
     }
-    if (d.avg_10yr_bcm) html += '<div class="metric-sub">10-year average: ' + d.avg_10yr_bcm + ' BCM</div>';
+    if (d.avg_10yr_bcm) html += '<div class="metric-sub">10-year avg (same week): ' + d.avg_10yr_bcm + ' BCM</div>';
+    if (d.last_year_bcm) html += '<div class="metric-sub">Same week last year: ' + d.last_year_bcm + ' BCM</div>';
     html += '<div class="metric-sub">Bulletin: ' + (d.report_date || '?') + '</div>';
-    html += '<div class="explain"><strong>What this means:</strong> India\'s 161 major reservoirs hold <strong>' + d.live_storage_bcm + ' billion cubic metres</strong> of water (' + (d.pct_capacity || '?') + '% full). ' + (d.avg_10yr_bcm ? (d.live_storage_bcm < d.avg_10yr_bcm ? 'This is <strong>below</strong> the 10-year average (' + d.avg_10yr_bcm + ' BCM) — a concern for irrigation.' : 'This is near or above the 10-year average.') : '') + ' Updates weekly (Thursdays).</div>';
+    html += '<div class="explain"><strong>What this means:</strong> India\'s 161 major reservoirs hold <strong>' + d.live_storage_bcm + ' billion cubic metres</strong> of water (' + (d.pct_capacity || '?') + '% full). ' + (d.avg_10yr_bcm ? (d.live_storage_bcm < d.avg_10yr_bcm ? 'This is <strong>below</strong> the 10-year average for this same week (' + d.avg_10yr_bcm + ' BCM) — a concern for irrigation and drinking water.' : 'This is near or above the 10-year average for this week — a healthy sign.') : '') + ' This is an apples-to-apples comparison (same calendar week, not full-year). Updates weekly (Thursdays).</div>';
   } else {
     html += staleBlock('Reservoir bulletin updates weekly on Thursdays. PDF parsing is brittle.');
   }
