@@ -1,0 +1,7492 @@
+{
+  "generated_at": "2026-06-14T12:57:13.390818+00:00",
+  "rainfall_weights_2026": {
+    "LOW": 0.55,
+    "NORMAL": 0.4,
+    "HIGH": 0.05
+  },
+  "rainfall_taxonomy_summary": {
+    "total_years": 75,
+    "bucket_counts": {
+      "HIGH": 9,
+      "NORMAL": 54,
+      "LOW": 12
+    },
+    "elnino_years_total": 20,
+    "elnino_breakdown": {
+      "ELNINO_LOW": 8,
+      "ELNINO_NORMAL": 11,
+      "ELNINO_HIGH": 1
+    },
+    "key_insight": "Of 20 El Nino years (1951-2025), 8 had deficient monsoons (40%), 11 had normal monsoons (55%), and 1 had excess (5%). El Nino raises drought probability from base rate ~16% to ~40%, but majority of El Nino years still saw normal rainfall."
+  },
+  "analog_years": [
+    {
+      "year": 1972,
+      "departure_pct": -24.1,
+      "rain_mm": 659
+    },
+    {
+      "year": 2009,
+      "departure_pct": -22.5,
+      "rain_mm": 673
+    },
+    {
+      "year": 2002,
+      "departure_pct": -17.8,
+      "rain_mm": 714
+    },
+    {
+      "year": 1965,
+      "departure_pct": -15.1,
+      "rain_mm": 737
+    },
+    {
+      "year": 1987,
+      "departure_pct": -14.3,
+      "rain_mm": 744
+    },
+    {
+      "year": 2015,
+      "departure_pct": -13.9,
+      "rain_mm": 748
+    },
+    {
+      "year": 2004,
+      "departure_pct": -13.0,
+      "rain_mm": 756
+    },
+    {
+      "year": 1982,
+      "departure_pct": -11.6,
+      "rain_mm": 768
+    }
+  ],
+  "macro": {
+    "agri_gva_growth": {
+      "variable": "Agriculture GVA Growth",
+      "by_rainfall_bucket": {
+        "NORMAL": {
+          "n": 21,
+          "mean": 4.33,
+          "median": 4.7,
+          "min": -0.1,
+          "max": 9.0,
+          "values": [
+            2.4,
+            6.3,
+            2.7,
+            -0.1,
+            6.5,
+            9.0,
+            5.1,
+            4.2,
+            5.8,
+            0.1,
+            8.6,
+            5.0,
+            1.5,
+            5.6,
+            6.3,
+            5.9,
+            2.6,
+            3.5,
+            4.7,
+            1.4,
+            3.8
+          ],
+          "std": 2.49,
+          "years": [
+            {
+              "year": 1997,
+              "value": 2.4
+            },
+            {
+              "year": 1998,
+              "value": 6.3
+            },
+            {
+              "year": 1999,
+              "value": 2.7
+            },
+            {
+              "year": 2000,
+              "value": -0.1
+            },
+            {
+              "year": 2001,
+              "value": 6.5
+            },
+            {
+              "year": 2003,
+              "value": 9.0
+            },
+            {
+              "year": 2005,
+              "value": 5.1
+            },
+            {
+              "year": 2006,
+              "value": 4.2
+            },
+            {
+              "year": 2007,
+              "value": 5.8
+            },
+            {
+              "year": 2008,
+              "value": 0.1
+            },
+            {
+              "year": 2010,
+              "value": 8.6
+            },
+            {
+              "year": 2011,
+              "value": 5.0
+            },
+            {
+              "year": 2012,
+              "value": 1.5
+            },
+            {
+              "year": 2013,
+              "value": 5.6
+            },
+            {
+              "year": 2016,
+              "value": 6.3
+            },
+            {
+              "year": 2017,
+              "value": 5.9
+            },
+            {
+              "year": 2018,
+              "value": 2.6
+            },
+            {
+              "year": 2021,
+              "value": 3.5
+            },
+            {
+              "year": 2022,
+              "value": 4.7
+            },
+            {
+              "year": 2023,
+              "value": 1.4
+            },
+            {
+              "year": 2024,
+              "value": 3.8
+            }
+          ]
+        },
+        "LOW": {
+          "n": 5,
+          "mean": -1.04,
+          "median": 0.2,
+          "min": -6.6,
+          "max": 0.8,
+          "values": [
+            -6.6,
+            0.2,
+            0.8,
+            -0.2,
+            0.6
+          ],
+          "std": 3.13,
+          "years": [
+            {
+              "year": 2002,
+              "value": -6.6
+            },
+            {
+              "year": 2004,
+              "value": 0.2
+            },
+            {
+              "year": 2009,
+              "value": 0.8
+            },
+            {
+              "year": 2014,
+              "value": -0.2
+            },
+            {
+              "year": 2015,
+              "value": 0.6
+            }
+          ]
+        },
+        "HIGH": {
+          "n": 2,
+          "mean": 3.8,
+          "median": 3.8,
+          "min": 3.3,
+          "max": 4.3,
+          "values": [
+            4.3,
+            3.3
+          ],
+          "std": 0.71,
+          "years": [
+            {
+              "year": 2019,
+              "value": 4.3
+            },
+            {
+              "year": 2020,
+              "value": 3.3
+            }
+          ]
+        }
+      },
+      "by_elnino_bucket": {
+        "ELNINO_NORMAL": {
+          "n": 5,
+          "mean": 3.62,
+          "median": 3.8,
+          "min": 1.4,
+          "max": 6.3,
+          "values": [
+            2.4,
+            6.3,
+            4.2,
+            1.4,
+            3.8
+          ],
+          "std": 1.87,
+          "years": [
+            {
+              "year": 1997,
+              "value": 2.4
+            },
+            {
+              "year": 1998,
+              "value": 6.3
+            },
+            {
+              "year": 2006,
+              "value": 4.2
+            },
+            {
+              "year": 2023,
+              "value": 1.4
+            },
+            {
+              "year": 2024,
+              "value": 3.8
+            }
+          ]
+        },
+        "ELNINO_LOW": {
+          "n": 4,
+          "mean": -1.25,
+          "median": 0.4,
+          "min": -6.6,
+          "max": 0.8,
+          "values": [
+            -6.6,
+            0.2,
+            0.8,
+            0.6
+          ],
+          "std": 3.58,
+          "years": [
+            {
+              "year": 2002,
+              "value": -6.6
+            },
+            {
+              "year": 2004,
+              "value": 0.2
+            },
+            {
+              "year": 2009,
+              "value": 0.8
+            },
+            {
+              "year": 2015,
+              "value": 0.6
+            }
+          ]
+        },
+        "ELNINO_HIGH": {
+          "n": 1,
+          "mean": 4.3,
+          "median": 4.3,
+          "min": 4.3,
+          "max": 4.3,
+          "values": [
+            4.3
+          ],
+          "years": [
+            {
+              "year": 2019,
+              "value": 4.3
+            }
+          ]
+        }
+      },
+      "outlook_2026": {
+        "weighted_mean": 1.35,
+        "weighted_range": [
+          -6.6,
+          9.0
+        ],
+        "p_negative": 23.9,
+        "p_worse_than_minus5": 11.0,
+        "p_worse_than_minus10": 0,
+        "p_better_than_5": 17.1,
+        "p_better_than_10": 0,
+        "total_analog_n": 28,
+        "caveats": [
+          "Based on 28 analog years — small sample, interpret with caution",
+          "Past distributions are not guarantees of future outcomes",
+          "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+        ]
+      },
+      "weights_used": {
+        "LOW": 0.55,
+        "NORMAL": 0.4,
+        "HIGH": 0.05
+      },
+      "unit": "% YoY",
+      "source": "MoSPI National Accounts / RBI DBIE",
+      "negative_is_bad": true
+    },
+    "food_cpi_inflation": {
+      "variable": "Food CPI Inflation",
+      "by_rainfall_bucket": {
+        "LOW": {
+          "n": 5,
+          "mean": 6.7,
+          "median": 4.9,
+          "min": 3.8,
+          "max": 14.4,
+          "values": [
+            3.8,
+            4.0,
+            14.4,
+            6.4,
+            4.9
+          ],
+          "std": 4.42,
+          "years": [
+            {
+              "year": 2002,
+              "value": 3.8
+            },
+            {
+              "year": 2004,
+              "value": 4.0
+            },
+            {
+              "year": 2009,
+              "value": 14.4
+            },
+            {
+              "year": 2014,
+              "value": 6.4
+            },
+            {
+              "year": 2015,
+              "value": 4.9
+            }
+          ]
+        },
+        "NORMAL": {
+          "n": 16,
+          "mean": 6.54,
+          "median": 6.75,
+          "min": 0.7,
+          "max": 12.2,
+          "values": [
+            3.5,
+            4.4,
+            7.7,
+            8.5,
+            11.1,
+            9.9,
+            6.7,
+            11.2,
+            12.2,
+            4.2,
+            1.8,
+            0.7,
+            4.2,
+            4.2,
+            6.8,
+            7.5
+          ],
+          "std": 3.45,
+          "years": [
+            {
+              "year": 2003,
+              "value": 3.5
+            },
+            {
+              "year": 2005,
+              "value": 4.4
+            },
+            {
+              "year": 2006,
+              "value": 7.7
+            },
+            {
+              "year": 2007,
+              "value": 8.5
+            },
+            {
+              "year": 2008,
+              "value": 11.1
+            },
+            {
+              "year": 2010,
+              "value": 9.9
+            },
+            {
+              "year": 2011,
+              "value": 6.7
+            },
+            {
+              "year": 2012,
+              "value": 11.2
+            },
+            {
+              "year": 2013,
+              "value": 12.2
+            },
+            {
+              "year": 2016,
+              "value": 4.2
+            },
+            {
+              "year": 2017,
+              "value": 1.8
+            },
+            {
+              "year": 2018,
+              "value": 0.7
+            },
+            {
+              "year": 2021,
+              "value": 4.2
+            },
+            {
+              "year": 2022,
+              "value": 4.2
+            },
+            {
+              "year": 2023,
+              "value": 6.8
+            },
+            {
+              "year": 2024,
+              "value": 7.5
+            }
+          ]
+        },
+        "HIGH": {
+          "n": 2,
+          "mean": 6.95,
+          "median": 6.95,
+          "min": 4.8,
+          "max": 9.1,
+          "values": [
+            4.8,
+            9.1
+          ],
+          "std": 3.04,
+          "years": [
+            {
+              "year": 2019,
+              "value": 4.8
+            },
+            {
+              "year": 2020,
+              "value": 9.1
+            }
+          ]
+        }
+      },
+      "by_elnino_bucket": {
+        "ELNINO_LOW": {
+          "n": 4,
+          "mean": 6.78,
+          "median": 4.45,
+          "min": 3.8,
+          "max": 14.4,
+          "values": [
+            3.8,
+            4.0,
+            14.4,
+            4.9
+          ],
+          "std": 5.11,
+          "years": [
+            {
+              "year": 2002,
+              "value": 3.8
+            },
+            {
+              "year": 2004,
+              "value": 4.0
+            },
+            {
+              "year": 2009,
+              "value": 14.4
+            },
+            {
+              "year": 2015,
+              "value": 4.9
+            }
+          ]
+        },
+        "ELNINO_NORMAL": {
+          "n": 3,
+          "mean": 7.33,
+          "median": 7.5,
+          "min": 6.8,
+          "max": 7.7,
+          "values": [
+            7.7,
+            6.8,
+            7.5
+          ],
+          "std": 0.47,
+          "years": [
+            {
+              "year": 2006,
+              "value": 7.7
+            },
+            {
+              "year": 2023,
+              "value": 6.8
+            },
+            {
+              "year": 2024,
+              "value": 7.5
+            }
+          ]
+        },
+        "ELNINO_HIGH": {
+          "n": 1,
+          "mean": 4.8,
+          "median": 4.8,
+          "min": 4.8,
+          "max": 4.8,
+          "values": [
+            4.8
+          ],
+          "years": [
+            {
+              "year": 2019,
+              "value": 4.8
+            }
+          ]
+        }
+      },
+      "outlook_2026": {
+        "weighted_mean": 6.65,
+        "weighted_range": [
+          0.7,
+          14.4
+        ],
+        "p_negative": 0,
+        "p_worse_than_minus5": 0,
+        "p_worse_than_minus10": 0,
+        "p_better_than_5": 47.0,
+        "p_better_than_10": 18.5,
+        "total_analog_n": 23,
+        "caveats": [
+          "Based on 23 analog years — small sample, interpret with caution",
+          "Past distributions are not guarantees of future outcomes",
+          "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+        ]
+      },
+      "weights_used": {
+        "LOW": 0.55,
+        "NORMAL": 0.4,
+        "HIGH": 0.05
+      },
+      "unit": "% YoY average",
+      "source": "MOSPI CPI-Combined (food & beverages)",
+      "negative_is_bad": false
+    },
+    "kharif_production_growth": {
+      "variable": "Kharif Foodgrain Production Growth",
+      "by_rainfall_bucket": {
+        "NORMAL": {
+          "n": 17,
+          "mean": 5.8,
+          "median": 3.2,
+          "min": -3.5,
+          "max": 34.3,
+          "values": [
+            6.0,
+            34.3,
+            10.8,
+            0.4,
+            9.4,
+            -2.2,
+            16.1,
+            9.2,
+            -2.4,
+            0.5,
+            11.5,
+            1.5,
+            0.9,
+            3.2,
+            -3.5,
+            -0.9,
+            3.8
+          ],
+          "std": 9.27,
+          "years": [
+            {
+              "year": 2001,
+              "value": 6.0
+            },
+            {
+              "year": 2003,
+              "value": 34.3
+            },
+            {
+              "year": 2005,
+              "value": 10.8
+            },
+            {
+              "year": 2006,
+              "value": 0.4
+            },
+            {
+              "year": 2007,
+              "value": 9.4
+            },
+            {
+              "year": 2008,
+              "value": -2.2
+            },
+            {
+              "year": 2010,
+              "value": 16.1
+            },
+            {
+              "year": 2011,
+              "value": 9.2
+            },
+            {
+              "year": 2012,
+              "value": -2.4
+            },
+            {
+              "year": 2013,
+              "value": 0.5
+            },
+            {
+              "year": 2016,
+              "value": 11.5
+            },
+            {
+              "year": 2017,
+              "value": 1.5
+            },
+            {
+              "year": 2018,
+              "value": 0.9
+            },
+            {
+              "year": 2021,
+              "value": 3.2
+            },
+            {
+              "year": 2022,
+              "value": -3.5
+            },
+            {
+              "year": 2023,
+              "value": -0.9
+            },
+            {
+              "year": 2024,
+              "value": 3.8
+            }
+          ]
+        },
+        "LOW": {
+          "n": 5,
+          "mean": -10.4,
+          "median": -12.4,
+          "min": -20.6,
+          "max": -1.3,
+          "values": [
+            -20.6,
+            -15.3,
+            -12.4,
+            -1.3,
+            -2.4
+          ],
+          "std": 8.35,
+          "years": [
+            {
+              "year": 2002,
+              "value": -20.6
+            },
+            {
+              "year": 2004,
+              "value": -15.3
+            },
+            {
+              "year": 2009,
+              "value": -12.4
+            },
+            {
+              "year": 2014,
+              "value": -1.3
+            },
+            {
+              "year": 2015,
+              "value": -2.4
+            }
+          ]
+        },
+        "HIGH": {
+          "n": 2,
+          "mean": 3.1,
+          "median": 3.1,
+          "min": 1.2,
+          "max": 5.0,
+          "values": [
+            1.2,
+            5.0
+          ],
+          "std": 2.69,
+          "years": [
+            {
+              "year": 2019,
+              "value": 1.2
+            },
+            {
+              "year": 2020,
+              "value": 5.0
+            }
+          ]
+        }
+      },
+      "by_elnino_bucket": {
+        "ELNINO_LOW": {
+          "n": 4,
+          "mean": -12.68,
+          "median": -13.85,
+          "min": -20.6,
+          "max": -2.4,
+          "values": [
+            -20.6,
+            -15.3,
+            -12.4,
+            -2.4
+          ],
+          "std": 7.65,
+          "years": [
+            {
+              "year": 2002,
+              "value": -20.6
+            },
+            {
+              "year": 2004,
+              "value": -15.3
+            },
+            {
+              "year": 2009,
+              "value": -12.4
+            },
+            {
+              "year": 2015,
+              "value": -2.4
+            }
+          ]
+        },
+        "ELNINO_NORMAL": {
+          "n": 3,
+          "mean": 1.1,
+          "median": 0.4,
+          "min": -0.9,
+          "max": 3.8,
+          "values": [
+            0.4,
+            -0.9,
+            3.8
+          ],
+          "std": 2.43,
+          "years": [
+            {
+              "year": 2006,
+              "value": 0.4
+            },
+            {
+              "year": 2023,
+              "value": -0.9
+            },
+            {
+              "year": 2024,
+              "value": 3.8
+            }
+          ]
+        },
+        "ELNINO_HIGH": {
+          "n": 1,
+          "mean": 1.2,
+          "median": 1.2,
+          "min": 1.2,
+          "max": 1.2,
+          "values": [
+            1.2
+          ],
+          "years": [
+            {
+              "year": 2019,
+              "value": 1.2
+            }
+          ]
+        }
+      },
+      "outlook_2026": {
+        "weighted_mean": -3.25,
+        "weighted_range": [
+          -20.6,
+          34.3
+        ],
+        "p_negative": 64.4,
+        "p_worse_than_minus5": 33.0,
+        "p_worse_than_minus10": 33.0,
+        "p_better_than_5": 16.5,
+        "p_better_than_10": 9.4,
+        "total_analog_n": 24,
+        "caveats": [
+          "Based on 24 analog years — small sample, interpret with caution",
+          "Past distributions are not guarantees of future outcomes",
+          "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+        ]
+      },
+      "weights_used": {
+        "LOW": 0.55,
+        "NORMAL": 0.4,
+        "HIGH": 0.05
+      },
+      "unit": "% YoY",
+      "source": "Dept of Agriculture / Agricultural Statistics at a Glance",
+      "negative_is_bad": true
+    },
+    "tractor_sales_growth": {
+      "variable": "Tractor Sales Growth (rural demand proxy)",
+      "by_rainfall_bucket": {
+        "LOW": {
+          "n": 5,
+          "mean": 3.28,
+          "median": -8.2,
+          "min": -12.8,
+          "max": 30.1,
+          "values": [
+            -8.2,
+            30.1,
+            19.5,
+            -12.8,
+            -12.2
+          ],
+          "std": 20.08,
+          "years": [
+            {
+              "year": 2002,
+              "value": -8.2
+            },
+            {
+              "year": 2004,
+              "value": 30.1
+            },
+            {
+              "year": 2009,
+              "value": 19.5
+            },
+            {
+              "year": 2014,
+              "value": -12.8
+            },
+            {
+              "year": 2015,
+              "value": -12.2
+            }
+          ]
+        },
+        "NORMAL": {
+          "n": 16,
+          "mean": 10.11,
+          "median": 9.05,
+          "min": -5.2,
+          "max": 22.1,
+          "values": [
+            21.5,
+            -5.2,
+            11.3,
+            18.4,
+            3.2,
+            22.1,
+            13.6,
+            6.3,
+            6.8,
+            18.7,
+            16.6,
+            8.2,
+            8.6,
+            -3.1,
+            9.5,
+            5.2
+          ],
+          "std": 8.1,
+          "years": [
+            {
+              "year": 2003,
+              "value": 21.5
+            },
+            {
+              "year": 2005,
+              "value": -5.2
+            },
+            {
+              "year": 2006,
+              "value": 11.3
+            },
+            {
+              "year": 2007,
+              "value": 18.4
+            },
+            {
+              "year": 2008,
+              "value": 3.2
+            },
+            {
+              "year": 2010,
+              "value": 22.1
+            },
+            {
+              "year": 2011,
+              "value": 13.6
+            },
+            {
+              "year": 2012,
+              "value": 6.3
+            },
+            {
+              "year": 2013,
+              "value": 6.8
+            },
+            {
+              "year": 2016,
+              "value": 18.7
+            },
+            {
+              "year": 2017,
+              "value": 16.6
+            },
+            {
+              "year": 2018,
+              "value": 8.2
+            },
+            {
+              "year": 2021,
+              "value": 8.6
+            },
+            {
+              "year": 2022,
+              "value": -3.1
+            },
+            {
+              "year": 2023,
+              "value": 9.5
+            },
+            {
+              "year": 2024,
+              "value": 5.2
+            }
+          ]
+        },
+        "HIGH": {
+          "n": 2,
+          "mean": 9.3,
+          "median": 9.3,
+          "min": -8.5,
+          "max": 27.1,
+          "values": [
+            -8.5,
+            27.1
+          ],
+          "std": 25.17,
+          "years": [
+            {
+              "year": 2019,
+              "value": -8.5
+            },
+            {
+              "year": 2020,
+              "value": 27.1
+            }
+          ]
+        }
+      },
+      "by_elnino_bucket": {
+        "ELNINO_LOW": {
+          "n": 4,
+          "mean": 7.3,
+          "median": 5.65,
+          "min": -12.2,
+          "max": 30.1,
+          "values": [
+            -8.2,
+            30.1,
+            19.5,
+            -12.2
+          ],
+          "std": 20.73,
+          "years": [
+            {
+              "year": 2002,
+              "value": -8.2
+            },
+            {
+              "year": 2004,
+              "value": 30.1
+            },
+            {
+              "year": 2009,
+              "value": 19.5
+            },
+            {
+              "year": 2015,
+              "value": -12.2
+            }
+          ]
+        },
+        "ELNINO_NORMAL": {
+          "n": 3,
+          "mean": 8.67,
+          "median": 9.5,
+          "min": 5.2,
+          "max": 11.3,
+          "values": [
+            11.3,
+            9.5,
+            5.2
+          ],
+          "std": 3.13,
+          "years": [
+            {
+              "year": 2006,
+              "value": 11.3
+            },
+            {
+              "year": 2023,
+              "value": 9.5
+            },
+            {
+              "year": 2024,
+              "value": 5.2
+            }
+          ]
+        },
+        "ELNINO_HIGH": {
+          "n": 1,
+          "mean": -8.5,
+          "median": -8.5,
+          "min": -8.5,
+          "max": -8.5,
+          "values": [
+            -8.5
+          ],
+          "years": [
+            {
+              "year": 2019,
+              "value": -8.5
+            }
+          ]
+        }
+      },
+      "outlook_2026": {
+        "weighted_mean": 6.31,
+        "weighted_range": [
+          -12.8,
+          30.1
+        ],
+        "p_negative": 40.5,
+        "p_worse_than_minus5": 38.0,
+        "p_worse_than_minus10": 22.0,
+        "p_better_than_5": 57.0,
+        "p_better_than_10": 42.0,
+        "total_analog_n": 23,
+        "caveats": [
+          "Based on 23 analog years — small sample, interpret with caution",
+          "Past distributions are not guarantees of future outcomes",
+          "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+        ]
+      },
+      "weights_used": {
+        "LOW": 0.55,
+        "NORMAL": 0.4,
+        "HIGH": 0.05
+      },
+      "unit": "% YoY",
+      "source": "SIAM / Tractor Manufacturers Association",
+      "negative_is_bad": true
+    },
+    "two_wheeler_growth": {
+      "variable": "Two-Wheeler Sales Growth (rural demand proxy)",
+      "by_rainfall_bucket": {
+        "LOW": {
+          "n": 4,
+          "mean": 10.97,
+          "median": 11.85,
+          "min": 3.0,
+          "max": 17.2,
+          "values": [
+            17.2,
+            15.6,
+            8.1,
+            3.0
+          ],
+          "std": 6.63,
+          "years": [
+            {
+              "year": 2004,
+              "value": 17.2
+            },
+            {
+              "year": 2009,
+              "value": 15.6
+            },
+            {
+              "year": 2014,
+              "value": 8.1
+            },
+            {
+              "year": 2015,
+              "value": 3.0
+            }
+          ]
+        },
+        "NORMAL": {
+          "n": 15,
+          "mean": 10.49,
+          "median": 9.1,
+          "min": 2.8,
+          "max": 25.8,
+          "values": [
+            14.1,
+            12.3,
+            8.5,
+            4.2,
+            25.8,
+            14.2,
+            2.8,
+            5.1,
+            8.6,
+            14.8,
+            5.4,
+            7.5,
+            14.2,
+            9.1,
+            10.8
+          ],
+          "std": 5.79,
+          "years": [
+            {
+              "year": 2005,
+              "value": 14.1
+            },
+            {
+              "year": 2006,
+              "value": 12.3
+            },
+            {
+              "year": 2007,
+              "value": 8.5
+            },
+            {
+              "year": 2008,
+              "value": 4.2
+            },
+            {
+              "year": 2010,
+              "value": 25.8
+            },
+            {
+              "year": 2011,
+              "value": 14.2
+            },
+            {
+              "year": 2012,
+              "value": 2.8
+            },
+            {
+              "year": 2013,
+              "value": 5.1
+            },
+            {
+              "year": 2016,
+              "value": 8.6
+            },
+            {
+              "year": 2017,
+              "value": 14.8
+            },
+            {
+              "year": 2018,
+              "value": 5.4
+            },
+            {
+              "year": 2021,
+              "value": 7.5
+            },
+            {
+              "year": 2022,
+              "value": 14.2
+            },
+            {
+              "year": 2023,
+              "value": 9.1
+            },
+            {
+              "year": 2024,
+              "value": 10.8
+            }
+          ]
+        },
+        "HIGH": {
+          "n": 2,
+          "mean": -13.7,
+          "median": -13.7,
+          "min": -14.2,
+          "max": -13.2,
+          "values": [
+            -14.2,
+            -13.2
+          ],
+          "std": 0.71,
+          "years": [
+            {
+              "year": 2019,
+              "value": -14.2
+            },
+            {
+              "year": 2020,
+              "value": -13.2
+            }
+          ]
+        }
+      },
+      "by_elnino_bucket": {
+        "ELNINO_LOW": {
+          "n": 3,
+          "mean": 11.93,
+          "median": 15.6,
+          "min": 3.0,
+          "max": 17.2,
+          "values": [
+            17.2,
+            15.6,
+            3.0
+          ],
+          "std": 7.78,
+          "years": [
+            {
+              "year": 2004,
+              "value": 17.2
+            },
+            {
+              "year": 2009,
+              "value": 15.6
+            },
+            {
+              "year": 2015,
+              "value": 3.0
+            }
+          ]
+        },
+        "ELNINO_NORMAL": {
+          "n": 3,
+          "mean": 10.73,
+          "median": 10.8,
+          "min": 9.1,
+          "max": 12.3,
+          "values": [
+            12.3,
+            9.1,
+            10.8
+          ],
+          "std": 1.6,
+          "years": [
+            {
+              "year": 2006,
+              "value": 12.3
+            },
+            {
+              "year": 2023,
+              "value": 9.1
+            },
+            {
+              "year": 2024,
+              "value": 10.8
+            }
+          ]
+        },
+        "ELNINO_HIGH": {
+          "n": 1,
+          "mean": -14.2,
+          "median": -14.2,
+          "min": -14.2,
+          "max": -14.2,
+          "values": [
+            -14.2
+          ],
+          "years": [
+            {
+              "year": 2019,
+              "value": -14.2
+            }
+          ]
+        }
+      },
+      "outlook_2026": {
+        "weighted_mean": 9.54,
+        "weighted_range": [
+          -14.2,
+          25.8
+        ],
+        "p_negative": 5.0,
+        "p_worse_than_minus5": 5.0,
+        "p_worse_than_minus10": 5.0,
+        "p_better_than_5": 75.9,
+        "p_better_than_10": 46.2,
+        "total_analog_n": 21,
+        "caveats": [
+          "Based on 21 analog years — small sample, interpret with caution",
+          "Past distributions are not guarantees of future outcomes",
+          "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+        ]
+      },
+      "weights_used": {
+        "LOW": 0.55,
+        "NORMAL": 0.4,
+        "HIGH": 0.05
+      },
+      "unit": "% YoY",
+      "source": "SIAM",
+      "negative_is_bad": true
+    },
+    "gdp_drag_estimate": {
+      "agri_share_pct": 14.1,
+      "trend_agri_growth": 3.5,
+      "weighted_agri_growth_2026": 1.35,
+      "implied_gdp_drag_pct": -0.3,
+      "range": [
+        -1.42,
+        0.78
+      ],
+      "note": "GDP drag = agri_share × (actual_agri_growth - trend). Negative = headwind to GDP.",
+      "cross_check": {
+        "description": "1% shortfall in monsoon rainfall → GDP impact",
+        "direct_agri": "-0.3% to -0.5% agri GVA",
+        "overall_gdp": "-0.05% to -0.1% overall GDP (agri share ~14%)",
+        "note": "Non-linear: severe drought (-20%+ deficit) has larger multiplier due to food inflation → RBI rate hikes → broader demand compression"
+      }
+    },
+    "published_sensitivities": {
+      "source": "RBI Annual Report 2019-20, Economic Survey 2023-24, various RBI staff papers",
+      "monsoon_gdp_sensitivity": {
+        "description": "1% shortfall in monsoon rainfall → GDP impact",
+        "direct_agri": "-0.3% to -0.5% agri GVA",
+        "overall_gdp": "-0.05% to -0.1% overall GDP (agri share ~14%)",
+        "note": "Non-linear: severe drought (-20%+ deficit) has larger multiplier due to food inflation → RBI rate hikes → broader demand compression"
+      },
+      "drought_food_inflation": {
+        "description": "Drought year impact on food inflation",
+        "typical_range": "+200 to +400 bps above trend",
+        "examples": "2009: +14.4%, 2015: modest due to global commodity weakness"
+      },
+      "drought_rbi_response": {
+        "description": "RBI response to drought-driven food inflation",
+        "typical": "Holds rates or delays cuts; rarely hikes solely for food inflation",
+        "note": "2014-2016 cycle shows tolerance of food inflation if core is contained"
+      }
+    }
+  },
+  "sectors": {
+    "sectors": {
+      "auto": {
+        "name": "Nifty Auto",
+        "mechanism": "Rural demand drives ~35% of auto sales (tractors, 2W, entry cars). Weak monsoon → delayed purchases.",
+        "monsoon_window": {
+          "variable": "Nifty Auto (Jun-Sep excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "LOW": {
+              "n": 4,
+              "mean": 2.85,
+              "median": 2.5,
+              "min": -5.7,
+              "max": 12.1,
+              "values": [
+                -3.2,
+                12.1,
+                8.2,
+                -5.7
+              ],
+              "std": 8.64,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": -3.2
+                },
+                {
+                  "year": 2009,
+                  "value": 12.1
+                },
+                {
+                  "year": 2014,
+                  "value": 8.2
+                },
+                {
+                  "year": 2015,
+                  "value": -5.7
+                }
+              ]
+            },
+            "NORMAL": {
+              "n": 15,
+              "mean": 1.02,
+              "median": 2.8,
+              "min": -8.3,
+              "max": 7.3,
+              "values": [
+                4.1,
+                -1.8,
+                6.5,
+                -4.2,
+                5.3,
+                -6.1,
+                2.8,
+                -3.5,
+                3.4,
+                4.9,
+                -8.3,
+                7.3,
+                -2.1,
+                5.8,
+                1.2
+              ],
+              "std": 4.98,
+              "years": [
+                {
+                  "year": 2005,
+                  "value": 4.1
+                },
+                {
+                  "year": 2006,
+                  "value": -1.8
+                },
+                {
+                  "year": 2007,
+                  "value": 6.5
+                },
+                {
+                  "year": 2008,
+                  "value": -4.2
+                },
+                {
+                  "year": 2010,
+                  "value": 5.3
+                },
+                {
+                  "year": 2011,
+                  "value": -6.1
+                },
+                {
+                  "year": 2012,
+                  "value": 2.8
+                },
+                {
+                  "year": 2013,
+                  "value": -3.5
+                },
+                {
+                  "year": 2016,
+                  "value": 3.4
+                },
+                {
+                  "year": 2017,
+                  "value": 4.9
+                },
+                {
+                  "year": 2018,
+                  "value": -8.3
+                },
+                {
+                  "year": 2021,
+                  "value": 7.3
+                },
+                {
+                  "year": 2022,
+                  "value": -2.1
+                },
+                {
+                  "year": 2023,
+                  "value": 5.8
+                },
+                {
+                  "year": 2024,
+                  "value": 1.2
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": -1.05,
+              "median": -1.05,
+              "min": -6.2,
+              "max": 4.1,
+              "values": [
+                -6.2,
+                4.1
+              ],
+              "std": 7.28,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -6.2
+                },
+                {
+                  "year": 2020,
+                  "value": 4.1
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 3,
+              "mean": 1.07,
+              "median": -3.2,
+              "min": -5.7,
+              "max": 12.1,
+              "values": [
+                -3.2,
+                12.1,
+                -5.7
+              ],
+              "std": 9.64,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": -3.2
+                },
+                {
+                  "year": 2009,
+                  "value": 12.1
+                },
+                {
+                  "year": 2015,
+                  "value": -5.7
+                }
+              ]
+            },
+            "ELNINO_NORMAL": {
+              "n": 3,
+              "mean": 1.73,
+              "median": 1.2,
+              "min": -1.8,
+              "max": 5.8,
+              "values": [
+                -1.8,
+                5.8,
+                1.2
+              ],
+              "std": 3.83,
+              "years": [
+                {
+                  "year": 2006,
+                  "value": -1.8
+                },
+                {
+                  "year": 2023,
+                  "value": 5.8
+                },
+                {
+                  "year": 2024,
+                  "value": 1.2
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": -6.2,
+              "median": -6.2,
+              "min": -6.2,
+              "max": -6.2,
+              "values": [
+                -6.2
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -6.2
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 1.92,
+            "weighted_range": [
+              -8.3,
+              12.1
+            ],
+            "p_negative": 46.0,
+            "p_worse_than_minus5": 21.6,
+            "p_worse_than_minus10": 0,
+            "p_better_than_5": 38.2,
+            "p_better_than_10": 13.8,
+            "total_analog_n": 21,
+            "caveats": [
+              "Based on 21 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          },
+          "mechanism": "Rural demand drives ~35% of auto sales (tractors, 2W, entry cars). Weak monsoon → delayed purchases.",
+          "ticker": "NIFTY_AUTO.NS"
+        },
+        "post_monsoon": {
+          "variable": "Nifty Auto (Oct-Mar excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "LOW": {
+              "n": 4,
+              "mean": 5.12,
+              "median": 5.0,
+              "min": 2.1,
+              "max": 8.4,
+              "values": [
+                5.2,
+                8.4,
+                4.8,
+                2.1
+              ],
+              "std": 2.58,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": 5.2
+                },
+                {
+                  "year": 2009,
+                  "value": 8.4
+                },
+                {
+                  "year": 2014,
+                  "value": 4.8
+                },
+                {
+                  "year": 2015,
+                  "value": 2.1
+                }
+              ]
+            },
+            "NORMAL": {
+              "n": 15,
+              "mean": 0.27,
+              "median": 1.2,
+              "min": -8.1,
+              "max": 5.1,
+              "values": [
+                -1.8,
+                2.4,
+                -8.1,
+                4.2,
+                -2.1,
+                3.4,
+                1.2,
+                5.1,
+                -3.2,
+                2.8,
+                -4.1,
+                -2.4,
+                4.1,
+                3.8,
+                -1.2
+              ],
+              "std": 3.85,
+              "years": [
+                {
+                  "year": 2005,
+                  "value": -1.8
+                },
+                {
+                  "year": 2006,
+                  "value": 2.4
+                },
+                {
+                  "year": 2007,
+                  "value": -8.1
+                },
+                {
+                  "year": 2008,
+                  "value": 4.2
+                },
+                {
+                  "year": 2010,
+                  "value": -2.1
+                },
+                {
+                  "year": 2011,
+                  "value": 3.4
+                },
+                {
+                  "year": 2012,
+                  "value": 1.2
+                },
+                {
+                  "year": 2013,
+                  "value": 5.1
+                },
+                {
+                  "year": 2016,
+                  "value": -3.2
+                },
+                {
+                  "year": 2017,
+                  "value": 2.8
+                },
+                {
+                  "year": 2018,
+                  "value": -4.1
+                },
+                {
+                  "year": 2021,
+                  "value": -2.4
+                },
+                {
+                  "year": 2022,
+                  "value": 4.1
+                },
+                {
+                  "year": 2023,
+                  "value": 3.8
+                },
+                {
+                  "year": 2024,
+                  "value": -1.2
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": 5.0,
+              "median": 5.0,
+              "min": 3.2,
+              "max": 6.8,
+              "values": [
+                3.2,
+                6.8
+              ],
+              "std": 2.55,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": 3.2
+                },
+                {
+                  "year": 2020,
+                  "value": 6.8
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 3,
+              "mean": 5.23,
+              "median": 5.2,
+              "min": 2.1,
+              "max": 8.4,
+              "values": [
+                5.2,
+                8.4,
+                2.1
+              ],
+              "std": 3.15,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": 5.2
+                },
+                {
+                  "year": 2009,
+                  "value": 8.4
+                },
+                {
+                  "year": 2015,
+                  "value": 2.1
+                }
+              ]
+            },
+            "ELNINO_NORMAL": {
+              "n": 3,
+              "mean": 1.67,
+              "median": 2.4,
+              "min": -1.2,
+              "max": 3.8,
+              "values": [
+                2.4,
+                3.8,
+                -1.2
+              ],
+              "std": 2.58,
+              "years": [
+                {
+                  "year": 2006,
+                  "value": 2.4
+                },
+                {
+                  "year": 2023,
+                  "value": 3.8
+                },
+                {
+                  "year": 2024,
+                  "value": -1.2
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": 3.2,
+              "median": 3.2,
+              "min": 3.2,
+              "max": 3.2,
+              "values": [
+                3.2
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": 3.2
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 3.17,
+            "weighted_range": [
+              -8.1,
+              8.4
+            ],
+            "p_negative": 18.7,
+            "p_worse_than_minus5": 2.7,
+            "p_worse_than_minus10": 0,
+            "p_better_than_5": 32.7,
+            "p_better_than_10": 0,
+            "total_analog_n": 21,
+            "caveats": [
+              "Based on 21 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          }
+        }
+      },
+      "fmcg": {
+        "name": "Nifty FMCG",
+        "mechanism": "Rural consumption is ~35-40% of FMCG revenue. Drought → lower farm income → downtrading and volume cuts.",
+        "monsoon_window": {
+          "variable": "Nifty FMCG (Jun-Sep excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "LOW": {
+              "n": 4,
+              "mean": 3.58,
+              "median": 3.4,
+              "min": 2.1,
+              "max": 5.4,
+              "values": [
+                2.1,
+                3.7,
+                3.1,
+                5.4
+              ],
+              "std": 1.38,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": 2.1
+                },
+                {
+                  "year": 2009,
+                  "value": 3.7
+                },
+                {
+                  "year": 2014,
+                  "value": 3.1
+                },
+                {
+                  "year": 2015,
+                  "value": 5.4
+                }
+              ]
+            },
+            "NORMAL": {
+              "n": 15,
+              "mean": 3.11,
+              "median": 3.2,
+              "min": -5.8,
+              "max": 12.4,
+              "values": [
+                -1.4,
+                3.2,
+                -5.8,
+                12.4,
+                -4.2,
+                8.1,
+                6.3,
+                4.2,
+                1.8,
+                8.2,
+                9.1,
+                -3.4,
+                8.7,
+                1.2,
+                -1.8
+              ],
+              "std": 5.61,
+              "years": [
+                {
+                  "year": 2005,
+                  "value": -1.4
+                },
+                {
+                  "year": 2006,
+                  "value": 3.2
+                },
+                {
+                  "year": 2007,
+                  "value": -5.8
+                },
+                {
+                  "year": 2008,
+                  "value": 12.4
+                },
+                {
+                  "year": 2010,
+                  "value": -4.2
+                },
+                {
+                  "year": 2011,
+                  "value": 8.1
+                },
+                {
+                  "year": 2012,
+                  "value": 6.3
+                },
+                {
+                  "year": 2013,
+                  "value": 4.2
+                },
+                {
+                  "year": 2016,
+                  "value": 1.8
+                },
+                {
+                  "year": 2017,
+                  "value": 8.2
+                },
+                {
+                  "year": 2018,
+                  "value": 9.1
+                },
+                {
+                  "year": 2021,
+                  "value": -3.4
+                },
+                {
+                  "year": 2022,
+                  "value": 8.7
+                },
+                {
+                  "year": 2023,
+                  "value": 1.2
+                },
+                {
+                  "year": 2024,
+                  "value": -1.8
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": 0.7,
+              "median": 0.7,
+              "min": -2.1,
+              "max": 3.5,
+              "values": [
+                3.5,
+                -2.1
+              ],
+              "std": 3.96,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": 3.5
+                },
+                {
+                  "year": 2020,
+                  "value": -2.1
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 3,
+              "mean": 3.73,
+              "median": 3.7,
+              "min": 2.1,
+              "max": 5.4,
+              "values": [
+                2.1,
+                3.7,
+                5.4
+              ],
+              "std": 1.65,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": 2.1
+                },
+                {
+                  "year": 2009,
+                  "value": 3.7
+                },
+                {
+                  "year": 2015,
+                  "value": 5.4
+                }
+              ]
+            },
+            "ELNINO_NORMAL": {
+              "n": 3,
+              "mean": 0.87,
+              "median": 1.2,
+              "min": -1.8,
+              "max": 3.2,
+              "values": [
+                3.2,
+                1.2,
+                -1.8
+              ],
+              "std": 2.52,
+              "years": [
+                {
+                  "year": 2006,
+                  "value": 3.2
+                },
+                {
+                  "year": 2023,
+                  "value": 1.2
+                },
+                {
+                  "year": 2024,
+                  "value": -1.8
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": 3.5,
+              "median": 3.5,
+              "min": 3.5,
+              "max": 3.5,
+              "values": [
+                3.5
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": 3.5
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 3.25,
+            "weighted_range": [
+              -5.8,
+              12.4
+            ],
+            "p_negative": 15.8,
+            "p_worse_than_minus5": 2.7,
+            "p_worse_than_minus10": 0,
+            "p_better_than_5": 29.8,
+            "p_better_than_10": 2.7,
+            "total_analog_n": 21,
+            "caveats": [
+              "Based on 21 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          },
+          "mechanism": "Rural consumption is ~35-40% of FMCG revenue. Drought → lower farm income → downtrading and volume cuts.",
+          "ticker": "NIFTY_FMCG.NS"
+        },
+        "post_monsoon": {
+          "variable": "Nifty FMCG (Oct-Mar excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "LOW": {
+              "n": 4,
+              "mean": -0.82,
+              "median": -1.65,
+              "min": -4.2,
+              "max": 4.2,
+              "values": [
+                -2.1,
+                -4.2,
+                -1.2,
+                4.2
+              ],
+              "std": 3.58,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": -2.1
+                },
+                {
+                  "year": 2009,
+                  "value": -4.2
+                },
+                {
+                  "year": 2014,
+                  "value": -1.2
+                },
+                {
+                  "year": 2015,
+                  "value": 4.2
+                }
+              ]
+            },
+            "NORMAL": {
+              "n": 15,
+              "mean": 3.33,
+              "median": 3.1,
+              "min": -3.8,
+              "max": 15.2,
+              "values": [
+                3.4,
+                1.2,
+                8.4,
+                15.2,
+                2.1,
+                4.8,
+                3.1,
+                -2.8,
+                -3.8,
+                5.1,
+                6.2,
+                1.2,
+                6.4,
+                -2.4,
+                1.8
+              ],
+              "std": 4.81,
+              "years": [
+                {
+                  "year": 2005,
+                  "value": 3.4
+                },
+                {
+                  "year": 2006,
+                  "value": 1.2
+                },
+                {
+                  "year": 2007,
+                  "value": 8.4
+                },
+                {
+                  "year": 2008,
+                  "value": 15.2
+                },
+                {
+                  "year": 2010,
+                  "value": 2.1
+                },
+                {
+                  "year": 2011,
+                  "value": 4.8
+                },
+                {
+                  "year": 2012,
+                  "value": 3.1
+                },
+                {
+                  "year": 2013,
+                  "value": -2.8
+                },
+                {
+                  "year": 2016,
+                  "value": -3.8
+                },
+                {
+                  "year": 2017,
+                  "value": 5.1
+                },
+                {
+                  "year": 2018,
+                  "value": 6.2
+                },
+                {
+                  "year": 2021,
+                  "value": 1.2
+                },
+                {
+                  "year": 2022,
+                  "value": 6.4
+                },
+                {
+                  "year": 2023,
+                  "value": -2.4
+                },
+                {
+                  "year": 2024,
+                  "value": 1.8
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": -3.45,
+              "median": -3.45,
+              "min": -4.8,
+              "max": -2.1,
+              "values": [
+                -2.1,
+                -4.8
+              ],
+              "std": 1.91,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -2.1
+                },
+                {
+                  "year": 2020,
+                  "value": -4.8
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 3,
+              "mean": -0.7,
+              "median": -2.1,
+              "min": -4.2,
+              "max": 4.2,
+              "values": [
+                -2.1,
+                -4.2,
+                4.2
+              ],
+              "std": 4.37,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": -2.1
+                },
+                {
+                  "year": 2009,
+                  "value": -4.2
+                },
+                {
+                  "year": 2015,
+                  "value": 4.2
+                }
+              ]
+            },
+            "ELNINO_NORMAL": {
+              "n": 3,
+              "mean": 0.2,
+              "median": 1.2,
+              "min": -2.4,
+              "max": 1.8,
+              "values": [
+                1.2,
+                -2.4,
+                1.8
+              ],
+              "std": 2.27,
+              "years": [
+                {
+                  "year": 2006,
+                  "value": 1.2
+                },
+                {
+                  "year": 2023,
+                  "value": -2.4
+                },
+                {
+                  "year": 2024,
+                  "value": 1.8
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": -2.1,
+              "median": -2.1,
+              "min": -2.1,
+              "max": -2.1,
+              "values": [
+                -2.1
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -2.1
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 0.71,
+            "weighted_range": [
+              -4.8,
+              15.2
+            ],
+            "p_negative": 54.3,
+            "p_worse_than_minus5": 0,
+            "p_worse_than_minus10": 0,
+            "p_better_than_5": 13.3,
+            "p_better_than_10": 2.7,
+            "total_analog_n": 21,
+            "caveats": [
+              "Based on 21 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          }
+        }
+      },
+      "bank": {
+        "name": "Nifty Bank",
+        "mechanism": "Drought → agri NPAs rise (rural/agri lending ~15% of bank credit), RBI may hold rates longer on food inflation.",
+        "monsoon_window": {
+          "variable": "Nifty Bank (Jun-Sep excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "LOW": {
+              "n": 4,
+              "mean": 5.8,
+              "median": 4.9,
+              "min": -4.8,
+              "max": 18.2,
+              "values": [
+                -2.5,
+                18.2,
+                12.3,
+                -4.8
+              ],
+              "std": 11.21,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": -2.5
+                },
+                {
+                  "year": 2009,
+                  "value": 18.2
+                },
+                {
+                  "year": 2014,
+                  "value": 12.3
+                },
+                {
+                  "year": 2015,
+                  "value": -4.8
+                }
+              ]
+            },
+            "NORMAL": {
+              "n": 15,
+              "mean": -0.31,
+              "median": 1.8,
+              "min": -8.4,
+              "max": 5.2,
+              "values": [
+                1.8,
+                -3.1,
+                -1.2,
+                -8.4,
+                3.1,
+                -5.7,
+                4.2,
+                -8.1,
+                5.2,
+                3.1,
+                -2.4,
+                2.8,
+                -1.4,
+                2.1,
+                3.4
+              ],
+              "std": 4.45,
+              "years": [
+                {
+                  "year": 2005,
+                  "value": 1.8
+                },
+                {
+                  "year": 2006,
+                  "value": -3.1
+                },
+                {
+                  "year": 2007,
+                  "value": -1.2
+                },
+                {
+                  "year": 2008,
+                  "value": -8.4
+                },
+                {
+                  "year": 2010,
+                  "value": 3.1
+                },
+                {
+                  "year": 2011,
+                  "value": -5.7
+                },
+                {
+                  "year": 2012,
+                  "value": 4.2
+                },
+                {
+                  "year": 2013,
+                  "value": -8.1
+                },
+                {
+                  "year": 2016,
+                  "value": 5.2
+                },
+                {
+                  "year": 2017,
+                  "value": 3.1
+                },
+                {
+                  "year": 2018,
+                  "value": -2.4
+                },
+                {
+                  "year": 2021,
+                  "value": 2.8
+                },
+                {
+                  "year": 2022,
+                  "value": -1.4
+                },
+                {
+                  "year": 2023,
+                  "value": 2.1
+                },
+                {
+                  "year": 2024,
+                  "value": 3.4
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": -5.7,
+              "median": -5.7,
+              "min": -6.3,
+              "max": -5.1,
+              "values": [
+                -5.1,
+                -6.3
+              ],
+              "std": 0.85,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -5.1
+                },
+                {
+                  "year": 2020,
+                  "value": -6.3
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 3,
+              "mean": 3.63,
+              "median": -2.5,
+              "min": -4.8,
+              "max": 18.2,
+              "values": [
+                -2.5,
+                18.2,
+                -4.8
+              ],
+              "std": 12.67,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": -2.5
+                },
+                {
+                  "year": 2009,
+                  "value": 18.2
+                },
+                {
+                  "year": 2015,
+                  "value": -4.8
+                }
+              ]
+            },
+            "ELNINO_NORMAL": {
+              "n": 3,
+              "mean": 0.8,
+              "median": 2.1,
+              "min": -3.1,
+              "max": 3.4,
+              "values": [
+                -3.1,
+                2.1,
+                3.4
+              ],
+              "std": 3.44,
+              "years": [
+                {
+                  "year": 2006,
+                  "value": -3.1
+                },
+                {
+                  "year": 2023,
+                  "value": 2.1
+                },
+                {
+                  "year": 2024,
+                  "value": 3.4
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": -5.1,
+              "median": -5.1,
+              "min": -5.1,
+              "max": -5.1,
+              "values": [
+                -5.1
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -5.1
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 2.78,
+            "weighted_range": [
+              -8.4,
+              18.2
+            ],
+            "p_negative": 51.2,
+            "p_worse_than_minus5": 13.0,
+            "p_worse_than_minus10": 0,
+            "p_better_than_5": 30.2,
+            "p_better_than_10": 27.5,
+            "total_analog_n": 21,
+            "caveats": [
+              "Based on 21 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          },
+          "mechanism": "Drought → agri NPAs rise (rural/agri lending ~15% of bank credit), RBI may hold rates longer on food inflation.",
+          "ticker": "NIFTY_BANK.NS"
+        },
+        "post_monsoon": {
+          "variable": "Nifty Bank (Oct-Mar excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "LOW": {
+              "n": 4,
+              "mean": 3.02,
+              "median": 2.95,
+              "min": 2.4,
+              "max": 3.8,
+              "values": [
+                3.8,
+                2.4,
+                3.1,
+                2.8
+              ],
+              "std": 0.59,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": 3.8
+                },
+                {
+                  "year": 2009,
+                  "value": 2.4
+                },
+                {
+                  "year": 2014,
+                  "value": 3.1
+                },
+                {
+                  "year": 2015,
+                  "value": 2.8
+                }
+              ]
+            },
+            "NORMAL": {
+              "n": 15,
+              "mean": 1.33,
+              "median": 1.4,
+              "min": -12.4,
+              "max": 12.4,
+              "values": [
+                2.1,
+                -1.4,
+                -12.4,
+                8.2,
+                -3.1,
+                5.8,
+                8.4,
+                -4.2,
+                12.4,
+                -2.1,
+                1.4,
+                -1.8,
+                3.2,
+                1.4,
+                2.1
+              ],
+              "std": 6.05,
+              "years": [
+                {
+                  "year": 2005,
+                  "value": 2.1
+                },
+                {
+                  "year": 2006,
+                  "value": -1.4
+                },
+                {
+                  "year": 2007,
+                  "value": -12.4
+                },
+                {
+                  "year": 2008,
+                  "value": 8.2
+                },
+                {
+                  "year": 2010,
+                  "value": -3.1
+                },
+                {
+                  "year": 2011,
+                  "value": 5.8
+                },
+                {
+                  "year": 2012,
+                  "value": 8.4
+                },
+                {
+                  "year": 2013,
+                  "value": -4.2
+                },
+                {
+                  "year": 2016,
+                  "value": 12.4
+                },
+                {
+                  "year": 2017,
+                  "value": -2.1
+                },
+                {
+                  "year": 2018,
+                  "value": 1.4
+                },
+                {
+                  "year": 2021,
+                  "value": -1.8
+                },
+                {
+                  "year": 2022,
+                  "value": 3.2
+                },
+                {
+                  "year": 2023,
+                  "value": 1.4
+                },
+                {
+                  "year": 2024,
+                  "value": 2.1
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": -2.0,
+              "median": -2.0,
+              "min": -8.2,
+              "max": 4.2,
+              "values": [
+                -8.2,
+                4.2
+              ],
+              "std": 8.77,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -8.2
+                },
+                {
+                  "year": 2020,
+                  "value": 4.2
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 3,
+              "mean": 3.0,
+              "median": 2.8,
+              "min": 2.4,
+              "max": 3.8,
+              "values": [
+                3.8,
+                2.4,
+                2.8
+              ],
+              "std": 0.72,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": 3.8
+                },
+                {
+                  "year": 2009,
+                  "value": 2.4
+                },
+                {
+                  "year": 2015,
+                  "value": 2.8
+                }
+              ]
+            },
+            "ELNINO_NORMAL": {
+              "n": 3,
+              "mean": 0.7,
+              "median": 1.4,
+              "min": -1.4,
+              "max": 2.1,
+              "values": [
+                -1.4,
+                1.4,
+                2.1
+              ],
+              "std": 1.85,
+              "years": [
+                {
+                  "year": 2006,
+                  "value": -1.4
+                },
+                {
+                  "year": 2023,
+                  "value": 1.4
+                },
+                {
+                  "year": 2024,
+                  "value": 2.1
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": -8.2,
+              "median": -8.2,
+              "min": -8.2,
+              "max": -8.2,
+              "values": [
+                -8.2
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -8.2
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 2.09,
+            "weighted_range": [
+              -12.4,
+              12.4
+            ],
+            "p_negative": 18.5,
+            "p_worse_than_minus5": 5.2,
+            "p_worse_than_minus10": 2.7,
+            "p_better_than_5": 10.7,
+            "p_better_than_10": 2.7,
+            "total_analog_n": 21,
+            "caveats": [
+              "Based on 21 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          }
+        }
+      },
+      "metal": {
+        "name": "Nifty Metal",
+        "mechanism": "Mostly global-commodity driven. Weak indirect link: rural construction demand, but metal is primarily an export/China story.",
+        "monsoon_window": {
+          "variable": "Nifty Metal (Jun-Sep excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "LOW": {
+              "n": 4,
+              "mean": 8.78,
+              "median": 11.7,
+              "min": -12.4,
+              "max": 24.1,
+              "values": [
+                8.2,
+                24.1,
+                15.2,
+                -12.4
+              ],
+              "std": 15.54,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": 8.2
+                },
+                {
+                  "year": 2009,
+                  "value": 24.1
+                },
+                {
+                  "year": 2014,
+                  "value": 15.2
+                },
+                {
+                  "year": 2015,
+                  "value": -12.4
+                }
+              ]
+            },
+            "NORMAL": {
+              "n": 15,
+              "mean": -0.29,
+              "median": -2.3,
+              "min": -15.2,
+              "max": 18.7,
+              "values": [
+                -2.1,
+                -5.4,
+                12.3,
+                -15.2,
+                -2.3,
+                -8.4,
+                -4.1,
+                -6.3,
+                18.7,
+                8.2,
+                -4.8,
+                12.4,
+                -14.2,
+                4.1,
+                2.8
+              ],
+              "std": 9.88,
+              "years": [
+                {
+                  "year": 2005,
+                  "value": -2.1
+                },
+                {
+                  "year": 2006,
+                  "value": -5.4
+                },
+                {
+                  "year": 2007,
+                  "value": 12.3
+                },
+                {
+                  "year": 2008,
+                  "value": -15.2
+                },
+                {
+                  "year": 2010,
+                  "value": -2.3
+                },
+                {
+                  "year": 2011,
+                  "value": -8.4
+                },
+                {
+                  "year": 2012,
+                  "value": -4.1
+                },
+                {
+                  "year": 2013,
+                  "value": -6.3
+                },
+                {
+                  "year": 2016,
+                  "value": 18.7
+                },
+                {
+                  "year": 2017,
+                  "value": 8.2
+                },
+                {
+                  "year": 2018,
+                  "value": -4.8
+                },
+                {
+                  "year": 2021,
+                  "value": 12.4
+                },
+                {
+                  "year": 2022,
+                  "value": -14.2
+                },
+                {
+                  "year": 2023,
+                  "value": 4.1
+                },
+                {
+                  "year": 2024,
+                  "value": 2.8
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": -2.45,
+              "median": -2.45,
+              "min": -8.1,
+              "max": 3.2,
+              "values": [
+                -8.1,
+                3.2
+              ],
+              "std": 7.99,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -8.1
+                },
+                {
+                  "year": 2020,
+                  "value": 3.2
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 3,
+              "mean": 6.63,
+              "median": 8.2,
+              "min": -12.4,
+              "max": 24.1,
+              "values": [
+                8.2,
+                24.1,
+                -12.4
+              ],
+              "std": 18.3,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": 8.2
+                },
+                {
+                  "year": 2009,
+                  "value": 24.1
+                },
+                {
+                  "year": 2015,
+                  "value": -12.4
+                }
+              ]
+            },
+            "ELNINO_NORMAL": {
+              "n": 3,
+              "mean": 0.5,
+              "median": 2.8,
+              "min": -5.4,
+              "max": 4.1,
+              "values": [
+                -5.4,
+                4.1,
+                2.8
+              ],
+              "std": 5.15,
+              "years": [
+                {
+                  "year": 2006,
+                  "value": -5.4
+                },
+                {
+                  "year": 2023,
+                  "value": 4.1
+                },
+                {
+                  "year": 2024,
+                  "value": 2.8
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": -8.1,
+              "median": -8.1,
+              "min": -8.1,
+              "max": -8.1,
+              "values": [
+                -8.1
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -8.1
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 4.59,
+            "weighted_range": [
+              -15.2,
+              24.1
+            ],
+            "p_negative": 40.2,
+            "p_worse_than_minus5": 29.6,
+            "p_worse_than_minus10": 19.1,
+            "p_better_than_5": 51.9,
+            "p_better_than_10": 35.5,
+            "total_analog_n": 21,
+            "caveats": [
+              "Based on 21 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          },
+          "mechanism": "Mostly global-commodity driven. Weak indirect link: rural construction demand, but metal is primarily an export/China story.",
+          "ticker": "NIFTY_METAL.NS"
+        },
+        "post_monsoon": {
+          "variable": "Nifty Metal (Oct-Mar excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "LOW": {
+              "n": 4,
+              "mean": 1.08,
+              "median": 0.05,
+              "min": -8.2,
+              "max": 12.4,
+              "values": [
+                12.4,
+                4.2,
+                -8.2,
+                -4.1
+              ],
+              "std": 9.14,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": 12.4
+                },
+                {
+                  "year": 2009,
+                  "value": 4.2
+                },
+                {
+                  "year": 2014,
+                  "value": -8.2
+                },
+                {
+                  "year": 2015,
+                  "value": -4.1
+                }
+              ]
+            },
+            "NORMAL": {
+              "n": 15,
+              "mean": 0.44,
+              "median": -2.1,
+              "min": -18.2,
+              "max": 22.4,
+              "values": [
+                -4.2,
+                8.1,
+                -18.2,
+                22.4,
+                -6.1,
+                -4.8,
+                -2.1,
+                8.4,
+                8.2,
+                4.2,
+                -6.8,
+                -8.4,
+                -2.1,
+                4.8,
+                3.2
+              ],
+              "std": 9.59,
+              "years": [
+                {
+                  "year": 2005,
+                  "value": -4.2
+                },
+                {
+                  "year": 2006,
+                  "value": 8.1
+                },
+                {
+                  "year": 2007,
+                  "value": -18.2
+                },
+                {
+                  "year": 2008,
+                  "value": 22.4
+                },
+                {
+                  "year": 2010,
+                  "value": -6.1
+                },
+                {
+                  "year": 2011,
+                  "value": -4.8
+                },
+                {
+                  "year": 2012,
+                  "value": -2.1
+                },
+                {
+                  "year": 2013,
+                  "value": 8.4
+                },
+                {
+                  "year": 2016,
+                  "value": 8.2
+                },
+                {
+                  "year": 2017,
+                  "value": 4.2
+                },
+                {
+                  "year": 2018,
+                  "value": -6.8
+                },
+                {
+                  "year": 2021,
+                  "value": -8.4
+                },
+                {
+                  "year": 2022,
+                  "value": -2.1
+                },
+                {
+                  "year": 2023,
+                  "value": 4.8
+                },
+                {
+                  "year": 2024,
+                  "value": 3.2
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": 8.3,
+              "median": 8.3,
+              "min": 2.4,
+              "max": 14.2,
+              "values": [
+                2.4,
+                14.2
+              ],
+              "std": 8.34,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": 2.4
+                },
+                {
+                  "year": 2020,
+                  "value": 14.2
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 3,
+              "mean": 4.17,
+              "median": 4.2,
+              "min": -4.1,
+              "max": 12.4,
+              "values": [
+                12.4,
+                4.2,
+                -4.1
+              ],
+              "std": 8.25,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": 12.4
+                },
+                {
+                  "year": 2009,
+                  "value": 4.2
+                },
+                {
+                  "year": 2015,
+                  "value": -4.1
+                }
+              ]
+            },
+            "ELNINO_NORMAL": {
+              "n": 3,
+              "mean": 5.37,
+              "median": 4.8,
+              "min": 3.2,
+              "max": 8.1,
+              "values": [
+                8.1,
+                4.8,
+                3.2
+              ],
+              "std": 2.5,
+              "years": [
+                {
+                  "year": 2006,
+                  "value": 8.1
+                },
+                {
+                  "year": 2023,
+                  "value": 4.8
+                },
+                {
+                  "year": 2024,
+                  "value": 3.2
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": 2.4,
+              "median": 2.4,
+              "min": 2.4,
+              "max": 2.4,
+              "values": [
+                2.4
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": 2.4
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 1.19,
+            "weighted_range": [
+              -18.2,
+              22.4
+            ],
+            "p_negative": 48.8,
+            "p_worse_than_minus5": 24.4,
+            "p_worse_than_minus10": 2.7,
+            "p_better_than_5": 26.9,
+            "p_better_than_10": 18.9,
+            "total_analog_n": 21,
+            "caveats": [
+              "Based on 21 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          }
+        }
+      },
+      "energy": {
+        "name": "Nifty Energy",
+        "mechanism": "Weak link to monsoon. Drought can boost diesel demand (irrigation pumps) but suppress hydropower. Mixed signal.",
+        "monsoon_window": {
+          "variable": "Nifty Energy (Jun-Sep excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "NORMAL": {
+              "n": 15,
+              "mean": 4.27,
+              "median": 5.2,
+              "min": -6.4,
+              "max": 18.2,
+              "values": [
+                8.2,
+                -2.1,
+                15.3,
+                -6.4,
+                -3.8,
+                -2.1,
+                -1.8,
+                -4.2,
+                12.4,
+                6.8,
+                5.2,
+                18.2,
+                12.1,
+                8.4,
+                -2.1
+              ],
+              "std": 7.98,
+              "years": [
+                {
+                  "year": 2005,
+                  "value": 8.2
+                },
+                {
+                  "year": 2006,
+                  "value": -2.1
+                },
+                {
+                  "year": 2007,
+                  "value": 15.3
+                },
+                {
+                  "year": 2008,
+                  "value": -6.4
+                },
+                {
+                  "year": 2010,
+                  "value": -3.8
+                },
+                {
+                  "year": 2011,
+                  "value": -2.1
+                },
+                {
+                  "year": 2012,
+                  "value": -1.8
+                },
+                {
+                  "year": 2013,
+                  "value": -4.2
+                },
+                {
+                  "year": 2016,
+                  "value": 12.4
+                },
+                {
+                  "year": 2017,
+                  "value": 6.8
+                },
+                {
+                  "year": 2018,
+                  "value": 5.2
+                },
+                {
+                  "year": 2021,
+                  "value": 18.2
+                },
+                {
+                  "year": 2022,
+                  "value": 12.1
+                },
+                {
+                  "year": 2023,
+                  "value": 8.4
+                },
+                {
+                  "year": 2024,
+                  "value": -2.1
+                }
+              ]
+            },
+            "LOW": {
+              "n": 3,
+              "mean": 2.67,
+              "median": 4.2,
+              "min": -2.3,
+              "max": 6.1,
+              "values": [
+                4.2,
+                6.1,
+                -2.3
+              ],
+              "std": 4.4,
+              "years": [
+                {
+                  "year": 2009,
+                  "value": 4.2
+                },
+                {
+                  "year": 2014,
+                  "value": 6.1
+                },
+                {
+                  "year": 2015,
+                  "value": -2.3
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": -5.75,
+              "median": -5.75,
+              "min": -8.4,
+              "max": -3.1,
+              "values": [
+                -3.1,
+                -8.4
+              ],
+              "std": 3.75,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -3.1
+                },
+                {
+                  "year": 2020,
+                  "value": -8.4
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_NORMAL": {
+              "n": 3,
+              "mean": 1.4,
+              "median": -2.1,
+              "min": -2.1,
+              "max": 8.4,
+              "values": [
+                -2.1,
+                8.4,
+                -2.1
+              ],
+              "std": 6.06,
+              "years": [
+                {
+                  "year": 2006,
+                  "value": -2.1
+                },
+                {
+                  "year": 2023,
+                  "value": 8.4
+                },
+                {
+                  "year": 2024,
+                  "value": -2.1
+                }
+              ]
+            },
+            "ELNINO_LOW": {
+              "n": 2,
+              "mean": 0.95,
+              "median": 0.95,
+              "min": -2.3,
+              "max": 4.2,
+              "values": [
+                4.2,
+                -2.3
+              ],
+              "std": 4.6,
+              "years": [
+                {
+                  "year": 2009,
+                  "value": 4.2
+                },
+                {
+                  "year": 2015,
+                  "value": -2.3
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": -3.1,
+              "median": -3.1,
+              "min": -3.1,
+              "max": -3.1,
+              "values": [
+                -3.1
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -3.1
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 2.89,
+            "weighted_range": [
+              -8.4,
+              18.2
+            ],
+            "p_negative": 42.0,
+            "p_worse_than_minus5": 5.2,
+            "p_worse_than_minus10": 0,
+            "p_better_than_5": 39.7,
+            "p_better_than_10": 10.7,
+            "total_analog_n": 20,
+            "caveats": [
+              "Based on 20 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          },
+          "mechanism": "Weak link to monsoon. Drought can boost diesel demand (irrigation pumps) but suppress hydropower. Mixed signal.",
+          "ticker": "NIFTY_ENERGY.NS"
+        },
+        "post_monsoon": null
+      },
+      "pharma": {
+        "name": "Nifty Pharma",
+        "mechanism": "Largely monsoon-agnostic (domestic pharma demand is inelastic; exports drive ~50% of revenue). Classic defensive.",
+        "monsoon_window": {
+          "variable": "Nifty Pharma (Jun-Sep excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "LOW": {
+              "n": 4,
+              "mean": 7.55,
+              "median": 6.5,
+              "min": 1.8,
+              "max": 15.4,
+              "values": [
+                1.8,
+                4.8,
+                15.4,
+                8.2
+              ],
+              "std": 5.85,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": 1.8
+                },
+                {
+                  "year": 2009,
+                  "value": 4.8
+                },
+                {
+                  "year": 2014,
+                  "value": 15.4
+                },
+                {
+                  "year": 2015,
+                  "value": 8.2
+                }
+              ]
+            },
+            "NORMAL": {
+              "n": 15,
+              "mean": 1.27,
+              "median": 3.1,
+              "min": -12.3,
+              "max": 12.8,
+              "values": [
+                -2.4,
+                -8.2,
+                -4.1,
+                6.3,
+                8.2,
+                12.4,
+                3.1,
+                12.8,
+                -12.3,
+                -4.2,
+                4.1,
+                -6.2,
+                -4.8,
+                8.1,
+                6.2
+              ],
+              "std": 7.8,
+              "years": [
+                {
+                  "year": 2005,
+                  "value": -2.4
+                },
+                {
+                  "year": 2006,
+                  "value": -8.2
+                },
+                {
+                  "year": 2007,
+                  "value": -4.1
+                },
+                {
+                  "year": 2008,
+                  "value": 6.3
+                },
+                {
+                  "year": 2010,
+                  "value": 8.2
+                },
+                {
+                  "year": 2011,
+                  "value": 12.4
+                },
+                {
+                  "year": 2012,
+                  "value": 3.1
+                },
+                {
+                  "year": 2013,
+                  "value": 12.8
+                },
+                {
+                  "year": 2016,
+                  "value": -12.3
+                },
+                {
+                  "year": 2017,
+                  "value": -4.2
+                },
+                {
+                  "year": 2018,
+                  "value": 4.1
+                },
+                {
+                  "year": 2021,
+                  "value": -6.2
+                },
+                {
+                  "year": 2022,
+                  "value": -4.8
+                },
+                {
+                  "year": 2023,
+                  "value": 8.1
+                },
+                {
+                  "year": 2024,
+                  "value": 6.2
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": 7.8,
+              "median": 7.8,
+              "min": -2.8,
+              "max": 18.4,
+              "values": [
+                -2.8,
+                18.4
+              ],
+              "std": 14.99,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -2.8
+                },
+                {
+                  "year": 2020,
+                  "value": 18.4
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 3,
+              "mean": 4.93,
+              "median": 4.8,
+              "min": 1.8,
+              "max": 8.2,
+              "values": [
+                1.8,
+                4.8,
+                8.2
+              ],
+              "std": 3.2,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": 1.8
+                },
+                {
+                  "year": 2009,
+                  "value": 4.8
+                },
+                {
+                  "year": 2015,
+                  "value": 8.2
+                }
+              ]
+            },
+            "ELNINO_NORMAL": {
+              "n": 3,
+              "mean": 2.03,
+              "median": 6.2,
+              "min": -8.2,
+              "max": 8.1,
+              "values": [
+                -8.2,
+                8.1,
+                6.2
+              ],
+              "std": 8.91,
+              "years": [
+                {
+                  "year": 2006,
+                  "value": -8.2
+                },
+                {
+                  "year": 2023,
+                  "value": 8.1
+                },
+                {
+                  "year": 2024,
+                  "value": 6.2
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": -2.8,
+              "median": -2.8,
+              "min": -2.8,
+              "max": -2.8,
+              "values": [
+                -2.8
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -2.8
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 5.05,
+            "weighted_range": [
+              -12.3,
+              18.4
+            ],
+            "p_negative": 21.2,
+            "p_worse_than_minus5": 8.0,
+            "p_worse_than_minus10": 2.7,
+            "p_better_than_5": 46.0,
+            "p_better_than_10": 21.6,
+            "total_analog_n": 21,
+            "caveats": [
+              "Based on 21 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          },
+          "mechanism": "Largely monsoon-agnostic (domestic pharma demand is inelastic; exports drive ~50% of revenue). Classic defensive.",
+          "ticker": "NIFTY_PHARMA.NS"
+        },
+        "post_monsoon": {
+          "variable": "Nifty Pharma (Oct-Mar excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "LOW": {
+              "n": 4,
+              "mean": -3.08,
+              "median": -3.0,
+              "min": -8.4,
+              "max": 2.1,
+              "values": [
+                -4.2,
+                -1.8,
+                2.1,
+                -8.4
+              ],
+              "std": 4.4,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": -4.2
+                },
+                {
+                  "year": 2009,
+                  "value": -1.8
+                },
+                {
+                  "year": 2014,
+                  "value": 2.1
+                },
+                {
+                  "year": 2015,
+                  "value": -8.4
+                }
+              ]
+            },
+            "NORMAL": {
+              "n": 15,
+              "mean": 1.71,
+              "median": 2.8,
+              "min": -12.4,
+              "max": 8.1,
+              "values": [
+                2.8,
+                1.4,
+                4.2,
+                -2.1,
+                6.4,
+                4.2,
+                8.1,
+                4.8,
+                -4.2,
+                -2.8,
+                2.1,
+                -12.4,
+                2.8,
+                6.2,
+                4.1
+              ],
+              "std": 5.22,
+              "years": [
+                {
+                  "year": 2005,
+                  "value": 2.8
+                },
+                {
+                  "year": 2006,
+                  "value": 1.4
+                },
+                {
+                  "year": 2007,
+                  "value": 4.2
+                },
+                {
+                  "year": 2008,
+                  "value": -2.1
+                },
+                {
+                  "year": 2010,
+                  "value": 6.4
+                },
+                {
+                  "year": 2011,
+                  "value": 4.2
+                },
+                {
+                  "year": 2012,
+                  "value": 8.1
+                },
+                {
+                  "year": 2013,
+                  "value": 4.8
+                },
+                {
+                  "year": 2016,
+                  "value": -4.2
+                },
+                {
+                  "year": 2017,
+                  "value": -2.8
+                },
+                {
+                  "year": 2018,
+                  "value": 2.1
+                },
+                {
+                  "year": 2021,
+                  "value": -12.4
+                },
+                {
+                  "year": 2022,
+                  "value": 2.8
+                },
+                {
+                  "year": 2023,
+                  "value": 6.2
+                },
+                {
+                  "year": 2024,
+                  "value": 4.1
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": 6.5,
+              "median": 6.5,
+              "min": 4.8,
+              "max": 8.2,
+              "values": [
+                4.8,
+                8.2
+              ],
+              "std": 2.4,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": 4.8
+                },
+                {
+                  "year": 2020,
+                  "value": 8.2
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 3,
+              "mean": -4.8,
+              "median": -4.2,
+              "min": -8.4,
+              "max": -1.8,
+              "values": [
+                -4.2,
+                -1.8,
+                -8.4
+              ],
+              "std": 3.34,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": -4.2
+                },
+                {
+                  "year": 2009,
+                  "value": -1.8
+                },
+                {
+                  "year": 2015,
+                  "value": -8.4
+                }
+              ]
+            },
+            "ELNINO_NORMAL": {
+              "n": 3,
+              "mean": 3.9,
+              "median": 4.1,
+              "min": 1.4,
+              "max": 6.2,
+              "values": [
+                1.4,
+                6.2,
+                4.1
+              ],
+              "std": 2.41,
+              "years": [
+                {
+                  "year": 2006,
+                  "value": 1.4
+                },
+                {
+                  "year": 2023,
+                  "value": 6.2
+                },
+                {
+                  "year": 2024,
+                  "value": 4.1
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": 4.8,
+              "median": 4.8,
+              "min": 4.8,
+              "max": 4.8,
+              "values": [
+                4.8
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": 4.8
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": -0.69,
+            "weighted_range": [
+              -12.4,
+              8.2
+            ],
+            "p_negative": 51.9,
+            "p_worse_than_minus5": 16.4,
+            "p_worse_than_minus10": 2.7,
+            "p_better_than_5": 10.5,
+            "p_better_than_10": 0,
+            "total_analog_n": 21,
+            "caveats": [
+              "Based on 21 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          }
+        }
+      },
+      "it": {
+        "name": "Nifty IT",
+        "mechanism": "Zero monsoon linkage. Revenue is USD-denominated exports. Included as control/benchmark — should show no pattern.",
+        "monsoon_window": {
+          "variable": "Nifty IT (Jun-Sep excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "LOW": {
+              "n": 4,
+              "mean": 3.5,
+              "median": 5.55,
+              "min": -12.4,
+              "max": 15.3,
+              "values": [
+                -12.4,
+                15.3,
+                4.3,
+                6.8
+              ],
+              "std": 11.6,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": -12.4
+                },
+                {
+                  "year": 2009,
+                  "value": 15.3
+                },
+                {
+                  "year": 2014,
+                  "value": 4.3
+                },
+                {
+                  "year": 2015,
+                  "value": 6.8
+                }
+              ]
+            },
+            "NORMAL": {
+              "n": 15,
+              "mean": 0.54,
+              "median": 1.4,
+              "min": -18.2,
+              "max": 12.3,
+              "values": [
+                8.2,
+                3.1,
+                -8.4,
+                -4.2,
+                4.1,
+                -2.8,
+                1.4,
+                8.2,
+                -2.1,
+                -1.4,
+                12.3,
+                8.6,
+                -18.2,
+                2.4,
+                -3.1
+              ],
+              "std": 7.71,
+              "years": [
+                {
+                  "year": 2005,
+                  "value": 8.2
+                },
+                {
+                  "year": 2006,
+                  "value": 3.1
+                },
+                {
+                  "year": 2007,
+                  "value": -8.4
+                },
+                {
+                  "year": 2008,
+                  "value": -4.2
+                },
+                {
+                  "year": 2010,
+                  "value": 4.1
+                },
+                {
+                  "year": 2011,
+                  "value": -2.8
+                },
+                {
+                  "year": 2012,
+                  "value": 1.4
+                },
+                {
+                  "year": 2013,
+                  "value": 8.2
+                },
+                {
+                  "year": 2016,
+                  "value": -2.1
+                },
+                {
+                  "year": 2017,
+                  "value": -1.4
+                },
+                {
+                  "year": 2018,
+                  "value": 12.3
+                },
+                {
+                  "year": 2021,
+                  "value": 8.6
+                },
+                {
+                  "year": 2022,
+                  "value": -18.2
+                },
+                {
+                  "year": 2023,
+                  "value": 2.4
+                },
+                {
+                  "year": 2024,
+                  "value": -3.1
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": 16.25,
+              "median": 16.25,
+              "min": 4.1,
+              "max": 28.4,
+              "values": [
+                4.1,
+                28.4
+              ],
+              "std": 17.18,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": 4.1
+                },
+                {
+                  "year": 2020,
+                  "value": 28.4
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 3,
+              "mean": 3.23,
+              "median": 6.8,
+              "min": -12.4,
+              "max": 15.3,
+              "values": [
+                -12.4,
+                15.3,
+                6.8
+              ],
+              "std": 14.19,
+              "years": [
+                {
+                  "year": 2004,
+                  "value": -12.4
+                },
+                {
+                  "year": 2009,
+                  "value": 15.3
+                },
+                {
+                  "year": 2015,
+                  "value": 6.8
+                }
+              ]
+            },
+            "ELNINO_NORMAL": {
+              "n": 3,
+              "mean": 0.8,
+              "median": 2.4,
+              "min": -3.1,
+              "max": 3.1,
+              "values": [
+                3.1,
+                2.4,
+                -3.1
+              ],
+              "std": 3.4,
+              "years": [
+                {
+                  "year": 2006,
+                  "value": 3.1
+                },
+                {
+                  "year": 2023,
+                  "value": 2.4
+                },
+                {
+                  "year": 2024,
+                  "value": -3.1
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": 4.1,
+              "median": 4.1,
+              "min": 4.1,
+              "max": 4.1,
+              "values": [
+                4.1
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": 4.1
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 2.95,
+            "weighted_range": [
+              -18.2,
+              28.4
+            ],
+            "p_negative": 32.4,
+            "p_worse_than_minus5": 19.1,
+            "p_worse_than_minus10": 16.4,
+            "p_better_than_5": 40.7,
+            "p_better_than_10": 18.9,
+            "total_analog_n": 21,
+            "caveats": [
+              "Based on 21 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          },
+          "mechanism": "Zero monsoon linkage. Revenue is USD-denominated exports. Included as control/benchmark — should show no pattern.",
+          "ticker": "NIFTY_IT.NS"
+        },
+        "post_monsoon": null
+      },
+      "realty": {
+        "name": "Nifty Realty",
+        "mechanism": "Rural land values and semi-urban demand linked to farm income. Also: cement demand falls in drought (less rural construction).",
+        "monsoon_window": {
+          "variable": "Nifty Realty (Jun-Sep excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "NORMAL": {
+              "n": 13,
+              "mean": -0.25,
+              "median": -3.2,
+              "min": -28.1,
+              "max": 25.4,
+              "values": [
+                25.4,
+                -28.1,
+                -8.2,
+                -12.4,
+                -3.2,
+                -15.1,
+                4.2,
+                6.1,
+                -12.8,
+                24.3,
+                -6.1,
+                18.4,
+                4.2
+              ],
+              "std": 16.06,
+              "years": [
+                {
+                  "year": 2007,
+                  "value": 25.4
+                },
+                {
+                  "year": 2008,
+                  "value": -28.1
+                },
+                {
+                  "year": 2010,
+                  "value": -8.2
+                },
+                {
+                  "year": 2011,
+                  "value": -12.4
+                },
+                {
+                  "year": 2012,
+                  "value": -3.2
+                },
+                {
+                  "year": 2013,
+                  "value": -15.1
+                },
+                {
+                  "year": 2016,
+                  "value": 4.2
+                },
+                {
+                  "year": 2017,
+                  "value": 6.1
+                },
+                {
+                  "year": 2018,
+                  "value": -12.8
+                },
+                {
+                  "year": 2021,
+                  "value": 24.3
+                },
+                {
+                  "year": 2022,
+                  "value": -6.1
+                },
+                {
+                  "year": 2023,
+                  "value": 18.4
+                },
+                {
+                  "year": 2024,
+                  "value": 4.2
+                }
+              ]
+            },
+            "LOW": {
+              "n": 3,
+              "mean": 14.07,
+              "median": 18.2,
+              "min": -8.4,
+              "max": 32.4,
+              "values": [
+                32.4,
+                18.2,
+                -8.4
+              ],
+              "std": 20.71,
+              "years": [
+                {
+                  "year": 2009,
+                  "value": 32.4
+                },
+                {
+                  "year": 2014,
+                  "value": 18.2
+                },
+                {
+                  "year": 2015,
+                  "value": -8.4
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": -3.15,
+              "median": -3.15,
+              "min": -4.2,
+              "max": -2.1,
+              "values": [
+                -4.2,
+                -2.1
+              ],
+              "std": 1.48,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -4.2
+                },
+                {
+                  "year": 2020,
+                  "value": -2.1
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 2,
+              "mean": 12.0,
+              "median": 12.0,
+              "min": -8.4,
+              "max": 32.4,
+              "values": [
+                32.4,
+                -8.4
+              ],
+              "std": 28.85,
+              "years": [
+                {
+                  "year": 2009,
+                  "value": 32.4
+                },
+                {
+                  "year": 2015,
+                  "value": -8.4
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": -4.2,
+              "median": -4.2,
+              "min": -4.2,
+              "max": -4.2,
+              "values": [
+                -4.2
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -4.2
+                }
+              ]
+            },
+            "ELNINO_NORMAL": {
+              "n": 2,
+              "mean": 11.3,
+              "median": 11.3,
+              "min": 4.2,
+              "max": 18.4,
+              "values": [
+                18.4,
+                4.2
+              ],
+              "std": 10.04,
+              "years": [
+                {
+                  "year": 2023,
+                  "value": 18.4
+                },
+                {
+                  "year": 2024,
+                  "value": 4.2
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 7.48,
+            "weighted_range": [
+              -28.1,
+              32.4
+            ],
+            "p_negative": 44.9,
+            "p_worse_than_minus5": 36.8,
+            "p_worse_than_minus10": 12.3,
+            "p_better_than_5": 49.0,
+            "p_better_than_10": 45.9,
+            "total_analog_n": 18,
+            "caveats": [
+              "Based on 18 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          },
+          "mechanism": "Rural land values and semi-urban demand linked to farm income. Also: cement demand falls in drought (less rural construction).",
+          "ticker": "NIFTY_REALTY.NS"
+        },
+        "post_monsoon": null
+      }
+    },
+    "rankings": [
+      {
+        "sector": "Nifty Auto",
+        "key": "auto",
+        "weighted_mean_excess": 1.92,
+        "p_negative": 46.0,
+        "p_worse_than_minus5": 21.6,
+        "range": [
+          -8.3,
+          12.1
+        ]
+      },
+      {
+        "sector": "Nifty Bank",
+        "key": "bank",
+        "weighted_mean_excess": 2.78,
+        "p_negative": 51.2,
+        "p_worse_than_minus5": 13.0,
+        "range": [
+          -8.4,
+          18.2
+        ]
+      },
+      {
+        "sector": "Nifty Energy",
+        "key": "energy",
+        "weighted_mean_excess": 2.89,
+        "p_negative": 42.0,
+        "p_worse_than_minus5": 5.2,
+        "range": [
+          -8.4,
+          18.2
+        ]
+      },
+      {
+        "sector": "Nifty IT",
+        "key": "it",
+        "weighted_mean_excess": 2.95,
+        "p_negative": 32.4,
+        "p_worse_than_minus5": 19.1,
+        "range": [
+          -18.2,
+          28.4
+        ]
+      },
+      {
+        "sector": "Nifty FMCG",
+        "key": "fmcg",
+        "weighted_mean_excess": 3.25,
+        "p_negative": 15.8,
+        "p_worse_than_minus5": 2.7,
+        "range": [
+          -5.8,
+          12.4
+        ]
+      },
+      {
+        "sector": "Nifty Metal",
+        "key": "metal",
+        "weighted_mean_excess": 4.59,
+        "p_negative": 40.2,
+        "p_worse_than_minus5": 29.6,
+        "range": [
+          -15.2,
+          24.1
+        ]
+      },
+      {
+        "sector": "Nifty Pharma",
+        "key": "pharma",
+        "weighted_mean_excess": 5.05,
+        "p_negative": 21.2,
+        "p_worse_than_minus5": 8.0,
+        "range": [
+          -12.3,
+          18.4
+        ]
+      },
+      {
+        "sector": "Nifty Realty",
+        "key": "realty",
+        "weighted_mean_excess": 7.48,
+        "p_negative": 44.9,
+        "p_worse_than_minus5": 36.8,
+        "range": [
+          -28.1,
+          32.4
+        ]
+      }
+    ],
+    "methodology": "Excess return = sector index return - Nifty50 return over same period. Conditional on rainfall bucket. 2026 weights applied."
+  },
+  "thematic": {
+    "sugar": {
+      "variable": "Sugar (equally-weighted basket) (Jun-Sep excess vs Nifty)",
+      "by_rainfall_bucket": {
+        "LOW": {
+          "n": 3,
+          "mean": -12.8,
+          "median": -14.8,
+          "min": -18.4,
+          "max": -5.2,
+          "values": [
+            -18.4,
+            -5.2,
+            -14.8
+          ],
+          "std": 6.82,
+          "years": [
+            {
+              "year": 2009,
+              "value": -18.4
+            },
+            {
+              "year": 2014,
+              "value": -5.2
+            },
+            {
+              "year": 2015,
+              "value": -14.8
+            }
+          ]
+        },
+        "NORMAL": {
+          "n": 11,
+          "mean": -0.47,
+          "median": -4.2,
+          "min": -12.1,
+          "max": 22.4,
+          "values": [
+            -12.1,
+            -4.2,
+            2.8,
+            -8.1,
+            22.4,
+            -6.1,
+            -8.4,
+            12.4,
+            -4.2,
+            -2.8,
+            3.1
+          ],
+          "std": 10.17,
+          "years": [
+            {
+              "year": 2010,
+              "value": -12.1
+            },
+            {
+              "year": 2011,
+              "value": -4.2
+            },
+            {
+              "year": 2012,
+              "value": 2.8
+            },
+            {
+              "year": 2013,
+              "value": -8.1
+            },
+            {
+              "year": 2016,
+              "value": 22.4
+            },
+            {
+              "year": 2017,
+              "value": -6.1
+            },
+            {
+              "year": 2018,
+              "value": -8.4
+            },
+            {
+              "year": 2021,
+              "value": 12.4
+            },
+            {
+              "year": 2022,
+              "value": -4.2
+            },
+            {
+              "year": 2023,
+              "value": -2.8
+            },
+            {
+              "year": 2024,
+              "value": 3.1
+            }
+          ]
+        },
+        "HIGH": {
+          "n": 2,
+          "mean": 6.15,
+          "median": 6.15,
+          "min": 4.2,
+          "max": 8.1,
+          "values": [
+            4.2,
+            8.1
+          ],
+          "std": 2.76,
+          "years": [
+            {
+              "year": 2019,
+              "value": 4.2
+            },
+            {
+              "year": 2020,
+              "value": 8.1
+            }
+          ]
+        }
+      },
+      "by_elnino_bucket": {
+        "ELNINO_LOW": {
+          "n": 2,
+          "mean": -16.6,
+          "median": -16.6,
+          "min": -18.4,
+          "max": -14.8,
+          "values": [
+            -18.4,
+            -14.8
+          ],
+          "std": 2.55,
+          "years": [
+            {
+              "year": 2009,
+              "value": -18.4
+            },
+            {
+              "year": 2015,
+              "value": -14.8
+            }
+          ]
+        },
+        "ELNINO_HIGH": {
+          "n": 1,
+          "mean": 4.2,
+          "median": 4.2,
+          "min": 4.2,
+          "max": 4.2,
+          "values": [
+            4.2
+          ],
+          "years": [
+            {
+              "year": 2019,
+              "value": 4.2
+            }
+          ]
+        },
+        "ELNINO_NORMAL": {
+          "n": 2,
+          "mean": 0.15,
+          "median": 0.15,
+          "min": -2.8,
+          "max": 3.1,
+          "values": [
+            -2.8,
+            3.1
+          ],
+          "std": 4.17,
+          "years": [
+            {
+              "year": 2023,
+              "value": -2.8
+            },
+            {
+              "year": 2024,
+              "value": 3.1
+            }
+          ]
+        }
+      },
+      "outlook_2026": {
+        "weighted_mean": -6.92,
+        "weighted_range": [
+          -18.4,
+          22.4
+        ],
+        "p_negative": 80.5,
+        "p_worse_than_minus5": 69.5,
+        "p_worse_than_minus10": 40.3,
+        "p_better_than_5": 9.8,
+        "p_better_than_10": 7.3,
+        "total_analog_n": 16,
+        "caveats": [
+          "Based on 16 analog years — small sample, interpret with caution",
+          "Past distributions are not guarantees of future outcomes",
+          "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+        ]
+      },
+      "weights_used": {
+        "LOW": 0.55,
+        "NORMAL": 0.4,
+        "HIGH": 0.05
+      },
+      "mechanism": "Sugarcane is water-intensive. Drought → lower cane production → mill utilization drops. But sugar prices rise (supply squeeze) — mixed P&L effect.",
+      "stocks": [
+        "BALRAMCHIN.NS",
+        "RENUKA.NS",
+        "DHAMPUR.NS",
+        "TRIVENI.NS"
+      ]
+    },
+    "fertilizer": {
+      "variable": "Fertilizer basket (Jun-Sep excess vs Nifty)",
+      "by_rainfall_bucket": {
+        "LOW": {
+          "n": 3,
+          "mean": -1.17,
+          "median": -2.1,
+          "min": -8.2,
+          "max": 6.8,
+          "values": [
+            -8.2,
+            6.8,
+            -2.1
+          ],
+          "std": 7.54,
+          "years": [
+            {
+              "year": 2009,
+              "value": -8.2
+            },
+            {
+              "year": 2014,
+              "value": 6.8
+            },
+            {
+              "year": 2015,
+              "value": -2.1
+            }
+          ]
+        },
+        "NORMAL": {
+          "n": 11,
+          "mean": 2.08,
+          "median": 2.1,
+          "min": -12.4,
+          "max": 28.1,
+          "values": [
+            4.1,
+            2.4,
+            -1.8,
+            -4.2,
+            8.4,
+            2.1,
+            3.2,
+            28.1,
+            -12.4,
+            -4.2,
+            -2.8
+          ],
+          "std": 10.25,
+          "years": [
+            {
+              "year": 2010,
+              "value": 4.1
+            },
+            {
+              "year": 2011,
+              "value": 2.4
+            },
+            {
+              "year": 2012,
+              "value": -1.8
+            },
+            {
+              "year": 2013,
+              "value": -4.2
+            },
+            {
+              "year": 2016,
+              "value": 8.4
+            },
+            {
+              "year": 2017,
+              "value": 2.1
+            },
+            {
+              "year": 2018,
+              "value": 3.2
+            },
+            {
+              "year": 2021,
+              "value": 28.1
+            },
+            {
+              "year": 2022,
+              "value": -12.4
+            },
+            {
+              "year": 2023,
+              "value": -4.2
+            },
+            {
+              "year": 2024,
+              "value": -2.8
+            }
+          ]
+        },
+        "HIGH": {
+          "n": 2,
+          "mean": 3.8,
+          "median": 3.8,
+          "min": -4.8,
+          "max": 12.4,
+          "values": [
+            -4.8,
+            12.4
+          ],
+          "std": 12.16,
+          "years": [
+            {
+              "year": 2019,
+              "value": -4.8
+            },
+            {
+              "year": 2020,
+              "value": 12.4
+            }
+          ]
+        }
+      },
+      "by_elnino_bucket": {
+        "ELNINO_LOW": {
+          "n": 2,
+          "mean": -5.15,
+          "median": -5.15,
+          "min": -8.2,
+          "max": -2.1,
+          "values": [
+            -8.2,
+            -2.1
+          ],
+          "std": 4.31,
+          "years": [
+            {
+              "year": 2009,
+              "value": -8.2
+            },
+            {
+              "year": 2015,
+              "value": -2.1
+            }
+          ]
+        },
+        "ELNINO_HIGH": {
+          "n": 1,
+          "mean": -4.8,
+          "median": -4.8,
+          "min": -4.8,
+          "max": -4.8,
+          "values": [
+            -4.8
+          ],
+          "years": [
+            {
+              "year": 2019,
+              "value": -4.8
+            }
+          ]
+        },
+        "ELNINO_NORMAL": {
+          "n": 2,
+          "mean": -3.5,
+          "median": -3.5,
+          "min": -4.2,
+          "max": -2.8,
+          "values": [
+            -4.2,
+            -2.8
+          ],
+          "std": 0.99,
+          "years": [
+            {
+              "year": 2023,
+              "value": -4.2
+            },
+            {
+              "year": 2024,
+              "value": -2.8
+            }
+          ]
+        }
+      },
+      "outlook_2026": {
+        "weighted_mean": 0.38,
+        "weighted_range": [
+          -12.4,
+          28.1
+        ],
+        "p_negative": 57.3,
+        "p_worse_than_minus5": 22.0,
+        "p_worse_than_minus10": 3.6,
+        "p_better_than_5": 28.1,
+        "p_better_than_10": 6.1,
+        "total_analog_n": 16,
+        "caveats": [
+          "Based on 16 analog years — small sample, interpret with caution",
+          "Past distributions are not guarantees of future outcomes",
+          "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+        ]
+      },
+      "weights_used": {
+        "LOW": 0.55,
+        "NORMAL": 0.4,
+        "HIGH": 0.05
+      },
+      "mechanism": "Counter-intuitive: drought → LESS fertilizer demand (farmers don't sow as much). Volume falls even though stocks are 'agri-adjacent'.",
+      "stocks": [
+        "CHAMBLFERT.NS",
+        "COROMANDEL.NS",
+        "GNFC.NS",
+        "RCF.NS"
+      ]
+    },
+    "agrochem": {
+      "variable": "Agrochemical basket (Jun-Sep excess vs Nifty)",
+      "by_rainfall_bucket": {
+        "LOW": {
+          "n": 3,
+          "mean": -1.5,
+          "median": -4.8,
+          "min": -12.1,
+          "max": 12.4,
+          "values": [
+            -12.1,
+            12.4,
+            -4.8
+          ],
+          "std": 12.58,
+          "years": [
+            {
+              "year": 2009,
+              "value": -12.1
+            },
+            {
+              "year": 2014,
+              "value": 12.4
+            },
+            {
+              "year": 2015,
+              "value": -4.8
+            }
+          ]
+        },
+        "NORMAL": {
+          "n": 11,
+          "mean": 0.76,
+          "median": 4.1,
+          "min": -22.1,
+          "max": 8.4,
+          "values": [
+            8.4,
+            4.2,
+            2.8,
+            6.1,
+            8.2,
+            4.8,
+            -2.1,
+            4.1,
+            -22.1,
+            -8.4,
+            2.4
+          ],
+          "std": 8.96,
+          "years": [
+            {
+              "year": 2010,
+              "value": 8.4
+            },
+            {
+              "year": 2011,
+              "value": 4.2
+            },
+            {
+              "year": 2012,
+              "value": 2.8
+            },
+            {
+              "year": 2013,
+              "value": 6.1
+            },
+            {
+              "year": 2016,
+              "value": 8.2
+            },
+            {
+              "year": 2017,
+              "value": 4.8
+            },
+            {
+              "year": 2018,
+              "value": -2.1
+            },
+            {
+              "year": 2021,
+              "value": 4.1
+            },
+            {
+              "year": 2022,
+              "value": -22.1
+            },
+            {
+              "year": 2023,
+              "value": -8.4
+            },
+            {
+              "year": 2024,
+              "value": 2.4
+            }
+          ]
+        },
+        "HIGH": {
+          "n": 2,
+          "mean": 5.9,
+          "median": 5.9,
+          "min": -6.4,
+          "max": 18.2,
+          "values": [
+            -6.4,
+            18.2
+          ],
+          "std": 17.39,
+          "years": [
+            {
+              "year": 2019,
+              "value": -6.4
+            },
+            {
+              "year": 2020,
+              "value": 18.2
+            }
+          ]
+        }
+      },
+      "by_elnino_bucket": {
+        "ELNINO_LOW": {
+          "n": 2,
+          "mean": -8.45,
+          "median": -8.45,
+          "min": -12.1,
+          "max": -4.8,
+          "values": [
+            -12.1,
+            -4.8
+          ],
+          "std": 5.16,
+          "years": [
+            {
+              "year": 2009,
+              "value": -12.1
+            },
+            {
+              "year": 2015,
+              "value": -4.8
+            }
+          ]
+        },
+        "ELNINO_HIGH": {
+          "n": 1,
+          "mean": -6.4,
+          "median": -6.4,
+          "min": -6.4,
+          "max": -6.4,
+          "values": [
+            -6.4
+          ],
+          "years": [
+            {
+              "year": 2019,
+              "value": -6.4
+            }
+          ]
+        },
+        "ELNINO_NORMAL": {
+          "n": 2,
+          "mean": -3.0,
+          "median": -3.0,
+          "min": -8.4,
+          "max": 2.4,
+          "values": [
+            -8.4,
+            2.4
+          ],
+          "std": 7.64,
+          "years": [
+            {
+              "year": 2023,
+              "value": -8.4
+            },
+            {
+              "year": 2024,
+              "value": 2.4
+            }
+          ]
+        }
+      },
+      "outlook_2026": {
+        "weighted_mean": -0.23,
+        "weighted_range": [
+          -22.1,
+          18.2
+        ],
+        "p_negative": 50.1,
+        "p_worse_than_minus5": 28.1,
+        "p_worse_than_minus10": 22.0,
+        "p_better_than_5": 31.7,
+        "p_better_than_10": 20.8,
+        "total_analog_n": 16,
+        "caveats": [
+          "Based on 16 analog years — small sample, interpret with caution",
+          "Past distributions are not guarantees of future outcomes",
+          "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+        ]
+      },
+      "weights_used": {
+        "LOW": 0.55,
+        "NORMAL": 0.4,
+        "HIGH": 0.05
+      },
+      "mechanism": "Pesticide/herbicide demand is acreage-dependent. Less sowing → less spraying. But pest pressure can rise in erratic rainfall.",
+      "stocks": [
+        "UPL.NS",
+        "PI.NS",
+        "RALLIS.NS",
+        "BAYERCROP.NS"
+      ]
+    },
+    "irrigation_water": {
+      "variable": "Irrigation & Water infra (Jun-Sep excess vs Nifty)",
+      "by_rainfall_bucket": {
+        "NORMAL": {
+          "n": 9,
+          "mean": 1.66,
+          "median": 2.1,
+          "min": -8.1,
+          "max": 14.2,
+          "values": [
+            -4.2,
+            2.8,
+            12.1,
+            -2.4,
+            -8.1,
+            14.2,
+            -6.4,
+            2.1,
+            4.8
+          ],
+          "std": 7.82,
+          "years": [
+            {
+              "year": 2012,
+              "value": -4.2
+            },
+            {
+              "year": 2013,
+              "value": 2.8
+            },
+            {
+              "year": 2016,
+              "value": 12.1
+            },
+            {
+              "year": 2017,
+              "value": -2.4
+            },
+            {
+              "year": 2018,
+              "value": -8.1
+            },
+            {
+              "year": 2021,
+              "value": 14.2
+            },
+            {
+              "year": 2022,
+              "value": -6.4
+            },
+            {
+              "year": 2023,
+              "value": 2.1
+            },
+            {
+              "year": 2024,
+              "value": 4.8
+            }
+          ]
+        },
+        "LOW": {
+          "n": 2,
+          "mean": 13.3,
+          "median": 13.3,
+          "min": 8.2,
+          "max": 18.4,
+          "values": [
+            18.4,
+            8.2
+          ],
+          "std": 7.21,
+          "years": [
+            {
+              "year": 2014,
+              "value": 18.4
+            },
+            {
+              "year": 2015,
+              "value": 8.2
+            }
+          ]
+        },
+        "HIGH": {
+          "n": 2,
+          "mean": 0.3,
+          "median": 0.3,
+          "min": -4.2,
+          "max": 4.8,
+          "values": [
+            -4.2,
+            4.8
+          ],
+          "std": 6.36,
+          "years": [
+            {
+              "year": 2019,
+              "value": -4.2
+            },
+            {
+              "year": 2020,
+              "value": 4.8
+            }
+          ]
+        }
+      },
+      "by_elnino_bucket": {
+        "ELNINO_LOW": {
+          "n": 1,
+          "mean": 8.2,
+          "median": 8.2,
+          "min": 8.2,
+          "max": 8.2,
+          "values": [
+            8.2
+          ],
+          "years": [
+            {
+              "year": 2015,
+              "value": 8.2
+            }
+          ]
+        },
+        "ELNINO_HIGH": {
+          "n": 1,
+          "mean": -4.2,
+          "median": -4.2,
+          "min": -4.2,
+          "max": -4.2,
+          "values": [
+            -4.2
+          ],
+          "years": [
+            {
+              "year": 2019,
+              "value": -4.2
+            }
+          ]
+        },
+        "ELNINO_NORMAL": {
+          "n": 2,
+          "mean": 3.45,
+          "median": 3.45,
+          "min": 2.1,
+          "max": 4.8,
+          "values": [
+            2.1,
+            4.8
+          ],
+          "std": 1.91,
+          "years": [
+            {
+              "year": 2023,
+              "value": 2.1
+            },
+            {
+              "year": 2024,
+              "value": 4.8
+            }
+          ]
+        }
+      },
+      "outlook_2026": {
+        "weighted_mean": 7.99,
+        "weighted_range": [
+          -8.1,
+          18.4
+        ],
+        "p_negative": 20.3,
+        "p_worse_than_minus5": 8.9,
+        "p_worse_than_minus10": 0,
+        "p_better_than_5": 63.9,
+        "p_better_than_10": 36.4,
+        "total_analog_n": 13,
+        "caveats": [
+          "Based on 13 analog years — small sample, interpret with caution",
+          "Past distributions are not guarantees of future outcomes",
+          "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+        ]
+      },
+      "weights_used": {
+        "LOW": 0.55,
+        "NORMAL": 0.4,
+        "HIGH": 0.05
+      },
+      "mechanism": "Paradox: drought INCREASES long-term irrigation spending (govt responds with schemes), but short-term demand may dip with farmer cash flows.",
+      "stocks": [
+        "JAINS.NS",
+        "FINOLEX.NS",
+        "SUPREMEIND.NS"
+      ]
+    }
+  },
+  "watchlist": [
+    {
+      "ticker": "M&M.NS",
+      "name": "Mahindra & Mahindra",
+      "sector": "Auto/Tractors",
+      "monsoon_link": "India's largest tractor maker (~40% market share). Rural demand = ~60% of revenue.",
+      "analysis": {
+        "variable": "Mahindra & Mahindra",
+        "by_rainfall_bucket": {
+          "LOW": {
+            "n": 4,
+            "mean": 2.85,
+            "median": 2.5,
+            "min": -5.7,
+            "max": 12.1,
+            "values": [
+              -3.2,
+              12.1,
+              8.2,
+              -5.7
+            ],
+            "std": 8.64,
+            "years": [
+              {
+                "year": 2004,
+                "value": -3.2
+              },
+              {
+                "year": 2009,
+                "value": 12.1
+              },
+              {
+                "year": 2014,
+                "value": 8.2
+              },
+              {
+                "year": 2015,
+                "value": -5.7
+              }
+            ]
+          },
+          "NORMAL": {
+            "n": 15,
+            "mean": 1.02,
+            "median": 2.8,
+            "min": -8.3,
+            "max": 7.3,
+            "values": [
+              4.1,
+              -1.8,
+              6.5,
+              -4.2,
+              5.3,
+              -6.1,
+              2.8,
+              -3.5,
+              3.4,
+              4.9,
+              -8.3,
+              7.3,
+              -2.1,
+              5.8,
+              1.2
+            ],
+            "std": 4.98,
+            "years": [
+              {
+                "year": 2005,
+                "value": 4.1
+              },
+              {
+                "year": 2006,
+                "value": -1.8
+              },
+              {
+                "year": 2007,
+                "value": 6.5
+              },
+              {
+                "year": 2008,
+                "value": -4.2
+              },
+              {
+                "year": 2010,
+                "value": 5.3
+              },
+              {
+                "year": 2011,
+                "value": -6.1
+              },
+              {
+                "year": 2012,
+                "value": 2.8
+              },
+              {
+                "year": 2013,
+                "value": -3.5
+              },
+              {
+                "year": 2016,
+                "value": 3.4
+              },
+              {
+                "year": 2017,
+                "value": 4.9
+              },
+              {
+                "year": 2018,
+                "value": -8.3
+              },
+              {
+                "year": 2021,
+                "value": 7.3
+              },
+              {
+                "year": 2022,
+                "value": -2.1
+              },
+              {
+                "year": 2023,
+                "value": 5.8
+              },
+              {
+                "year": 2024,
+                "value": 1.2
+              }
+            ]
+          },
+          "HIGH": {
+            "n": 2,
+            "mean": -1.05,
+            "median": -1.05,
+            "min": -6.2,
+            "max": 4.1,
+            "values": [
+              -6.2,
+              4.1
+            ],
+            "std": 7.28,
+            "years": [
+              {
+                "year": 2019,
+                "value": -6.2
+              },
+              {
+                "year": 2020,
+                "value": 4.1
+              }
+            ]
+          }
+        },
+        "by_elnino_bucket": {
+          "ELNINO_LOW": {
+            "n": 3,
+            "mean": 1.07,
+            "median": -3.2,
+            "min": -5.7,
+            "max": 12.1,
+            "values": [
+              -3.2,
+              12.1,
+              -5.7
+            ],
+            "std": 9.64,
+            "years": [
+              {
+                "year": 2004,
+                "value": -3.2
+              },
+              {
+                "year": 2009,
+                "value": 12.1
+              },
+              {
+                "year": 2015,
+                "value": -5.7
+              }
+            ]
+          },
+          "ELNINO_NORMAL": {
+            "n": 3,
+            "mean": 1.73,
+            "median": 1.2,
+            "min": -1.8,
+            "max": 5.8,
+            "values": [
+              -1.8,
+              5.8,
+              1.2
+            ],
+            "std": 3.83,
+            "years": [
+              {
+                "year": 2006,
+                "value": -1.8
+              },
+              {
+                "year": 2023,
+                "value": 5.8
+              },
+              {
+                "year": 2024,
+                "value": 1.2
+              }
+            ]
+          },
+          "ELNINO_HIGH": {
+            "n": 1,
+            "mean": -6.2,
+            "median": -6.2,
+            "min": -6.2,
+            "max": -6.2,
+            "values": [
+              -6.2
+            ],
+            "years": [
+              {
+                "year": 2019,
+                "value": -6.2
+              }
+            ]
+          }
+        },
+        "outlook_2026": {
+          "weighted_mean": 1.92,
+          "weighted_range": [
+            -8.3,
+            12.1
+          ],
+          "p_negative": 46.0,
+          "p_worse_than_minus5": 21.6,
+          "p_worse_than_minus10": 0,
+          "p_better_than_5": 38.2,
+          "p_better_than_10": 13.8,
+          "total_analog_n": 21,
+          "caveats": [
+            "Based on 21 analog years — small sample, interpret with caution",
+            "Past distributions are not guarantees of future outcomes",
+            "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+          ]
+        },
+        "weights_used": {
+          "LOW": 0.55,
+          "NORMAL": 0.4,
+          "HIGH": 0.05
+        }
+      },
+      "data_note": "Using auto sector index as proxy. Individual stock-level conditional returns require yfinance data pull."
+    },
+    {
+      "ticker": "HINDUNILVR.NS",
+      "name": "Hindustan Unilever",
+      "sector": "FMCG",
+      "monsoon_link": "~35% revenue from rural India. Drought → volume decline in sachets and personal care.",
+      "analysis": {
+        "variable": "Hindustan Unilever",
+        "by_rainfall_bucket": {
+          "LOW": {
+            "n": 4,
+            "mean": 3.58,
+            "median": 3.4,
+            "min": 2.1,
+            "max": 5.4,
+            "values": [
+              2.1,
+              3.7,
+              3.1,
+              5.4
+            ],
+            "std": 1.38,
+            "years": [
+              {
+                "year": 2004,
+                "value": 2.1
+              },
+              {
+                "year": 2009,
+                "value": 3.7
+              },
+              {
+                "year": 2014,
+                "value": 3.1
+              },
+              {
+                "year": 2015,
+                "value": 5.4
+              }
+            ]
+          },
+          "NORMAL": {
+            "n": 15,
+            "mean": 3.11,
+            "median": 3.2,
+            "min": -5.8,
+            "max": 12.4,
+            "values": [
+              -1.4,
+              3.2,
+              -5.8,
+              12.4,
+              -4.2,
+              8.1,
+              6.3,
+              4.2,
+              1.8,
+              8.2,
+              9.1,
+              -3.4,
+              8.7,
+              1.2,
+              -1.8
+            ],
+            "std": 5.61,
+            "years": [
+              {
+                "year": 2005,
+                "value": -1.4
+              },
+              {
+                "year": 2006,
+                "value": 3.2
+              },
+              {
+                "year": 2007,
+                "value": -5.8
+              },
+              {
+                "year": 2008,
+                "value": 12.4
+              },
+              {
+                "year": 2010,
+                "value": -4.2
+              },
+              {
+                "year": 2011,
+                "value": 8.1
+              },
+              {
+                "year": 2012,
+                "value": 6.3
+              },
+              {
+                "year": 2013,
+                "value": 4.2
+              },
+              {
+                "year": 2016,
+                "value": 1.8
+              },
+              {
+                "year": 2017,
+                "value": 8.2
+              },
+              {
+                "year": 2018,
+                "value": 9.1
+              },
+              {
+                "year": 2021,
+                "value": -3.4
+              },
+              {
+                "year": 2022,
+                "value": 8.7
+              },
+              {
+                "year": 2023,
+                "value": 1.2
+              },
+              {
+                "year": 2024,
+                "value": -1.8
+              }
+            ]
+          },
+          "HIGH": {
+            "n": 2,
+            "mean": 0.7,
+            "median": 0.7,
+            "min": -2.1,
+            "max": 3.5,
+            "values": [
+              3.5,
+              -2.1
+            ],
+            "std": 3.96,
+            "years": [
+              {
+                "year": 2019,
+                "value": 3.5
+              },
+              {
+                "year": 2020,
+                "value": -2.1
+              }
+            ]
+          }
+        },
+        "by_elnino_bucket": {
+          "ELNINO_LOW": {
+            "n": 3,
+            "mean": 3.73,
+            "median": 3.7,
+            "min": 2.1,
+            "max": 5.4,
+            "values": [
+              2.1,
+              3.7,
+              5.4
+            ],
+            "std": 1.65,
+            "years": [
+              {
+                "year": 2004,
+                "value": 2.1
+              },
+              {
+                "year": 2009,
+                "value": 3.7
+              },
+              {
+                "year": 2015,
+                "value": 5.4
+              }
+            ]
+          },
+          "ELNINO_NORMAL": {
+            "n": 3,
+            "mean": 0.87,
+            "median": 1.2,
+            "min": -1.8,
+            "max": 3.2,
+            "values": [
+              3.2,
+              1.2,
+              -1.8
+            ],
+            "std": 2.52,
+            "years": [
+              {
+                "year": 2006,
+                "value": 3.2
+              },
+              {
+                "year": 2023,
+                "value": 1.2
+              },
+              {
+                "year": 2024,
+                "value": -1.8
+              }
+            ]
+          },
+          "ELNINO_HIGH": {
+            "n": 1,
+            "mean": 3.5,
+            "median": 3.5,
+            "min": 3.5,
+            "max": 3.5,
+            "values": [
+              3.5
+            ],
+            "years": [
+              {
+                "year": 2019,
+                "value": 3.5
+              }
+            ]
+          }
+        },
+        "outlook_2026": {
+          "weighted_mean": 3.25,
+          "weighted_range": [
+            -5.8,
+            12.4
+          ],
+          "p_negative": 15.8,
+          "p_worse_than_minus5": 2.7,
+          "p_worse_than_minus10": 0,
+          "p_better_than_5": 29.8,
+          "p_better_than_10": 2.7,
+          "total_analog_n": 21,
+          "caveats": [
+            "Based on 21 analog years — small sample, interpret with caution",
+            "Past distributions are not guarantees of future outcomes",
+            "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+          ]
+        },
+        "weights_used": {
+          "LOW": 0.55,
+          "NORMAL": 0.4,
+          "HIGH": 0.05
+        }
+      },
+      "data_note": "Using fmcg sector index as proxy. Individual stock-level conditional returns require yfinance data pull."
+    },
+    {
+      "ticker": "TITAN.NS",
+      "name": "Titan Company",
+      "sector": "Consumer/Jewellery",
+      "monsoon_link": "Gold demand is rural-linked (40% of India's gold buying is rural/semi-urban). Drought → deferred purchases.",
+      "analysis": {
+        "variable": "Titan Company",
+        "by_rainfall_bucket": {
+          "LOW": {
+            "n": 4,
+            "mean": 3.58,
+            "median": 3.4,
+            "min": 2.1,
+            "max": 5.4,
+            "values": [
+              2.1,
+              3.7,
+              3.1,
+              5.4
+            ],
+            "std": 1.38,
+            "years": [
+              {
+                "year": 2004,
+                "value": 2.1
+              },
+              {
+                "year": 2009,
+                "value": 3.7
+              },
+              {
+                "year": 2014,
+                "value": 3.1
+              },
+              {
+                "year": 2015,
+                "value": 5.4
+              }
+            ]
+          },
+          "NORMAL": {
+            "n": 15,
+            "mean": 3.11,
+            "median": 3.2,
+            "min": -5.8,
+            "max": 12.4,
+            "values": [
+              -1.4,
+              3.2,
+              -5.8,
+              12.4,
+              -4.2,
+              8.1,
+              6.3,
+              4.2,
+              1.8,
+              8.2,
+              9.1,
+              -3.4,
+              8.7,
+              1.2,
+              -1.8
+            ],
+            "std": 5.61,
+            "years": [
+              {
+                "year": 2005,
+                "value": -1.4
+              },
+              {
+                "year": 2006,
+                "value": 3.2
+              },
+              {
+                "year": 2007,
+                "value": -5.8
+              },
+              {
+                "year": 2008,
+                "value": 12.4
+              },
+              {
+                "year": 2010,
+                "value": -4.2
+              },
+              {
+                "year": 2011,
+                "value": 8.1
+              },
+              {
+                "year": 2012,
+                "value": 6.3
+              },
+              {
+                "year": 2013,
+                "value": 4.2
+              },
+              {
+                "year": 2016,
+                "value": 1.8
+              },
+              {
+                "year": 2017,
+                "value": 8.2
+              },
+              {
+                "year": 2018,
+                "value": 9.1
+              },
+              {
+                "year": 2021,
+                "value": -3.4
+              },
+              {
+                "year": 2022,
+                "value": 8.7
+              },
+              {
+                "year": 2023,
+                "value": 1.2
+              },
+              {
+                "year": 2024,
+                "value": -1.8
+              }
+            ]
+          },
+          "HIGH": {
+            "n": 2,
+            "mean": 0.7,
+            "median": 0.7,
+            "min": -2.1,
+            "max": 3.5,
+            "values": [
+              3.5,
+              -2.1
+            ],
+            "std": 3.96,
+            "years": [
+              {
+                "year": 2019,
+                "value": 3.5
+              },
+              {
+                "year": 2020,
+                "value": -2.1
+              }
+            ]
+          }
+        },
+        "by_elnino_bucket": {
+          "ELNINO_LOW": {
+            "n": 3,
+            "mean": 3.73,
+            "median": 3.7,
+            "min": 2.1,
+            "max": 5.4,
+            "values": [
+              2.1,
+              3.7,
+              5.4
+            ],
+            "std": 1.65,
+            "years": [
+              {
+                "year": 2004,
+                "value": 2.1
+              },
+              {
+                "year": 2009,
+                "value": 3.7
+              },
+              {
+                "year": 2015,
+                "value": 5.4
+              }
+            ]
+          },
+          "ELNINO_NORMAL": {
+            "n": 3,
+            "mean": 0.87,
+            "median": 1.2,
+            "min": -1.8,
+            "max": 3.2,
+            "values": [
+              3.2,
+              1.2,
+              -1.8
+            ],
+            "std": 2.52,
+            "years": [
+              {
+                "year": 2006,
+                "value": 3.2
+              },
+              {
+                "year": 2023,
+                "value": 1.2
+              },
+              {
+                "year": 2024,
+                "value": -1.8
+              }
+            ]
+          },
+          "ELNINO_HIGH": {
+            "n": 1,
+            "mean": 3.5,
+            "median": 3.5,
+            "min": 3.5,
+            "max": 3.5,
+            "values": [
+              3.5
+            ],
+            "years": [
+              {
+                "year": 2019,
+                "value": 3.5
+              }
+            ]
+          }
+        },
+        "outlook_2026": {
+          "weighted_mean": 3.25,
+          "weighted_range": [
+            -5.8,
+            12.4
+          ],
+          "p_negative": 15.8,
+          "p_worse_than_minus5": 2.7,
+          "p_worse_than_minus10": 0,
+          "p_better_than_5": 29.8,
+          "p_better_than_10": 2.7,
+          "total_analog_n": 21,
+          "caveats": [
+            "Based on 21 analog years — small sample, interpret with caution",
+            "Past distributions are not guarantees of future outcomes",
+            "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+          ]
+        },
+        "weights_used": {
+          "LOW": 0.55,
+          "NORMAL": 0.4,
+          "HIGH": 0.05
+        }
+      },
+      "data_note": "Using fmcg sector index as proxy. Individual stock-level conditional returns require yfinance data pull."
+    },
+    {
+      "ticker": "DABUR.NS",
+      "name": "Dabur India",
+      "sector": "FMCG",
+      "monsoon_link": "~45% rural revenue — highest among large FMCGs. Direct hit from farm income decline.",
+      "analysis": {
+        "variable": "Dabur India",
+        "by_rainfall_bucket": {
+          "LOW": {
+            "n": 4,
+            "mean": 3.58,
+            "median": 3.4,
+            "min": 2.1,
+            "max": 5.4,
+            "values": [
+              2.1,
+              3.7,
+              3.1,
+              5.4
+            ],
+            "std": 1.38,
+            "years": [
+              {
+                "year": 2004,
+                "value": 2.1
+              },
+              {
+                "year": 2009,
+                "value": 3.7
+              },
+              {
+                "year": 2014,
+                "value": 3.1
+              },
+              {
+                "year": 2015,
+                "value": 5.4
+              }
+            ]
+          },
+          "NORMAL": {
+            "n": 15,
+            "mean": 3.11,
+            "median": 3.2,
+            "min": -5.8,
+            "max": 12.4,
+            "values": [
+              -1.4,
+              3.2,
+              -5.8,
+              12.4,
+              -4.2,
+              8.1,
+              6.3,
+              4.2,
+              1.8,
+              8.2,
+              9.1,
+              -3.4,
+              8.7,
+              1.2,
+              -1.8
+            ],
+            "std": 5.61,
+            "years": [
+              {
+                "year": 2005,
+                "value": -1.4
+              },
+              {
+                "year": 2006,
+                "value": 3.2
+              },
+              {
+                "year": 2007,
+                "value": -5.8
+              },
+              {
+                "year": 2008,
+                "value": 12.4
+              },
+              {
+                "year": 2010,
+                "value": -4.2
+              },
+              {
+                "year": 2011,
+                "value": 8.1
+              },
+              {
+                "year": 2012,
+                "value": 6.3
+              },
+              {
+                "year": 2013,
+                "value": 4.2
+              },
+              {
+                "year": 2016,
+                "value": 1.8
+              },
+              {
+                "year": 2017,
+                "value": 8.2
+              },
+              {
+                "year": 2018,
+                "value": 9.1
+              },
+              {
+                "year": 2021,
+                "value": -3.4
+              },
+              {
+                "year": 2022,
+                "value": 8.7
+              },
+              {
+                "year": 2023,
+                "value": 1.2
+              },
+              {
+                "year": 2024,
+                "value": -1.8
+              }
+            ]
+          },
+          "HIGH": {
+            "n": 2,
+            "mean": 0.7,
+            "median": 0.7,
+            "min": -2.1,
+            "max": 3.5,
+            "values": [
+              3.5,
+              -2.1
+            ],
+            "std": 3.96,
+            "years": [
+              {
+                "year": 2019,
+                "value": 3.5
+              },
+              {
+                "year": 2020,
+                "value": -2.1
+              }
+            ]
+          }
+        },
+        "by_elnino_bucket": {
+          "ELNINO_LOW": {
+            "n": 3,
+            "mean": 3.73,
+            "median": 3.7,
+            "min": 2.1,
+            "max": 5.4,
+            "values": [
+              2.1,
+              3.7,
+              5.4
+            ],
+            "std": 1.65,
+            "years": [
+              {
+                "year": 2004,
+                "value": 2.1
+              },
+              {
+                "year": 2009,
+                "value": 3.7
+              },
+              {
+                "year": 2015,
+                "value": 5.4
+              }
+            ]
+          },
+          "ELNINO_NORMAL": {
+            "n": 3,
+            "mean": 0.87,
+            "median": 1.2,
+            "min": -1.8,
+            "max": 3.2,
+            "values": [
+              3.2,
+              1.2,
+              -1.8
+            ],
+            "std": 2.52,
+            "years": [
+              {
+                "year": 2006,
+                "value": 3.2
+              },
+              {
+                "year": 2023,
+                "value": 1.2
+              },
+              {
+                "year": 2024,
+                "value": -1.8
+              }
+            ]
+          },
+          "ELNINO_HIGH": {
+            "n": 1,
+            "mean": 3.5,
+            "median": 3.5,
+            "min": 3.5,
+            "max": 3.5,
+            "values": [
+              3.5
+            ],
+            "years": [
+              {
+                "year": 2019,
+                "value": 3.5
+              }
+            ]
+          }
+        },
+        "outlook_2026": {
+          "weighted_mean": 3.25,
+          "weighted_range": [
+            -5.8,
+            12.4
+          ],
+          "p_negative": 15.8,
+          "p_worse_than_minus5": 2.7,
+          "p_worse_than_minus10": 0,
+          "p_better_than_5": 29.8,
+          "p_better_than_10": 2.7,
+          "total_analog_n": 21,
+          "caveats": [
+            "Based on 21 analog years — small sample, interpret with caution",
+            "Past distributions are not guarantees of future outcomes",
+            "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+          ]
+        },
+        "weights_used": {
+          "LOW": 0.55,
+          "NORMAL": 0.4,
+          "HIGH": 0.05
+        }
+      },
+      "data_note": "Using fmcg sector index as proxy. Individual stock-level conditional returns require yfinance data pull."
+    },
+    {
+      "ticker": "ESCORTS.NS",
+      "name": "Escorts Kubota",
+      "sector": "Tractors",
+      "monsoon_link": "Pure-play tractor/farm equipment. Revenue almost entirely monsoon-dependent.",
+      "analysis": {
+        "variable": "Escorts Kubota",
+        "by_rainfall_bucket": {
+          "LOW": {
+            "n": 4,
+            "mean": 2.85,
+            "median": 2.5,
+            "min": -5.7,
+            "max": 12.1,
+            "values": [
+              -3.2,
+              12.1,
+              8.2,
+              -5.7
+            ],
+            "std": 8.64,
+            "years": [
+              {
+                "year": 2004,
+                "value": -3.2
+              },
+              {
+                "year": 2009,
+                "value": 12.1
+              },
+              {
+                "year": 2014,
+                "value": 8.2
+              },
+              {
+                "year": 2015,
+                "value": -5.7
+              }
+            ]
+          },
+          "NORMAL": {
+            "n": 15,
+            "mean": 1.02,
+            "median": 2.8,
+            "min": -8.3,
+            "max": 7.3,
+            "values": [
+              4.1,
+              -1.8,
+              6.5,
+              -4.2,
+              5.3,
+              -6.1,
+              2.8,
+              -3.5,
+              3.4,
+              4.9,
+              -8.3,
+              7.3,
+              -2.1,
+              5.8,
+              1.2
+            ],
+            "std": 4.98,
+            "years": [
+              {
+                "year": 2005,
+                "value": 4.1
+              },
+              {
+                "year": 2006,
+                "value": -1.8
+              },
+              {
+                "year": 2007,
+                "value": 6.5
+              },
+              {
+                "year": 2008,
+                "value": -4.2
+              },
+              {
+                "year": 2010,
+                "value": 5.3
+              },
+              {
+                "year": 2011,
+                "value": -6.1
+              },
+              {
+                "year": 2012,
+                "value": 2.8
+              },
+              {
+                "year": 2013,
+                "value": -3.5
+              },
+              {
+                "year": 2016,
+                "value": 3.4
+              },
+              {
+                "year": 2017,
+                "value": 4.9
+              },
+              {
+                "year": 2018,
+                "value": -8.3
+              },
+              {
+                "year": 2021,
+                "value": 7.3
+              },
+              {
+                "year": 2022,
+                "value": -2.1
+              },
+              {
+                "year": 2023,
+                "value": 5.8
+              },
+              {
+                "year": 2024,
+                "value": 1.2
+              }
+            ]
+          },
+          "HIGH": {
+            "n": 2,
+            "mean": -1.05,
+            "median": -1.05,
+            "min": -6.2,
+            "max": 4.1,
+            "values": [
+              -6.2,
+              4.1
+            ],
+            "std": 7.28,
+            "years": [
+              {
+                "year": 2019,
+                "value": -6.2
+              },
+              {
+                "year": 2020,
+                "value": 4.1
+              }
+            ]
+          }
+        },
+        "by_elnino_bucket": {
+          "ELNINO_LOW": {
+            "n": 3,
+            "mean": 1.07,
+            "median": -3.2,
+            "min": -5.7,
+            "max": 12.1,
+            "values": [
+              -3.2,
+              12.1,
+              -5.7
+            ],
+            "std": 9.64,
+            "years": [
+              {
+                "year": 2004,
+                "value": -3.2
+              },
+              {
+                "year": 2009,
+                "value": 12.1
+              },
+              {
+                "year": 2015,
+                "value": -5.7
+              }
+            ]
+          },
+          "ELNINO_NORMAL": {
+            "n": 3,
+            "mean": 1.73,
+            "median": 1.2,
+            "min": -1.8,
+            "max": 5.8,
+            "values": [
+              -1.8,
+              5.8,
+              1.2
+            ],
+            "std": 3.83,
+            "years": [
+              {
+                "year": 2006,
+                "value": -1.8
+              },
+              {
+                "year": 2023,
+                "value": 5.8
+              },
+              {
+                "year": 2024,
+                "value": 1.2
+              }
+            ]
+          },
+          "ELNINO_HIGH": {
+            "n": 1,
+            "mean": -6.2,
+            "median": -6.2,
+            "min": -6.2,
+            "max": -6.2,
+            "values": [
+              -6.2
+            ],
+            "years": [
+              {
+                "year": 2019,
+                "value": -6.2
+              }
+            ]
+          }
+        },
+        "outlook_2026": {
+          "weighted_mean": 1.92,
+          "weighted_range": [
+            -8.3,
+            12.1
+          ],
+          "p_negative": 46.0,
+          "p_worse_than_minus5": 21.6,
+          "p_worse_than_minus10": 0,
+          "p_better_than_5": 38.2,
+          "p_better_than_10": 13.8,
+          "total_analog_n": 21,
+          "caveats": [
+            "Based on 21 analog years — small sample, interpret with caution",
+            "Past distributions are not guarantees of future outcomes",
+            "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+          ]
+        },
+        "weights_used": {
+          "LOW": 0.55,
+          "NORMAL": 0.4,
+          "HIGH": 0.05
+        }
+      },
+      "data_note": "Using auto sector index as proxy. Individual stock-level conditional returns require yfinance data pull."
+    },
+    {
+      "ticker": "PIIND.NS",
+      "name": "PI Industries",
+      "sector": "Agrochemicals",
+      "monsoon_link": "Crop protection + CSM. Domestic agrochem demand is acreage-dependent.",
+      "analysis": {
+        "variable": "PI Industries",
+        "by_rainfall_bucket": {
+          "LOW": {
+            "n": 4,
+            "mean": 2.85,
+            "median": 2.5,
+            "min": -5.7,
+            "max": 12.1,
+            "values": [
+              -3.2,
+              12.1,
+              8.2,
+              -5.7
+            ],
+            "std": 8.64,
+            "years": [
+              {
+                "year": 2004,
+                "value": -3.2
+              },
+              {
+                "year": 2009,
+                "value": 12.1
+              },
+              {
+                "year": 2014,
+                "value": 8.2
+              },
+              {
+                "year": 2015,
+                "value": -5.7
+              }
+            ]
+          },
+          "NORMAL": {
+            "n": 15,
+            "mean": 1.02,
+            "median": 2.8,
+            "min": -8.3,
+            "max": 7.3,
+            "values": [
+              4.1,
+              -1.8,
+              6.5,
+              -4.2,
+              5.3,
+              -6.1,
+              2.8,
+              -3.5,
+              3.4,
+              4.9,
+              -8.3,
+              7.3,
+              -2.1,
+              5.8,
+              1.2
+            ],
+            "std": 4.98,
+            "years": [
+              {
+                "year": 2005,
+                "value": 4.1
+              },
+              {
+                "year": 2006,
+                "value": -1.8
+              },
+              {
+                "year": 2007,
+                "value": 6.5
+              },
+              {
+                "year": 2008,
+                "value": -4.2
+              },
+              {
+                "year": 2010,
+                "value": 5.3
+              },
+              {
+                "year": 2011,
+                "value": -6.1
+              },
+              {
+                "year": 2012,
+                "value": 2.8
+              },
+              {
+                "year": 2013,
+                "value": -3.5
+              },
+              {
+                "year": 2016,
+                "value": 3.4
+              },
+              {
+                "year": 2017,
+                "value": 4.9
+              },
+              {
+                "year": 2018,
+                "value": -8.3
+              },
+              {
+                "year": 2021,
+                "value": 7.3
+              },
+              {
+                "year": 2022,
+                "value": -2.1
+              },
+              {
+                "year": 2023,
+                "value": 5.8
+              },
+              {
+                "year": 2024,
+                "value": 1.2
+              }
+            ]
+          },
+          "HIGH": {
+            "n": 2,
+            "mean": -1.05,
+            "median": -1.05,
+            "min": -6.2,
+            "max": 4.1,
+            "values": [
+              -6.2,
+              4.1
+            ],
+            "std": 7.28,
+            "years": [
+              {
+                "year": 2019,
+                "value": -6.2
+              },
+              {
+                "year": 2020,
+                "value": 4.1
+              }
+            ]
+          }
+        },
+        "by_elnino_bucket": {
+          "ELNINO_LOW": {
+            "n": 3,
+            "mean": 1.07,
+            "median": -3.2,
+            "min": -5.7,
+            "max": 12.1,
+            "values": [
+              -3.2,
+              12.1,
+              -5.7
+            ],
+            "std": 9.64,
+            "years": [
+              {
+                "year": 2004,
+                "value": -3.2
+              },
+              {
+                "year": 2009,
+                "value": 12.1
+              },
+              {
+                "year": 2015,
+                "value": -5.7
+              }
+            ]
+          },
+          "ELNINO_NORMAL": {
+            "n": 3,
+            "mean": 1.73,
+            "median": 1.2,
+            "min": -1.8,
+            "max": 5.8,
+            "values": [
+              -1.8,
+              5.8,
+              1.2
+            ],
+            "std": 3.83,
+            "years": [
+              {
+                "year": 2006,
+                "value": -1.8
+              },
+              {
+                "year": 2023,
+                "value": 5.8
+              },
+              {
+                "year": 2024,
+                "value": 1.2
+              }
+            ]
+          },
+          "ELNINO_HIGH": {
+            "n": 1,
+            "mean": -6.2,
+            "median": -6.2,
+            "min": -6.2,
+            "max": -6.2,
+            "values": [
+              -6.2
+            ],
+            "years": [
+              {
+                "year": 2019,
+                "value": -6.2
+              }
+            ]
+          }
+        },
+        "outlook_2026": {
+          "weighted_mean": 1.92,
+          "weighted_range": [
+            -8.3,
+            12.1
+          ],
+          "p_negative": 46.0,
+          "p_worse_than_minus5": 21.6,
+          "p_worse_than_minus10": 0,
+          "p_better_than_5": 38.2,
+          "p_better_than_10": 13.8,
+          "total_analog_n": 21,
+          "caveats": [
+            "Based on 21 analog years — small sample, interpret with caution",
+            "Past distributions are not guarantees of future outcomes",
+            "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+          ]
+        },
+        "weights_used": {
+          "LOW": 0.55,
+          "NORMAL": 0.4,
+          "HIGH": 0.05
+        }
+      },
+      "data_note": "Using auto sector index as proxy. Individual stock-level conditional returns require yfinance data pull."
+    },
+    {
+      "ticker": "BALRAMCHIN.NS",
+      "name": "Balrampur Chini",
+      "sector": "Sugar",
+      "monsoon_link": "Sugarcane crush depends on water. UP/Maharashtra drought → lower utilization.",
+      "analysis": {
+        "variable": "Balrampur Chini",
+        "by_rainfall_bucket": {
+          "LOW": {
+            "n": 4,
+            "mean": 3.58,
+            "median": 3.4,
+            "min": 2.1,
+            "max": 5.4,
+            "values": [
+              2.1,
+              3.7,
+              3.1,
+              5.4
+            ],
+            "std": 1.38,
+            "years": [
+              {
+                "year": 2004,
+                "value": 2.1
+              },
+              {
+                "year": 2009,
+                "value": 3.7
+              },
+              {
+                "year": 2014,
+                "value": 3.1
+              },
+              {
+                "year": 2015,
+                "value": 5.4
+              }
+            ]
+          },
+          "NORMAL": {
+            "n": 15,
+            "mean": 3.11,
+            "median": 3.2,
+            "min": -5.8,
+            "max": 12.4,
+            "values": [
+              -1.4,
+              3.2,
+              -5.8,
+              12.4,
+              -4.2,
+              8.1,
+              6.3,
+              4.2,
+              1.8,
+              8.2,
+              9.1,
+              -3.4,
+              8.7,
+              1.2,
+              -1.8
+            ],
+            "std": 5.61,
+            "years": [
+              {
+                "year": 2005,
+                "value": -1.4
+              },
+              {
+                "year": 2006,
+                "value": 3.2
+              },
+              {
+                "year": 2007,
+                "value": -5.8
+              },
+              {
+                "year": 2008,
+                "value": 12.4
+              },
+              {
+                "year": 2010,
+                "value": -4.2
+              },
+              {
+                "year": 2011,
+                "value": 8.1
+              },
+              {
+                "year": 2012,
+                "value": 6.3
+              },
+              {
+                "year": 2013,
+                "value": 4.2
+              },
+              {
+                "year": 2016,
+                "value": 1.8
+              },
+              {
+                "year": 2017,
+                "value": 8.2
+              },
+              {
+                "year": 2018,
+                "value": 9.1
+              },
+              {
+                "year": 2021,
+                "value": -3.4
+              },
+              {
+                "year": 2022,
+                "value": 8.7
+              },
+              {
+                "year": 2023,
+                "value": 1.2
+              },
+              {
+                "year": 2024,
+                "value": -1.8
+              }
+            ]
+          },
+          "HIGH": {
+            "n": 2,
+            "mean": 0.7,
+            "median": 0.7,
+            "min": -2.1,
+            "max": 3.5,
+            "values": [
+              3.5,
+              -2.1
+            ],
+            "std": 3.96,
+            "years": [
+              {
+                "year": 2019,
+                "value": 3.5
+              },
+              {
+                "year": 2020,
+                "value": -2.1
+              }
+            ]
+          }
+        },
+        "by_elnino_bucket": {
+          "ELNINO_LOW": {
+            "n": 3,
+            "mean": 3.73,
+            "median": 3.7,
+            "min": 2.1,
+            "max": 5.4,
+            "values": [
+              2.1,
+              3.7,
+              5.4
+            ],
+            "std": 1.65,
+            "years": [
+              {
+                "year": 2004,
+                "value": 2.1
+              },
+              {
+                "year": 2009,
+                "value": 3.7
+              },
+              {
+                "year": 2015,
+                "value": 5.4
+              }
+            ]
+          },
+          "ELNINO_NORMAL": {
+            "n": 3,
+            "mean": 0.87,
+            "median": 1.2,
+            "min": -1.8,
+            "max": 3.2,
+            "values": [
+              3.2,
+              1.2,
+              -1.8
+            ],
+            "std": 2.52,
+            "years": [
+              {
+                "year": 2006,
+                "value": 3.2
+              },
+              {
+                "year": 2023,
+                "value": 1.2
+              },
+              {
+                "year": 2024,
+                "value": -1.8
+              }
+            ]
+          },
+          "ELNINO_HIGH": {
+            "n": 1,
+            "mean": 3.5,
+            "median": 3.5,
+            "min": 3.5,
+            "max": 3.5,
+            "values": [
+              3.5
+            ],
+            "years": [
+              {
+                "year": 2019,
+                "value": 3.5
+              }
+            ]
+          }
+        },
+        "outlook_2026": {
+          "weighted_mean": 3.25,
+          "weighted_range": [
+            -5.8,
+            12.4
+          ],
+          "p_negative": 15.8,
+          "p_worse_than_minus5": 2.7,
+          "p_worse_than_minus10": 0,
+          "p_better_than_5": 29.8,
+          "p_better_than_10": 2.7,
+          "total_analog_n": 21,
+          "caveats": [
+            "Based on 21 analog years — small sample, interpret with caution",
+            "Past distributions are not guarantees of future outcomes",
+            "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+          ]
+        },
+        "weights_used": {
+          "LOW": 0.55,
+          "NORMAL": 0.4,
+          "HIGH": 0.05
+        }
+      },
+      "data_note": "Using fmcg sector index as proxy. Individual stock-level conditional returns require yfinance data pull."
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "sector": "Banking",
+      "monsoon_link": "Large agri loan book. Drought → agri NPA spike. But diversified enough to absorb.",
+      "analysis": {
+        "variable": "ICICI Bank",
+        "by_rainfall_bucket": {
+          "LOW": {
+            "n": 4,
+            "mean": 5.8,
+            "median": 4.9,
+            "min": -4.8,
+            "max": 18.2,
+            "values": [
+              -2.5,
+              18.2,
+              12.3,
+              -4.8
+            ],
+            "std": 11.21,
+            "years": [
+              {
+                "year": 2004,
+                "value": -2.5
+              },
+              {
+                "year": 2009,
+                "value": 18.2
+              },
+              {
+                "year": 2014,
+                "value": 12.3
+              },
+              {
+                "year": 2015,
+                "value": -4.8
+              }
+            ]
+          },
+          "NORMAL": {
+            "n": 15,
+            "mean": -0.31,
+            "median": 1.8,
+            "min": -8.4,
+            "max": 5.2,
+            "values": [
+              1.8,
+              -3.1,
+              -1.2,
+              -8.4,
+              3.1,
+              -5.7,
+              4.2,
+              -8.1,
+              5.2,
+              3.1,
+              -2.4,
+              2.8,
+              -1.4,
+              2.1,
+              3.4
+            ],
+            "std": 4.45,
+            "years": [
+              {
+                "year": 2005,
+                "value": 1.8
+              },
+              {
+                "year": 2006,
+                "value": -3.1
+              },
+              {
+                "year": 2007,
+                "value": -1.2
+              },
+              {
+                "year": 2008,
+                "value": -8.4
+              },
+              {
+                "year": 2010,
+                "value": 3.1
+              },
+              {
+                "year": 2011,
+                "value": -5.7
+              },
+              {
+                "year": 2012,
+                "value": 4.2
+              },
+              {
+                "year": 2013,
+                "value": -8.1
+              },
+              {
+                "year": 2016,
+                "value": 5.2
+              },
+              {
+                "year": 2017,
+                "value": 3.1
+              },
+              {
+                "year": 2018,
+                "value": -2.4
+              },
+              {
+                "year": 2021,
+                "value": 2.8
+              },
+              {
+                "year": 2022,
+                "value": -1.4
+              },
+              {
+                "year": 2023,
+                "value": 2.1
+              },
+              {
+                "year": 2024,
+                "value": 3.4
+              }
+            ]
+          },
+          "HIGH": {
+            "n": 2,
+            "mean": -5.7,
+            "median": -5.7,
+            "min": -6.3,
+            "max": -5.1,
+            "values": [
+              -5.1,
+              -6.3
+            ],
+            "std": 0.85,
+            "years": [
+              {
+                "year": 2019,
+                "value": -5.1
+              },
+              {
+                "year": 2020,
+                "value": -6.3
+              }
+            ]
+          }
+        },
+        "by_elnino_bucket": {
+          "ELNINO_LOW": {
+            "n": 3,
+            "mean": 3.63,
+            "median": -2.5,
+            "min": -4.8,
+            "max": 18.2,
+            "values": [
+              -2.5,
+              18.2,
+              -4.8
+            ],
+            "std": 12.67,
+            "years": [
+              {
+                "year": 2004,
+                "value": -2.5
+              },
+              {
+                "year": 2009,
+                "value": 18.2
+              },
+              {
+                "year": 2015,
+                "value": -4.8
+              }
+            ]
+          },
+          "ELNINO_NORMAL": {
+            "n": 3,
+            "mean": 0.8,
+            "median": 2.1,
+            "min": -3.1,
+            "max": 3.4,
+            "values": [
+              -3.1,
+              2.1,
+              3.4
+            ],
+            "std": 3.44,
+            "years": [
+              {
+                "year": 2006,
+                "value": -3.1
+              },
+              {
+                "year": 2023,
+                "value": 2.1
+              },
+              {
+                "year": 2024,
+                "value": 3.4
+              }
+            ]
+          },
+          "ELNINO_HIGH": {
+            "n": 1,
+            "mean": -5.1,
+            "median": -5.1,
+            "min": -5.1,
+            "max": -5.1,
+            "values": [
+              -5.1
+            ],
+            "years": [
+              {
+                "year": 2019,
+                "value": -5.1
+              }
+            ]
+          }
+        },
+        "outlook_2026": {
+          "weighted_mean": 2.78,
+          "weighted_range": [
+            -8.4,
+            18.2
+          ],
+          "p_negative": 51.2,
+          "p_worse_than_minus5": 13.0,
+          "p_worse_than_minus10": 0,
+          "p_better_than_5": 30.2,
+          "p_better_than_10": 27.5,
+          "total_analog_n": 21,
+          "caveats": [
+            "Based on 21 analog years — small sample, interpret with caution",
+            "Past distributions are not guarantees of future outcomes",
+            "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+          ]
+        },
+        "weights_used": {
+          "LOW": 0.55,
+          "NORMAL": 0.4,
+          "HIGH": 0.05
+        }
+      },
+      "data_note": "Using bank sector index as proxy. Individual stock-level conditional returns require yfinance data pull."
+    }
+  ],
+  "disclaimers": [
+    "This is personal research, NOT investment advice.",
+    "All figures are conditional distributions from historical analogs — past performance does not predict future results.",
+    "Sample sizes are small (n=8 for El Nino drought years). Interpret with extreme caution.",
+    "Individual stock analysis uses sector proxy data, not actual stock-level returns.",
+    "The 2026 probability weights are model estimates that will shift as the season progresses."
+  ]
+}

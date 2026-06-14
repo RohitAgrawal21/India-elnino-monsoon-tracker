@@ -67,6 +67,29 @@ body {
 }
 .share-btn:hover { border-color: #4ecdc4; color: #4ecdc4; }
 
+/* Tab Navigation */
+.tab-nav {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+.tab-nav a {
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+.tab-nav a:hover { color: #ddd; border-color: #2a2a3a; background: #1a1a28; }
+.tab-nav a.active { color: #4ecdc4; border-color: #4ecdc444; background: #4ecdc410; }
+
 /* Comparison Table */
 .comparison-table {
   width: 100%;
@@ -648,6 +671,12 @@ canvas { width: 100% !important; height: 200px !important; }
       <a class="share-btn" href="https://wa.me/?text=India%20El%20Nino%20Monsoon%20Tracker%202026%20%E2%80%94%20https%3A%2F%2Frohitagrawal21.github.io%2FIndia-elnino-monsoon-tracker%2F" target="_blank" rel="noopener">&#128172; WhatsApp</a>
     </div>
   </div>
+  <nav class="tab-nav">
+    <a href="index.html" class="active">Weather</a>
+    <a href="macro.html">Macro</a>
+    <a href="industry.html">Industry</a>
+    <a href="stocks.html">Stocks</a>
+  </nav>
   <div class="disclaimer-banner">
     <strong>&#9888; Not an official forecast.</strong> This is an independent data dashboard, not affiliated with IMD or any government agency. For official monsoon forecasts, see <a href="https://mausam.imd.gov.in/" target="_blank" rel="noopener">IMD (mausam.imd.gov.in)</a>. &bull; <a href="about.html">About &amp; Methodology</a>
   </div>

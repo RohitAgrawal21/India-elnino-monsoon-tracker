@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Impact — India El Nino Monsoon Tracker</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px 16px; }
+.header { text-align: center; padding: 20px 0 10px; }
+.header h1 { font-size: 1.6rem; font-weight: 900; background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.tab-nav { display: flex; justify-content: center; gap: 4px; margin: 16px 0; flex-wrap: wrap; }
+.tab-nav a { padding: 8px 16px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #888; text-decoration: none; border-radius: 6px; border: 1px solid transparent; transition: all 0.2s; }
+.tab-nav a:hover { color: #ddd; border-color: #2a2a3a; background: #1a1a28; }
+.tab-nav a.active { color: #4ecdc4; border-color: #4ecdc444; background: #4ecdc410; }
+.disclaimer { background: #1a1a28; border: 1px solid #ff6b6b33; border-radius: 8px; padding: 10px 16px; margin-bottom: 20px; font-size: 0.72rem; color: #bbb; text-align: center; }
+.disclaimer strong { color: #ff6b6b; }
+.scenario-bar { background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid #2a2a4a; border-radius: 12px; padding: 18px 22px; margin-bottom: 24px; }
+.scenario-bar h2 { font-size: 0.9rem; font-weight: 800; color: #ffd93d; margin-bottom: 8px; }
+.scenario-weights { display: flex; gap: 12px; flex-wrap: wrap; margin: 10px 0; }
+.weight-chip { padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; }
+.weight-low { background: #ff6b6b22; color: #ff6b6b; border: 1px solid #ff6b6b44; }
+.weight-normal { background: #ffd93d22; color: #ffd93d; border: 1px solid #ffd93d44; }
+.weight-high { background: #6bcb7722; color: #6bcb77; border: 1px solid #6bcb7744; }
+.ranking-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; margin: 16px 0; }
+.ranking-table th { background: #0e0e16; color: #888; font-weight: 600; padding: 10px 12px; text-align: left; border-bottom: 1px solid #2a2a3a; }
+.ranking-table td { padding: 10px 12px; border-bottom: 1px solid #1a1a28; color: #bbb; }
+.ranking-table tr:hover td { background: #14141e; }
+.val-red { color: #ff6b6b; }
+.val-green { color: #6bcb77; }
+.val-amber { color: #ffa502; }
+.val-blue { color: #4ecdc4; }
+.card { background: #12121a; border: 1px solid #1e1e2e; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+.card h3 { font-size: 0.85rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.card .mechanism { font-size: 0.75rem; color: #999; margin-bottom: 12px; font-style: italic; border-left: 2px solid #333; padding-left: 10px; }
+.outlook-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+.outlook-stat { background: #0e0e16; border: 1px solid #1e1e30; border-radius: 8px; padding: 10px 14px; flex: 1; min-width: 130px; }
+.outlook-stat .label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 4px; }
+.outlook-stat .value { font-size: 1.3rem; font-weight: 800; }
+.outlook-stat .sub { font-size: 0.65rem; color: #666; margin-top: 2px; }
+.dist-table { width: 100%; border-collapse: collapse; font-size: 0.72rem; margin: 12px 0; }
+.dist-table th { background: #0e0e16; color: #888; font-weight: 600; padding: 7px 10px; text-align: left; border-bottom: 1px solid #1e1e2e; }
+.dist-table td { padding: 6px 10px; border-bottom: 1px solid #1a1a28; color: #bbb; }
+.caveat { font-size: 0.68rem; color: #666; font-style: italic; margin-top: 8px; border-left: 2px solid #333; padding-left: 10px; }
+.section-title { font-size: 1rem; font-weight: 800; color: #ffd93d; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #1e1e2e; }
+.footer { border-top: 1px solid #1a1a28; padding: 20px 0; margin-top: 30px; font-size: 0.68rem; color: #555; text-align: center; }
+.footer a { color: #4ecdc4; text-decoration: none; }
+@media (max-width: 600px) {
+  .container { padding: 12px 10px; }
+  .outlook-row { flex-direction: column; }
+  .outlook-stat { min-width: unset; }
+  .ranking-table { font-size: 0.7rem; }
+  .ranking-table th, .ranking-table td { padding: 7px 8px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header"><h1>India El Nino Monsoon Tracker</h1></div>
+  <nav class="tab-nav">
+    <a href="index.html">Weather</a>
+    <a href="macro.html">Macro</a>
+    <a href="industry.html" class="active">Industry</a>
+    <a href="stocks.html">Stocks</a>
+  </nav>
+  <div class="disclaimer"><strong>&#9888; Not investment advice.</strong> Sector excess returns are historical patterns from small samples. Past sector behavior during monsoon does not predict future returns. This is research only.</div>
+  <div id="app">Loading sector analysis...</div>
+</div>
+<script>
+async function loadData() {
+  try {
+    const [analysis, latest] = await Promise.all([
+      fetch('analysis.json').then(r => r.json()),
+      fetch('latest.json').then(r => r.json())
+    ]);
+    render(analysis, latest);
+  } catch(e) {
+    document.getElementById('app').innerHTML = '<p style="color:#ff6b6b">Could not load data: ' + e.message + '</p>';
+  }
+}
+
+function render(a, latest) {
+  let html = '';
+  const w = a.rainfall_weights_2026;
+  const sectors = a.sectors;
+
+  // Scenario bar
+  html += '<div class="scenario-bar">';
+  html += '<h2>Sector Analysis — Conditional on 2026 Rainfall Outcome</h2>';
+  html += '<div style="font-size:0.75rem;color:#aaa">Excess return = Sector return minus Nifty50 return. Measures RELATIVE performance, not absolute.</div>';
+  html += '<div class="scenario-weights">';
+  html += '<span class="weight-chip weight-low">P(Drought): ' + Math.round(w.LOW * 100) + '%</span>';
+  html += '<span class="weight-chip weight-normal">P(Normal): ' + Math.round(w.NORMAL * 100) + '%</span>';
+  html += '<span class="weight-chip weight-high">P(Excess): ' + Math.round(w.HIGH * 100) + '%</span>';
+  html += '</div></div>';
+
+  // Rankings table
+  html += '<h2 class="section-title">Sector Rankings: Monsoon Window (Jun–Sep)</h2>';
+  html += '<div style="font-size:0.72rem;color:#888;margin-bottom:12px">Ranked by probability-weighted expected excess return vs Nifty50. Negative = headwind, Positive = tailwind.</div>';
+  html += '<table class="ranking-table">';
+  html += '<thead><tr><th>#</th><th>Sector</th><th>Expected Excess</th><th>P(Negative)</th><th>Range</th><th>Verdict</th></tr></thead><tbody>';
+
+  sectors.rankings.forEach(function(r, i) {
+    var exColor = r.weighted_mean_excess < -2 ? 'val-red' : r.weighted_mean_excess > 2 ? 'val-green' : 'val-amber';
+    var verdict = r.weighted_mean_excess < -3 ? 'HEADWIND' : r.weighted_mean_excess > 3 ? 'TAILWIND' : 'NEUTRAL';
+    var verdictColor = verdict === 'HEADWIND' ? 'val-red' : verdict === 'TAILWIND' ? 'val-green' : 'val-amber';
+    html += '<tr>';
+    html += '<td>' + (i + 1) + '</td>';
+    html += '<td><strong>' + r.sector + '</strong></td>';
+    html += '<td class="' + exColor + '"><strong>' + (r.weighted_mean_excess > 0 ? '+' : '') + r.weighted_mean_excess.toFixed(1) + '%</strong></td>';
+    html += '<td>' + r.p_negative + '%</td>';
+    html += '<td>' + r.range[0].toFixed(1) + '% to ' + (r.range[1] > 0 ? '+' : '') + r.range[1].toFixed(1) + '%</td>';
+    html += '<td class="' + verdictColor + '"><strong>' + verdict + '</strong></td>';
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  html += '<div class="caveat">⚠ Rankings based on n=12-21 years of data. Sector indices have composition changes over time. "HEADWIND/TAILWIND" = historical tendency only.</div>';
+
+  // Individual sector cards
+  html += '<h2 class="section-title">Sector Detail</h2>';
+
+  var sectorOrder = sectors.rankings.map(function(r) { return r.key; });
+  sectorOrder.forEach(function(key) {
+    var s = sectors.sectors[key];
+    if (!s) return;
+    var mw = s.monsoon_window;
+    if (!mw || !mw.outlook_2026) return;
+    var o = mw.outlook_2026;
+    var dist = mw.by_rainfall_bucket;
+
+    html += '<div class="card">';
+    html += '<h3>' + s.name + '</h3>';
+    html += '<div class="mechanism">' + s.mechanism + '</div>';
+
+    html += '<div class="outlook-row">';
+    var mc = o.weighted_mean < -2 ? 'val-red' : o.weighted_mean > 2 ? 'val-green' : 'val-amber';
+    html += '<div class="outlook-stat"><div class="label">Expected Excess (Jun-Sep)</div><div class="value ' + mc + '">' + (o.weighted_mean > 0 ? '+' : '') + o.weighted_mean + '%</div><div class="sub">vs Nifty50</div></div>';
+    html += '<div class="outlook-stat"><div class="label">P(Underperform Nifty)</div><div class="value val-red">' + o.p_negative + '%</div><div class="sub">Historical probability</div></div>';
+    html += '<div class="outlook-stat"><div class="label">Range</div><div class="value val-blue">' + o.weighted_range[0] + ' to ' + (o.weighted_range[1] > 0 ? '+' : '') + o.weighted_range[1] + '%</div><div class="sub">Full analog range</div></div>';
+    html += '</div>';
+
+    // Distribution by bucket
+    html += '<table class="dist-table">';
+    html += '<thead><tr><th>Bucket</th><th>Mean</th><th>Median</th><th>Min</th><th>Max</th><th>n</th></tr></thead><tbody>';
+    ['LOW', 'NORMAL', 'HIGH'].forEach(function(bucket) {
+      if (dist[bucket]) {
+        var d = dist[bucket];
+        html += '<tr><td>' + bucket + '</td><td>' + (d.mean > 0 ? '+' : '') + d.mean + '%</td><td>' + (d.median > 0 ? '+' : '') + d.median + '%</td><td>' + d.min + '%</td><td>' + (d.max > 0 ? '+' : '') + d.max + '%</td><td>' + d.n + '</td></tr>';
+      }
+    });
+    html += '</tbody></table>';
+
+    // Post-monsoon if available
+    if (s.post_monsoon && s.post_monsoon.outlook_2026) {
+      var po = s.post_monsoon.outlook_2026;
+      html += '<div style="font-size:0.72rem;color:#888;margin-top:8px"><strong>Post-monsoon (Oct-Mar):</strong> Expected excess ' + (po.weighted_mean > 0 ? '+' : '') + po.weighted_mean + '%, P(negative) ' + po.p_negative + '% — ' + (po.weighted_mean > 0 ? 'recovery tendency' : 'continued pressure') + '</div>';
+    }
+    html += '</div>';
+  });
+
+  // Thematic baskets
+  html += '<h2 class="section-title">Thematic Baskets (No Clean Index)</h2>';
+  html += '<div style="font-size:0.72rem;color:#888;margin-bottom:12px">Equally-weighted stock baskets for monsoon-sensitive sub-sectors without an NSE sector index.</div>';
+
+  for (var tKey in a.thematic) {
+    var t = a.thematic[tKey];
+    if (!t || !t.outlook_2026) continue;
+    var to = t.outlook_2026;
+
+    html += '<div class="card">';
+    html += '<h3>' + t.variable + '</h3>';
+    html += '<div class="mechanism">' + t.mechanism + '</div>';
+    html += '<div class="outlook-row">';
+    var tc = to.weighted_mean < -2 ? 'val-red' : to.weighted_mean > 2 ? 'val-green' : 'val-amber';
+    html += '<div class="outlook-stat"><div class="label">Expected Excess</div><div class="value ' + tc + '">' + (to.weighted_mean > 0 ? '+' : '') + to.weighted_mean + '%</div></div>';
+    html += '<div class="outlook-stat"><div class="label">P(Negative)</div><div class="value val-red">' + to.p_negative + '%</div></div>';
+    html += '<div class="outlook-stat"><div class="label">Range</div><div class="value val-blue">' + to.weighted_range[0] + ' to ' + (to.weighted_range[1] > 0 ? '+' : '') + to.weighted_range[1] + '%</div></div>';
+    html += '</div>';
+    html += '<div style="font-size:0.65rem;color:#555;margin-top:6px">Stocks: ' + t.stocks.join(', ') + '</div>';
+    html += '</div>';
+  }
+
+  html += '<div class="footer">Generated: ' + new Date(a.generated_at).toLocaleString('en-IN') + ' | <a href="about.html">Methodology</a> | <a href="index.html">← Weather Dashboard</a></div>';
+  document.getElementById('app').innerHTML = html;
+}
+
+loadData();
+</script>
+</body>
+</html>
