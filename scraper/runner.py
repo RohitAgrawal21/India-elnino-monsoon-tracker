@@ -28,6 +28,67 @@ SCRAPERS = [
     ("pdo", noaa_pdo),
 ]
 
+def calc_elnino_probability(results):
+    """Blended El Nino probability from multiple sources.
+    Weights: IRI 35%, NOAA CPC 25%, Nino-3.4 signal 20%, ONI 12%, SOI 8%."""
+    components = []
+
+    # IRI/Columbia (35%)
+    iri_prob = results.get("iri_forecast", {}).get("elnino_probability")
+    if iri_prob is not None:
+        components.append(("IRI/Columbia", float(iri_prob), 0.35))
+
+    # NOAA CPC from enso_discussion (25%)
+    noaa_prob = results.get("enso_status", {}).get("elnino_probability")
+    if noaa_prob is not None:
+        components.append(("NOAA CPC", float(noaa_prob), 0.25))
+
+    # Nino-3.4 signal → probability (20%)
+    nino34 = results.get("nino34", {}).get("value")
+    if nino34 is not None:
+        if nino34 >= 2.0: n_prob = 95
+        elif nino34 >= 1.5: n_prob = 85
+        elif nino34 >= 1.0: n_prob = 70
+        elif nino34 >= 0.5: n_prob = 55
+        elif nino34 >= 0.0: n_prob = 30
+        else: n_prob = 10
+        components.append(("Nino-3.4", n_prob, 0.20))
+
+    # ONI → probability (12%)
+    oni = results.get("oni", {}).get("value")
+    if oni is not None:
+        if oni >= 2.0: o_prob = 95
+        elif oni >= 1.5: o_prob = 85
+        elif oni >= 1.0: o_prob = 70
+        elif oni >= 0.5: o_prob = 55
+        elif oni >= 0.0: o_prob = 30
+        else: o_prob = 10
+        components.append(("ONI", o_prob, 0.12))
+
+    # SOI → probability (8%) - negative SOI = El Nino
+    soi = results.get("soi", {}).get("value")
+    if soi is not None:
+        if soi <= -15: s_prob = 85
+        elif soi <= -7: s_prob = 65
+        elif soi <= 0: s_prob = 45
+        elif soi <= 7: s_prob = 25
+        else: s_prob = 10
+        components.append(("SOI", s_prob, 0.08))
+
+    if not components:
+        return None
+
+    # Normalize weights if some sources are missing
+    total_weight = sum(w for _, _, w in components)
+    blended = sum(prob * (w / total_weight) for _, prob, w in components)
+
+    return {
+        "blended_probability": round(blended, 1),
+        "components": [{"source": s, "probability": p, "weight": round(w / total_weight * 100, 1)} for s, p, w in components],
+        "confidence": "high" if total_weight >= 0.8 else "medium" if total_weight >= 0.5 else "low"
+    }
+
+
 def calc_stress_index(results):
     """Monsoon Stress Index: 0 (no concern) to 100 (extreme concern).
     Blends Nino-3.4, SOI, IOD, and rainfall departure."""
@@ -108,6 +169,9 @@ def run():
 
     stress = calc_stress_index(results)
     latest["stress_index"] = stress
+
+    elnino_prob = calc_elnino_probability(results)
+    latest["elnino_blended"] = elnino_prob
 
     with open(latest_path, "w", encoding="utf-8") as f:
         json.dump(latest, f, indent=2, ensure_ascii=False)

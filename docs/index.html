@@ -627,7 +627,7 @@ function catBar(counts) {
   return bar;
 }
 
-function sparklineSVG(values, color, w, h) {
+function sparklineSVG(values, color, w, h, label) {
   if (!values || values.length < 2) return '';
   w = w || 60; h = h || 20;
   const min = Math.min(...values);
@@ -637,11 +637,19 @@ function sparklineSVG(values, color, w, h) {
     ((i / (values.length - 1)) * w).toFixed(1) + ',' +
     (h - ((v - min) / range * (h - 4) + 2)).toFixed(1)
   ).join(' ');
+  const last = values[values.length-1];
+  const prev = values[values.length-2];
+  const arrow = last > prev ? '&#9650;' : last < prev ? '&#9660;' : '&#9654;';
+  const arrowColor = last > prev ? '#ff6b6b' : last < prev ? '#4ecdc4' : '#888';
+  let labelHtml = '';
+  if (label) {
+    labelHtml = '<span style="font-size:0.6rem;color:' + arrowColor + ';margin-left:3px;vertical-align:middle">' + arrow + ' ' + label + '</span>';
+  }
   return '<svg class="sparkline" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '">' +
     '<polyline points="' + pts + '" fill="none" stroke="' + color + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
     '<circle cx="' + ((values.length-1) / (values.length-1) * w).toFixed(1) + '" cy="' +
-    (h - ((values[values.length-1] - min) / range * (h-4) + 2)).toFixed(1) + '" r="2" fill="' + color + '"/>' +
-    '</svg>';
+    (h - ((last - min) / range * (h-4) + 2)).toFixed(1) + '" r="2" fill="' + color + '"/>' +
+    '</svg>' + labelHtml;
 }
 
 function getHistoryValues(history, key) {
@@ -671,46 +679,56 @@ function stressArcSVG(score) {
     '</svg>';
 }
 
-function indiaCartogram(subdivData) {
+function indiaMapSVG(subdivData) {
   if (!subdivData || Object.keys(subdivData).length === 0) return '';
-  var GRID = [
-    [null,null,'jammu_kashmir','himachal_pradesh',null,null,'arunachal_pradesh',null],
-    [null,'punjab','haryana_delhi','uttarakhand',null,'shwb_sikkim','assam_meghalaya','nmmt'],
-    ['west_rajasthan','east_rajasthan','west_up','east_up','bihar','jharkhand','gangetic_wb',null],
-    ['saurashtra_kutch','gujarat','west_mp','east_mp','chhattisgarh',null,'odisha',null],
-    [null,'konkan_goa','madhya_maharashtra','marathwada','vidarbha',null,null,null],
-    [null,'coastal_karnataka','north_interior_karnataka','telangana','coastal_ap',null,null,null],
-    ['kerala','south_interior_karnataka',null,'rayalaseema','tamilnadu',null,null,null],
-    ['lakshadweep',null,null,null,null,null,'andaman_nicobar',null],
-  ];
+  // Geographic centers (approximate lat/lon → SVG coords in 300x380 viewBox)
+  var COORDS = {
+    jammu_kashmir:[148,28],himachal_pradesh:[165,52],punjab:[140,68],haryana_delhi:[152,90],
+    uttarakhand:[178,65],arunachal_pradesh:[270,62],shwb_sikkim:[245,80],assam_meghalaya:[262,90],
+    nmmt:[270,105],west_rajasthan:[108,120],east_rajasthan:[140,128],west_up:[172,105],
+    east_up:[198,105],bihar:[222,110],jharkhand:[222,135],gangetic_wb:[248,130],
+    saurashtra_kutch:[80,160],gujarat:[100,175],west_mp:[155,160],east_mp:[185,158],
+    chhattisgarh:[200,175],odisha:[225,175],konkan_goa:[108,215],madhya_maharashtra:[135,210],
+    marathwada:[155,200],vidarbha:[175,185],coastal_karnataka:[115,255],
+    north_interior_karnataka:[138,245],telangana:[168,220],coastal_ap:[185,235],
+    south_interior_karnataka:[140,275],kerala:[118,300],rayalaseema:[165,255],
+    tamilnadu:[158,290],lakshadweep:[82,310],andaman_nicobar:[275,270],
+  };
   var LABELS = {
-    jammu_kashmir:'J&K',himachal_pradesh:'HP',punjab:'Pun',haryana_delhi:'Har',uttarakhand:'Utk',
-    arunachal_pradesh:'ArP',shwb_sikkim:'SWB',assam_meghalaya:'A&M',nmmt:'NE',
-    west_rajasthan:'WRj',east_rajasthan:'ERj',west_up:'WUP',east_up:'EUP',bihar:'Bih',
-    jharkhand:'Jhk',gangetic_wb:'GWB',saurashtra_kutch:'S&K',gujarat:'Guj',
-    west_mp:'WMP',east_mp:'EMP',chhattisgarh:'Chh',odisha:'Odi',
-    konkan_goa:'Kon',madhya_maharashtra:'MMh',marathwada:'Mar',vidarbha:'Vid',
-    coastal_karnataka:'CKa',north_interior_karnataka:'NIK',telangana:'Tel',coastal_ap:'CAP',
-    kerala:'Ker',south_interior_karnataka:'SIK',rayalaseema:'Ray',tamilnadu:'TN',
+    jammu_kashmir:'J&K',himachal_pradesh:'HP',punjab:'Pun',haryana_delhi:'Del',uttarakhand:'Utk',
+    arunachal_pradesh:'ArP',shwb_sikkim:'Sik',assam_meghalaya:'Asm',nmmt:'NE',
+    west_rajasthan:'W.Rj',east_rajasthan:'E.Rj',west_up:'W.UP',east_up:'E.UP',bihar:'Bih',
+    jharkhand:'Jhk',gangetic_wb:'WB',saurashtra_kutch:'S&K',gujarat:'Guj',
+    west_mp:'W.MP',east_mp:'E.MP',chhattisgarh:'Chh',odisha:'Odi',
+    konkan_goa:'Kon',madhya_maharashtra:'M.Mh',marathwada:'Mar',vidarbha:'Vid',
+    coastal_karnataka:'C.Ka',north_interior_karnataka:'N.Ka',telangana:'Tel',coastal_ap:'C.AP',
+    kerala:'Ker',south_interior_karnataka:'S.Ka',rayalaseema:'Ray',tamilnadu:'TN',
     lakshadweep:'Lak',andaman_nicobar:'A&N',
   };
   var CAT_COLORS = {LE:'#0984e3',E:'#74b9ff',N:'#6bcb77',D:'#ffa502',LD:'#ff4757',NR:'#555'};
-  var h = '';
-  h += '<div class="cartogram-wrap">';
-  h += '<div class="cartogram-grid" style="grid-template-columns:repeat(8,36px)">';
-  GRID.forEach(function(row) {
-    row.forEach(function(key) {
-      if (!key) { h += '<div class="carto-cell carto-empty"></div>'; return; }
-      var d = subdivData[key];
-      var cc = d ? d.category_code : '?';
-      var bg = CAT_COLORS[cc] || '#333';
-      var dep = d ? d.departure_pct : '?';
-      var lbl = LABELS[key] || key.substring(0,3);
-      var title = (LABELS[key]||key) + ': ' + (d ? dep + '% (' + d.category + ')' : 'no data');
-      h += '<div class="carto-cell" style="background:' + bg + '" title="' + title + '">' + lbl + '</div>';
-    });
+
+  // Simplified India outline path
+  var outline = 'M148,8 C130,15 120,30 115,45 L108,55 C100,58 95,65 90,72 L82,85 C78,95 72,110 70,125 L68,140 C65,150 62,160 65,172 L70,185 C72,195 75,205 80,215 L85,225 C88,235 92,245 98,255 L105,270 C108,280 112,290 115,300 L120,310 C125,318 130,322 135,325 L140,328 C145,330 148,326 150,320 L155,310 C158,300 162,292 165,285 L170,275 C175,268 180,260 185,252 L190,242 C195,235 200,228 205,222 L215,210 C220,205 225,198 230,190 L235,180 C238,172 240,165 242,158 L245,148 C248,138 250,128 252,120 L255,110 C258,102 262,95 268,88 L275,80 C278,75 280,68 278,62 L275,55 C270,48 265,42 258,38 L248,32 C240,28 232,26 225,25 L215,24 C205,22 195,20 185,18 L175,15 C165,12 158,10 148,8 Z';
+
+  var h = '<div style="margin:10px 0">';
+  h += '<svg viewBox="0 0 310 350" width="100%" style="max-width:320px;height:auto">';
+  h += '<path d="' + outline + '" fill="#1a1a28" stroke="#333" stroke-width="1.5"/>';
+
+  Object.keys(COORDS).forEach(function(key) {
+    var d = subdivData[key];
+    if (!d) return;
+    var xy = COORDS[key];
+    var cc = d.category_code;
+    var bg = CAT_COLORS[cc] || '#555';
+    var dep = d.departure_pct;
+    var lbl = LABELS[key] || key.substring(0,3);
+    var r = 10;
+    h += '<circle cx="' + xy[0] + '" cy="' + xy[1] + '" r="' + r + '" fill="' + bg + '" opacity="0.85" stroke="#0a0a0f" stroke-width="1">';
+    h += '<title>' + lbl + ': ' + dep + '% (' + d.category + ')</title></circle>';
+    h += '<text x="' + xy[0] + '" y="' + (xy[1]+3) + '" text-anchor="middle" font-size="6" font-weight="700" fill="#fff" style="pointer-events:none">' + lbl + '</text>';
   });
-  h += '</div>';
+
+  h += '</svg>';
   h += '<div class="cat-legend" style="margin-top:8px">';
   h += '<span><span class="dot" style="background:#0984e3"></span>L.Excess</span>';
   h += '<span><span class="dot" style="background:#74b9ff"></span>Excess</span>';
@@ -738,17 +756,25 @@ function render(latest, history) {
   const stressHistory = getHistoryValues(history, 'stress_index');
   const iriProb = m.iri_forecast && m.iri_forecast.elnino_probability;
   const dep = m.imd_rainfall && m.imd_rainfall.country_departure_pct;
+  const blended = latest.elnino_blended;
+  const blendedProb = blended ? blended.blended_probability : null;
 
   // Two big numbers side by side
   html += '<div class="hero-split">';
 
-  // Card 1: El Nino Status
+  // Card 1: El Nino Status (blended model)
   html += '<div class="hero-num-card">';
-  html += '<div class="hero-num-label">El Nino Probability</div>';
-  html += '<div class="hero-num-value val-hot">' + (iriProb ? iriProb + '%' : strength.label) + '</div>';
+  html += '<div class="hero-num-label">El Nino Probability <span style="font-size:0.55rem;color:#666;text-transform:none;letter-spacing:0">(blended model)</span></div>';
+  html += '<div class="hero-num-value val-hot">' + (blendedProb ? blendedProb + '%' : (iriProb ? iriProb + '%' : strength.label)) + '</div>';
   html += '<div class="hero-num-sub">';
-  if (iriProb) html += 'IRI/Columbia model says <strong style="color:#ff6b6b">' + iriProb + '% chance</strong> El Nino continues. ';
-  html += 'Pacific is ' + (m.nino34 && m.nino34.value !== null ? '<strong>' + (m.nino34.value >= 0 ? '+' : '') + m.nino34.value.toFixed(2) + '°C</strong> above normal — ' + strength.label.toLowerCase() + ' and ' + (m.nino34.trend || 'steady') : 'data pending') + '.';
+  if (blendedProb) {
+    html += 'Blended from ' + blended.components.length + ' sources: ';
+    html += blended.components.map(function(c) { return c.source + ' ' + c.probability + '%'; }).join(', ') + '. ';
+    html += '<br><span style="font-size:0.7rem;color:#555">Confidence: ' + blended.confidence + ' | ';
+    html += 'Weights: ' + blended.components.map(function(c) { return c.source + ' ' + c.weight + '%'; }).join(', ') + '</span>';
+  } else if (iriProb) {
+    html += 'IRI/Columbia model says <strong style="color:#ff6b6b">' + iriProb + '% chance</strong> El Nino continues. ';
+  }
   html += '</div></div>';
 
   // Card 2: Monsoon Impact
@@ -776,7 +802,7 @@ function render(latest, history) {
   // === ENSO ===
   html += '<div class="section sec-enso">';
   html += '<div class="section-header"><span class="icon">&#127754;</span> El Nino Status</div>';
-  var ensoSum = iriProb ? iriProb + '% likely' : (strength.label + ' El Nino');
+  var ensoSum = blendedProb ? blendedProb + '% likely' : (iriProb ? iriProb + '% likely' : (strength.label + ' El Nino'));
   html += '<div class="sec-summary"><span class="sum-val val-hot">' + ensoSum + '</span> &mdash; ' + (m.nino34 && m.nino34.trend ? m.nino34.trend : 'trend unknown') + '</div>';
   html += '<div class="section-body">';
 
@@ -805,7 +831,7 @@ function render(latest, history) {
     const v = m.nino34.value;
     const vc = v >= 1.5 ? 'val-red' : v >= 0.5 ? 'val-hot' : v >= 0 ? 'val-warm' : 'val-cool';
     const ninoHist = getHistoryValues(history, 'nino34');
-    html += '<div class="metric-value ' + vc + '">' + (v >= 0 ? '+' : '') + v.toFixed(2) + '°C' + sparklineSVG(ninoHist, '#ff6b6b') + '</div>';
+    html += '<div class="metric-value ' + vc + '">' + (v >= 0 ? '+' : '') + v.toFixed(2) + '°C' + sparklineSVG(ninoHist, '#ff6b6b', 60, 20, 'temp') + '</div>';
     html += trendBadge(m.nino34.trend);
     html += '<div class="metric-sub">' + m.nino34.period + ' · Strength: <strong>' + strength.label + '</strong></div>';
     html += '<div class="explain"><strong>What this means:</strong> This measures how much warmer the key part of the Pacific Ocean is compared to normal. Above <strong>+0.5°C = El Nino</strong>, above +1.5°C = Strong El Nino. Right now at <strong>' + (v >= 0 ? '+' : '') + v.toFixed(2) + '°C</strong>, it\'s ' + strength.label.toLowerCase() + ' and ' + (m.nino34.trend || 'steady') + '.</div>';
@@ -822,7 +848,7 @@ function render(latest, history) {
     const v = m.oni.value;
     const vc = v >= 1.5 ? 'val-red' : v >= 0.5 ? 'val-hot' : v >= 0 ? 'val-warm' : 'val-cool';
     const oniHist = getHistoryValues(history, 'oni');
-    html += '<div class="metric-value ' + vc + '">' + (v >= 0 ? '+' : '') + v.toFixed(2) + '°C' + sparklineSVG(oniHist, '#ffa502') + '</div>';
+    html += '<div class="metric-value ' + vc + '">' + (v >= 0 ? '+' : '') + v.toFixed(2) + '°C' + sparklineSVG(oniHist, '#ffa502', 60, 20, 'ONI') + '</div>';
     html += trendBadge(m.oni.trend);
     html += '<div class="metric-sub">' + m.oni.season + ' · Previous: ' + (m.oni.previous_value >= 0 ? '+' : '') + m.oni.previous_value.toFixed(2) + '°C</div>';
     html += '<div class="explain"><strong>What this means:</strong> ONI is the "official scorecard" — a 3-month average that NOAA uses to formally declare El Nino. It changes slowly. Currently ' + (m.oni.trend || 'steady') + ' from ' + (m.oni.previous_value >= 0 ? '+' : '') + m.oni.previous_value.toFixed(2) + '°C.</div>';
@@ -839,7 +865,7 @@ function render(latest, history) {
     const v = m.soi.value;
     const vc = v < -7 ? 'val-red' : v > 7 ? 'val-cool' : 'val-neutral';
     const soiHist = getHistoryValues(history, 'soi');
-    html += '<div class="metric-value ' + vc + '">' + v.toFixed(1) + sparklineSVG(soiHist, '#74b9ff') + '</div>';
+    html += '<div class="metric-value ' + vc + '">' + v.toFixed(1) + sparklineSVG(soiHist, '#74b9ff', 60, 20, 'pressure') + '</div>';
     html += '<div class="metric-sub">' + m.soi.period + '</div>';
     html += '<div class="explain"><strong>What this means:</strong> SOI measures air pressure difference between Australia and Tahiti. <strong>Negative = El Nino pattern</strong> in the atmosphere, Positive = La Nina. Currently ' + (v < -7 ? 'strongly negative (El Nino signal)' : v < 0 ? 'slightly negative' : 'near neutral') + '.</div>';
   } else {
@@ -856,7 +882,7 @@ function render(latest, history) {
     const np = m.iri_forecast.neutral_probability || (100 - ep);
     const lp = m.iri_forecast.nina_probability || 0;
     const iriHist = getHistoryValues(history, 'iri_elnino_prob');
-    html += '<div class="metric-value val-hot">' + ep + '%' + sparklineSVG(iriHist, '#ff6b6b') + '</div>';
+    html += '<div class="metric-value val-hot">' + ep + '%' + sparklineSVG(iriHist, '#ff6b6b', 60, 20, 'forecast') + '</div>';
     html += '<div class="metric-sub">El Nino probability' + (m.iri_forecast.forecast_season ? ' for ' + m.iri_forecast.forecast_season : '') + '</div>';
     html += '<div class="prob-bar-wrap"><div class="prob-bar">';
     html += '<div class="prob-elnino" style="width:' + ep + '%" title="El Nino: ' + ep + '%">' + (ep > 15 ? 'El Nino ' + ep + '%' : '') + '</div>';
@@ -887,7 +913,7 @@ function render(latest, history) {
     const phase = m.iod_dmi.phase;
     const vc = phase === 'Positive' ? 'val-green' : phase === 'Negative' ? 'val-red' : 'val-neutral';
     const dmiHist = getHistoryValues(history, 'dmi');
-    html += '<div class="metric-value ' + vc + '">' + (v >= 0 ? '+' : '') + v.toFixed(3) + '°C' + sparklineSVG(dmiHist, '#6bcb77') + '</div>';
+    html += '<div class="metric-value ' + vc + '">' + (v >= 0 ? '+' : '') + v.toFixed(3) + '°C' + sparklineSVG(dmiHist, '#6bcb77', 60, 20, 'IOD') + '</div>';
     html += '<div style="margin:6px 0"><span class="badge ' + (phase === 'Positive' ? 'badge-neutral' : phase === 'Negative' ? 'badge-advisory' : 'badge-stale') + '">' + phase + ' Phase</span></div>';
     html += '<div class="metric-sub">' + m.iod_dmi.period + '</div>';
 
@@ -954,7 +980,7 @@ function render(latest, history) {
       else if (dep >= 20) { vc = 'val-cool'; verdict = 'Above Normal'; }
     }
     const rainHist = getHistoryValues(history, 'rainfall_departure_pct');
-    html += '<div class="metric-value ' + vc + '">' + (dep !== null ? (dep >= 0 ? '+' : '') + dep + '%' : 'N/A') + sparklineSVG(rainHist, '#4ecdc4') + '</div>';
+    html += '<div class="metric-value ' + vc + '">' + (dep !== null ? (dep >= 0 ? '+' : '') + dep + '%' : 'N/A') + sparklineSVG(rainHist, '#4ecdc4', 60, 20, 'rain') + '</div>';
     html += '<div class="metric-sub">' + verdict + ' &bull; ' + (m.imd_rainfall.report_period || '') + '</div>';
     if (m.imd_rainfall.country_actual_mm !== null) {
       html += '<div class="gauge-wrap"><span style="font-size:0.72rem;color:#888;min-width:60px">Actual</span><div class="gauge"><div class="gauge-fill" style="width:' + Math.min(100, Math.max(5, (m.imd_rainfall.country_actual_mm / (m.imd_rainfall.country_normal_mm || 1)) * 100)) + '%;background:' + (dep < -20 ? '#ff6b6b' : dep > 20 ? '#4ecdc4' : '#6bcb77') + '"></div></div><span class="gauge-label">' + m.imd_rainfall.country_actual_mm + ' mm</span></div>';
@@ -971,8 +997,8 @@ function render(latest, history) {
   html += '<div class="metric">';
   html += '<div class="metric-label">Region-wise Rainfall Map</div>';
   if (m.imd_rainfall && m.imd_rainfall.subdivision_data) {
-    html += indiaCartogram(m.imd_rainfall.subdivision_data);
-    html += '<div class="explain"><strong>What this means:</strong> Each coloured cell is one of India\'s 36 weather subdivisions. <strong style="color:#0984e3">Blue = excess rain</strong>, <strong style="color:#6bcb77">green = normal</strong>, <strong style="color:#ffa502">orange = deficit</strong>, <strong style="color:#ff4757">red = severe deficit</strong>. Hover on any cell to see details. More red/orange = drought spreading.</div>';
+    html += indiaMapSVG(m.imd_rainfall.subdivision_data);
+    html += '<div class="explain"><strong>What this means:</strong> Each circle on the India map is one of 36 weather subdivisions. <strong style="color:#0984e3">Blue = excess rain</strong>, <strong style="color:#6bcb77">green = normal</strong>, <strong style="color:#ffa502">orange = deficit</strong>, <strong style="color:#ff4757">red = severe deficit</strong>. Hover on any circle to see details. More red/orange = drought spreading.</div>';
   } else if (m.imd_rainfall && m.imd_rainfall.category_counts) {
     html += catBar(m.imd_rainfall.category_counts);
     html += '<div class="explain"><strong>What this means:</strong> India is divided into 36 weather regions. This bar shows how many have excess rain (blue), normal (green), or deficit (orange/red). More red = more areas are dry.</div>';
@@ -1018,7 +1044,7 @@ function render(latest, history) {
 
   // Kharif
   html += '<div class="metric">';
-  html += '<div class="metric-label">Crop Sowing Progress</div>';
+  html += '<div class="metric-label">Crop Sowing Progress (Kharif)</div>';
   if (m.kharif_sowing && m.kharif_sowing.status === 'ok' && m.kharif_sowing.area_current_lakh_ha) {
     const d = m.kharif_sowing;
     html += '<div class="metric-value val-green">' + d.area_current_lakh_ha + ' <span style="font-size:0.9rem;font-weight:500">lakh ha</span></div>';
@@ -1028,7 +1054,23 @@ function render(latest, history) {
     }
     html += '<div class="explain"><strong>What this means:</strong> Kharif = monsoon-season crops (rice, pulses, cotton). This shows how much land has been sown compared to last year. Less sowing = farmers are worried about rain.</div>';
   } else {
-    html += staleBlock('This government data source is often unreachable. Updates weekly (Fridays) during Jun-Oct.');
+    var ks = m.kharif_sowing || {};
+    var sowStatus = ks.sowing_status || 'unknown';
+    var statusIcon = sowStatus === 'pre_season' ? '&#9203;' : sowStatus === 'in_season' ? '&#127793;' : '&#9989;';
+    var statusLabel = sowStatus === 'pre_season' ? 'Not Yet Started' : sowStatus === 'in_season' ? 'Season Active' : sowStatus === 'post_season' ? 'Season Complete' : 'Unknown';
+    html += '<div style="margin:8px 0"><span style="font-size:1.4rem">' + statusIcon + '</span> <strong style="color:#ffd93d">' + statusLabel + '</strong></div>';
+    if (ks.season_note) html += '<div style="font-size:0.8rem;color:#999;margin:6px 0">' + ks.season_note + '</div>';
+    html += '<span class="badge badge-stale">SOURCE UNREACHABLE</span>';
+    html += '<div class="explain" style="margin-top:10px"><strong>About Kharif crops:</strong> ' + (ks.crops || 'rice, pulses, oilseeds, cotton, sugarcane') + '.<br><br>';
+    html += '<strong>Sowing window:</strong> ' + (ks.sowing_window || 'June-August, depends on monsoon onset') + '<br><br>';
+    html += '<strong>Why it matters:</strong> If monsoon rains are delayed or deficient (as El Nino can cause), farmers delay sowing — leading to lower crop output and potential food inflation. ';
+    if (dep !== null && dep !== undefined) {
+      html += 'Current rainfall is <strong>' + (dep >= 0 ? dep + '% above' : Math.abs(dep) + '% below') + ' normal</strong> — ';
+      if (dep >= -10) html += 'sowing should be proceeding normally.';
+      else if (dep >= -30) html += 'some sowing delays are likely in deficit regions.';
+      else html += 'significant sowing delays are very likely.';
+    }
+    html += '</div>';
   }
   html += sourceLine(m.kharif_sowing);
   html += '</div>';

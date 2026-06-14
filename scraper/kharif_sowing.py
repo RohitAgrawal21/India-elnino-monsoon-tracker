@@ -8,7 +8,12 @@ SEARCH_URLS = [
     "https://agricoop.gov.in/en/StatisticsReport",
     "https://agricoop.gov.in/en/Major-Activites/crop-sowing",
     "https://pib.gov.in/allRel.aspx",
+    "https://agriwelfare.gov.in/en/Major",
 ]
+
+KHARIF_CROPS = "rice, pulses (arhar, moong, urad), oilseeds (soybean, groundnut), cotton, sugarcane, coarse cereals"
+SOWING_WINDOW = "Kharif sowing runs June-August, peaking in July. Depends on monsoon onset and early rainfall."
+
 
 def fetch():
     for url in SEARCH_URLS:
@@ -16,19 +21,41 @@ def fetch():
             r = requests.get(url, timeout=30,
                            headers={"User-Agent": "Mozilla/5.0 (compatible; monsoon-tracker/1.0)"})
             if r.status_code == 200:
-                return _try_parse(r.text, url)
+                result = _try_parse(r.text, url)
+                if result and result.get("status") == "ok":
+                    return result
         except Exception:
             continue
+
+    now = datetime.now(timezone.utc)
+    month = now.month
+
+    if month < 6:
+        season_note = "Kharif sowing has not begun yet (starts in June with monsoon onset). Official data will be available from mid-June onwards."
+        sowing_status = "pre_season"
+    elif month <= 10:
+        season_note = ("Kharif sowing season is active (Jun-Oct). "
+                      "Official weekly reports from the Dept of Agriculture are not reachable from this scraper. "
+                      "Historically, sowing progress tracks closely with monsoon rainfall timing and coverage.")
+        sowing_status = "in_season"
+    else:
+        season_note = "Kharif sowing season ended (Jun-Oct). Harvest is underway or complete."
+        sowing_status = "post_season"
 
     return {
         "metric": "Kharif Sowing Progress",
         "value": None,
+        "sowing_status": sowing_status,
+        "season_note": season_note,
+        "crops": KHARIF_CROPS,
+        "sowing_window": SOWING_WINDOW,
         "source": SOURCE_NAME,
         "source_url": SEARCH_URLS[0],
-        "fetched_at": datetime.now(timezone.utc).isoformat(),
+        "fetched_at": now.isoformat(),
         "status": "stale",
-        "note": "Kharif sowing data source is brittle. Updated weekly (Fridays) during Jun-Oct. Could not reach source."
+        "note": "Official kharif sowing data source (agricoop.gov.in) is unreachable. Updates weekly (Fridays) during Jun-Oct."
     }
+
 
 def _try_parse(html, url):
     try:
@@ -54,6 +81,9 @@ def _try_parse(html, url):
                 "area_last_year_lakh_ha": area_last_year,
                 "change_pct": round((area_current - area_last_year) / area_last_year * 100, 1) if area_last_year else None,
                 "unit": "lakh hectares",
+                "crops": KHARIF_CROPS,
+                "sowing_window": SOWING_WINDOW,
+                "sowing_status": "in_season",
                 "source": SOURCE_NAME,
                 "source_url": url,
                 "fetched_at": datetime.now(timezone.utc).isoformat(),
@@ -62,12 +92,4 @@ def _try_parse(html, url):
     except Exception:
         pass
 
-    return {
-        "metric": "Kharif Sowing Progress",
-        "value": None,
-        "source": SOURCE_NAME,
-        "source_url": url,
-        "fetched_at": datetime.now(timezone.utc).isoformat(),
-        "status": "stale",
-        "note": "Could not parse kharif sowing data. This source is brittle and may require manual URL updates."
-    }
+    return None
