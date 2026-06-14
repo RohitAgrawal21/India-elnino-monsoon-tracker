@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   update-data:
@@ -36,3 +37,28 @@ jobs:
           git add data/latest.json data/history.json docs/latest.json docs/history.json
           git diff --cached --quiet || git commit -m "Daily data update $(date -u +%Y-%m-%d)"
           git push
+
+      - name: Close stale failure issue if run succeeded
+        if: success()
+        run: |
+          ISSUE=$(gh issue list --label "bot:data-update-failed" --state open --json number -q '.[0].number')
+          if [ -n "$ISSUE" ]; then
+            gh issue close "$ISSUE" -c "Resolved: daily update succeeded on $(date -u +%Y-%m-%d)."
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Open issue on failure
+        if: failure()
+        run: |
+          EXISTING=$(gh issue list --label "bot:data-update-failed" --state open --json number -q '.[0].number')
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body "Still failing as of $(date -u +%Y-%m-%d %H:%M) UTC. [Run log](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+          else
+            gh issue create \
+              --title "Daily data update failed $(date -u +%Y-%m-%d)" \
+              --label "bot:data-update-failed" \
+              --body "The daily scraper workflow failed. [View run log](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}). This issue will auto-close when the next run succeeds."
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

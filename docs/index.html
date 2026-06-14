@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>India El Nino Monsoon Tracker 2026</title>
+<meta name="description" content="Live dashboard tracking how the 2026 El Nino affects India's monsoon. Daily-updated data from NOAA, IMD, and CWC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+<meta property="og:title" content="India El Nino Monsoon Tracker 2026">
+<meta property="og:description" content="Live dashboard tracking how the 2026 El Nino affects India's monsoon — daily data from NOAA, IMD, CWC.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rohitagrawal21.github.io/India-elnino-monsoon-tracker/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="India El Nino Monsoon Tracker 2026">
+<meta name="twitter:description" content="Live dashboard tracking how the 2026 El Nino affects India's monsoon — daily data from NOAA, IMD, CWC.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,6 +44,49 @@ body {
   font-size: 0.9rem;
   margin-top: 4px;
 }
+.share-bar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.share-btn {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #ccc;
+  background: #1a1a28;
+  border: 1px solid #2a2a3a;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+  font-family: inherit;
+}
+.share-btn:hover { border-color: #4ecdc4; color: #4ecdc4; }
+
+/* Comparison Table */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+.comparison-table th {
+  background: #12121a;
+  color: #888;
+  font-weight: 600;
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid #2a2a3a;
+}
+.comparison-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid #1a1a28;
+  color: #bbb;
+}
+.comparison-table tr:hover td { background: #14141e; }
 
 /* Current Read - Hero Card */
 .hero {
@@ -106,6 +158,18 @@ body {
 }
 @media (max-width: 960px) {
   .sections { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .container { padding: 12px 10px; }
+  .header h1 { font-size: 1.4rem; }
+  .hero { padding: 16px 14px; border-radius: 12px; }
+  .metric-value { font-size: 1.6rem; }
+  .comparison-table { font-size: 0.7rem; }
+  .comparison-table th, .comparison-table td { padding: 6px 6px; }
+  .footer-sources { gap: 6px 10px; }
+  .disclaimer-banner { font-size: 0.68rem; padding: 8px 10px; }
+  .freshness-banner { font-size: 0.68rem; }
+  .chart-card { padding: 14px; }
 }
 
 /* Section Cards */
@@ -205,7 +269,7 @@ body {
 }
 .metric-source {
   font-size: 0.65rem;
-  color: #444;
+  color: #666;
   margin-top: 8px;
 }
 .metric-source a { color: #4a6fa5; text-decoration: none; }
@@ -318,13 +382,71 @@ canvas { width: 100% !important; height: 200px !important; }
 }
 
 /* Footer */
-.footer {
+/* Disclaimer Banner */
+.disclaimer-banner {
+  background: #1a1a28;
+  border: 1px solid #ffa50244;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+  font-size: 0.75rem;
+  color: #bbb;
   text-align: center;
-  padding: 24px 0;
-  font-size: 0.72rem;
-  color: #444;
-  border-top: 1px solid #1a1a28;
+  line-height: 1.5;
 }
+.disclaimer-banner strong { color: #ffa502; }
+.disclaimer-banner a { color: #4ecdc4; text-decoration: none; }
+.disclaimer-banner a:hover { text-decoration: underline; }
+
+/* Data Freshness Banner */
+.freshness-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.freshness-ok { background: #6bcb7715; color: #6bcb77; border: 1px solid #6bcb7733; }
+.freshness-amber { background: #ffa50220; color: #ffa502; border: 1px solid #ffa50244; }
+.freshness-red { background: #ff6b6b20; color: #ff6b6b; border: 1px solid #ff6b6b44; }
+
+/* Footer */
+.footer {
+  border-top: 1px solid #1a1a28;
+  padding: 30px 0 20px;
+  margin-top: 24px;
+  font-size: 0.72rem;
+  color: #555;
+  text-align: center;
+}
+.footer-sources {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  margin-bottom: 14px;
+}
+.footer-sources a {
+  color: #4a6fa5;
+  text-decoration: none;
+  padding: 3px 8px;
+  border: 1px solid #1e1e2e;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+.footer-sources a:hover { border-color: #4a6fa5; color: #6b8fc5; }
+.footer-disclaimer {
+  color: #666;
+  max-width: 700px;
+  margin: 10px auto 0;
+  line-height: 1.5;
+}
+.footer-disclaimer a { color: #4ecdc4; text-decoration: none; }
+.footer-disclaimer a:hover { text-decoration: underline; }
 
 /* Sparkline */
 .sparkline {
@@ -520,6 +642,14 @@ canvas { width: 100% !important; height: 200px !important; }
   <div class="header">
     <h1>India El Nino Monsoon Tracker</h1>
     <p class="tagline">Will the 2026 El Nino hurt India's monsoon? Track it daily.</p>
+    <div class="share-bar">
+      <button class="share-btn" onclick="copyLink()" id="copyBtn">&#128203; Copy Link</button>
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Tracking%20the%202026%20El%20Nino%27s%20impact%20on%20India%27s%20monsoon%20%E2%80%94%20live%20dashboard&url=https%3A%2F%2Frohitagrawal21.github.io%2FIndia-elnino-monsoon-tracker%2F" target="_blank" rel="noopener">&#120143; Share</a>
+      <a class="share-btn" href="https://wa.me/?text=India%20El%20Nino%20Monsoon%20Tracker%202026%20%E2%80%94%20https%3A%2F%2Frohitagrawal21.github.io%2FIndia-elnino-monsoon-tracker%2F" target="_blank" rel="noopener">&#128172; WhatsApp</a>
+    </div>
+  </div>
+  <div class="disclaimer-banner">
+    <strong>&#9888; Not an official forecast.</strong> This is an independent data dashboard, not affiliated with IMD or any government agency. For official monsoon forecasts, see <a href="https://mausam.imd.gov.in/" target="_blank" rel="noopener">IMD (mausam.imd.gov.in)</a>. &bull; <a href="about.html">About &amp; Methodology</a>
   </div>
   <div id="app" class="loading">Loading latest data...</div>
 </div>
@@ -757,6 +887,17 @@ function render(latest, history) {
   const stress = latest.stress_index || 50;
 
   let html = '';
+
+  // Data freshness banner
+  const ageMs = Date.now() - new Date(latest.last_updated).getTime();
+  const ageHrs = Math.floor(ageMs / 3600000);
+  if (ageHrs > 72) {
+    html += '<div class="freshness-banner freshness-red">&#9888; Data is ' + Math.floor(ageHrs / 24) + ' days old — the daily update may be failing. Numbers below may be outdated.</div>';
+  } else if (ageHrs > 24) {
+    html += '<div class="freshness-banner freshness-amber">&#9203; Data is ' + ageHrs + ' hours old (last update: ' + updatedAt + '). Next update expected at 4 AM IST.</div>';
+  } else {
+    html += '<div class="freshness-banner freshness-ok">&#10003; Data is fresh (updated ' + updatedAt + ')</div>';
+  }
 
   // Hero with split numbers
   html += '<div class="hero">';
@@ -1116,10 +1257,59 @@ function render(latest, history) {
     html += '</div>';
   }
 
+  // 2026 vs Past El Nino Years comparison
+  html += '<div class="chart-card">';
+  html += '<h3>&#128202; 2026 vs Past El Nino Years</h3>';
+  html += '<div style="font-size:0.75rem;color:#666;margin-bottom:12px">How does the current situation compare with previous El Nino events? (Historical data from IMD/NOAA records)</div>';
+  html += '<table class="comparison-table">';
+  html += '<thead><tr><th>El Nino Year</th><th>ONI Peak</th><th>Monsoon Rainfall (% LPA)</th><th>Outcome</th></tr></thead>';
+  html += '<tbody>';
+  var pastEvents = [
+    {year:'2023-24', oni:'+2.0', rain:'94%', outcome:'Near Normal', cls:'val-warm'},
+    {year:'2015-16', oni:'+2.6', rain:'86%', outcome:'Drought', cls:'val-red'},
+    {year:'2009-10', oni:'+1.6', rain:'78%', outcome:'Severe Drought', cls:'val-red'},
+    {year:'2006-07', oni:'+1.0', rain:'99%', outcome:'Normal', cls:'val-green'},
+    {year:'2004-05', oni:'+0.7', rain:'87%', outcome:'Below Normal', cls:'val-warm'},
+    {year:'2002-03', oni:'+1.3', rain:'81%', outcome:'Drought', cls:'val-red'},
+    {year:'1997-98', oni:'+2.4', rain:'102%', outcome:'Normal', cls:'val-green'},
+    {year:'1991-92', oni:'+1.6', rain:'96%', outcome:'Near Normal', cls:'val-warm'},
+  ];
+  var currentOni = m.oni && m.oni.value !== null ? (m.oni.value >= 0 ? '+' : '') + m.oni.value.toFixed(1) : '?';
+  var currentRain = dep !== null && dep !== undefined ? (100 + dep) + '%' : 'TBD';
+  var currentCls = dep !== null ? (dep <= -20 ? 'val-red' : dep <= -10 ? 'val-warm' : 'val-green') : 'val-neutral';
+  html += '<tr style="background:#1a1a28;font-weight:700"><td>2026 (now)</td><td>' + currentOni + '</td><td class="' + currentCls + '">' + currentRain + '</td><td style="color:#ffd93d">In Progress</td></tr>';
+  pastEvents.forEach(function(e) {
+    html += '<tr><td>' + e.year + '</td><td>' + e.oni + '</td><td class="' + e.cls + '">' + e.rain + '</td><td class="' + e.cls + '">' + e.outcome + '</td></tr>';
+  });
+  html += '</tbody></table>';
+  html += '<div style="font-size:0.7rem;color:#555;margin-top:8px">Note: Not all El Nino years cause drought. The 1997-98 "Super El Nino" produced a normal monsoon in India (IOD was strongly positive that year).</div>';
+  html += '</div>';
+
+  // Download buttons
+  html += '<div class="chart-card" style="text-align:center;padding:16px">';
+  html += '<h3 style="margin-bottom:10px">&#128229; Download Data</h3>';
+  html += '<div style="font-size:0.75rem;color:#666;margin-bottom:12px">Raw JSON data from all scrapers — use for your own analysis</div>';
+  html += '<button class="share-btn" onclick="downloadCSV(\'latest.json\')">&#128196; latest.json</button> ';
+  html += '<button class="share-btn" onclick="downloadCSV(\'history.json\')">&#128200; history.json (all days)</button>';
+  html += '</div>';
+
   // Footer
   html += '<div class="footer">';
-  html += 'Data fetched daily at 4 AM IST from NOAA, IMD, CWC &bull; "STALE" = source unreachable, never a guessed number<br>';
-  html += 'The El Nino-monsoon link is moderate (~-0.5 correlation). This dashboard shows data, not predictions.';
+  html += '<div class="footer-sources">';
+  html += '<a href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/" target="_blank" rel="noopener">NOAA/CPC ENSO</a>';
+  html += '<a href="https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php" target="_blank" rel="noopener">NOAA ONI</a>';
+  html += '<a href="https://psl.noaa.gov/enso/mei/" target="_blank" rel="noopener">NOAA SOI/PDO</a>';
+  html += '<a href="https://iri.columbia.edu/our-expertise/climate/forecasts/enso/current/" target="_blank" rel="noopener">IRI/Columbia</a>';
+  html += '<a href="http://www.bom.gov.au/climate/enso/indices.shtml" target="_blank" rel="noopener">BOM Australia</a>';
+  html += '<a href="https://mausam.imd.gov.in/" target="_blank" rel="noopener">IMD India</a>';
+  html += '<a href="http://www.cwc.gov.in/" target="_blank" rel="noopener">CWC Reservoirs</a>';
+  html += '<a href="https://agricoop.gov.in/" target="_blank" rel="noopener">Dept of Agriculture</a>';
+  html += '</div>';
+  html += '<div class="footer-disclaimer">';
+  html += 'Data auto-updated daily at 4:00 AM IST. "STALE" badges mean a source was unreachable — never a guessed number.<br>';
+  html += 'The El Nino–monsoon correlation is only moderate (~−0.5). About half of El Nino years still had normal monsoons. ';
+  html += 'This dashboard shows data, not predictions. <a href="about.html">Read full methodology &rarr;</a>';
+  html += '</div>';
   html += '</div>';
 
   document.getElementById('app').innerHTML = html;
@@ -1273,6 +1463,37 @@ function drawChart(history) {
 }
 
 loadData();
+
+function downloadCSV(filename) {
+  var a = document.createElement('a');
+  a.href = filename;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+function copyLink() {
+  var url = 'https://rohitagrawal21.github.io/India-elnino-monsoon-tracker/';
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(function() {
+      var btn = document.getElementById('copyBtn');
+      btn.textContent = '✓ Copied!';
+      setTimeout(function() { btn.innerHTML = '&#128203; Copy Link'; }, 2000);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = url;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var btn = document.getElementById('copyBtn');
+    btn.textContent = '✓ Copied!';
+    setTimeout(function() { btn.innerHTML = '&#128203; Copy Link'; }, 2000);
+  }
+}
 </script>
+<script data-goatcounter="https://elnino-monsoon.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

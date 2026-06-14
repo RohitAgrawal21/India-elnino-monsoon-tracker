@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About & Methodology — India El Nino Monsoon Tracker</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0a0a0f;
+  color: #d0d0d0;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+.container { max-width: 760px; margin: 0 auto; padding: 40px 20px; }
+h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: #4ecdc4;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+.back-link:hover { text-decoration: underline; }
+h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffd93d;
+  margin: 32px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #1e1e2e;
+}
+p, li { font-size: 0.9rem; margin-bottom: 12px; }
+ul { padding-left: 20px; }
+li { margin-bottom: 8px; }
+strong { color: #eee; }
+a { color: #4ecdc4; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.callout {
+  background: #1a1a28;
+  border-left: 3px solid #ffa502;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 20px 0;
+  font-size: 0.85rem;
+}
+.callout strong { color: #ffa502; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 0.82rem;
+}
+th, td {
+  padding: 8px 12px;
+  border: 1px solid #1e1e2e;
+  text-align: left;
+}
+th { background: #12121a; color: #aaa; font-weight: 600; }
+td { color: #ccc; }
+.footer {
+  border-top: 1px solid #1e1e2e;
+  margin-top: 48px;
+  padding-top: 20px;
+  font-size: 0.72rem;
+  color: #555;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="index.html" class="back-link">&larr; Back to Dashboard</a>
+
+<h1>About & Methodology</h1>
+<p style="color:#888;margin-bottom:24px;">How this dashboard works, what it can and cannot tell you, and where the data comes from.</p>
+
+<h2>What is this dashboard?</h2>
+<p>The India El Nino Monsoon Tracker is an <strong>independent, automated data dashboard</strong> that pulls numbers from official climate agencies every day and presents them in plain English. It is designed to help non-experts understand how the current El Nino event might affect India's southwest monsoon.</p>
+
+<div class="callout">
+  <strong>This is NOT an official forecast.</strong> It does not predict rainfall. The India Meteorological Department (IMD) at <a href="https://mausam.imd.gov.in/">mausam.imd.gov.in</a> is the only authority for official monsoon forecasts in India. This dashboard simply displays publicly available data and explains what it means historically.
+</div>
+
+<h2>The El Nino–Monsoon Connection</h2>
+<p>El Nino (warming of the central-eastern Pacific Ocean) is <strong>one of the strongest known influences</strong> on India's monsoon — but it is far from a perfect predictor:</p>
+<ul>
+  <li><strong>Correlation: approximately −0.5</strong> — meaning El Nino explains only about 25% of monsoon rainfall variability. Other factors (IOD, MJO, local conditions) matter a lot.</li>
+  <li><strong>Only about half of El Nino years saw drought</strong> — since 1950, roughly 50-60% of El Nino years had below-normal monsoon rainfall. The rest were normal or above.</li>
+  <li><strong>Impact varies by region</strong> — northwest India and parts of the Deccan are more vulnerable; northeast India and the Western Ghats are less affected.</li>
+  <li><strong>IOD can offset El Nino</strong> — a positive Indian Ocean Dipole (IOD) in the same year often brings extra moisture to India, partially or fully cancelling El Nino's drying effect.</li>
+</ul>
+
+<h2>Blended El Nino Probability Model</h2>
+<p>Instead of showing a single agency's forecast, we blend multiple independent sources to get a more balanced probability estimate:</p>
+
+<table>
+  <tr><th>Source</th><th>Weight</th><th>What it measures</th></tr>
+  <tr><td>IRI/Columbia University</td><td>35%</td><td>Multi-model ENSO forecast probabilities</td></tr>
+  <tr><td>NOAA Climate Prediction Center</td><td>25%</td><td>Official US ENSO outlook</td></tr>
+  <tr><td>Nino-3.4 SST Index</td><td>20%</td><td>Current sea surface temperature anomaly</td></tr>
+  <tr><td>Oceanic Nino Index (ONI)</td><td>12%</td><td>3-month running mean of Nino-3.4</td></tr>
+  <tr><td>Southern Oscillation Index (SOI)</td><td>8%</td><td>Atmospheric pressure difference (Tahiti−Darwin)</td></tr>
+</table>
+
+<p>If a source is unreachable, its weight is redistributed proportionally among available sources. The confidence level reflects how many sources contributed.</p>
+
+<h2>Monsoon Stress Index (0–100)</h2>
+<p>This is a <strong>custom composite indicator</strong> — not an official scientific index. It combines:</p>
+<ul>
+  <li>Nino-3.4 SST anomaly (El Nino strength)</li>
+  <li>SOI (atmospheric coupling)</li>
+  <li>IOD/DMI (Indian Ocean state — positive IOD reduces stress)</li>
+  <li>Actual rainfall departure from normal (from IMD)</li>
+  <li>PDO (Pacific Decadal Oscillation — modulates El Nino impacts over decades)</li>
+</ul>
+<p>The index is meant as a plain-English summary ("how worried should we be?") rather than a rigorous forecast tool. It is <strong>a historical tendency indicator, not a certainty</strong>.</p>
+
+<h2>Data Sources</h2>
+<table>
+  <tr><th>Metric</th><th>Source</th><th>Update frequency</th></tr>
+  <tr><td>ONI</td><td><a href="https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php">NOAA/CPC</a></td><td>Monthly</td></tr>
+  <tr><td>Nino-3.4 SST</td><td><a href="https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices">NOAA/CPC</a></td><td>Weekly</td></tr>
+  <tr><td>ENSO Alert Status</td><td><a href="https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/">NOAA/CPC</a></td><td>Monthly</td></tr>
+  <tr><td>SOI</td><td><a href="https://www.cpc.ncep.noaa.gov/data/indices/soi">NOAA/CPC</a></td><td>Monthly</td></tr>
+  <tr><td>IOD / DMI</td><td><a href="https://psl.noaa.gov/gcos_wgsp/Timeseries/DMI/">NOAA PSL</a></td><td>Weekly</td></tr>
+  <tr><td>PDO</td><td><a href="https://www.ncei.noaa.gov/pub/data/cmb/ersst/v5/index/ersst.v5.pdo.dat">NOAA NCEI</a></td><td>Monthly</td></tr>
+  <tr><td>ENSO Forecast</td><td><a href="https://iri.columbia.edu/our-expertise/climate/forecasts/enso/current/">IRI/Columbia</a></td><td>Monthly</td></tr>
+  <tr><td>Rainfall (All India)</td><td><a href="https://mausam.imd.gov.in/">IMD</a></td><td>Weekly</td></tr>
+  <tr><td>Reservoir Storage</td><td><a href="http://www.cwc.gov.in/">CWC India</a></td><td>Weekly (Thursdays)</td></tr>
+  <tr><td>Kharif Sowing</td><td><a href="https://agricoop.gov.in/">Dept of Agriculture</a></td><td>Weekly (Jun–Oct)</td></tr>
+</table>
+
+<h2>Data Integrity Rules</h2>
+<ul>
+  <li><strong>No fabricated data.</strong> If a source cannot be reached, the tile shows "STALE" or "SOURCE UNREACHABLE" — never a guessed number.</li>
+  <li><strong>Every figure carries attribution.</strong> Source name and "as of" timestamp are shown on each metric tile.</li>
+  <li><strong>No invented forecasts.</strong> All interpretations are labelled as historical tendencies, not certainties.</li>
+  <li><strong>Per-tile degradation.</strong> One broken source never blanks the whole dashboard — other tiles continue working independently.</li>
+</ul>
+
+<h2>Update Schedule</h2>
+<p>A GitHub Actions workflow runs daily at <strong>4:00 AM IST</strong> (22:30 UTC). It fetches all sources, writes the results to <code>latest.json</code>, appends a snapshot to <code>history.json</code>, and pushes to GitHub Pages. If the workflow fails, an issue is automatically opened on the repository.</p>
+
+<h2>Limitations</h2>
+<ul>
+  <li>This is a one-person project with automated scrapers — not a 24/7 monitored service.</li>
+  <li>Source websites change format without notice; scraping can break at any time.</li>
+  <li>The Monsoon Stress Index is a custom heuristic, not peer-reviewed science.</li>
+  <li>Regional rainfall data (subdivision-level) depends on IMD PDF bulletins which are fragile to parse.</li>
+  <li>Kharif sowing data from government sources has persistent accessibility issues.</li>
+</ul>
+
+<h2>Open Source</h2>
+<p>All code, scrapers, and data are public: <a href="https://github.com/RohitAgrawal21/India-elnino-monsoon-tracker">github.com/RohitAgrawal21/India-elnino-monsoon-tracker</a></p>
+
+<div class="footer">
+  India El Nino Monsoon Tracker &bull; Independent project, not affiliated with IMD, NOAA, or any government agency.
+</div>
+
+</div>
+</body>
+</html>
