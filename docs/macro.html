@@ -9,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
-.container { max-width: 1100px; margin: 0 auto; padding: 20px 16px; }
+.container { max-width: 900px; margin: 0 auto; padding: 20px 16px; }
 .header { text-align: center; padding: 20px 0 10px; }
 .header h1 { font-size: 1.6rem; font-weight: 900; background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .tab-nav { display: flex; justify-content: center; gap: 4px; margin: 16px 0; flex-wrap: wrap; }
@@ -18,44 +18,40 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; col
 .tab-nav a.active { color: #4ecdc4; border-color: #4ecdc444; background: #4ecdc410; }
 .disclaimer { background: #1a1a28; border: 1px solid #ff6b6b33; border-radius: 8px; padding: 10px 16px; margin-bottom: 20px; font-size: 0.72rem; color: #bbb; text-align: center; }
 .disclaimer strong { color: #ff6b6b; }
-.scenario-bar { background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid #2a2a4a; border-radius: 12px; padding: 18px 22px; margin-bottom: 24px; }
-.scenario-bar h2 { font-size: 0.9rem; font-weight: 800; color: #ffd93d; margin-bottom: 8px; }
-.scenario-weights { display: flex; gap: 12px; flex-wrap: wrap; margin: 10px 0; }
-.weight-chip { padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; }
-.weight-low { background: #ff6b6b22; color: #ff6b6b; border: 1px solid #ff6b6b44; }
-.weight-normal { background: #ffd93d22; color: #ffd93d; border: 1px solid #ffd93d44; }
-.weight-high { background: #6bcb7722; color: #6bcb77; border: 1px solid #6bcb7744; }
-.analog-bar { font-size: 0.75rem; color: #888; margin-top: 8px; }
-.analog-bar strong { color: #ccc; }
-.card { background: #12121a; border: 1px solid #1e1e2e; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
-.card h3 { font-size: 0.85rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
-.card .source { font-size: 0.65rem; color: #555; margin-bottom: 12px; }
-.outlook-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
-.outlook-stat { background: #0e0e16; border: 1px solid #1e1e30; border-radius: 8px; padding: 10px 14px; flex: 1; min-width: 140px; }
-.outlook-stat .label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 4px; }
-.outlook-stat .value { font-size: 1.3rem; font-weight: 800; }
-.outlook-stat .sub { font-size: 0.65rem; color: #666; margin-top: 2px; }
+
+.summary-box { background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid #2a2a4a; border-radius: 12px; padding: 22px 26px; margin-bottom: 24px; }
+.summary-box h2 { font-size: 1rem; font-weight: 800; color: #ffd93d; margin-bottom: 12px; }
+.summary-box p { font-size: 0.85rem; color: #ccc; margin-bottom: 10px; line-height: 1.7; }
+.summary-box .hl { color: #fff; font-weight: 700; }
+.summary-box .hl-red { color: #ff6b6b; font-weight: 700; }
+.summary-box .hl-green { color: #6bcb77; font-weight: 700; }
+
+.chain { margin: 20px 0; padding: 16px 20px; background: #12121a; border: 1px solid #1e1e2e; border-radius: 10px; }
+.chain h3 { font-size: 0.85rem; font-weight: 700; color: #4ecdc4; margin-bottom: 10px; }
+.chain-step { display: flex; align-items: center; gap: 8px; margin: 6px 0; font-size: 0.8rem; color: #bbb; }
+.chain-arrow { color: #ffd93d; font-weight: 700; }
+
+.card { background: #12121a; border: 1px solid #1e1e2e; border-radius: 12px; padding: 20px; margin-bottom: 14px; }
+.card h3 { font-size: 0.88rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.card .plain { font-size: 0.78rem; color: #aaa; margin: 8px 0; line-height: 1.6; }
+.card .plain strong { color: #ddd; }
+.card .source { font-size: 0.62rem; color: #555; }
+.stat-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+.stat-box { background: #0e0e16; border: 1px solid #1e1e30; border-radius: 8px; padding: 10px 14px; flex: 1; min-width: 130px; text-align: center; }
+.stat-box .num { font-size: 1.4rem; font-weight: 800; }
+.stat-box .lbl { font-size: 0.6rem; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
 .val-red { color: #ff6b6b; }
 .val-green { color: #6bcb77; }
 .val-amber { color: #ffa502; }
 .val-blue { color: #4ecdc4; }
-.dist-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; margin: 12px 0; }
-.dist-table th { background: #0e0e16; color: #888; font-weight: 600; padding: 8px 10px; text-align: left; border-bottom: 1px solid #1e1e2e; }
-.dist-table td { padding: 7px 10px; border-bottom: 1px solid #1a1a28; color: #bbb; }
-.dist-table tr:hover td { background: #14141e; }
-.caveat { font-size: 0.68rem; color: #666; font-style: italic; margin-top: 8px; border-left: 2px solid #333; padding-left: 10px; }
-.prob-bar { height: 6px; border-radius: 3px; background: #1e1e2e; margin: 6px 0; position: relative; overflow: hidden; }
-.prob-bar .fill { height: 100%; border-radius: 3px; }
-.sensitivity-box { background: #1a1a28; border-left: 3px solid #4ecdc4; border-radius: 0 8px 8px 0; padding: 12px 16px; margin: 16px 0; font-size: 0.78rem; }
-.sensitivity-box h4 { color: #4ecdc4; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-.sensitivity-box p { color: #aaa; margin: 4px 0; }
+
+.caveat { font-size: 0.7rem; color: #666; font-style: italic; margin-top: 8px; padding-left: 10px; border-left: 2px solid #333; }
+.footnote { font-size: 0.68rem; color: #555; margin-top: 20px; padding: 12px 16px; background: #0e0e16; border-radius: 8px; }
 .footer { border-top: 1px solid #1a1a28; padding: 20px 0; margin-top: 30px; font-size: 0.68rem; color: #555; text-align: center; }
 .footer a { color: #4ecdc4; text-decoration: none; }
 @media (max-width: 600px) {
-  .container { padding: 12px 10px; }
-  .outlook-row { flex-direction: column; }
-  .outlook-stat { min-width: unset; }
-  .scenario-bar { padding: 14px 16px; }
+  .stat-row { flex-direction: column; }
+  .stat-box { min-width: unset; }
 }
 </style>
 </head>
@@ -68,8 +64,8 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; col
     <a href="industry.html">Industry</a>
     <a href="stocks.html">Stocks</a>
   </nav>
-  <div class="disclaimer"><strong>&#9888; Not investment advice.</strong> This is personal research into historical patterns. All outputs are conditional probability distributions from small samples (n≈8-12). Past patterns do not guarantee future outcomes. IMD is the official authority for monsoon forecasts.</div>
-  <div id="app">Loading analysis...</div>
+  <div class="disclaimer"><strong>&#9888; Not financial advice.</strong> This page shows how drought has historically affected India's economy. Small sample sizes (n≈8). Past patterns ≠ guarantees.</div>
+  <div id="app">Loading...</div>
 </div>
 <script>
 async function loadData() {
@@ -80,107 +76,133 @@ async function loadData() {
     ]);
     render(analysis, latest);
   } catch(e) {
-    document.getElementById('app').innerHTML = '<p style="color:#ff6b6b">Could not load analysis data: ' + e.message + '</p>';
+    document.getElementById('app').innerHTML = '<p style="color:#ff6b6b">Error: ' + e.message + '</p>';
   }
 }
 
 function render(a, latest) {
   let html = '';
   const w = a.rainfall_weights_2026;
-  const dep = latest.metrics.imd_rainfall ? latest.metrics.imd_rainfall.country_departure_pct : null;
 
-  // Scenario bar
-  html += '<div class="scenario-bar">';
-  html += '<h2>2026 Monsoon Scenario Weights</h2>';
-  html += '<div style="font-size:0.75rem;color:#aaa">Based on IMD forecast (90% LPA), El Nino probability (68.2%), and current departure (' + (dep !== null ? dep + '%' : '?') + ')</div>';
-  html += '<div class="scenario-weights">';
-  html += '<span class="weight-chip weight-low">LOW (drought): ' + Math.round(w.LOW * 100) + '%</span>';
-  html += '<span class="weight-chip weight-normal">NORMAL: ' + Math.round(w.NORMAL * 100) + '%</span>';
-  html += '<span class="weight-chip weight-high">HIGH (excess): ' + Math.round(w.HIGH * 100) + '%</span>';
-  html += '</div>';
-  html += '<div class="analog-bar">Closest analog years: <strong>' + a.analog_years.slice(0, 4).map(y => y.year + ' (' + y.departure_pct + '%)').join(', ') + '</strong></div>';
+  // ===== PLAIN ENGLISH SUMMARY =====
+  html += '<div class="summary-box">';
+  html += '<h2>How Does a Weak Monsoon Hurt India\'s Economy?</h2>';
+  html += '<p>India\'s monsoon (June-September) is critical because <span class="hl">agriculture is still ~14% of GDP</span> and <span class="hl">~55% of farmland has no irrigation</span> — it depends entirely on rain.</p>';
+  html += '<p>When the monsoon fails, here\'s the chain reaction:</p>';
   html += '</div>';
 
-  // Macro cards
-  var macroKeys = ['agri_gva_growth', 'kharif_production_growth', 'food_cpi_inflation', 'tractor_sales_growth', 'two_wheeler_growth'];
-  macroKeys.forEach(function(key) {
-    var m = a.macro[key];
-    if (!m || !m.outlook_2026) return;
-    var o = m.outlook_2026;
-    var dist = m.by_rainfall_bucket;
+  // Chain of causation
+  html += '<div class="chain">';
+  html += '<h3>The Drought → Economy Chain</h3>';
+  html += '<div class="chain-step"><span class="chain-arrow">1.</span> Less rain → crops fail → <strong>farm output drops 10-20%</strong></div>';
+  html += '<div class="chain-step"><span class="chain-arrow">2.</span> Less crop supply → <strong>food prices spike</strong> (vegetables, pulses, cereals get expensive)</div>';
+  html += '<div class="chain-step"><span class="chain-arrow">3.</span> Farmers earn less → <strong>rural spending collapses</strong> (no new tractors, bikes, gold, FMCG products)</div>';
+  html += '<div class="chain-step"><span class="chain-arrow">4.</span> Food inflation rises → <strong>RBI can\'t cut interest rates</strong> (or may hike) → hurts overall growth</div>';
+  html += '<div class="chain-step"><span class="chain-arrow">5.</span> Overall GDP takes a <strong>~0.3% to 0.8% hit</strong> depending on severity</div>';
+  html += '</div>';
 
+  // 2026 scenario
+  html += '<div class="summary-box" style="border-color:#ff6b6b44">';
+  html += '<h2>What Does This Mean for 2026?</h2>';
+  html += '<p>We estimate a <span class="hl-red">' + Math.round(w.LOW * 100) + '% chance of drought</span> this year (based on El Nino probability + IMD forecast of 90% rainfall). If that happens, here\'s what history suggests:</p>';
+  html += '</div>';
+
+  // Individual macro indicators
+  var macro = a.macro;
+
+  // 1. Farm output
+  if (macro.kharif_production_growth && macro.kharif_production_growth.outlook_2026) {
+    var kp = macro.kharif_production_growth;
+    var ko = kp.outlook_2026;
     html += '<div class="card">';
-    html += '<h3>' + m.variable + '</h3>';
-    html += '<div class="source">Source: ' + m.source + ' | Unit: ' + m.unit + '</div>';
+    html += '<h3>Kharif Crop Production</h3>';
+    html += '<div class="plain">This is the monsoon-season harvest (rice, pulses, cotton, sugarcane). <strong>In past drought years, kharif output fell by 10-20%.</strong> If monsoon is normal, it usually grows 3-5%.</div>';
+    html += '<div class="stat-row">';
+    html += '<div class="stat-box"><div class="num val-red">' + ko.weighted_mean + '%</div><div class="lbl">Expected Growth (2026)</div></div>';
+    html += '<div class="stat-box"><div class="num val-red">' + ko.p_negative + '%</div><div class="lbl">Chance of decline</div></div>';
+    html += '<div class="stat-box"><div class="num val-amber">' + ko.p_worse_than_minus5 + '%</div><div class="lbl">Chance of >5% drop</div></div>';
+    html += '</div>';
+    html += '<div class="caveat">Based on ' + ko.total_analog_n + ' years of data. In drought years (n=5): average kharif output fell ' + (kp.by_rainfall_bucket.LOW ? kp.by_rainfall_bucket.LOW.mean : '?') + '%.</div>';
+    html += '<div class="source">Source: ' + kp.source + '</div>';
+    html += '</div>';
+  }
 
-    // Outlook stats
-    html += '<div class="outlook-row">';
-    var meanColor = o.weighted_mean < 0 ? 'val-red' : o.weighted_mean < 3 ? 'val-amber' : 'val-green';
-    if (key === 'food_cpi_inflation') meanColor = o.weighted_mean > 8 ? 'val-red' : o.weighted_mean > 5 ? 'val-amber' : 'val-green';
-    html += '<div class="outlook-stat"><div class="label">2026 Weighted Mean</div><div class="value ' + meanColor + '">' + o.weighted_mean + '%</div><div class="sub">Range: ' + o.weighted_range[0] + '% to ' + o.weighted_range[1] + '%</div></div>';
+  // 2. Food inflation
+  if (macro.food_cpi_inflation && macro.food_cpi_inflation.outlook_2026) {
+    var fi = macro.food_cpi_inflation;
+    var fo = fi.outlook_2026;
+    html += '<div class="card">';
+    html += '<h3>Food Inflation</h3>';
+    html += '<div class="plain">When crops fail, food prices go up. <strong>In past drought years, food inflation averaged ' + (fi.by_rainfall_bucket.LOW ? fi.by_rainfall_bucket.LOW.mean + '%' : '8-10%') + '</strong> — that\'s groceries getting noticeably more expensive for everyone. RBI then has to keep interest rates high, which slows down the whole economy.</div>';
+    html += '<div class="stat-row">';
+    var fiColor = fo.weighted_mean > 7 ? 'val-red' : fo.weighted_mean > 5 ? 'val-amber' : 'val-green';
+    html += '<div class="stat-box"><div class="num ' + fiColor + '">' + fo.weighted_mean + '%</div><div class="lbl">Expected Food Inflation</div></div>';
+    html += '<div class="stat-box"><div class="num val-red">' + fo.p_better_than_10 + '%</div><div class="lbl">Chance above 10%</div></div>';
+    html += '</div>';
+    html += '<div class="caveat">Food inflation is the price rise you feel at the grocery store and vegetable market. Above 6% is considered high by RBI.</div>';
+    html += '<div class="source">Source: ' + fi.source + '</div>';
+    html += '</div>';
+  }
 
-    if (m.negative_is_bad) {
-      html += '<div class="outlook-stat"><div class="label">P(negative)</div><div class="value val-red">' + o.p_negative + '%</div><div class="sub">Probability of contraction</div></div>';
-      html += '<div class="outlook-stat"><div class="label">P(worse than -5%)</div><div class="value val-red">' + o.p_worse_than_minus5 + '%</div><div class="sub">Severe decline</div></div>';
-    } else {
-      html += '<div class="outlook-stat"><div class="label">P(above 8%)</div><div class="value val-red">' + o.p_better_than_10 + '%</div><div class="sub">High inflation risk</div></div>';
+  // 3. Agri GVA
+  if (macro.agri_gva_growth && macro.agri_gva_growth.outlook_2026) {
+    var ag = macro.agri_gva_growth;
+    var ao = ag.outlook_2026;
+    html += '<div class="card">';
+    html += '<h3>Agriculture GDP Growth</h3>';
+    html += '<div class="plain">Agriculture is ~14% of India\'s GDP. Normally it grows 3-4% per year. <strong>In drought years, it has historically gone negative</strong> (shrank). This drags overall GDP down by 0.3-0.8%.</div>';
+    html += '<div class="stat-row">';
+    var agColor = ao.weighted_mean < 0 ? 'val-red' : ao.weighted_mean < 2 ? 'val-amber' : 'val-green';
+    html += '<div class="stat-box"><div class="num ' + agColor + '">' + ao.weighted_mean + '%</div><div class="lbl">Expected Agri Growth</div></div>';
+    html += '<div class="stat-box"><div class="num val-red">' + ao.p_negative + '%</div><div class="lbl">Chance of contraction</div></div>';
+    html += '</div>';
+    if (macro.gdp_drag_estimate) {
+      var gdp = macro.gdp_drag_estimate;
+      html += '<div class="plain" style="margin-top:12px"><strong>Implied GDP drag:</strong> If agriculture grows at ' + gdp.weighted_agri_growth_2026 + '% instead of the normal ~' + gdp.trend_agri_growth + '%, that\'s a <strong>' + gdp.implied_gdp_drag_pct + '% drag on overall GDP</strong>.</div>';
     }
-    html += '<div class="outlook-stat"><div class="label">Analog Years</div><div class="value val-blue">' + o.total_analog_n + '</div><div class="sub">years with data</div></div>';
+    html += '<div class="source">Source: ' + ag.source + '</div>';
     html += '</div>';
+  }
 
-    // Distribution table by bucket
-    html += '<table class="dist-table">';
-    html += '<thead><tr><th>Rainfall Bucket</th><th>Mean</th><th>Median</th><th>Min</th><th>Max</th><th>n</th></tr></thead><tbody>';
-    ['LOW', 'NORMAL', 'HIGH'].forEach(function(bucket) {
-      if (dist[bucket]) {
-        var d = dist[bucket];
-        html += '<tr><td><strong>' + bucket + '</strong></td><td>' + d.mean + '%</td><td>' + d.median + '%</td><td>' + d.min + '%</td><td>' + d.max + '%</td><td>' + d.n + '</td></tr>';
-      }
-    });
-    html += '</tbody></table>';
-    html += '<div class="caveat">⚠ Small sample sizes. LOW bucket n=' + (dist.LOW ? dist.LOW.n : 0) + '. Interpret as historical tendency, not prediction.</div>';
-    html += '</div>';
-  });
-
-  // GDP Drag estimate
-  if (a.macro.gdp_drag_estimate) {
-    var gdp = a.macro.gdp_drag_estimate;
+  // 4. Rural demand
+  if (macro.tractor_sales_growth && macro.tractor_sales_growth.outlook_2026) {
+    var ts = macro.tractor_sales_growth;
+    var to2 = ts.outlook_2026;
     html += '<div class="card">';
-    html += '<h3>Implied GDP Drag from Agriculture</h3>';
-    html += '<div class="source">Method: Agri GVA share (' + gdp.agri_share_pct + '%) × (forecast growth - trend ' + gdp.trend_agri_growth + '%)</div>';
-    html += '<div class="outlook-row">';
-    html += '<div class="outlook-stat"><div class="label">Weighted GDP Drag</div><div class="value val-red">' + gdp.implied_gdp_drag_pct + '%</div><div class="sub">Range: ' + gdp.range[0] + '% to ' + gdp.range[1] + '%</div></div>';
+    html += '<h3>Rural Demand (Tractors & Two-Wheelers)</h3>';
+    html += '<div class="plain">Tractor and two-wheeler sales are the best proxy for "how much money do farmers have?" <strong>In drought years, tractor sales have dropped 8-12% on average.</strong> This ripples through auto companies, dealers, and rural finance.</div>';
+    html += '<div class="stat-row">';
+    var tsColor = to2.weighted_mean < 0 ? 'val-red' : 'val-amber';
+    html += '<div class="stat-box"><div class="num ' + tsColor + '">' + to2.weighted_mean + '%</div><div class="lbl">Tractor Sales Growth</div></div>';
+    html += '<div class="stat-box"><div class="num val-red">' + to2.p_negative + '%</div><div class="lbl">Chance of decline</div></div>';
     html += '</div>';
-    html += '<div class="caveat">This is the DIRECT agri channel only. Indirect channels (food inflation → RBI rates → demand) add another -0.1% to -0.3% in drought years per RBI estimates.</div>';
-    html += '</div>';
-  }
-
-  // Published sensitivities cross-check
-  if (a.macro.published_sensitivities) {
-    var ps = a.macro.published_sensitivities;
-    html += '<div class="sensitivity-box">';
-    html += '<h4>Cross-Check: Published RBI/Economic Survey Sensitivities</h4>';
-    html += '<p><strong>1% monsoon shortfall →</strong> ' + ps.monsoon_gdp_sensitivity.direct_agri + ' agri GVA, ' + ps.monsoon_gdp_sensitivity.overall_gdp + ' GDP</p>';
-    html += '<p><strong>Drought food inflation:</strong> ' + ps.drought_food_inflation.typical_range + ' above trend</p>';
-    html += '<p><strong>RBI response:</strong> ' + ps.drought_rbi_response.typical + '</p>';
-    html += '<p style="font-size:0.65rem;color:#555;margin-top:6px">Source: ' + ps.source + '</p>';
+    html += '<div class="source">Source: ' + ts.source + '</div>';
     html += '</div>';
   }
 
-  // Analog years where pattern broke
-  html += '<div class="card">';
-  html += '<h3>Where Analogs BROKE (noise is visible)</h3>';
-  html += '<div style="font-size:0.78rem;color:#aaa;margin:8px 0">';
-  html += '<strong>2009:</strong> Severe drought (-22.5%) yet Nifty rallied +76% (Jun-Dec) — global QE overwhelmed monsoon signal.<br>';
-  html += '<strong>1997-98:</strong> Super El Nino (+2.4 ONI) yet monsoon was NORMAL (102% LPA) — strongly positive IOD cancelled the drought signal.<br>';
-  html += '<strong>2019:</strong> El Nino year yet EXCESS rainfall (+11.4%) — IOD went very positive mid-season.<br>';
-  html += '<strong>2004:</strong> Deficient monsoon (-13%) yet agri GVA barely fell (0.2%) — irrigation coverage had expanded significantly.';
-  html += '</div>';
-  html += '<div class="caveat">These exceptions prove the rule is a tendency, not a law. Markets and macro have many drivers beyond monsoon.</div>';
-  html += '</div>';
+  // Cross-check box
+  if (macro.published_sensitivities) {
+    var ps = macro.published_sensitivities;
+    html += '<div class="footnote">';
+    html += '<strong style="color:#4ecdc4">Cross-check from RBI/Economic Survey:</strong><br>';
+    html += '• 1% monsoon shortfall → ' + ps.monsoon_gdp_sensitivity.overall_gdp + ' GDP impact<br>';
+    html += '• Drought food inflation: typically ' + ps.drought_food_inflation.typical_range + ' above normal<br>';
+    html += '• RBI response: ' + ps.drought_rbi_response.typical + '<br>';
+    html += '<span style="color:#444">Source: ' + ps.source + '</span>';
+    html += '</div>';
+  }
 
-  html += '<div class="footer">Generated: ' + new Date(a.generated_at).toLocaleString('en-IN') + ' | <a href="about.html">Methodology</a> | <a href="index.html">← Weather Dashboard</a></div>';
+  // Where this went wrong
+  html += '<div class="card" style="border-color:#ffd93d33">';
+  html += '<h3 style="color:#ffd93d">When Did This Pattern Break?</h3>';
+  html += '<div class="plain">';
+  html += '<strong>2009:</strong> Severe drought (-22% rainfall) yet the economy recovered quickly — global stimulus (QE) flooded markets with money.<br><br>';
+  html += '<strong>2004:</strong> Deficit monsoon (-13%) but agri barely fell — because irrigation coverage had expanded, making farms less rain-dependent.<br><br>';
+  html += '<strong>2019:</strong> El Nino year yet EXCESS rainfall — the Indian Ocean Dipole went strongly positive and cancelled the drought signal.<br><br>';
+  html += '<em style="color:#888">Lesson: Monsoon is a powerful factor, but it\'s not the only one. Global conditions, government response, and luck all matter.</em>';
+  html += '</div></div>';
 
+  html += '<div class="footer"><a href="about.html">Full Methodology</a> | <a href="index.html">&larr; Weather Dashboard</a></div>';
   document.getElementById('app').innerHTML = html;
 }
 

@@ -136,45 +136,62 @@ def run_thematic_analysis(taxonomy, weights):
 
 
 def run_watchlist_analysis(taxonomy, weights):
-    """Placeholder for watchlist — uses sector-level proxy data.
-    In production, this would pull individual stock returns from yfinance."""
+    """Run analysis on expanded watchlist using sector proxies."""
     watchlist = get_watchlist()
-    results = []
+    results = {"large_cap": {}, "mid_cap": {}, "small_cap": {}}
 
-    # Map watchlist stocks to their closest sector proxy
-    sector_map = {
-        "M&M.NS": "auto",
-        "HINDUNILVR.NS": "fmcg",
-        "TITAN.NS": "fmcg",
-        "DABUR.NS": "fmcg",
-        "ESCORTS.NS": "auto",
-        "PIIND.NS": "auto",  # agrochem proxy
-        "BALRAMCHIN.NS": "fmcg",  # sugar proxy
-        "ICICIBANK.NS": "bank",
+    # Map sectors to proxy indices
+    sector_to_proxy = {
+        "Auto/Tractors": "auto", "Two-Wheelers": "auto", "Tractors": "auto",
+        "Farm Equipment": "auto",
+        "FMCG": "fmcg", "Packaged Food": "fmcg", "Diversified/FMCG": "fmcg",
+        "Dairy": "fmcg", "Rice/Basmati": "fmcg",
+        "Banking": "bank", "PSU Banking": "bank", "Banking (Kerala)": "bank",
+        "Gold Finance": "bank",
+        "Jewellery": "fmcg",
+        "Agrochemicals": "auto", "Crop Protection": "auto",
+        "Fertilizers": "auto", "Fertilizer/Chemical": "auto",
+        "Fertilizer (PSU)": "auto", "Agri-chemicals": "auto",
+        "Sugar": "fmcg", "Sugar/Engineering": "fmcg",
+        "IT Services": "it", "IT (Mid-cap)": "it",
+        "Pharmaceuticals": "pharma", "Pharma": "pharma",
+        "Energy/Telecom": "energy", "Power (Thermal)": "energy",
+        "Power": "energy", "Power Utility": "energy", "Hydro/Solar Power": "energy",
+        "Water Treatment": "pharma",  # defensive proxy
+        "Pumps/Solar": "energy", "Industrial Pumps": "energy",
+        "Electricals": "energy",
+        "Micro-irrigation": "auto",
+        "Aroma Chemicals": "pharma", "Ports/Logistics": "it",
+        "Logistics": "it", "Media": "it",
+        "Aquaculture": "fmcg",
     }
 
-    for stock in watchlist:
-        proxy_sector = sector_map.get(stock["ticker"], "fmcg")
-        proxy_data = SECTOR_EXCESS_MONSOON.get(proxy_sector, {}).get("data", {})
-
-        if proxy_data:
-            analysis = run_full_analysis(
-                proxy_data,
-                stock["name"],
-                weights=weights,
-                taxonomy=taxonomy,
-            )
-        else:
-            analysis = {"note": "Insufficient data for individual stock analysis"}
-
-        results.append({
-            "ticker": stock["ticker"],
-            "name": stock["name"],
-            "sector": stock["sector"],
-            "monsoon_link": stock["monsoon_link"],
-            "analysis": analysis,
-            "data_note": f"Using {proxy_sector} sector index as proxy. Individual stock-level conditional returns require yfinance data pull.",
-        })
+    for cap_key in ["large_cap", "mid_cap", "small_cap"]:
+        cap_data = watchlist[cap_key]
+        for direction in ["hurt_by_drought", "benefit_from_drought"]:
+            stocks = cap_data.get(direction, [])
+            analyzed = []
+            for stock in stocks:
+                proxy = sector_to_proxy.get(stock["sector"], "fmcg")
+                proxy_data = SECTOR_EXCESS_MONSOON.get(proxy, {}).get("data", {})
+                if proxy_data:
+                    analysis = run_full_analysis(
+                        proxy_data, stock["name"], weights=weights, taxonomy=taxonomy
+                    )
+                else:
+                    analysis = None
+                analyzed.append({
+                    "ticker": stock["ticker"],
+                    "name": stock["name"],
+                    "sector": stock["sector"],
+                    "why": stock["why"],
+                    "direction": direction,
+                    "proxy_sector": proxy,
+                    "analysis": analysis,
+                })
+            if direction not in results[cap_key]:
+                results[cap_key][direction] = []
+            results[cap_key][direction] = analyzed
 
     return results
 
