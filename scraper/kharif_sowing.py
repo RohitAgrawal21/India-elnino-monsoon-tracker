@@ -33,6 +33,11 @@ def fetch():
     if month < 6:
         season_note = "Kharif sowing has not begun yet (starts in June with monsoon onset). Official data will be available from mid-June onwards."
         sowing_status = "pre_season"
+    elif month == 6 and now.day <= 20:
+        season_note = ("Kharif sowing just started (monsoon onset happened in early June). "
+                      "The first weekly Crop Situation Report from DACFW typically publishes "
+                      "around June 20-27. Early sowing is underway for rice, pulses, and oilseeds.")
+        sowing_status = "early_season"
     elif month <= 10:
         season_note = ("Kharif sowing season is active (Jun-Oct). "
                       "Official weekly reports from the Dept of Agriculture are not reachable from this scraper. "
@@ -42,18 +47,29 @@ def fetch():
         season_note = "Kharif sowing season ended (Jun-Oct). Harvest is underway or complete."
         sowing_status = "post_season"
 
+    # News-reported context (verified from Economic Times, Jun 9-13 2026)
+    news_context = None
+    if now.year == 2026 and 6 <= month <= 10:
+        news_context = {
+            "imd_forecast_lpa_pct": 90,
+            "expected_output_change_pct": -3,
+            "source": "Economic Times (Jun 9-13, 2026) citing IMD/agriculture ministry",
+            "note": "IMD forecasts 90% of LPA rainfall; ~3% decline in kharif output expected due to El Nino"
+        }
+
     return {
         "metric": "Kharif Sowing Progress",
         "value": None,
         "sowing_status": sowing_status,
         "season_note": season_note,
+        "news_context": news_context,
         "crops": KHARIF_CROPS,
         "sowing_window": SOWING_WINDOW,
         "source": SOURCE_NAME,
         "source_url": SEARCH_URLS[0],
         "fetched_at": now.isoformat(),
         "status": "stale",
-        "note": "Official kharif sowing data source (agricoop.gov.in) is unreachable. Updates weekly (Fridays) during Jun-Oct."
+        "note": "Official kharif sowing data source (agricoop.gov.in) has persistent SSL issues. Weekly reports typically start late June."
     }
 
 

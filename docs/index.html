@@ -1056,11 +1056,29 @@ function render(latest, history) {
   } else {
     var ks = m.kharif_sowing || {};
     var sowStatus = ks.sowing_status || 'unknown';
-    var statusIcon = sowStatus === 'pre_season' ? '&#9203;' : sowStatus === 'in_season' ? '&#127793;' : '&#9989;';
-    var statusLabel = sowStatus === 'pre_season' ? 'Not Yet Started' : sowStatus === 'in_season' ? 'Season Active' : sowStatus === 'post_season' ? 'Season Complete' : 'Unknown';
+    var statusIcon = sowStatus === 'pre_season' ? '&#9203;' : sowStatus === 'early_season' ? '&#127793;' : sowStatus === 'in_season' ? '&#127793;' : '&#9989;';
+    var statusLabel = sowStatus === 'pre_season' ? 'Not Yet Started' : sowStatus === 'early_season' ? 'Just Starting' : sowStatus === 'in_season' ? 'Season Active' : sowStatus === 'post_season' ? 'Season Complete' : 'Unknown';
     html += '<div style="margin:8px 0"><span style="font-size:1.4rem">' + statusIcon + '</span> <strong style="color:#ffd93d">' + statusLabel + '</strong></div>';
     if (ks.season_note) html += '<div style="font-size:0.8rem;color:#999;margin:6px 0">' + ks.season_note + '</div>';
-    html += '<span class="badge badge-stale">SOURCE UNREACHABLE</span>';
+
+    // News-reported context
+    if (ks.news_context) {
+      var nc = ks.news_context;
+      html += '<div style="background:#1a1a28;border-radius:8px;padding:12px 14px;margin:10px 0;border-left:3px solid #ffa502">';
+      html += '<div style="font-size:0.7rem;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">From News Reports</div>';
+      if (nc.imd_forecast_lpa_pct) {
+        var lpaColor = nc.imd_forecast_lpa_pct < 96 ? '#ffa502' : '#6bcb77';
+        html += '<div style="margin:4px 0"><strong style="color:' + lpaColor + ';font-size:1.3rem">' + nc.imd_forecast_lpa_pct + '%</strong> <span style="color:#888;font-size:0.8rem">of LPA rainfall forecast by IMD</span></div>';
+      }
+      if (nc.expected_output_change_pct) {
+        var outColor = nc.expected_output_change_pct < 0 ? '#ff6b6b' : '#6bcb77';
+        html += '<div style="margin:4px 0"><strong style="color:' + outColor + ';font-size:1.1rem">' + nc.expected_output_change_pct + '%</strong> <span style="color:#888;font-size:0.8rem">expected change in kharif crop output</span></div>';
+      }
+      html += '<div style="font-size:0.65rem;color:#555;margin-top:6px">Source: ' + nc.source + '</div>';
+      html += '</div>';
+    }
+
+    html += '<span class="badge badge-stale">OFFICIAL DATA PENDING</span>';
     html += '<div class="explain" style="margin-top:10px"><strong>About Kharif crops:</strong> ' + (ks.crops || 'rice, pulses, oilseeds, cotton, sugarcane') + '.<br><br>';
     html += '<strong>Sowing window:</strong> ' + (ks.sowing_window || 'June-August, depends on monsoon onset') + '<br><br>';
     html += '<strong>Why it matters:</strong> If monsoon rains are delayed or deficient (as El Nino can cause), farmers delay sowing — leading to lower crop output and potential food inflation. ';
