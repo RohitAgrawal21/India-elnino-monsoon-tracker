@@ -991,10 +991,11 @@ function render(latest, history) {
 
   // Card 1: El Nino Probability — semi-circle gauge
   var elninoVal = blendedProb || iriProb || 0;
+  var elninoRound = Math.round(elninoVal);
   html += '<div class="hero-num-card">';
   html += '<div class="hero-num-label">El Nino Probability <span style="font-size:0.55rem;color:#666;text-transform:none;letter-spacing:0">(blended model)</span></div>';
   html += '<div class="stress-wrap">';
-  html += '<div><div class="stress-arc">' + probArcSVG(elninoVal) + '<div class="stress-number" style="color:#ff6b6b">' + elninoVal + '%</div></div>';
+  html += '<div><div class="stress-arc">' + probArcSVG(elninoRound) + '<div class="stress-number" style="color:#ff6b6b">' + elninoRound + '%</div></div>';
   html += '<div class="stress-label-row"><span>0%</span><span>50%</span><span>100%</span></div></div>';
   html += '<div class="stress-info">';
   html += '<div class="stress-verdict" style="color:#ff6b6b">' + (elninoVal >= 80 ? 'Very Likely' : elninoVal >= 60 ? 'Likely' : elninoVal >= 40 ? 'Possible' : 'Unlikely') + '</div>';
