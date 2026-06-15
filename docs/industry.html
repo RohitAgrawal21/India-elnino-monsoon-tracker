@@ -93,8 +93,11 @@ var SECTOR_LOGOS = {
   metal:   [{d:'tatasteel.com',n:'Tata Steel'},{d:'hindalco.com',n:'Hindalco'},{d:'jsw.in',n:'JSW'},{d:'vedantalimited.com',n:'Vedanta'}],
   consumer_durables: [{d:'voltas.com',n:'Voltas'},{d:'havells.com',n:'Havells'},{d:'bluestarindia.com',n:'Blue Star'},{d:'crompton.co.in',n:'Crompton'}],
 };
-function logoImg(domain) {
-  return '<img src="https://logo.clearbit.com/' + domain + '" onerror="this.style.display=\'none\'" alt="" loading="lazy">';
+function logoImg(domain, name) {
+  var initials = (name || domain.split('.')[0]).substring(0, 2).toUpperCase();
+  var fallback = 'this.onerror=null;this.style.display="none";this.nextElementSibling.style.display="flex"';
+  return '<img src="https://www.google.com/s2/favicons?domain=' + domain + '&sz=64" onerror="' + fallback + '" alt="" loading="lazy">' +
+    '<span class="logo-fallback" style="display:none;width:22px;height:22px;border-radius:50%;background:#1e1e2e;border:1px solid #2a2a3a;font-size:0.5rem;font-weight:700;color:#888;align-items:center;justify-content:center">' + initials + '</span>';
 }
 
 function miniGaugeSVG(pct, maxAbs) {
@@ -163,7 +166,7 @@ function render(a) {
       // Company logos
       var logos = SECTOR_LOGOS[r.key] || [];
       html += '<td><div class="logo-row">';
-      logos.forEach(function(l) { html += logoImg(l.d); });
+      logos.forEach(function(l) { html += logoImg(l.d, l.n); });
       html += '</div></td>';
       html += '</tr>';
     });

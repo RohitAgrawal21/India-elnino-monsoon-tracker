@@ -149,9 +149,9 @@ function render(a) {
   html += '<div style="background:#1a1a28;border:1px solid #ffa50233;border-radius:10px;padding:16px;margin-top:16px">';
   html += '<div style="font-size:0.78rem;font-weight:700;color:#ffa502;margin-bottom:6px">About Analyst Targets</div>';
   html += '<div style="font-size:0.72rem;color:#aaa;line-height:1.7">';
-  html += 'Analyst targets come from Yahoo Finance, which aggregates sell-side broker reports. <strong>Sell-side analysts have a known bullish bias</strong> — they are more likely to cover stocks they are positive on, and "Buy" ratings outnumber "Sell" ratings roughly 5:1 industry-wide. ';
-  html += 'This is why most stocks show 15-40% upside. <strong>Don\'t treat these as reliable price predictions.</strong> The target range (low to high) is more informative than the mean — look at the low end for a more conservative view. ';
-  html += 'The analyst count also matters: 30+ analysts = well-covered large cap; &lt;5 analysts = thinly covered, less reliable.';
+  html += 'Consensus targets are from Yahoo Finance, which aggregates sell-side broker reports. These are <strong>trailing consensus figures</strong> — Yahoo Finance does not disclose which reports are included or how recent they are. We cannot filter for only the last 6 months or only top-tier brokerages. ';
+  html += '<strong>Sell-side analysts have a known bullish bias</strong> — "Buy" ratings outnumber "Sell" roughly 5:1 industry-wide, which is why most stocks show 15-40% upside. ';
+  html += '<strong>Do not treat these as reliable price predictions.</strong> The low end of the target range is more informative than the mean. Analyst count matters: 30+ = well-covered large cap; &lt;5 = thinly covered, less reliable.';
   html += '</div></div>';
 
   // Final caveat
@@ -210,7 +210,7 @@ function renderStock(s, w) {
   var html = '<div class="stock-item">';
   html += '<div class="stock-left">';
   var domain = TICKER_DOMAINS[s.ticker];
-  var logoHtml = domain ? '<img class="stock-logo" src="https://logo.clearbit.com/' + domain + '" onerror="this.style.display=\'none\'" alt="" loading="lazy">' : '';
+  var logoHtml = domain ? '<img class="stock-logo" src="https://www.google.com/s2/favicons?domain=' + domain + '&sz=64" onerror="this.onerror=null;this.src=\'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2228%22><rect width=%2228%22 height=%2228%22 rx=%226%22 fill=%22%231e1e2e%22/><text x=%2214%22 y=%2218%22 text-anchor=%22middle%22 fill=%22%23888%22 font-size=%2210%22 font-family=%22sans-serif%22>' + s.name.substring(0,2) + '</text></svg>\'" alt="" loading="lazy">' : '';
   html += '<div class="stock-item-name">' + logoHtml + '<span>' + s.name + ' <span class="stock-item-ticker">' + s.ticker + '</span></span></div>';
   html += '<div class="stock-item-sector">' + s.sector + '</div>';
   html += '<div class="stock-item-why">' + s.why + '</div>';
@@ -237,27 +237,22 @@ function renderStock(s, w) {
     html += '<div class="fund-row"><span class="fund-lbl">PAT%</span><span class="fund-val">' + fmt(f.pat_margin_pct, '%') + '</span></div>';
     html += '<div class="fund-row"><span class="fund-lbl">TTM PE</span><span class="fund-val">' + fmt(f.ttm_pe, 'x') + '</span></div>';
     html += '<div class="fund-row"><span class="fund-lbl">EV/EBITDA</span><span class="fund-val">' + fmt(f.ev_ebitda, 'x') + '</span></div>';
-    html += '<div class="fund-row"><span class="fund-lbl">Ind. Med PE</span><span class="fund-val">' + fmt(f.industry_median_pe, 'x') + '</span></div>';
-    html += '<div class="fund-row"><span class="fund-lbl">Ind. Med EV/E</span><span class="fund-val">' + fmt(f.industry_median_ev_ebitda, 'x') + '</span></div>';
+    html += '<div class="fund-row"><span class="fund-lbl">Industry Median PE</span><span class="fund-val">' + fmt(f.industry_median_pe, 'x') + '</span></div>';
+    html += '<div class="fund-row"><span class="fund-lbl">Industry Median EV/EBITDA</span><span class="fund-val">' + fmt(f.industry_median_ev_ebitda, 'x') + '</span></div>';
     html += '</div>';
 
-    if (f.analyst_target_mean || f.analyst_rating) {
+    if (f.analyst_target_mean) {
       html += '<div class="fund-analyst">';
-      if (f.analyst_target_mean) {
-        var upside = f.analyst_upside_pct;
-        var uColor = upside > 0 ? 'val-green' : 'val-red';
-        html += '<span class="fund-lbl">Target: </span><span class="target">₹' + f.analyst_target_mean + '</span>';
-        if (f.analyst_target_low && f.analyst_target_high) {
-          html += ' <span style="color:#555">(₹' + f.analyst_target_low + ' – ₹' + f.analyst_target_high + ')</span>';
-        }
-        if (upside !== undefined) {
-          html += ' <span class="' + uColor + '">' + (upside > 0 ? '+' : '') + upside + '% upside</span>';
-        }
-        if (f.analyst_count) html += ' <span style="color:#555">(' + f.analyst_count + ' analysts)</span>';
+      var upside = f.analyst_upside_pct;
+      var uColor = upside > 0 ? 'val-green' : 'val-red';
+      html += '<span class="fund-lbl">Consensus Target: </span><span class="target">₹' + f.analyst_target_mean + '</span>';
+      if (f.analyst_target_low && f.analyst_target_high) {
+        html += ' <span style="color:#555">(₹' + f.analyst_target_low + ' – ₹' + f.analyst_target_high + ')</span>';
       }
-      if (f.analyst_rating) {
-        html += '<br><span class="fund-lbl">Rating: </span><span style="color:#ffd93d">' + f.analyst_rating + '</span>';
+      if (upside !== undefined) {
+        html += ' <span class="' + uColor + '">' + (upside > 0 ? '+' : '') + upside + '%</span>';
       }
+      if (f.analyst_count) html += ' <span style="color:#555">(' + f.analyst_count + ' analysts)</span>';
       html += '</div>';
     }
     html += '<div class="fund-src">Source: Yahoo Finance | as of ' + (f.fetched_at ? f.fetched_at.substring(0,10) : '?') + '</div>';
