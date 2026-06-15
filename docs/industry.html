@@ -95,9 +95,11 @@ var SECTOR_LOGOS = {
 };
 function logoImg(domain, name) {
   var initials = (name || domain.split('.')[0]).substring(0, 2).toUpperCase();
-  var fallback = 'this.onerror=null;this.style.display="none";this.nextElementSibling.style.display="flex"';
-  return '<img src="https://www.google.com/s2/favicons?domain=' + domain + '&sz=64" onerror="' + fallback + '" alt="" loading="lazy">' +
-    '<span class="logo-fallback" style="display:none;width:22px;height:22px;border-radius:50%;background:#1e1e2e;border:1px solid #2a2a3a;font-size:0.5rem;font-weight:700;color:#888;align-items:center;justify-content:center">' + initials + '</span>';
+  return '<span class="logo-wrap">' +
+    '<img src="https://logo.clearbit.com/' + domain + '" ' +
+    'onerror="this.onerror=null;this.src=\'https://icon.horse/icon/' + domain + '\'" ' +
+    'alt="' + (name||'') + '" loading="lazy" style="width:22px;height:22px;border-radius:50%;background:#222;object-fit:contain;border:1px solid #2a2a3a">' +
+    '</span>';
 }
 
 function miniGaugeSVG(pct, maxAbs) {

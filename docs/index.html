@@ -95,6 +95,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.78rem;
+  table-layout: fixed;
 }
 .comparison-table th {
   background: #12121a;
@@ -220,98 +221,51 @@ body {
 .sec-iod .section-header { background: linear-gradient(135deg, #1b2d1e, #121a15); color: #6bcb77; border-bottom: 1px solid #6bcb7733; }
 .sec-india .section-header { background: linear-gradient(135deg, #1b1f2d, #12151a); color: #4ecdc4; border-bottom: 1px solid #4ecdc433; }
 
-/* El Nino: heat shimmer waves */
+/* El Nino: warm light sweep */
 .sec-enso .section-header::before {
   content: '';
   position: absolute; inset: 0;
-  background: repeating-linear-gradient(90deg, transparent 0%, rgba(255,75,75,0.25) 15%, transparent 30%, rgba(255,120,50,0.15) 45%, transparent 60%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255,107,107,0.15) 25%, rgba(255,160,80,0.2) 50%, rgba(255,107,107,0.15) 75%, transparent 100%);
   background-size: 200% 100%;
-  animation: heatShimmer 3s ease-in-out infinite;
+  animation: warmSweep 6s ease-in-out infinite;
   z-index: 0;
 }
-.sec-enso .section-header::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse 200px 40px at 30% 50%, rgba(255,80,40,0.3) 0%, transparent 70%),
-              radial-gradient(ellipse 150px 35px at 75% 60%, rgba(255,60,60,0.2) 0%, transparent 70%);
-  animation: heatPulse 2.5s ease-in-out infinite alternate;
-  z-index: 0;
-}
-@keyframes heatShimmer {
-  0% { background-position: 0% 0; }
+@keyframes warmSweep {
+  0% { background-position: -100% 0; }
   100% { background-position: 200% 0; }
 }
-@keyframes heatPulse {
-  0% { opacity: 0.4; transform: scaleX(1); }
-  100% { opacity: 1; transform: scaleX(1.15); }
-}
 
-/* Ocean Modifiers: wave ripple */
+/* Ocean Modifiers: slow teal light sweep */
 .sec-iod .section-header::before {
   content: '';
-  position: absolute; inset: -50% 0;
-  background:
-    radial-gradient(ellipse 180px 20px at 15% 50%, rgba(107,203,119,0.3) 0%, transparent 100%),
-    radial-gradient(ellipse 140px 18px at 50% 60%, rgba(107,203,119,0.25) 0%, transparent 100%),
-    radial-gradient(ellipse 160px 16px at 85% 40%, rgba(107,203,119,0.2) 0%, transparent 100%);
-  animation: waveFloat 3s ease-in-out infinite;
-  z-index: 0;
-}
-.sec-iod .section-header::after {
-  content: '';
   position: absolute; inset: 0;
-  background: repeating-linear-gradient(100deg, transparent 0%, rgba(107,203,119,0.18) 10%, transparent 20%, rgba(100,220,130,0.12) 30%, transparent 40%);
-  background-size: 300% 100%;
-  animation: oceanDrift 4s linear infinite;
+  background: linear-gradient(90deg, transparent 0%, rgba(107,203,119,0.12) 25%, rgba(107,203,119,0.2) 50%, rgba(107,203,119,0.12) 75%, transparent 100%);
+  background-size: 200% 100%;
+  animation: oceanSweep 7s ease-in-out infinite;
   z-index: 0;
 }
-@keyframes waveFloat {
-  0%, 100% { transform: translateY(0); }
-  25% { transform: translateY(-4px); }
-  75% { transform: translateY(4px); }
-}
-@keyframes oceanDrift {
-  0% { background-position: 0% 0; }
-  100% { background-position: 300% 0; }
+@keyframes oceanSweep {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
 }
 
-/* India Monsoon: rain drops falling */
+/* India Monsoon: rain streaks falling */
 .sec-india .section-header::before {
   content: '';
   position: absolute; inset: 0;
   background-image:
-    radial-gradient(1.5px 8px at 8% 0%, rgba(78,205,196,0.5) 50%, transparent 50%),
-    radial-gradient(1px 6px at 18% 0%, rgba(78,205,196,0.4) 50%, transparent 50%),
-    radial-gradient(1.5px 9px at 30% 0%, rgba(78,205,196,0.45) 50%, transparent 50%),
-    radial-gradient(1px 7px at 42% 0%, rgba(78,205,196,0.35) 50%, transparent 50%),
-    radial-gradient(1.5px 8px at 55% 0%, rgba(78,205,196,0.5) 50%, transparent 50%),
-    radial-gradient(1px 6px at 67% 0%, rgba(78,205,196,0.4) 50%, transparent 50%),
-    radial-gradient(1.5px 9px at 80% 0%, rgba(78,205,196,0.3) 50%, transparent 50%),
-    radial-gradient(1px 7px at 93% 0%, rgba(78,205,196,0.45) 50%, transparent 50%);
-  background-size: 100% 20px;
-  animation: rainFall 0.8s linear infinite;
+    linear-gradient(180deg, rgba(78,205,196,0.4) 0%, transparent 60%),
+    linear-gradient(175deg, transparent 48%, rgba(78,205,196,0.15) 49%, rgba(78,205,196,0.15) 49.5%, transparent 50%),
+    linear-gradient(172deg, transparent 48%, rgba(78,205,196,0.12) 49%, rgba(78,205,196,0.12) 49.5%, transparent 50%),
+    linear-gradient(178deg, transparent 48%, rgba(78,205,196,0.1) 49%, rgba(78,205,196,0.1) 49.5%, transparent 50%);
+  background-size: 100% 100%, 40px 100%, 60px 100%, 30px 100%;
+  opacity: 0;
+  animation: rainPulse 4s ease-in-out infinite;
   z-index: 0;
 }
-.sec-india .section-header::after {
-  content: '';
-  position: absolute; inset: 0;
-  background-image:
-    radial-gradient(1px 7px at 4% 0%, rgba(78,205,196,0.35) 50%, transparent 50%),
-    radial-gradient(1.5px 8px at 14% 0%, rgba(78,205,196,0.3) 50%, transparent 50%),
-    radial-gradient(1px 6px at 25% 0%, rgba(78,205,196,0.4) 50%, transparent 50%),
-    radial-gradient(1.5px 9px at 37% 0%, rgba(78,205,196,0.25) 50%, transparent 50%),
-    radial-gradient(1px 7px at 48% 0%, rgba(78,205,196,0.45) 50%, transparent 50%),
-    radial-gradient(1.5px 8px at 60% 0%, rgba(78,205,196,0.3) 50%, transparent 50%),
-    radial-gradient(1px 6px at 73% 0%, rgba(78,205,196,0.4) 50%, transparent 50%),
-    radial-gradient(1.5px 9px at 87% 0%, rgba(78,205,196,0.35) 50%, transparent 50%);
-  background-size: 100% 24px;
-  animation: rainFall 1.3s linear infinite;
-  animation-delay: -0.4s;
-  z-index: 0;
-}
-@keyframes rainFall {
-  0% { background-position: 0 -20px; }
-  100% { background-position: 0 20px; }
+@keyframes rainPulse {
+  0%, 100% { opacity: 0; }
+  30%, 70% { opacity: 1; }
 }
 .section-body { padding: 2px 0 0; }
 
@@ -585,12 +539,12 @@ canvas { width: 100% !important; height: 200px !important; }
 .stress-arc {
   position: relative;
   width: 140px;
-  height: 80px;
+  height: 78px;
   flex-shrink: 0;
 }
 .stress-number {
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.6rem;
@@ -923,24 +877,15 @@ function getHistoryValues(history, key) {
 }
 
 function arcSVG(pct, colorFn) {
-  var r = 46, cx = 70, cy = 66, sw = 8;
+  var r = 44, cx = 70, cy = 68, sw = 8;
   var color = colorFn(pct);
   var frac = Math.max(0, Math.min(1, pct / 100));
-  var startAngle = Math.PI;
-  var endAngle = 0;
-  var startX = cx + r * Math.cos(startAngle);
-  var startY = cy - r * Math.sin(startAngle);
-  var endX = cx + r * Math.cos(endAngle);
-  var endY = cy - r * Math.sin(endAngle);
-  var bgArc = 'M ' + startX.toFixed(1) + ' ' + startY.toFixed(1) + ' A ' + r + ' ' + r + ' 0 1 1 ' + endX.toFixed(1) + ' ' + endY.toFixed(1);
-  var fgAngle = Math.PI - frac * Math.PI;
-  var fgX = cx + r * Math.cos(fgAngle);
-  var fgY = cy - r * Math.sin(fgAngle);
-  var largeFlag = frac > 0.5 ? 1 : 0;
-  var fgArc = 'M ' + startX.toFixed(1) + ' ' + startY.toFixed(1) + ' A ' + r + ' ' + r + ' 0 ' + largeFlag + ' 1 ' + fgX.toFixed(1) + ' ' + fgY.toFixed(1);
-  return '<svg width="140" height="80" viewBox="0 0 140 80">' +
-    '<path d="' + bgArc + '" fill="none" stroke="#1e1e2e" stroke-width="' + sw + '" stroke-linecap="round"/>' +
-    (frac > 0.01 ? '<path d="' + fgArc + '" fill="none" stroke="' + color + '" stroke-width="' + sw + '" stroke-linecap="round"/>' : '') +
+  var arcLen = Math.PI * r;
+  var d = 'M ' + (cx - r) + ' ' + cy + ' A ' + r + ' ' + r + ' 0 0 1 ' + (cx + r) + ' ' + cy;
+  return '<svg width="140" height="78" viewBox="0 0 140 78">' +
+    '<path d="' + d + '" fill="none" stroke="#1e1e2e" stroke-width="' + sw + '" stroke-linecap="round"/>' +
+    '<path d="' + d + '" fill="none" stroke="' + color + '" stroke-width="' + sw + '" stroke-linecap="round" ' +
+    'stroke-dasharray="' + arcLen.toFixed(1) + '" stroke-dashoffset="' + (arcLen * (1 - frac)).toFixed(1) + '"/>' +
     '</svg>';
 }
 function stressArcSVG(score) {
