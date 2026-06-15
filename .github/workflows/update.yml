@@ -2,9 +2,11 @@ name: Daily Data Update
 
 on:
   schedule:
-    # Runs at 4:00 AM IST (10:30 PM UTC previous day) every day
-    # IST = UTC + 5:30, so 4:00 AM IST = 22:30 UTC
-    - cron: '30 22 * * *'
+    # Runs at 8:00 PM IST (2:30 PM UTC) every day
+    # IST = UTC + 5:30, so 8:00 PM IST = 14:30 UTC
+    # 8 PM chosen because: markets close at 3:30 PM IST, mutual fund NAVs publish by 6-7 PM,
+    # and Yahoo Finance data settles by ~7:30 PM IST. Gives users fresh data for evening review.
+    - cron: '30 14 * * *'
   workflow_dispatch: # allows manual trigger from GitHub website
 
 permissions:
@@ -25,10 +27,16 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install requests pdfplumber beautifulsoup4
+        run: pip install requests pdfplumber beautifulsoup4 yfinance
 
-      - name: Run scraper
+      - name: Run weather scraper
         run: python scraper/runner.py
+
+      - name: Run sector returns scraper (Yahoo Finance)
+        run: python scraper/sector_returns_scraper.py
+
+      - name: Run stock fundamentals scraper (Yahoo Finance)
+        run: python scraper/stock_fundamentals_scraper.py
 
       - name: Run analysis engine
         run: python scraper/analysis_runner.py
@@ -37,7 +45,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/latest.json data/history.json docs/latest.json docs/history.json docs/analysis.json
+          git add data/latest.json data/history.json docs/latest.json docs/history.json docs/analysis.json docs/sector_returns.json docs/stock_fundamentals.json
           git diff --cached --quiet || git commit -m "Daily data update $(date -u +%Y-%m-%d)"
           git push
 

@@ -59,39 +59,97 @@ def run_macro_analysis(taxonomy, weights):
     return results
 
 
+def load_real_sector_data():
+    """Load real sector returns from sector_returns.json if available."""
+    real_path = os.path.join(DOCS_DIR, "sector_returns.json")
+    if not os.path.exists(real_path):
+        return None
+    with open(real_path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
 def run_sector_analysis(taxonomy, weights):
     """Run conditional-distribution engine on sector indices."""
+    real_data = load_real_sector_data()
+    use_real = real_data is not None
+
+    mechanisms = {
+        "auto": "Rural demand drives ~35% of auto sales (tractors, 2W, entry cars). Weak monsoon → delayed purchases.",
+        "fmcg": "Rural consumption is ~35-40% of FMCG revenue. Drought → lower farm income → downtrading and volume cuts.",
+        "bank": "Drought → agri NPAs rise (rural/agri lending ~15% of bank credit), RBI may hold rates longer on food inflation.",
+        "metal": "Mostly global-commodity driven. Weak indirect link: rural construction demand.",
+        "energy": "Weak link to monsoon. Diesel demand rises (irrigation pumps) but hydro output falls. Mixed.",
+        "pharma": "Monsoon-agnostic. Domestic pharma demand is inelastic; exports drive ~50%. Classic defensive.",
+        "it": "Zero monsoon exposure. Export-oriented, USD-earning. Often outperforms during domestic stress.",
+        "realty": "Weak monsoon → slower rural-to-urban migration, lower affordable housing demand. But urban realty is mostly macro-driven.",
+    }
+
     results = {}
 
-    for sector_key, sector_info in SECTOR_EXCESS_MONSOON.items():
-        # Monsoon window analysis
-        monsoon_analysis = run_full_analysis(
-            sector_info["data"],
-            sector_info["name"] + " (Jun-Sep excess vs Nifty)",
-            weights=weights,
-            taxonomy=taxonomy,
-        )
-        monsoon_analysis["mechanism"] = sector_info["mechanism"]
-        monsoon_analysis["ticker"] = sector_info.get("ticker", "")
+    if use_real:
+        print("    Using REAL sector data from Yahoo Finance")
+        source = "Yahoo Finance (NSE sector indices)"
+        for sector_key, sector_info in real_data["sectors"].items():
+            monsoon_data = {int(y): v for y, v in sector_info["monsoon_excess"].items()}
+            post_data = {int(y): v for y, v in sector_info["post_monsoon_excess"].items()}
+            mechanism = mechanisms.get(sector_key, "")
 
-        # Post-monsoon window
-        post_data = SECTOR_EXCESS_POST_MONSOON.get(sector_key, {}).get("data", {})
-        if post_data:
-            post_analysis = run_full_analysis(
-                post_data,
-                sector_info["name"] + " (Oct-Mar excess vs Nifty)",
+            monsoon_analysis = run_full_analysis(
+                monsoon_data,
+                sector_info["name"] + " (Jun-Sep excess vs Nifty)",
                 weights=weights,
                 taxonomy=taxonomy,
             )
-        else:
-            post_analysis = None
+            monsoon_analysis["mechanism"] = mechanism
+            monsoon_analysis["ticker"] = sector_info["ticker"]
+            monsoon_analysis["data_source"] = source
 
-        results[sector_key] = {
-            "name": sector_info["name"],
-            "mechanism": sector_info["mechanism"],
-            "monsoon_window": monsoon_analysis,
-            "post_monsoon": post_analysis,
-        }
+            post_analysis = None
+            if post_data:
+                post_analysis = run_full_analysis(
+                    post_data,
+                    sector_info["name"] + " (Oct-Mar excess vs Nifty)",
+                    weights=weights,
+                    taxonomy=taxonomy,
+                )
+
+            results[sector_key] = {
+                "name": sector_info["name"],
+                "mechanism": mechanism,
+                "monsoon_window": monsoon_analysis,
+                "post_monsoon": post_analysis,
+                "data_source": source,
+            }
+    else:
+        print("    WARNING: No real sector data found, using estimated data")
+        source = "Estimated from NSE indices"
+        for sector_key, sector_info in SECTOR_EXCESS_MONSOON.items():
+            monsoon_analysis = run_full_analysis(
+                sector_info["data"],
+                sector_info["name"] + " (Jun-Sep excess vs Nifty)",
+                weights=weights,
+                taxonomy=taxonomy,
+            )
+            monsoon_analysis["mechanism"] = sector_info["mechanism"]
+            monsoon_analysis["ticker"] = sector_info.get("ticker", "")
+
+            post_data = SECTOR_EXCESS_POST_MONSOON.get(sector_key, {}).get("data", {})
+            post_analysis = None
+            if post_data:
+                post_analysis = run_full_analysis(
+                    post_data,
+                    sector_info["name"] + " (Oct-Mar excess vs Nifty)",
+                    weights=weights,
+                    taxonomy=taxonomy,
+                )
+
+            results[sector_key] = {
+                "name": sector_info["name"],
+                "mechanism": sector_info["mechanism"],
+                "monsoon_window": monsoon_analysis,
+                "post_monsoon": post_analysis,
+                "data_source": source,
+            }
 
     # Rank by headwind/tailwind
     rankings = []
@@ -112,6 +170,7 @@ def run_sector_analysis(taxonomy, weights):
     return {
         "sectors": results,
         "rankings": rankings,
+        "data_source": source,
         "methodology": "Excess return = sector index return - Nifty50 return over same period. Conditional on rainfall bucket. 2026 weights applied.",
     }
 
@@ -140,7 +199,6 @@ def run_watchlist_analysis(taxonomy, weights):
     watchlist = get_watchlist()
     results = {"large_cap": {}, "mid_cap": {}, "small_cap": {}}
 
-    # Map sectors to proxy indices
     sector_to_proxy = {
         "Auto/Tractors": "auto", "Two-Wheelers": "auto", "Tractors": "auto",
         "Farm Equipment": "auto",
@@ -157,7 +215,7 @@ def run_watchlist_analysis(taxonomy, weights):
         "Pharmaceuticals": "pharma", "Pharma": "pharma",
         "Energy/Telecom": "energy", "Power (Thermal)": "energy",
         "Power": "energy", "Power Utility": "energy", "Hydro/Solar Power": "energy",
-        "Water Treatment": "pharma",  # defensive proxy
+        "Water Treatment": "pharma",
         "Pumps/Solar": "energy", "Industrial Pumps": "energy",
         "Electricals": "energy",
         "Micro-irrigation": "auto",
@@ -166,6 +224,8 @@ def run_watchlist_analysis(taxonomy, weights):
         "Aquaculture": "fmcg",
     }
 
+    real_data = load_real_sector_data()
+
     for cap_key in ["large_cap", "mid_cap", "small_cap"]:
         cap_data = watchlist[cap_key]
         for direction in ["hurt_by_drought", "benefit_from_drought"]:
@@ -173,13 +233,19 @@ def run_watchlist_analysis(taxonomy, weights):
             analyzed = []
             for stock in stocks:
                 proxy = sector_to_proxy.get(stock["sector"], "fmcg")
-                proxy_data = SECTOR_EXCESS_MONSOON.get(proxy, {}).get("data", {})
+
+                proxy_data = None
+                if real_data and proxy in real_data.get("sectors", {}):
+                    proxy_data = {int(y): v for y, v in real_data["sectors"][proxy]["monsoon_excess"].items()}
+                elif proxy in SECTOR_EXCESS_MONSOON:
+                    proxy_data = SECTOR_EXCESS_MONSOON[proxy].get("data", {})
+
+                analysis = None
                 if proxy_data:
                     analysis = run_full_analysis(
                         proxy_data, stock["name"], weights=weights, taxonomy=taxonomy
                     )
-                else:
-                    analysis = None
+
                 analyzed.append({
                     "ticker": stock["ticker"],
                     "name": stock["name"],
