@@ -249,23 +249,43 @@ body {
   100% { background-position: 200% 0; }
 }
 
-/* India Monsoon: rain streaks falling */
+/* India Monsoon: rain drops falling */
 .sec-india .section-header::before {
   content: '';
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(180deg, rgba(78,205,196,0.4) 0%, transparent 60%),
-    linear-gradient(175deg, transparent 48%, rgba(78,205,196,0.15) 49%, rgba(78,205,196,0.15) 49.5%, transparent 50%),
-    linear-gradient(172deg, transparent 48%, rgba(78,205,196,0.12) 49%, rgba(78,205,196,0.12) 49.5%, transparent 50%),
-    linear-gradient(178deg, transparent 48%, rgba(78,205,196,0.1) 49%, rgba(78,205,196,0.1) 49.5%, transparent 50%);
-  background-size: 100% 100%, 40px 100%, 60px 100%, 30px 100%;
-  opacity: 0;
-  animation: rainPulse 4s ease-in-out infinite;
+    radial-gradient(1.5px 8px at 8% 0%, rgba(78,205,196,0.5) 50%, transparent 50%),
+    radial-gradient(1px 6px at 18% 0%, rgba(78,205,196,0.4) 50%, transparent 50%),
+    radial-gradient(1.5px 9px at 30% 0%, rgba(78,205,196,0.45) 50%, transparent 50%),
+    radial-gradient(1px 7px at 42% 0%, rgba(78,205,196,0.35) 50%, transparent 50%),
+    radial-gradient(1.5px 8px at 55% 0%, rgba(78,205,196,0.5) 50%, transparent 50%),
+    radial-gradient(1px 6px at 67% 0%, rgba(78,205,196,0.4) 50%, transparent 50%),
+    radial-gradient(1.5px 9px at 80% 0%, rgba(78,205,196,0.3) 50%, transparent 50%),
+    radial-gradient(1px 7px at 93% 0%, rgba(78,205,196,0.45) 50%, transparent 50%);
+  background-size: 100% 20px;
+  animation: rainFall 0.8s linear infinite;
   z-index: 0;
 }
-@keyframes rainPulse {
-  0%, 100% { opacity: 0; }
-  30%, 70% { opacity: 1; }
+.sec-india .section-header::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1px 7px at 4% 0%, rgba(78,205,196,0.35) 50%, transparent 50%),
+    radial-gradient(1.5px 8px at 14% 0%, rgba(78,205,196,0.3) 50%, transparent 50%),
+    radial-gradient(1px 6px at 25% 0%, rgba(78,205,196,0.4) 50%, transparent 50%),
+    radial-gradient(1.5px 9px at 37% 0%, rgba(78,205,196,0.25) 50%, transparent 50%),
+    radial-gradient(1px 7px at 48% 0%, rgba(78,205,196,0.45) 50%, transparent 50%),
+    radial-gradient(1.5px 8px at 60% 0%, rgba(78,205,196,0.3) 50%, transparent 50%),
+    radial-gradient(1px 6px at 73% 0%, rgba(78,205,196,0.4) 50%, transparent 50%),
+    radial-gradient(1.5px 9px at 87% 0%, rgba(78,205,196,0.35) 50%, transparent 50%);
+  background-size: 100% 24px;
+  animation: rainFall 1.3s linear infinite;
+  animation-delay: -0.4s;
+  z-index: 0;
+}
+@keyframes rainFall {
+  0% { background-position: 0 -20px; }
+  100% { background-position: 0 20px; }
 }
 .section-body { padding: 2px 0 0; }
 
