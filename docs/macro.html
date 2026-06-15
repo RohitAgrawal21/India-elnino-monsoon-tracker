@@ -117,12 +117,14 @@ function render(a, latest) {
     html += '<div class="card">';
     html += '<h3>Kharif Crop Production</h3>';
     html += '<div class="plain">This is the monsoon-season harvest (rice, pulses, cotton, sugarcane). <strong>In past drought years, kharif output fell by 10-20%.</strong> If monsoon is normal, it usually grows 3-5%.</div>';
+    var kpLow = kp.by_rainfall_bucket && kp.by_rainfall_bucket.LOW;
+    var kpNorm = kp.by_rainfall_bucket && kp.by_rainfall_bucket.NORMAL;
     html += '<div class="stat-row">';
-    html += '<div class="stat-box"><div class="num val-red">' + ko.weighted_mean + '%</div><div class="lbl">Expected Growth (2026)</div></div>';
-    html += '<div class="stat-box"><div class="num val-red">' + ko.p_negative + '%</div><div class="lbl">Chance of decline</div></div>';
-    html += '<div class="stat-box"><div class="num val-amber">' + ko.p_worse_than_minus5 + '%</div><div class="lbl">Chance of >5% drop</div></div>';
+    if (kpLow) html += '<div class="stat-box" style="border:1px solid #ff6b6b33"><div class="num val-red">' + kpLow.mean + '%</div><div class="lbl">IF DROUGHT (n=' + kpLow.n + ')</div></div>';
+    if (kpNorm) html += '<div class="stat-box"><div class="num val-green">' + kpNorm.mean + '%</div><div class="lbl">IF NORMAL RAIN (n=' + kpNorm.n + ')</div></div>';
+    html += '<div class="stat-box"><div class="num val-amber">' + ko.weighted_mean + '%</div><div class="lbl">BLENDED 2026</div></div>';
     html += '</div>';
-    html += '<div class="caveat">Based on ' + ko.total_analog_n + ' years of data. In drought years (n=5): average kharif output fell ' + (kp.by_rainfall_bucket.LOW ? kp.by_rainfall_bucket.LOW.mean : '?') + '%.</div>';
+    html += '<div class="caveat">Blended = ' + Math.round(w.LOW * 100) + '% drought weight + ' + Math.round(w.NORMAL * 100) + '% normal weight. P(decline): ' + ko.p_negative + '%. Based on ' + ko.total_analog_n + ' years.</div>';
     html += '<div class="source">Source: ' + kp.source + '</div>';
     html += '</div>';
   }
@@ -134,12 +136,15 @@ function render(a, latest) {
     html += '<div class="card">';
     html += '<h3>Food Inflation</h3>';
     html += '<div class="plain">When crops fail, food prices go up. <strong>In past drought years, food inflation averaged ' + (fi.by_rainfall_bucket.LOW ? fi.by_rainfall_bucket.LOW.mean + '%' : '8-10%') + '</strong> — that\'s groceries getting noticeably more expensive for everyone. RBI then has to keep interest rates high, which slows down the whole economy.</div>';
+    var fiLow = fi.by_rainfall_bucket && fi.by_rainfall_bucket.LOW;
+    var fiNorm = fi.by_rainfall_bucket && fi.by_rainfall_bucket.NORMAL;
     html += '<div class="stat-row">';
+    if (fiLow) html += '<div class="stat-box" style="border:1px solid #ff6b6b33"><div class="num val-red">' + fiLow.mean + '%</div><div class="lbl">IF DROUGHT (n=' + fiLow.n + ')</div></div>';
+    if (fiNorm) html += '<div class="stat-box"><div class="num val-green">' + fiNorm.mean + '%</div><div class="lbl">IF NORMAL RAIN (n=' + fiNorm.n + ')</div></div>';
     var fiColor = fo.weighted_mean > 7 ? 'val-red' : fo.weighted_mean > 5 ? 'val-amber' : 'val-green';
-    html += '<div class="stat-box"><div class="num ' + fiColor + '">' + fo.weighted_mean + '%</div><div class="lbl">Expected Food Inflation</div></div>';
-    html += '<div class="stat-box"><div class="num val-red">' + fo.p_better_than_10 + '%</div><div class="lbl">Chance above 10%</div></div>';
+    html += '<div class="stat-box"><div class="num ' + fiColor + '">' + fo.weighted_mean + '%</div><div class="lbl">BLENDED 2026</div></div>';
     html += '</div>';
-    html += '<div class="caveat">Food inflation is the price rise you feel at the grocery store and vegetable market. Above 6% is considered high by RBI.</div>';
+    html += '<div class="caveat">Food inflation is the price rise you feel at the grocery store and vegetable market. Above 6% is considered high by RBI. P(above 10%): ' + fo.p_better_than_10 + '%.</div>';
     html += '<div class="source">Source: ' + fi.source + '</div>';
     html += '</div>';
   }
@@ -151,11 +156,15 @@ function render(a, latest) {
     html += '<div class="card">';
     html += '<h3>Agriculture GDP Growth</h3>';
     html += '<div class="plain">Agriculture is ~14% of India\'s GDP. Normally it grows 3-4% per year. <strong>In drought years, it has historically gone negative</strong> (shrank). This drags overall GDP down by 0.3-0.8%.</div>';
+    var agLow = ag.by_rainfall_bucket && ag.by_rainfall_bucket.LOW;
+    var agNorm = ag.by_rainfall_bucket && ag.by_rainfall_bucket.NORMAL;
     html += '<div class="stat-row">';
+    if (agLow) html += '<div class="stat-box" style="border:1px solid #ff6b6b33"><div class="num val-red">' + agLow.mean + '%</div><div class="lbl">IF DROUGHT (n=' + agLow.n + ')</div></div>';
+    if (agNorm) html += '<div class="stat-box"><div class="num val-green">' + agNorm.mean + '%</div><div class="lbl">IF NORMAL RAIN (n=' + agNorm.n + ')</div></div>';
     var agColor = ao.weighted_mean < 0 ? 'val-red' : ao.weighted_mean < 2 ? 'val-amber' : 'val-green';
-    html += '<div class="stat-box"><div class="num ' + agColor + '">' + ao.weighted_mean + '%</div><div class="lbl">Expected Agri Growth</div></div>';
-    html += '<div class="stat-box"><div class="num val-red">' + ao.p_negative + '%</div><div class="lbl">Chance of contraction</div></div>';
+    html += '<div class="stat-box"><div class="num ' + agColor + '">' + ao.weighted_mean + '%</div><div class="lbl">BLENDED 2026</div></div>';
     html += '</div>';
+    html += '<div class="caveat">P(contraction): ' + ao.p_negative + '%. Blended = ' + Math.round(w.LOW * 100) + '% drought + ' + Math.round(w.NORMAL * 100) + '% normal weight.</div>';
     if (macro.gdp_drag_estimate) {
       var gdp = macro.gdp_drag_estimate;
       html += '<div class="plain" style="margin-top:12px"><strong>Implied GDP drag:</strong> If agriculture grows at ' + gdp.weighted_agri_growth_2026 + '% instead of the normal ~' + gdp.trend_agri_growth + '%, that\'s a <strong>' + gdp.implied_gdp_drag_pct + '% drag on overall GDP</strong>.</div>';
@@ -168,14 +177,22 @@ function render(a, latest) {
   if (macro.tractor_sales_growth && macro.tractor_sales_growth.outlook_2026) {
     var ts = macro.tractor_sales_growth;
     var to2 = ts.outlook_2026;
+    var tsLow = ts.by_rainfall_bucket && ts.by_rainfall_bucket.LOW;
+    var tsNorm = ts.by_rainfall_bucket && ts.by_rainfall_bucket.NORMAL;
     html += '<div class="card">';
     html += '<h3>Rural Demand (Tractors & Two-Wheelers)</h3>';
-    html += '<div class="plain">Tractor and two-wheeler sales are the best proxy for "how much money do farmers have?" <strong>In drought years, tractor sales have dropped 8-12% on average.</strong> This ripples through auto companies, dealers, and rural finance.</div>';
+    html += '<div class="plain">Tractor and two-wheeler sales are the best proxy for "how much money do farmers have?" This ripples through auto companies, dealers, and rural finance.</div>';
     html += '<div class="stat-row">';
+    if (tsLow) {
+      html += '<div class="stat-box" style="border:1px solid #ff6b6b33"><div class="num val-red">' + tsLow.mean + '%</div><div class="lbl">IF DROUGHT (n=' + tsLow.n + ')</div></div>';
+    }
+    if (tsNorm) {
+      html += '<div class="stat-box"><div class="num val-green">' + tsNorm.mean + '%</div><div class="lbl">IF NORMAL RAIN (n=' + tsNorm.n + ')</div></div>';
+    }
     var tsColor = to2.weighted_mean < 0 ? 'val-red' : 'val-amber';
-    html += '<div class="stat-box"><div class="num ' + tsColor + '">' + to2.weighted_mean + '%</div><div class="lbl">Tractor Sales Growth</div></div>';
-    html += '<div class="stat-box"><div class="num val-red">' + to2.p_negative + '%</div><div class="lbl">Chance of decline</div></div>';
+    html += '<div class="stat-box"><div class="num ' + tsColor + '">' + to2.weighted_mean + '%</div><div class="lbl">BLENDED 2026 ESTIMATE</div></div>';
     html += '</div>';
+    html += '<div class="caveat">The blended estimate (' + to2.weighted_mean + '%) combines ' + Math.round(w.LOW * 100) + '% chance of drought' + (tsLow ? ' (' + tsLow.mean + '% growth)' : '') + ' + ' + Math.round(w.NORMAL * 100) + '% chance of normal rain' + (tsNorm ? ' (' + tsNorm.mean + '% growth)' : '') + '. That\'s why it can look positive overall even though drought years are sharply negative.</div>';
     html += '<div class="source">Source: ' + ts.source + '</div>';
     html += '</div>';
   }

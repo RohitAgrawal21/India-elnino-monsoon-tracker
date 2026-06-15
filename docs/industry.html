@@ -167,9 +167,22 @@ function render(a) {
   html += '<div class="card" style="border-color:#ffd93d33">';
   html += '<h3 style="color:#ffd93d">How to Read This</h3>';
   html += '<div class="plain">';
-  html += '<strong>Excess return</strong> strips out the market\'s overall direction. If Nifty went +10% and a sector went +15%, the sector\'s excess return is +5% (it beat the market by 5 points).<br><br>';
-  html += '<strong>Why excess matters:</strong> In 2009, markets rallied 76% during a severe drought. But <em>relative to the market</em>, rural/agri sectors still underperformed. Excess return captures "who loses more/less than average."<br><br>';
-  html += '<strong>"P(Underperform)"</strong> is the probability-weighted chance this sector does WORSE than Nifty50 (negative excess). Higher = more likely to lag the market.';
+  html += '<strong>What is "Expected Excess Return"?</strong><br>';
+  html += 'It measures how much a sector beats or lags the Nifty50 index. For example:<br>';
+  html += '• If Nifty50 goes up 10% and Nifty Auto goes up 7%, Auto\'s excess return = <strong style="color:#ff6b6b">-3%</strong> (it underperformed by 3 points)<br>';
+  html += '• If Nifty50 goes up 10% and Nifty Pharma goes up 14%, Pharma\'s excess return = <strong style="color:#6bcb77">+4%</strong> (it beat the market by 4 points)<br>';
+  html += '• A positive excess return does NOT mean the sector went up — just that it did <em>better than the market average</em><br><br>';
+  html += '<strong>Why excess matters instead of absolute return:</strong> In 2009, markets rallied 76% during a severe drought because of global QE stimulus. Every sector went up. But <em>relative to the market</em>, rural/agri sectors still lagged. Excess return captures "who loses more or less than average" regardless of the market direction.<br><br>';
+  html += '<strong>"P(Underperform)"</strong> is the probability-weighted chance this sector does WORSE than Nifty50 (negative excess). Higher number = more likely to lag the market.';
+  html += '</div></div>';
+
+  // Data reliability warning
+  html += '<div class="card" style="border-color:#ff6b6b33">';
+  html += '<h3 style="color:#ff6b6b">Data Reliability Warning</h3>';
+  html += '<div class="plain">';
+  html += 'The sector excess return data is based on <strong>approximate historical estimates</strong> compiled from NSE index data (2004-2024). Individual year values may have measurement gaps. With only ~5-8 drought years in the sample, a single outlier year (like 2009\'s massive rally) can heavily skew averages. ';
+  html += 'Some results may appear counterintuitive (e.g., a sector showing positive excess in drought years) because the sample is tiny and global/macro factors often overwhelm the monsoon signal. ';
+  html += '<strong>Treat these as directional indicators, not precise forecasts.</strong>';
   html += '</div></div>';
 
   html += '<div class="footer"><a href="about.html">Methodology</a> | <a href="stocks.html">Individual Stocks &rarr;</a> | <a href="index.html">&larr; Weather</a></div>';
