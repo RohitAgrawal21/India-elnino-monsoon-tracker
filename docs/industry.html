@@ -26,12 +26,17 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; col
 
 .ranking-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.78rem; }
 .ranking-table th { background: #1a1a28; color: #888; font-weight: 600; text-align: left; padding: 10px 12px; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.3px; }
-.ranking-table td { padding: 12px; border-bottom: 1px solid #1a1a28; }
+.ranking-table td { padding: 12px; border-bottom: 1px solid #1a1a28; vertical-align: middle; }
 .ranking-table tr:hover { background: #12121a; }
 .sector-name { font-weight: 700; color: #fff; }
 .sector-mechanism { font-size: 0.7rem; color: #888; margin-top: 2px; }
 .bar-container { width: 100%; height: 6px; background: #1a1a28; border-radius: 3px; overflow: hidden; margin-top: 4px; }
 .bar-fill { height: 100%; border-radius: 3px; }
+.logo-row { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+.logo-row img { width: 22px; height: 22px; border-radius: 50%; background: #222; object-fit: contain; border: 1px solid #2a2a3a; }
+.mini-gauge { display: inline-block; width: 52px; height: 30px; vertical-align: middle; margin-right: 4px; }
+.excess-pill { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; }
+.prob-ring { display: inline-flex; align-items: center; gap: 4px; }
 
 .section-title { font-size: 0.9rem; font-weight: 800; color: #fff; margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 1px solid #1e1e2e; }
 .card { background: #12121a; border: 1px solid #1e1e2e; border-radius: 12px; padding: 18px; margin-bottom: 12px; }
@@ -76,62 +81,109 @@ async function loadData() {
   }
 }
 
+// Company logos per sector (top holdings of each index)
+var SECTOR_LOGOS = {
+  it:     [{d:'tcs.com',n:'TCS'},{d:'infosys.com',n:'Infosys'},{d:'wipro.com',n:'Wipro'},{d:'hcltech.com',n:'HCL'}],
+  pharma: [{d:'sunpharma.com',n:'Sun'},{d:'cipla.com',n:'Cipla'},{d:'drreddys.com',n:'Reddy\'s'},{d:'divislab.com',n:'Divi\'s'}],
+  fmcg:   [{d:'hul.co.in',n:'HUL'},{d:'itcportal.com',n:'ITC'},{d:'nestleindia.com',n:'Nestle'},{d:'dabur.com',n:'Dabur'}],
+  auto:   [{d:'mahindra.com',n:'M&M'},{d:'tatamotors.com',n:'Tata Motors'},{d:'heromotocorp.com',n:'Hero'},{d:'bajajauto.com',n:'Bajaj'}],
+  bank:   [{d:'hdfcbank.com',n:'HDFC'},{d:'icicibank.com',n:'ICICI'},{d:'sbi.co.in',n:'SBI'},{d:'kotak.com',n:'Kotak'}],
+  energy: [{d:'ril.com',n:'RIL'},{d:'ntpc.co.in',n:'NTPC'},{d:'powergridindia.com',n:'PGCIL'},{d:'ongcindia.com',n:'ONGC'}],
+  realty:  [{d:'dlf.in',n:'DLF'},{d:'godrejproperties.com',n:'GPL'},{d:'oberoirealty.com',n:'Oberoi'},{d:'phoenixmills.com',n:'Phoenix'}],
+  metal:   [{d:'tatasteel.com',n:'Tata Steel'},{d:'hindalco.com',n:'Hindalco'},{d:'jsw.in',n:'JSW'},{d:'vedantalimited.com',n:'Vedanta'}],
+  consumer_durables: [{d:'voltas.com',n:'Voltas'},{d:'havells.com',n:'Havells'},{d:'bluestarindia.com',n:'Blue Star'},{d:'crompton.co.in',n:'Crompton'}],
+};
+function logoImg(domain) {
+  return '<img src="https://logo.clearbit.com/' + domain + '" onerror="this.style.display=\'none\'" alt="" loading="lazy">';
+}
+
+function miniGaugeSVG(pct, maxAbs) {
+  var w = 52, h = 28, r = 10, cx = 26, cy = 22;
+  var frac = Math.min(1, Math.abs(pct) / Math.max(maxAbs, 1));
+  var color = pct > 2 ? '#6bcb77' : pct < -2 ? '#ff6b6b' : '#ffa502';
+  var angle = frac * Math.PI;
+  var dir = pct >= 0 ? -1 : 1;
+  var ex = cx + dir * r * Math.cos(Math.PI - angle);
+  var ey = cy - r * Math.sin(Math.PI - angle);
+  var lf = angle > Math.PI/2 ? 1 : 0;
+  return '<svg class="mini-gauge" viewBox="0 0 '+w+' '+h+'">' +
+    '<path d="M'+(cx-r)+' '+cy+' A '+r+' '+r+' 0 1 1 '+(cx+r)+' '+cy+'" fill="none" stroke="#1e1e2e" stroke-width="3" stroke-linecap="round"/>' +
+    '<path d="M'+cx+' '+(cy-r)+' A '+r+' '+r+' 0 '+lf+' '+(pct>=0?0:1)+' '+ex.toFixed(1)+' '+ey.toFixed(1)+'" fill="none" stroke="'+color+'" stroke-width="3" stroke-linecap="round"/>' +
+    '</svg>';
+}
+
+function probRingSVG(pct) {
+  var r = 11, cx = 13, cy = 13, sw = 3;
+  var color = pct > 60 ? '#ff6b6b' : pct > 40 ? '#ffa502' : '#6bcb77';
+  var circ = 2 * Math.PI * r;
+  var offset = circ * (1 - pct / 100);
+  return '<svg width="26" height="26" viewBox="0 0 26 26">' +
+    '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="#1e1e2e" stroke-width="'+sw+'"/>' +
+    '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+color+'" stroke-width="'+sw+'" ' +
+    'stroke-dasharray="'+circ.toFixed(1)+'" stroke-dashoffset="'+offset.toFixed(1)+'" transform="rotate(-90 '+cx+' '+cy+')" stroke-linecap="round"/>' +
+    '</svg>';
+}
+
 function render(a) {
   const w = a.rainfall_weights_2026;
   const sectors = a.sectors;
   let html = '';
 
-  // Plain English intro
+  // Compact intro + how to read (#6 - moved up, shorter)
   html += '<div class="summary-box">';
   html += '<h2>Which Sectors Win or Lose in a Weak Monsoon?</h2>';
-  html += '<p>We measure <span class="hl">"excess return"</span> — how much a sector outperforms or underperforms the Nifty50 during June-September (monsoon season).</p>';
-  html += '<p>For example, if Nifty50 returns +5% and FMCG returns +2% during a drought monsoon, then FMCG has an excess return of <span class="hl" style="color:#ff6b6b">-3%</span> (it underperformed by 3 points).</p>';
-  html += '<p>Below is the historical ranking — <span class="hl" style="color:#ff6b6b">red = tends to underperform in drought</span>, <span class="hl" style="color:#6bcb77">green = tends to outperform</span>.</p>';
+  html += '<p><span class="hl">"Excess return"</span> = how much a sector beats or lags the Nifty50 during Jun-Sep. Example: if Nifty50 returns +5% and Auto returns +2%, Auto\'s excess is <span class="hl" style="color:#ff6b6b">-3%</span>. We use excess (not absolute) because in 2009, every sector rallied 76% on global QE during a severe drought — excess return shows who still lags <em>relative</em> to the market.</p>';
+  html += '<p><span class="hl" style="color:#ff6b6b">Red</span> = tends to underperform Nifty in drought &nbsp;|&nbsp; <span class="hl" style="color:#6bcb77">Green</span> = tends to outperform &nbsp;|&nbsp; <strong>P(Underperform)</strong> = probability of doing worse than Nifty50.</p>';
   html += '</div>';
 
-  // Rankings table
+  // Rankings table with logos (#7, #8)
   if (sectors && sectors.rankings && sectors.rankings.length) {
     var rankings = sectors.rankings;
     var maxAbs = Math.max.apply(null, rankings.map(function(r){return Math.abs(r.weighted_mean_excess);}));
+    var sorted = rankings.slice().sort(function(a,b){return b.weighted_mean_excess - a.weighted_mean_excess;});
 
     html += '<div class="section-title">Sector Ranking: Best to Worst in a Drought</div>';
     html += '<table class="ranking-table">';
-    html += '<tr><th>#</th><th>Sector</th><th>Expected Excess Return</th><th>Chance of Underperforming Nifty</th></tr>';
-
-    // Sort from best (positive) to worst (negative)
-    var sorted = rankings.slice().sort(function(a,b){return b.weighted_mean_excess - a.weighted_mean_excess;});
+    html += '<tr><th>#</th><th>Sector</th><th>Expected Excess Return</th><th>P(Underperform)</th><th>Key Stocks</th></tr>';
 
     sorted.forEach(function(r, i) {
       var color = r.weighted_mean_excess > 2 ? '#6bcb77' : r.weighted_mean_excess < -2 ? '#ff6b6b' : '#ffa502';
       var barWidth = Math.abs(r.weighted_mean_excess) / maxAbs * 100;
+      var pColor = r.p_negative > 60 ? '#ff6b6b' : r.p_negative > 40 ? '#ffa502' : '#6bcb77';
       html += '<tr>';
-      html += '<td style="color:#555">' + (i+1) + '</td>';
-      html += '<td><div class="sector-name">' + r.sector + '</div>';
-
-      // Get mechanism
-      var sectorData = sectors.sectors[r.key];
-      if (sectorData && sectorData.mechanism) {
-        html += '<div class="sector-mechanism">' + sectorData.mechanism + '</div>';
-      }
+      html += '<td style="color:#555;font-weight:700;font-size:0.9rem">' + (i+1) + '</td>';
+      html += '<td><div class="sector-name">' + r.sector + '</div></td>';
+      // Excess return with visual bar
+      html += '<td>';
+      html += '<div class="excess-pill" style="background:' + color + '18;color:' + color + '">' + (r.weighted_mean_excess > 0 ? '+' : '') + r.weighted_mean_excess + '%</div>';
+      html += '<div class="bar-container"><div class="bar-fill" style="width:' + barWidth + '%;background:' + color + '"></div></div>';
       html += '</td>';
-      html += '<td><span style="color:' + color + ';font-weight:700">' + (r.weighted_mean_excess > 0 ? '+' : '') + r.weighted_mean_excess + '%</span>';
-      html += '<div class="bar-container"><div class="bar-fill" style="width:' + barWidth + '%;background:' + color + '"></div></div></td>';
-      html += '<td style="color:' + (r.p_negative > 60 ? '#ff6b6b' : r.p_negative > 40 ? '#ffa502' : '#6bcb77') + '">' + r.p_negative + '%</td>';
+      // P(underperform) with ring
+      html += '<td><div class="prob-ring">' + probRingSVG(r.p_negative) + ' <span style="color:' + pColor + ';font-weight:700">' + r.p_negative + '%</span></div></td>';
+      // Company logos
+      var logos = SECTOR_LOGOS[r.key] || [];
+      html += '<td><div class="logo-row">';
+      logos.forEach(function(l) { html += logoImg(l.d); });
+      html += '</div></td>';
       html += '</tr>';
     });
     html += '</table>';
   }
 
-  // Detailed sector cards
+  // Sector Detail - ordered same as ranking table (#5)
   html += '<div class="section-title">Sector Detail</div>';
 
-  if (sectors && sectors.sectors) {
-    Object.keys(sectors.sectors).forEach(function(key) {
+  if (sectors && sectors.rankings) {
+    var detailOrder = sectors.rankings.slice().sort(function(a,b){return b.weighted_mean_excess - a.weighted_mean_excess;});
+    detailOrder.forEach(function(rank) {
+      var key = rank.key;
       var s = sectors.sectors[key];
+      if (!s) return;
       var monsoon = s.monsoon_window;
       if (!monsoon || !monsoon.outlook_2026) return;
       var o = monsoon.outlook_2026;
       var color = o.weighted_mean < -2 ? 'val-red' : o.weighted_mean > 2 ? 'val-green' : 'val-amber';
+      var hexColor = o.weighted_mean < -2 ? '#ff6b6b' : o.weighted_mean > 2 ? '#6bcb77' : '#ffa502';
 
       html += '<div class="card">';
       html += '<h3>' + s.name + '</h3>';
@@ -142,55 +194,40 @@ function render(a) {
       html += '<div class="stat-box"><div class="num">' + o.p_worse_than_minus5 + '%</div><div class="lbl">P(>5% worse)</div></div>';
       html += '</div>';
 
-      // Show bucket breakdown
       if (monsoon.by_rainfall_bucket) {
-        var buckets = monsoon.by_rainfall_bucket;
+        var b = monsoon.by_rainfall_bucket;
         html += '<div class="plain" style="margin-top:8px">';
-        if (buckets.LOW) html += '<strong>Drought years (n=' + buckets.LOW.n + '):</strong> avg ' + buckets.LOW.mean + '% excess. ';
-        if (buckets.NORMAL) html += '<strong>Normal years (n=' + buckets.NORMAL.n + '):</strong> avg ' + buckets.NORMAL.mean + '% excess. ';
-        if (buckets.HIGH) html += '<strong>High rain (n=' + buckets.HIGH.n + '):</strong> avg ' + buckets.HIGH.mean + '%.';
+        if (b.LOW) html += '<strong>Drought (n=' + b.LOW.n + '):</strong> ' + b.LOW.mean + '% &nbsp; ';
+        if (b.NORMAL) html += '<strong>Normal (n=' + b.NORMAL.n + '):</strong> ' + b.NORMAL.mean + '% &nbsp; ';
+        if (b.HIGH) html += '<strong>High rain (n=' + b.HIGH.n + '):</strong> ' + b.HIGH.mean + '%';
         html += '</div>';
       }
 
-      // Post-monsoon
       if (s.post_monsoon && s.post_monsoon.outlook_2026) {
         var po = s.post_monsoon.outlook_2026;
         var pColor = po.weighted_mean < -2 ? 'val-red' : po.weighted_mean > 2 ? 'val-green' : 'val-amber';
-        html += '<div class="plain" style="margin-top:8px"><strong>Post-monsoon (Oct-Mar):</strong> <span class="' + pColor + '">' + (po.weighted_mean > 0 ? '+' : '') + po.weighted_mean + '%</span> expected excess return — shows whether the effect reverses or persists after the season.</div>';
+        html += '<div class="plain" style="margin-top:6px"><strong>Post-monsoon (Oct-Mar):</strong> <span class="' + pColor + '">' + (po.weighted_mean > 0 ? '+' : '') + po.weighted_mean + '%</span> — effect reverses or persists?</div>';
       }
 
+      // Logos row
+      var logos = SECTOR_LOGOS[key] || [];
+      if (logos.length) {
+        html += '<div style="margin-top:8px" class="logo-row">';
+        logos.forEach(function(l) { html += logoImg(l.d) + '<span style="font-size:0.6rem;color:#555">' + l.n + '</span> '; });
+        html += '</div>';
+      }
       html += '</div>';
     });
   }
 
-  // Explanation box
-  html += '<div class="card" style="border-color:#ffd93d33">';
-  html += '<h3 style="color:#ffd93d">How to Read This</h3>';
-  html += '<div class="plain">';
-  html += '<strong>What is "Expected Excess Return"?</strong><br>';
-  html += 'It measures how much a sector beats or lags the Nifty50 index. For example:<br>';
-  html += '• If Nifty50 goes up 10% and Nifty Auto goes up 7%, Auto\'s excess return = <strong style="color:#ff6b6b">-3%</strong> (it underperformed by 3 points)<br>';
-  html += '• If Nifty50 goes up 10% and Nifty Pharma goes up 14%, Pharma\'s excess return = <strong style="color:#6bcb77">+4%</strong> (it beat the market by 4 points)<br>';
-  html += '• A positive excess return does NOT mean the sector went up — just that it did <em>better than the market average</em><br><br>';
-  html += '<strong>Why excess matters instead of absolute return:</strong> In 2009, markets rallied 76% during a severe drought because of global QE stimulus. Every sector went up. But <em>relative to the market</em>, rural/agri sectors still lagged. Excess return captures "who loses more or less than average" regardless of the market direction.<br><br>';
-  html += '<strong>"P(Underperform)"</strong> is the probability-weighted chance this sector does WORSE than Nifty50 (negative excess). Higher number = more likely to lag the market.';
-  html += '</div></div>';
-
-  // Data reliability warning
+  // Data source
   var dataSource = (sectors && sectors.data_source) ? sectors.data_source : 'Estimated';
   var isReal = dataSource.indexOf('Yahoo Finance') >= 0;
-
   html += '<div class="card" style="border-color:' + (isReal ? '#6bcb7733' : '#ff6b6b33') + '">';
-  html += '<h3 style="color:' + (isReal ? '#6bcb77' : '#ff6b6b') + '">' + (isReal ? 'Data Source: Real NSE Index Data' : 'Data Reliability Warning') + '</h3>';
+  html += '<h3 style="color:' + (isReal ? '#6bcb77' : '#ff6b6b') + '">' + (isReal ? 'Data: Real NSE Index Prices via Yahoo Finance' : 'Data Reliability Warning') + '</h3>';
   html += '<div class="plain">';
-  if (isReal) {
-    html += 'Sector excess returns are computed from <strong>actual NSE index prices</strong> fetched via Yahoo Finance. Methodology: monthly close-to-close returns for each sector index minus Nifty50 returns over the same period. ';
-    html += 'With ~10-18 data points per sector (2007-2025), a single outlier year can skew averages. ';
-  } else {
-    html += 'The sector excess return data is based on <strong>approximate historical estimates</strong>. ';
-  }
-  html += 'Some results may appear counterintuitive (e.g., a sector showing positive excess in drought years) because the sample is small and global/macro factors often overwhelm the monsoon signal. ';
-  html += '<strong>Treat these as directional indicators, not precise forecasts.</strong>';
+  if (isReal) html += 'Monthly close-to-close sector returns minus Nifty50 returns. ~10-18 years per sector. ';
+  html += 'Small samples + global macro can overwhelm monsoon signals. <strong>Directional indicators, not precise forecasts.</strong>';
   html += '</div></div>';
 
   html += '<div class="footer"><a href="about.html">Methodology</a> | <a href="stocks.html">Individual Stocks &rarr;</a> | <a href="index.html">&larr; Weather</a></div>';

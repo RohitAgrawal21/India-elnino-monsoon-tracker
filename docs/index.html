@@ -488,7 +488,7 @@ canvas { width: 100% !important; height: 200px !important; }
 .stress-arc {
   position: relative;
   width: 140px;
-  height: 78px;
+  height: 84px;
   flex-shrink: 0;
 }
 .stress-number {
@@ -825,34 +825,11 @@ function getHistoryValues(history, key) {
   return history.map(h => h[key]).filter(v => v !== null && v !== undefined);
 }
 
-function stressArcSVG(score) {
-  const r = 50, cx = 70, cy = 62, sw = 10;
-  const color = score >= 70 ? '#ff4757' : score >= 50 ? '#ffa502' : score >= 30 ? '#ffd93d' : '#6bcb77';
-  const pct = score / 100;
-  const gapAngle = 0.15;
-  const totalAngle = Math.PI - 2 * gapAngle;
-  const startX = cx + r * Math.cos(Math.PI - gapAngle);
-  const startY = cy - r * Math.sin(Math.PI - gapAngle);
-  const endX = cx + r * Math.cos(gapAngle);
-  const endY = cy - r * Math.sin(gapAngle);
-  const bgArc = 'M ' + startX.toFixed(1) + ' ' + startY.toFixed(1) + ' A ' + r + ' ' + r + ' 0 1 1 ' + endX.toFixed(1) + ' ' + endY.toFixed(1);
-  const fgAngle = Math.PI - gapAngle - pct * totalAngle;
-  const fgX = cx + r * Math.cos(fgAngle);
-  const fgY = cy - r * Math.sin(fgAngle);
-  const largeFlag = (pct * totalAngle > Math.PI) ? 1 : 0;
-  const fgArc = 'M ' + startX.toFixed(1) + ' ' + startY.toFixed(1) + ' A ' + r + ' ' + r + ' 0 ' + largeFlag + ' 1 ' + fgX.toFixed(1) + ' ' + fgY.toFixed(1);
-  return '<svg width="140" height="78" viewBox="0 0 140 78">' +
-    '<path d="' + bgArc + '" fill="none" stroke="#2a2a3a" stroke-width="' + sw + '" stroke-linecap="round"/>' +
-    (pct > 0.01 ? '<path d="' + fgArc + '" fill="none" stroke="' + color + '" stroke-width="' + sw + '" stroke-linecap="round"/>' : '') +
-    '<circle cx="' + fgX.toFixed(1) + '" cy="' + fgY.toFixed(1) + '" r="3.5" fill="' + color + '" stroke="#0a0a0f" stroke-width="1.5"/>' +
-    '</svg>';
-}
-
-function probArcSVG(pct, mainColor, bgTint) {
-  const r = 50, cx = 70, cy = 62, sw = 10;
-  const color = pct >= 80 ? '#ff4757' : pct >= 60 ? '#ff6b6b' : pct >= 40 ? '#ffa502' : '#6bcb77';
-  const frac = pct / 100;
-  const gapAngle = 0.15;
+function arcSVG(pct, colorFn) {
+  const r = 46, cx = 70, cy = 66, sw = 9;
+  const color = colorFn(pct);
+  const frac = Math.max(0, Math.min(1, pct / 100));
+  const gapAngle = 0.18;
   const totalAngle = Math.PI - 2 * gapAngle;
   const startX = cx + r * Math.cos(Math.PI - gapAngle);
   const startY = cy - r * Math.sin(Math.PI - gapAngle);
@@ -864,11 +841,26 @@ function probArcSVG(pct, mainColor, bgTint) {
   const fgY = cy - r * Math.sin(fgAngle);
   const largeFlag = (frac * totalAngle > Math.PI) ? 1 : 0;
   const fgArc = 'M ' + startX.toFixed(1) + ' ' + startY.toFixed(1) + ' A ' + r + ' ' + r + ' 0 ' + largeFlag + ' 1 ' + fgX.toFixed(1) + ' ' + fgY.toFixed(1);
-  return '<svg width="140" height="78" viewBox="0 0 140 78">' +
-    '<path d="' + bgArc + '" fill="none" stroke="#2a2a3a" stroke-width="' + sw + '" stroke-linecap="round"/>' +
+  // Tick marks at 0%, 50%, 100%
+  var ticks = '';
+  [0, 0.5, 1].forEach(function(f) {
+    var a = Math.PI - gapAngle - f * totalAngle;
+    var ix = cx + (r + 7) * Math.cos(a), iy = cy - (r + 7) * Math.sin(a);
+    var ox = cx + (r + 12) * Math.cos(a), oy = cy - (r + 12) * Math.sin(a);
+    ticks += '<line x1="' + ix.toFixed(1) + '" y1="' + iy.toFixed(1) + '" x2="' + ox.toFixed(1) + '" y2="' + oy.toFixed(1) + '" stroke="#333" stroke-width="1.5"/>';
+  });
+  return '<svg width="140" height="84" viewBox="0 0 140 84" overflow="visible">' +
+    ticks +
+    '<path d="' + bgArc + '" fill="none" stroke="#1e1e2e" stroke-width="' + sw + '" stroke-linecap="round"/>' +
     (frac > 0.01 ? '<path d="' + fgArc + '" fill="none" stroke="' + color + '" stroke-width="' + sw + '" stroke-linecap="round"/>' : '') +
-    '<circle cx="' + fgX.toFixed(1) + '" cy="' + fgY.toFixed(1) + '" r="3.5" fill="' + color + '" stroke="#0a0a0f" stroke-width="1.5"/>' +
+    '<circle cx="' + fgX.toFixed(1) + '" cy="' + fgY.toFixed(1) + '" r="4" fill="' + color + '" stroke="#0a0a0f" stroke-width="1.5"/>' +
     '</svg>';
+}
+function stressArcSVG(score) {
+  return arcSVG(score, function(v) { return v >= 70 ? '#ff4757' : v >= 50 ? '#ffa502' : v >= 30 ? '#ffd93d' : '#6bcb77'; });
+}
+function probArcSVG(pct) {
+  return arcSVG(pct, function(v) { return v >= 80 ? '#ff4757' : v >= 60 ? '#ff6b6b' : v >= 40 ? '#ffa502' : '#6bcb77'; });
 }
 
 function indiaMapSVG(subdivData) {
@@ -970,7 +962,7 @@ function render(latest, history) {
   html += '<div class="hero-num-card">';
   html += '<div class="hero-num-label">El Nino Probability <span style="font-size:0.55rem;color:#666;text-transform:none;letter-spacing:0">(blended model)</span></div>';
   html += '<div class="stress-wrap">';
-  html += '<div><div class="stress-arc">' + probArcSVG(elninoVal, '#ff6b6b', '#ffa502') + '<div class="stress-number" style="color:#ff6b6b">' + elninoVal + '%</div></div>';
+  html += '<div><div class="stress-arc">' + probArcSVG(elninoVal) + '<div class="stress-number" style="color:#ff6b6b">' + elninoVal + '%</div></div>';
   html += '<div class="stress-label-row"><span>0%</span><span>50%</span><span>100%</span></div></div>';
   html += '<div class="stress-info">';
   html += '<div class="stress-verdict" style="color:#ff6b6b">' + (elninoVal >= 80 ? 'Very Likely' : elninoVal >= 60 ? 'Likely' : elninoVal >= 40 ? 'Possible' : 'Unlikely') + '</div>';
@@ -1453,8 +1445,8 @@ function buildHeroText(m, strength) {
   const dep = rain && rain.country_departure_pct;
 
   let t = '';
-  t += '<strong>El Nino is ' + strength.label.toLowerCase() + '</strong>';
-  if (nino34 !== null) t += ' (Pacific is ' + (nino34 >= 0 ? '+' : '') + nino34.toFixed(2) + '°C above normal)';
+  t += '<strong>El Nino is present</strong> at <strong>' + strength.label.toLowerCase() + ' intensity</strong>';
+  if (nino34 !== null) t += ' (Pacific is ' + (nino34 >= 0 ? '+' : '') + nino34.toFixed(2) + '°C above normal — "weak" means 0.5-1.0°C, "moderate" is 1.0-1.5°C, "strong" is 1.5°C+)';
   t += ' and <strong>' + trend + '</strong>. ';
 
   if (iod && iod.phase) {

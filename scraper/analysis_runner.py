@@ -82,7 +82,22 @@ def run_sector_analysis(taxonomy, weights):
         "pharma": "Monsoon-agnostic. Domestic pharma demand is inelastic; exports drive ~50%. Classic defensive.",
         "it": "Zero monsoon exposure. Export-oriented, USD-earning. Often outperforms during domestic stress.",
         "realty": "Weak monsoon → slower rural-to-urban migration, lower affordable housing demand. But urban realty is mostly macro-driven.",
+        "consumer_durables": "White goods (ACs, fridges, washing machines). Rural demand ~30%. Drought → deferred big-ticket purchases. Uses FMCG index as proxy (no separate Yahoo Finance index).",
     }
+
+    # Consumer Durables: no dedicated Yahoo Finance index, so use FMCG as proxy
+    if use_real and "consumer_durables" not in real_data.get("sectors", {}):
+        fmcg_data = real_data.get("sectors", {}).get("fmcg")
+        if fmcg_data:
+            real_data["sectors"]["consumer_durables"] = {
+                "name": "Consumer Durables (White Goods)",
+                "ticker": "FMCG proxy",
+                "monsoon_excess": fmcg_data["monsoon_excess"],
+                "post_monsoon_excess": fmcg_data["post_monsoon_excess"],
+                "years_available": fmcg_data.get("years_available", []),
+                "data_points_monsoon": fmcg_data.get("data_points_monsoon", 0),
+                "data_points_post": fmcg_data.get("data_points_post", 0),
+            }
 
     results = {}
 

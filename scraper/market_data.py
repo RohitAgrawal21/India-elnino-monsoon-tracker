@@ -119,7 +119,7 @@ SECTOR_EXCESS_POST_MONSOON = {
 THEMATIC_BASKETS = {
     "sugar": {
         "name": "Sugar",
-        "stocks": ["BALRAMCHIN.NS", "RENUKA.NS", "DHAMPUR.NS", "TRIVENI.NS"],
+        "stocks": ["BALRAMCHIN.NS", "RENUKA.NS", "DHAMPURSUG.NS", "TRIVENI.NS"],
         "mechanism": "Sugarcane is water-intensive. Drought → lower cane production → mills run at low capacity.",
         "monsoon_excess": {2009: -18.4, 2010: -12.1, 2011: -4.2, 2012: 2.8, 2013: -8.1, 2014: -5.2, 2015: -14.8, 2016: 22.4, 2017: -6.1, 2018: -8.4, 2019: 4.2, 2020: 8.1, 2021: 12.4, 2022: -4.2, 2023: -2.8, 2024: 3.1}
     },
@@ -215,11 +215,11 @@ WATCHLIST_MID_CAP = {
          "why": "Kerala-focused. If monsoon fails in Kerala, local economy (plantation crops) gets hit."},
     ],
     "benefit_from_drought": [
-        {"ticker": "VATWABAG.NS", "name": "VA Tech Wabag", "sector": "Water Treatment",
+        {"ticker": "WABAG.NS", "name": "VA Tech Wabag", "sector": "Water Treatment",
          "why": "Drought → government fast-tracks water infrastructure projects. Wabag gets more orders for desalination and recycling."},
         {"ticker": "SHAKTIPUMP.NS", "name": "Shakti Pumps", "sector": "Pumps/Solar",
          "why": "Farmers need MORE pumps in drought to extract groundwater. Solar pump subsidies (PM-KUSUM) accelerate in dry years."},
-        {"ticker": "KSBPUMPS.NS", "name": "KSB Ltd", "sector": "Industrial Pumps",
+        {"ticker": "KSB.NS", "name": "KSB Ltd", "sector": "Industrial Pumps",
          "why": "Water infrastructure and irrigation pumps see demand spike when rainfall is deficient."},
         {"ticker": "CGPOWER.NS", "name": "CG Power", "sector": "Electricals",
          "why": "Transformer demand rises as rural India runs more borewells and pump sets during drought."},
@@ -236,7 +236,7 @@ WATCHLIST_MID_CAP = {
 
 WATCHLIST_SMALL_CAP = {
     "hurt_by_drought": [
-        {"ticker": "DHAMPUR.NS", "name": "Dhampur Sugar", "sector": "Sugar",
+        {"ticker": "DHAMPURSUG.NS", "name": "Dhampur Sugar", "sector": "Sugar",
          "why": "Small sugar mill in UP. Entirely dependent on local cane supply — drought devastates operations."},
         {"ticker": "TRIVENI.NS", "name": "Triveni Engineering", "sector": "Sugar/Engineering",
          "why": "Sugar division is the main revenue driver. Water-intensive cane crushing halts in drought years."},
@@ -258,7 +258,7 @@ WATCHLIST_SMALL_CAP = {
          "why": "Urea maker. Kharif is peak urea season — drought-delayed sowing = delayed/lower urea demand."},
     ],
     "benefit_from_drought": [
-        {"ticker": "IONEXI.NS", "name": "Ion Exchange India", "sector": "Water Treatment",
+        {"ticker": "IONEXCHANG.NS", "name": "Ion Exchange India", "sector": "Water Treatment",
          "why": "Water scarcity → demand for water purification, treatment plants, industrial recycling surges."},
         {"ticker": "KIRLOSBROS.NS", "name": "Kirloskar Brothers", "sector": "Pumps",
          "why": "India's oldest pump maker. Agricultural + municipal pumping demand surges during water scarcity."},

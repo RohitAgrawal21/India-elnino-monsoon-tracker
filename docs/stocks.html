@@ -40,7 +40,8 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; col
 .stock-left { flex: 1; min-width: 0; }
 .stock-right { flex: 0 0 340px; border-left: 1px solid #1e1e2e; padding-left: 14px; }
 @media (max-width: 800px) { .stock-item { flex-direction: column; } .stock-right { flex: none; border-left: none; padding-left: 0; border-top: 1px solid #1e1e2e; padding-top: 10px; } }
-.stock-item-name { font-size: 0.82rem; font-weight: 700; color: #fff; }
+.stock-logo { width: 28px; height: 28px; border-radius: 6px; background: #1a1a28; object-fit: contain; border: 1px solid #2a2a3a; vertical-align: middle; margin-right: 8px; }
+.stock-item-name { font-size: 0.82rem; font-weight: 700; color: #fff; display: flex; align-items: center; }
 .stock-item-ticker { font-size: 0.62rem; color: #555; font-family: monospace; }
 .stock-item-sector { font-size: 0.62rem; color: #4ecdc4; margin-top: 2px; }
 .stock-item-why { font-size: 0.72rem; color: #999; margin-top: 6px; line-height: 1.5; }
@@ -144,6 +145,15 @@ function render(a) {
     html += '</div>';
   });
 
+  // Analyst bias note (#3)
+  html += '<div style="background:#1a1a28;border:1px solid #ffa50233;border-radius:10px;padding:16px;margin-top:16px">';
+  html += '<div style="font-size:0.78rem;font-weight:700;color:#ffa502;margin-bottom:6px">About Analyst Targets</div>';
+  html += '<div style="font-size:0.72rem;color:#aaa;line-height:1.7">';
+  html += 'Analyst targets come from Yahoo Finance, which aggregates sell-side broker reports. <strong>Sell-side analysts have a known bullish bias</strong> — they are more likely to cover stocks they are positive on, and "Buy" ratings outnumber "Sell" ratings roughly 5:1 industry-wide. ';
+  html += 'This is why most stocks show 15-40% upside. <strong>Don\'t treat these as reliable price predictions.</strong> The target range (low to high) is more informative than the mean — look at the low end for a more conservative view. ';
+  html += 'The analyst count also matters: 30+ analysts = well-covered large cap; &lt;5 analysts = thinly covered, less reliable.';
+  html += '</div></div>';
+
   // Final caveat
   html += '<div style="background:#1a1a28;border:1px solid #ff6b6b22;border-radius:10px;padding:16px;margin-top:16px">';
   html += '<div style="font-size:0.78rem;font-weight:700;color:#ff6b6b;margin-bottom:6px">Why this could be WRONG</div>';
@@ -174,10 +184,34 @@ function valColor(v, invert) {
   return v > 0 ? 'val-green' : v < 0 ? 'val-red' : '';
 }
 
+// Map tickers to company domains for logos
+var TICKER_DOMAINS = {
+  'M&M.NS':'mahindra.com','HINDUNILVR.NS':'hul.co.in','HEROMOTOCO.NS':'heromotocorp.com',
+  'DABUR.NS':'dabur.com','ICICIBANK.NS':'icicibank.com','SBIN.NS':'sbi.co.in',
+  'TITAN.NS':'titan.co.in','BAJAJ-AUTO.NS':'bajajauto.com','MARICO.NS':'marico.com',
+  'UPL.NS':'upl-ltd.com','NESTLEIND.NS':'nestleindia.com','BRITANNIA.NS':'britannia.co.in',
+  'TCS.NS':'tcs.com','INFY.NS':'infosys.com','SUNPHARMA.NS':'sunpharma.com',
+  'ITC.NS':'itcportal.com','RELIANCE.NS':'ril.com','NTPC.NS':'ntpc.co.in',
+  'ESCORTS.NS':'escortsgroup.com','TVSMOTOR.NS':'tvsmotor.com','GODREJCP.NS':'godrejcp.com',
+  'EMAMILTD.NS':'emamiltd.in','BALRAMCHIN.NS':'balrampur.com','COROMANDEL.NS':'coromandel.biz',
+  'PIIND.NS':'piindustries.com','MANAPPURAM.NS':'manappuram.com','CANBK.NS':'canarabank.com',
+  'FEDERALBNK.NS':'federalbank.co.in','WABAG.NS':'wabag.com','SHAKTIPUMP.NS':'shaktipumps.com',
+  'KSB.NS':'ksb.com','CGPOWER.NS':'cgpower.com','TATAPOWER.NS':'tatapower.com',
+  'PERSISTENT.NS':'persistent.com','TORNTPHARM.NS':'torrentpharma.com','CONCOR.NS':'concorindia.co.in',
+  'DHAMPURSUG.NS':'dhampursugar.com','TRIVENI.NS':'trivenigroup.com','RALLIS.NS':'rallis.com',
+  'GNFC.NS':'gnfc.in','VSTTILLERS.NS':'vsttillers.com','BASF.NS':'basf.com',
+  'RCF.NS':'rcfltd.com','CHAMBLFERT.NS':'chambalfertilisers.com','IONEXCHANG.NS':'ionexchange.co.in',
+  'KIRLOSBROS.NS':'kirloskar.com','KRBL.NS':'krbl.com','HATSUN.NS':'hatsun.com',
+  'BECTORFOOD.NS':'bfrg.in','PRIVISCL.NS':'privi.com','GPPL.NS':'gppl.co.in',
+  'SJVN.NS':'sjvn.nic.in','SUNTV.NS':'suntv.in','CESC.NS':'cesc.co.in',
+};
+
 function renderStock(s, w) {
   var html = '<div class="stock-item">';
   html += '<div class="stock-left">';
-  html += '<div class="stock-item-name">' + s.name + ' <span class="stock-item-ticker">' + s.ticker + '</span></div>';
+  var domain = TICKER_DOMAINS[s.ticker];
+  var logoHtml = domain ? '<img class="stock-logo" src="https://logo.clearbit.com/' + domain + '" onerror="this.style.display=\'none\'" alt="" loading="lazy">' : '';
+  html += '<div class="stock-item-name">' + logoHtml + '<span>' + s.name + ' <span class="stock-item-ticker">' + s.ticker + '</span></span></div>';
   html += '<div class="stock-item-sector">' + s.sector + '</div>';
   html += '<div class="stock-item-why">' + s.why + '</div>';
 
