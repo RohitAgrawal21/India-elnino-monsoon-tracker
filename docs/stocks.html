@@ -211,9 +211,9 @@ function renderTilePanel(watchlist) {
       var c2 = f && f.status === 'ok' ? toCagr(f.return_2y_pct, 2) : null;
       var c5 = f && f.status === 'ok' ? toCagr(f.return_5y_pct, 5) : null;
       var isHurt = item.dir === 'hurt_by_drought';
-      var borderLeft = isHurt ? '#ff6b6b' : '#6bcb77';
+      var borderLeft = isHurt ? '#ff4757' : '#00e676';
 
-      html += '<div class="tile" style="border-left:3px solid ' + borderLeft + '">';
+      html += '<div class="tile" style="border-left:5px solid ' + borderLeft + '">';
 
       html += '<div class="tile-top">';
       if (domain) {
