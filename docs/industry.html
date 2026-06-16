@@ -95,9 +95,15 @@ var SECTOR_LOGOS = {
 };
 function logoImg(domain, name) {
   var initials = (name || domain.split('.')[0]).substring(0, 2).toUpperCase();
+  var c = initials.charCodeAt(0) % 6;
+  var colors = ['%234ecdc4','%23ff6b6b','%236bcb77','%23ffd93d','%23ffa502','%23a78bfa'];
+  var fallbackSvg = "data:image/svg+xml," +
+    "<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2264%22 height=%2264%22>" +
+    "<rect width=%2264%22 height=%2264%22 rx=%2232%22 fill=%22%231a1a28%22/>" +
+    "<text x=%2232%22 y=%2240%22 text-anchor=%22middle%22 fill=%22" + colors[c] + "%22 font-size=%2222%22 font-weight=%22700%22 font-family=%22Inter,sans-serif%22>" + initials + "</text></svg>";
   return '<span class="logo-wrap">' +
-    '<img src="https://logo.clearbit.com/' + domain + '" ' +
-    'onerror="this.onerror=null;this.src=\'https://icon.horse/icon/' + domain + '\'" ' +
+    '<img src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://' + domain + '&size=128" ' +
+    'onerror="this.onerror=null;this.src=\'' + fallbackSvg + '\'" ' +
     'alt="' + (name||'') + '" loading="lazy" style="width:22px;height:22px;border-radius:50%;background:#222;object-fit:contain;border:1px solid #2a2a3a">' +
     '</span>';
 }

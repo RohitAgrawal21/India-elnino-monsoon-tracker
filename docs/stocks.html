@@ -35,7 +35,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; col
 .tile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; }
 @media (max-width: 600px) { .tile-grid { grid-template-columns: 1fr; } }
 
-.tile { border-radius: 8px; padding: 10px; border: 1px solid #1e1e2e; transition: border-color 0.2s; position: relative; overflow: hidden; }
+.tile { border-radius: 8px; padding: 10px; background: #12121a; border: 1px solid #1e1e2e; transition: border-color 0.2s; position: relative; overflow: hidden; }
 .tile:hover { border-color: #3a3a5a; }
 .tile-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
 .tile-logo { width: 32px; height: 32px; border-radius: 6px; background: #1a1a28; object-fit: contain; border: 1px solid #2a2a3a; flex-shrink: 0; }
@@ -139,31 +139,35 @@ var TICKER_DOMAINS = {
   'WATERBASE.NS':'waterbaseindia.com','JISLJALEQS.NS':'jains.com',
 };
 
-function logoUrl(domain) {
-  return 'https://logo.clearbit.com/' + domain;
+function logoSrc(domain) {
+  return 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://' + domain + '&size=128';
 }
-function logoFallback(domain) {
-  return "this.onerror=null;this.src='https://icon.horse/icon/" + domain + "'";
-}
-
-function tileColor(direction, intensity) {
-  if (direction === 'hurt_by_drought') {
-    return intensity > 0.6 ? '#3d1515' : '#2d1b1b';
-  }
-  return intensity > 0.6 ? '#153d1a' : '#1b2d1e';
-}
-function tileBorder(direction) {
-  return direction === 'hurt_by_drought' ? '#ff6b6b33' : '#6bcb7733';
+function logoErr(name) {
+  var c = name.charCodeAt(0) % 6;
+  var colors = ['%234ecdc4','%23ff6b6b','%236bcb77','%23ffd93d','%23ffa502','%23a78bfa'];
+  var initials = name.substring(0,2).toUpperCase();
+  return "this.onerror=null;this.src='data:image/svg+xml," +
+    "<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22128%22 height=%22128%22>" +
+    "<rect width=%22128%22 height=%22128%22 rx=%2216%22 fill=%22%231a1a28%22/>" +
+    "<text x=%2264%22 y=%2276%22 text-anchor=%22middle%22 fill=%22" + colors[c] + "%22 font-size=%2248%22 font-weight=%22700%22 font-family=%22Inter,sans-serif%22>" + initials + "</text></svg>'";
 }
 
-function retBg(v) {
-  if (v === null || v === undefined) return 'background:#1a1a28;color:#555';
-  if (v > 50) return 'background:#1a4d1e;color:#6bcb77';
-  if (v > 10) return 'background:#1a3d1e;color:#6bcb77';
-  if (v > 0) return 'background:#1e2e1e;color:#8ddb8d';
-  if (v > -10) return 'background:#2e1e1e;color:#ff8888';
-  if (v > -30) return 'background:#3d1a1a;color:#ff6b6b';
-  return 'background:#4d1515;color:#ff4757';
+function toCagr(totalRetPct, years) {
+  if (totalRetPct === null || totalRetPct === undefined) return null;
+  if (years <= 1) return totalRetPct;
+  var mult = 1 + totalRetPct / 100;
+  if (mult <= 0) return -100;
+  return Math.round((Math.pow(mult, 1 / years) - 1) * 1000) / 10;
+}
+
+function retColor(v) {
+  if (v === null || v === undefined) return '#555';
+  if (v > 25) return '#4ade80';
+  if (v > 10) return '#6bcb77';
+  if (v > 0) return '#86efac';
+  if (v > -10) return '#fca5a5';
+  if (v > -25) return '#ff6b6b';
+  return '#ff4757';
 }
 
 function fmtPrice(v) {
@@ -171,9 +175,9 @@ function fmtPrice(v) {
   if (v >= 10000) return '₹' + (v/1000).toFixed(1) + 'K';
   return '₹' + v.toFixed(0);
 }
-function fmtRet(v) {
+function fmtCagr(v) {
   if (v === null || v === undefined) return '-';
-  return (v > 0 ? '+' : '') + v + '%';
+  return (v > 0 ? '+' : '') + v.toFixed(1) + '%';
 }
 
 function renderTilePanel(watchlist) {
@@ -203,34 +207,29 @@ function renderTilePanel(watchlist) {
       var cmp = f && f.status === 'ok' ? f.cmp : null;
       var high52 = f && f.status === 'ok' ? f['52w_high'] : null;
       var low52 = f && f.status === 'ok' ? f['52w_low'] : null;
-      var r1 = f && f.status === 'ok' ? f.return_1y_pct : null;
-      var r2 = f && f.status === 'ok' ? f.return_2y_pct : null;
-      var r5 = f && f.status === 'ok' ? f.return_5y_pct : null;
+      var c1 = f && f.status === 'ok' ? toCagr(f.return_1y_pct, 1) : null;
+      var c2 = f && f.status === 'ok' ? toCagr(f.return_2y_pct, 2) : null;
+      var c5 = f && f.status === 'ok' ? toCagr(f.return_5y_pct, 5) : null;
       var isHurt = item.dir === 'hurt_by_drought';
-      var bg = tileColor(item.dir, 0.4);
-      var border = tileBorder(item.dir);
-      var dirLabel = isHurt ? '▼' : '▲';
-      var dirColor = isHurt ? '#ff6b6b' : '#6bcb77';
-      var dirBg = isHurt ? '#ff6b6b22' : '#6bcb7722';
+      var borderLeft = isHurt ? '#ff6b6b' : '#6bcb77';
 
-      html += '<div class="tile" style="background:' + bg + ';border-color:' + border + '">';
-      html += '<div class="tile-direction" style="color:' + dirColor + ';background:' + dirBg + '">' + dirLabel + '</div>';
+      html += '<div class="tile" style="border-left:3px solid ' + borderLeft + '">';
 
       html += '<div class="tile-top">';
       if (domain) {
-        html += '<img class="tile-logo" src="' + logoUrl(domain) + '" onerror="' + logoFallback(domain) + '" alt="" loading="lazy">';
+        html += '<img class="tile-logo" src="' + logoSrc(domain) + '" onerror="' + logoErr(s.name) + '" alt="" loading="lazy">';
       }
       html += '<div><div class="tile-name">' + s.name + '</div><div class="tile-ticker">' + s.ticker.replace('.NS','') + '</div></div>';
       html += '</div>';
 
-      html += '<div class="tile-cmp" style="color:' + dirColor + '">' + fmtPrice(cmp) + '</div>';
-      html += '<div class="tile-row"><span class="tile-lbl">52W High</span><span class="tile-val">' + fmtPrice(high52) + '</span></div>';
-      html += '<div class="tile-row"><span class="tile-lbl">52W Low</span><span class="tile-val">' + fmtPrice(low52) + '</span></div>';
+      html += '<div class="tile-cmp">₹' + (cmp ? cmp.toLocaleString() : '-') + '</div>';
+      html += '<div class="tile-row"><span class="tile-lbl">52W H / L</span><span class="tile-val">' + fmtPrice(high52) + ' / ' + fmtPrice(low52) + '</span></div>';
 
+      html += '<div style="margin-top:6px;font-size:0.5rem;color:#555;text-transform:uppercase;letter-spacing:0.5px">Share Price CAGR</div>';
       html += '<div class="tile-returns">';
-      html += '<div class="tile-ret" style="' + retBg(r1) + '"><span class="ret-label">1Y</span>' + fmtRet(r1) + '</div>';
-      html += '<div class="tile-ret" style="' + retBg(r2) + '"><span class="ret-label">2Y</span>' + fmtRet(r2) + '</div>';
-      html += '<div class="tile-ret" style="' + retBg(r5) + '"><span class="ret-label">5Y</span>' + fmtRet(r5) + '</div>';
+      html += '<div class="tile-ret"><span class="ret-label">1Y</span><span style="color:' + retColor(c1) + '">' + fmtCagr(c1) + '</span></div>';
+      html += '<div class="tile-ret"><span class="ret-label">2Y</span><span style="color:' + retColor(c2) + '">' + fmtCagr(c2) + '</span></div>';
+      html += '<div class="tile-ret"><span class="ret-label">5Y</span><span style="color:' + retColor(c5) + '">' + fmtCagr(c5) + '</span></div>';
       html += '</div>';
 
       html += '</div>';
@@ -324,7 +323,7 @@ function renderStock(s, w) {
   var html = '<div class="stock-item">';
   html += '<div class="stock-left">';
   var domain = TICKER_DOMAINS[s.ticker];
-  var logoHtml = domain ? '<img class="stock-logo" src="' + logoUrl(domain) + '" onerror="' + logoFallback(domain) + '" alt="" loading="lazy">' : '';
+  var logoHtml = domain ? '<img class="stock-logo" src="' + logoSrc(domain) + '" onerror="' + logoErr(s.name) + '" alt="" loading="lazy">' : '';
   html += '<div class="stock-item-name">' + logoHtml + '<span>' + s.name + ' <span class="stock-item-ticker">' + s.ticker + '</span></span></div>';
   html += '<div class="stock-item-sector">' + s.sector + '</div>';
   html += '<div class="stock-item-why">' + s.why + '</div>';
