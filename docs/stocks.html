@@ -9,7 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
-.container { max-width: 1100px; margin: 0 auto; padding: 20px 16px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
 .header { text-align: center; padding: 20px 0 10px; }
 .header h1 { font-size: 1.6rem; font-weight: 900; background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .tab-nav { display: flex; justify-content: center; gap: 4px; margin: 16px 0; flex-wrap: wrap; }
@@ -19,21 +19,44 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; col
 .disclaimer { background: #1a1a28; border: 1px solid #ff6b6b33; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; font-size: 0.75rem; color: #bbb; text-align: center; }
 .disclaimer strong { color: #ff6b6b; }
 
-/* Simple summary box */
 .summary-box { background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid #2a2a4a; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
 .summary-box h2 { font-size: 1rem; font-weight: 800; color: #ffd93d; margin-bottom: 10px; }
 .summary-box p { font-size: 0.82rem; color: #bbb; margin-bottom: 8px; }
 .summary-box .highlight { color: #fff; font-weight: 700; }
 
-/* Cap section */
+/* Tile panel */
+.panel-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+@media (max-width: 900px) { .panel-cols { grid-template-columns: 1fr; } }
+.panel-col { background: #0e0e16; border: 1px solid #1e1e2e; border-radius: 12px; overflow: hidden; }
+.panel-header { padding: 10px 14px; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+.panel-header-large { background: linear-gradient(135deg, #1a1a2e, #12121a); color: #4ecdc4; border-bottom: 1px solid #4ecdc433; }
+.panel-header-mid { background: linear-gradient(135deg, #1a1a2e, #12121a); color: #ffd93d; border-bottom: 1px solid #ffd93d33; }
+.panel-header-small { background: linear-gradient(135deg, #1a1a2e, #12121a); color: #ff6b6b; border-bottom: 1px solid #ff6b6b33; }
+.tile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; }
+@media (max-width: 600px) { .tile-grid { grid-template-columns: 1fr; } }
+
+.tile { border-radius: 8px; padding: 10px; border: 1px solid #1e1e2e; transition: border-color 0.2s; position: relative; overflow: hidden; }
+.tile:hover { border-color: #3a3a5a; }
+.tile-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.tile-logo { width: 32px; height: 32px; border-radius: 6px; background: #1a1a28; object-fit: contain; border: 1px solid #2a2a3a; flex-shrink: 0; }
+.tile-name { font-size: 0.68rem; font-weight: 700; color: #fff; line-height: 1.2; }
+.tile-ticker { font-size: 0.52rem; color: #555; font-family: monospace; }
+.tile-cmp { font-size: 1rem; font-weight: 900; margin: 4px 0 6px; }
+.tile-row { display: flex; justify-content: space-between; font-size: 0.58rem; padding: 1px 0; }
+.tile-lbl { color: #555; }
+.tile-val { font-weight: 600; }
+.tile-returns { display: flex; gap: 4px; margin-top: 6px; }
+.tile-ret { flex: 1; text-align: center; padding: 3px 2px; border-radius: 4px; font-size: 0.55rem; font-weight: 700; }
+.tile-ret .ret-label { font-size: 0.45rem; color: #888; display: block; margin-bottom: 1px; font-weight: 400; }
+.tile-direction { position: absolute; top: 4px; right: 6px; font-size: 0.5rem; font-weight: 700; padding: 1px 4px; border-radius: 3px; }
+
+/* Deep dive section */
 .cap-section { margin-bottom: 32px; }
 .cap-title { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 4px; padding: 12px 0; border-bottom: 2px solid #1e1e2e; }
 .direction-label { font-size: 0.8rem; font-weight: 700; padding: 8px 14px; margin: 16px 0 10px; border-radius: 6px; display: inline-block; }
 .direction-hurt { background: #ff6b6b18; color: #ff6b6b; border: 1px solid #ff6b6b33; }
 .direction-benefit { background: #6bcb7718; color: #6bcb77; border: 1px solid #6bcb7733; }
 .direction-explain { font-size: 0.72rem; color: #888; margin: 0 0 12px 0; }
-
-/* Stock list */
 .stock-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
 .stock-item { background: #12121a; border: 1px solid #1e1e2e; border-radius: 10px; padding: 14px 16px; transition: border-color 0.2s; display: flex; gap: 16px; }
 .stock-item:hover { border-color: #2a2a4a; }
@@ -52,7 +75,6 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; col
 .val-red { color: #ff6b6b; }
 .val-green { color: #6bcb77; }
 .val-amber { color: #ffa502; }
-/* Fundamentals mini table */
 .fund-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 10px; font-size: 0.65rem; }
 .fund-row { display: flex; justify-content: space-between; padding: 2px 0; border-bottom: 1px solid #0e0e16; }
 .fund-lbl { color: #666; }
@@ -94,75 +116,189 @@ async function loadData() {
   }
 }
 
+// Ticker -> company domain for logos
+var TICKER_DOMAINS = {
+  'M&M.NS':'mahindra.com','HINDUNILVR.NS':'unilever.com','HEROMOTOCO.NS':'heromotocorp.com',
+  'DABUR.NS':'dabur.com','ICICIBANK.NS':'icicibank.com','SBIN.NS':'sbi.co.in',
+  'TITAN.NS':'titan.co.in','BAJAJ-AUTO.NS':'bajajauto.com','MARICO.NS':'marico.com',
+  'UPL.NS':'upl-ltd.com','NESTLEIND.NS':'nestle.in','BRITANNIA.NS':'britannia.co.in',
+  'TCS.NS':'tcs.com','INFY.NS':'infosys.com','SUNPHARMA.NS':'sunpharma.com',
+  'ITC.NS':'itcportal.com','RELIANCE.NS':'ril.com','NTPC.NS':'ntpc.co.in',
+  'ESCORTS.NS':'escortsgroup.com','TVSMOTOR.NS':'tvsmotor.com','GODREJCP.NS':'godrejcp.com',
+  'EMAMILTD.NS':'emamiltd.in','BALRAMCHIN.NS':'chinimill.com','COROMANDEL.NS':'coromandel.biz',
+  'PIIND.NS':'piindustries.com','MANAPPURAM.NS':'manappuram.com','CANBK.NS':'canarabank.com',
+  'FEDERALBNK.NS':'federalbank.co.in','WABAG.NS':'wabag.com','SHAKTIPUMP.NS':'shaktipumps.com',
+  'KSB.NS':'ksbpumps.com','CGPOWER.NS':'cgglobal.com','TATAPOWER.NS':'tatapower.com',
+  'PERSISTENT.NS':'persistent.com','TORNTPHARM.NS':'torrentpharma.com','CONCOR.NS':'concorindia.co.in',
+  'DHAMPURSUG.NS':'dhampursugar.com','TRIVENI.NS':'trivenigroup.com','RALLIS.NS':'rallis.co.in',
+  'GNFC.NS':'gnfc.in','VSTTILLERS.NS':'vsttillers.com','BASF.NS':'basf.com',
+  'RCF.NS':'rcfltd.com','CHAMBLFERT.NS':'chambalfertilisers.com','IONEXCHANG.NS':'ionexchange.co.in',
+  'KIRLOSBROS.NS':'kirloskar.com','KRBL.NS':'krbl.com','HATSUN.NS':'hatsun.com',
+  'BECTORFOOD.NS':'mrsbectors.com','PRIVISCL.NS':'privi.com','GPPL.NS':'gppl.co.in',
+  'SJVN.NS':'sjvn.nic.in','SUNTV.NS':'suntv.in','CESC.NS':'cesc.co.in',
+  'WATERBASE.NS':'waterbaseindia.com','JISLJALEQS.NS':'jains.com',
+};
+
+function logoUrl(domain) {
+  return 'https://logo.clearbit.com/' + domain;
+}
+function logoFallback(domain) {
+  return "this.onerror=null;this.src='https://icon.horse/icon/" + domain + "'";
+}
+
+function tileColor(direction, intensity) {
+  if (direction === 'hurt_by_drought') {
+    return intensity > 0.6 ? '#3d1515' : '#2d1b1b';
+  }
+  return intensity > 0.6 ? '#153d1a' : '#1b2d1e';
+}
+function tileBorder(direction) {
+  return direction === 'hurt_by_drought' ? '#ff6b6b33' : '#6bcb7733';
+}
+
+function retBg(v) {
+  if (v === null || v === undefined) return 'background:#1a1a28;color:#555';
+  if (v > 50) return 'background:#1a4d1e;color:#6bcb77';
+  if (v > 10) return 'background:#1a3d1e;color:#6bcb77';
+  if (v > 0) return 'background:#1e2e1e;color:#8ddb8d';
+  if (v > -10) return 'background:#2e1e1e;color:#ff8888';
+  if (v > -30) return 'background:#3d1a1a;color:#ff6b6b';
+  return 'background:#4d1515;color:#ff4757';
+}
+
+function fmtPrice(v) {
+  if (!v) return '-';
+  if (v >= 10000) return '₹' + (v/1000).toFixed(1) + 'K';
+  return '₹' + v.toFixed(0);
+}
+function fmtRet(v) {
+  if (v === null || v === undefined) return '-';
+  return (v > 0 ? '+' : '') + v + '%';
+}
+
+function renderTilePanel(watchlist) {
+  var caps = [
+    {key:'large_cap', label:'Large Cap', cls:'panel-header-large'},
+    {key:'mid_cap', label:'Mid Cap', cls:'panel-header-mid'},
+    {key:'small_cap', label:'Small Cap', cls:'panel-header-small'}
+  ];
+
+  var html = '<div class="panel-cols">';
+
+  caps.forEach(function(cap) {
+    var data = watchlist[cap.key];
+    if (!data) return;
+    html += '<div class="panel-col">';
+    html += '<div class="panel-header ' + cap.cls + '">' + cap.label + '</div>';
+    html += '<div class="tile-grid">';
+
+    var allStocks = [];
+    (data.hurt_by_drought || []).forEach(function(s) { allStocks.push({s:s, dir:'hurt_by_drought'}); });
+    (data.benefit_from_drought || []).forEach(function(s) { allStocks.push({s:s, dir:'benefit_from_drought'}); });
+
+    allStocks.forEach(function(item) {
+      var s = item.s;
+      var f = fundData && fundData.stocks ? fundData.stocks[s.ticker] : null;
+      var domain = TICKER_DOMAINS[s.ticker];
+      var cmp = f && f.status === 'ok' ? f.cmp : null;
+      var high52 = f && f.status === 'ok' ? f['52w_high'] : null;
+      var low52 = f && f.status === 'ok' ? f['52w_low'] : null;
+      var r1 = f && f.status === 'ok' ? f.return_1y_pct : null;
+      var r2 = f && f.status === 'ok' ? f.return_2y_pct : null;
+      var r5 = f && f.status === 'ok' ? f.return_5y_pct : null;
+      var isHurt = item.dir === 'hurt_by_drought';
+      var bg = tileColor(item.dir, 0.4);
+      var border = tileBorder(item.dir);
+      var dirLabel = isHurt ? '▼' : '▲';
+      var dirColor = isHurt ? '#ff6b6b' : '#6bcb77';
+      var dirBg = isHurt ? '#ff6b6b22' : '#6bcb7722';
+
+      html += '<div class="tile" style="background:' + bg + ';border-color:' + border + '">';
+      html += '<div class="tile-direction" style="color:' + dirColor + ';background:' + dirBg + '">' + dirLabel + '</div>';
+
+      html += '<div class="tile-top">';
+      if (domain) {
+        html += '<img class="tile-logo" src="' + logoUrl(domain) + '" onerror="' + logoFallback(domain) + '" alt="" loading="lazy">';
+      }
+      html += '<div><div class="tile-name">' + s.name + '</div><div class="tile-ticker">' + s.ticker.replace('.NS','') + '</div></div>';
+      html += '</div>';
+
+      html += '<div class="tile-cmp" style="color:' + dirColor + '">' + fmtPrice(cmp) + '</div>';
+      html += '<div class="tile-row"><span class="tile-lbl">52W High</span><span class="tile-val">' + fmtPrice(high52) + '</span></div>';
+      html += '<div class="tile-row"><span class="tile-lbl">52W Low</span><span class="tile-val">' + fmtPrice(low52) + '</span></div>';
+
+      html += '<div class="tile-returns">';
+      html += '<div class="tile-ret" style="' + retBg(r1) + '"><span class="ret-label">1Y</span>' + fmtRet(r1) + '</div>';
+      html += '<div class="tile-ret" style="' + retBg(r2) + '"><span class="ret-label">2Y</span>' + fmtRet(r2) + '</div>';
+      html += '<div class="tile-ret" style="' + retBg(r5) + '"><span class="ret-label">5Y</span>' + fmtRet(r5) + '</div>';
+      html += '</div>';
+
+      html += '</div>';
+    });
+
+    html += '</div></div>';
+  });
+
+  html += '</div>';
+  return html;
+}
+
 function render(a) {
   const w = a.rainfall_weights_2026;
   let html = '';
 
-  // Plain English summary
   html += '<div class="summary-box">';
   html += '<h2>The Simple Idea</h2>';
   html += '<p>If the monsoon is weak (which we think has a <span class="highlight">' + Math.round(w.LOW * 100) + '% chance</span> this year), some companies get hurt and some actually benefit.</p>';
-  html += '<p><span class="highlight" style="color:#ff6b6b">Hurt by drought:</span> Companies that sell to farmers or rural India — tractors, rural FMCG, agri-inputs, rural banks. Less rain → less farm income → less spending on these products.</p>';
-  html += '<p><span class="highlight" style="color:#6bcb77">Benefit from drought:</span> Companies that are either (a) completely unrelated to rain (IT, pharma), (b) sell more when food prices rise (packaged food), or (c) provide drought solutions (pumps, water treatment, thermal power).</p>';
-  html += '<p style="font-size:0.72rem;color:#666;margin-top:10px">Below: 15-20 stocks in each segment (Large/Mid/Small cap), split by direction. Each stock has a one-line explanation of WHY it moves that way.</p>';
+  html += '<p><span class="highlight" style="color:#ff6b6b">▼ Red tiles = Hurt by drought</span> — tractors, rural FMCG, agri-inputs, rural banks. Less rain → less farm income → less spending.</p>';
+  html += '<p><span class="highlight" style="color:#6bcb77">▲ Green tiles = Benefit or Unaffected</span> — IT, pharma, packaged food, drought solutions (pumps, water treatment, thermal power).</p>';
   html += '</div>';
 
-  // Render each cap segment
+  // Summary tile panel
+  html += renderTilePanel(a.watchlist);
+
+  // Deep dive header
+  html += '<div style="text-align:center;margin:32px 0 16px;padding:16px;background:#12121a;border-radius:10px;border:1px solid #1e1e2e">';
+  html += '<div style="font-size:1rem;font-weight:800;color:#fff">Deep Dive: Stock-by-Stock Analysis</div>';
+  html += '<div style="font-size:0.72rem;color:#666;margin-top:4px">Fundamentals, analyst targets, and monsoon sensitivity for each stock</div>';
+  html += '</div>';
+
+  // Render each cap segment (detailed)
   var capLabels = {large_cap: 'Large Cap (Nifty 50 / Next 50)', mid_cap: 'Mid Cap (Nifty Midcap 150)', small_cap: 'Small Cap (Nifty Smallcap 250)'};
   var caps = ['large_cap', 'mid_cap', 'small_cap'];
 
   caps.forEach(function(capKey) {
     var capData = a.watchlist[capKey];
     if (!capData) return;
-
     html += '<div class="cap-section">';
     html += '<div class="cap-title">' + capLabels[capKey] + '</div>';
-
-    // Hurt by drought
     var hurt = capData.hurt_by_drought || [];
     if (hurt.length) {
       html += '<div class="direction-label direction-hurt">&#9660; LIKELY HURT by Low Rainfall (' + hurt.length + ' stocks)</div>';
-      html += '<div class="direction-explain">These stocks historically underperform when monsoon is weak. The worse the drought, the bigger the hit.</div>';
+      html += '<div class="direction-explain">These stocks historically underperform when monsoon is weak.</div>';
       html += '<div class="stock-grid">';
-      hurt.forEach(function(s) {
-        html += renderStock(s, w);
-      });
+      hurt.forEach(function(s) { html += renderStock(s, w); });
       html += '</div>';
     }
-
-    // Benefit from drought
     var benefit = capData.benefit_from_drought || [];
     if (benefit.length) {
       html += '<div class="direction-label direction-benefit">&#9650; LIKELY BENEFIT or UNAFFECTED (' + benefit.length + ' stocks)</div>';
-      html += '<div class="direction-explain">These stocks are either insulated from monsoon risk, or actually do better when rainfall is low (drought solutions, food price beneficiaries, thermal power).</div>';
+      html += '<div class="direction-explain">These stocks are insulated from monsoon risk or benefit when rainfall is low.</div>';
       html += '<div class="stock-grid">';
-      benefit.forEach(function(s) {
-        html += renderStock(s, w);
-      });
+      benefit.forEach(function(s) { html += renderStock(s, w); });
       html += '</div>';
     }
-
     html += '</div>';
   });
 
-  // Analyst bias note (#3)
+  // Analyst note
   html += '<div style="background:#1a1a28;border:1px solid #ffa50233;border-radius:10px;padding:16px;margin-top:16px">';
   html += '<div style="font-size:0.78rem;font-weight:700;color:#ffa502;margin-bottom:6px">About Analyst Targets</div>';
   html += '<div style="font-size:0.72rem;color:#aaa;line-height:1.7">';
-  html += 'Consensus targets are from Yahoo Finance, which aggregates sell-side broker reports. These are <strong>trailing consensus figures</strong> — Yahoo Finance does not disclose which reports are included or how recent they are. We cannot filter for only the last 6 months or only top-tier brokerages. ';
-  html += '<strong>Sell-side analysts have a known bullish bias</strong> — "Buy" ratings outnumber "Sell" roughly 5:1 industry-wide, which is why most stocks show 15-40% upside. ';
-  html += '<strong>Do not treat these as reliable price predictions.</strong> The low end of the target range is more informative than the mean. Analyst count matters: 30+ = well-covered large cap; &lt;5 = thinly covered, less reliable.';
+  html += 'Consensus targets are from Yahoo Finance, which aggregates sell-side broker reports. These are <strong>trailing consensus figures</strong> — Yahoo Finance does not disclose which reports are included or how recent they are. ';
+  html += '<strong>Sell-side analysts have a known bullish bias</strong> — "Buy" ratings outnumber "Sell" roughly 5:1 industry-wide. ';
+  html += '<strong>Do not treat these as reliable price predictions.</strong> Analyst count matters: 30+ = well-covered; &lt;5 = thinly covered.';
   html += '</div></div>';
-
-  // Final caveat
-  html += '<div style="background:#1a1a28;border:1px solid #ff6b6b22;border-radius:10px;padding:16px;margin-top:16px">';
-  html += '<div style="font-size:0.78rem;font-weight:700;color:#ff6b6b;margin-bottom:6px">Why this could be WRONG</div>';
-  html += '<ul style="font-size:0.72rem;color:#aaa;padding-left:16px;line-height:1.8">';
-  html += '<li><strong>2009 example:</strong> Severe drought, yet stock market rallied 76% because of global QE. Monsoon is one factor among many.</li>';
-  html += '<li><strong>Government intervention:</strong> Loan waivers, MSP hikes, and subsidy packages can shield rural income even in drought.</li>';
-  html += '<li><strong>Company-specific factors:</strong> A strong product launch or export order can override any monsoon effect.</li>';
-  html += '<li><strong>Small sample:</strong> Only ~8 El Nino drought years in 75 years of data. Not statistically bulletproof.</li>';
-  html += '</ul></div>';
 
   html += '<div class="footer"><a href="about.html">Methodology</a> | <a href="index.html">&larr; Weather Dashboard</a></div>';
   document.getElementById('app').innerHTML = html;
@@ -184,37 +320,14 @@ function valColor(v, invert) {
   return v > 0 ? 'val-green' : v < 0 ? 'val-red' : '';
 }
 
-// Map tickers to company domains for logos
-var TICKER_DOMAINS = {
-  'M&M.NS':'mahindra.com','HINDUNILVR.NS':'hul.co.in','HEROMOTOCO.NS':'heromotocorp.com',
-  'DABUR.NS':'dabur.com','ICICIBANK.NS':'icicibank.com','SBIN.NS':'sbi.co.in',
-  'TITAN.NS':'titan.co.in','BAJAJ-AUTO.NS':'bajajauto.com','MARICO.NS':'marico.com',
-  'UPL.NS':'upl-ltd.com','NESTLEIND.NS':'nestleindia.com','BRITANNIA.NS':'britannia.co.in',
-  'TCS.NS':'tcs.com','INFY.NS':'infosys.com','SUNPHARMA.NS':'sunpharma.com',
-  'ITC.NS':'itcportal.com','RELIANCE.NS':'ril.com','NTPC.NS':'ntpc.co.in',
-  'ESCORTS.NS':'escortsgroup.com','TVSMOTOR.NS':'tvsmotor.com','GODREJCP.NS':'godrejcp.com',
-  'EMAMILTD.NS':'emamiltd.in','BALRAMCHIN.NS':'balrampur.com','COROMANDEL.NS':'coromandel.biz',
-  'PIIND.NS':'piindustries.com','MANAPPURAM.NS':'manappuram.com','CANBK.NS':'canarabank.com',
-  'FEDERALBNK.NS':'federalbank.co.in','WABAG.NS':'wabag.com','SHAKTIPUMP.NS':'shaktipumps.com',
-  'KSB.NS':'ksb.com','CGPOWER.NS':'cgpower.com','TATAPOWER.NS':'tatapower.com',
-  'PERSISTENT.NS':'persistent.com','TORNTPHARM.NS':'torrentpharma.com','CONCOR.NS':'concorindia.co.in',
-  'DHAMPURSUG.NS':'dhampursugar.com','TRIVENI.NS':'trivenigroup.com','RALLIS.NS':'rallis.com',
-  'GNFC.NS':'gnfc.in','VSTTILLERS.NS':'vsttillers.com','BASF.NS':'basf.com',
-  'RCF.NS':'rcfltd.com','CHAMBLFERT.NS':'chambalfertilisers.com','IONEXCHANG.NS':'ionexchange.co.in',
-  'KIRLOSBROS.NS':'kirloskar.com','KRBL.NS':'krbl.com','HATSUN.NS':'hatsun.com',
-  'BECTORFOOD.NS':'bfrg.in','PRIVISCL.NS':'privi.com','GPPL.NS':'gppl.co.in',
-  'SJVN.NS':'sjvn.nic.in','SUNTV.NS':'suntv.in','CESC.NS':'cesc.co.in',
-};
-
 function renderStock(s, w) {
   var html = '<div class="stock-item">';
   html += '<div class="stock-left">';
   var domain = TICKER_DOMAINS[s.ticker];
-  var logoHtml = domain ? '<img class="stock-logo" src="https://logo.clearbit.com/' + domain + '" onerror="this.onerror=null;this.src=\'https://icon.horse/icon/' + domain + '\'" alt="" loading="lazy">' : '';
+  var logoHtml = domain ? '<img class="stock-logo" src="' + logoUrl(domain) + '" onerror="' + logoFallback(domain) + '" alt="" loading="lazy">' : '';
   html += '<div class="stock-item-name">' + logoHtml + '<span>' + s.name + ' <span class="stock-item-ticker">' + s.ticker + '</span></span></div>';
   html += '<div class="stock-item-sector">' + s.sector + '</div>';
   html += '<div class="stock-item-why">' + s.why + '</div>';
-
   if (s.analysis && s.analysis.outlook_2026) {
     var o = s.analysis.outlook_2026;
     var mc = o.weighted_mean < -2 ? 'val-red' : o.weighted_mean > 2 ? 'val-green' : 'val-amber';
@@ -225,7 +338,6 @@ function renderStock(s, w) {
   }
   html += '</div>';
 
-  // Fundamentals panel
   var f = fundData && fundData.stocks ? fundData.stocks[s.ticker] : null;
   html += '<div class="stock-right">';
   if (f && f.status === 'ok') {
@@ -240,7 +352,6 @@ function renderStock(s, w) {
     html += '<div class="fund-row"><span class="fund-lbl">Industry Median PE</span><span class="fund-val">' + fmt(f.industry_median_pe, 'x') + '</span></div>';
     html += '<div class="fund-row"><span class="fund-lbl">Industry Median EV/EBITDA</span><span class="fund-val">' + fmt(f.industry_median_ev_ebitda, 'x') + '</span></div>';
     html += '</div>';
-
     if (f.analyst_target_mean) {
       html += '<div class="fund-analyst">';
       var upside = f.analyst_upside_pct;
@@ -262,7 +373,6 @@ function renderStock(s, w) {
     html += '<div style="font-size:0.65rem;color:#555;padding:8px">Fundamentals loading...</div>';
   }
   html += '</div>';
-
   html += '</div>';
   return html;
 }

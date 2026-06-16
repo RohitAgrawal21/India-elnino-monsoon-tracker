@@ -18,6 +18,20 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS_DIR = os.path.join(ROOT_DIR, "docs")
 
 
+def fetch_period_return(ticker_obj, period, cmp):
+    """Calculate return over a period (1y/2y/5y). Returns % or None."""
+    try:
+        hist = ticker_obj.history(period=period)
+        if hist.empty or len(hist) < 2:
+            return None
+        old_price = hist["Close"].iloc[0]
+        if old_price and old_price > 0 and cmp:
+            return round(((cmp / old_price) - 1) * 100, 1)
+    except Exception:
+        pass
+    return None
+
+
 def fetch_stock_data(ticker_symbol):
     """Fetch fundamentals for one stock. Returns dict or None on failure."""
     try:
@@ -31,6 +45,10 @@ def fetch_stock_data(ticker_symbol):
         revenue_cr = round(total_revenue / 1e7, 1) if total_revenue else None
         ebitda = info.get("ebitda")
         ebitda_cr = round(ebitda / 1e7, 1) if ebitda else None
+
+        ret_1y = fetch_period_return(t, "1y", cmp)
+        ret_2y = fetch_period_return(t, "2y", cmp)
+        ret_5y = fetch_period_return(t, "5y", cmp)
 
         result = {
             "ticker": ticker_symbol,
@@ -49,6 +67,9 @@ def fetch_stock_data(ticker_symbol):
             "beta": round(info.get("beta", 0), 2) if info.get("beta") else None,
             "52w_high": info.get("fiftyTwoWeekHigh"),
             "52w_low": info.get("fiftyTwoWeekLow"),
+            "return_1y_pct": ret_1y,
+            "return_2y_pct": ret_2y,
+            "return_5y_pct": ret_5y,
             "analyst_target_mean": info.get("targetMeanPrice"),
             "analyst_target_low": info.get("targetLowPrice"),
             "analyst_target_high": info.get("targetHighPrice"),
