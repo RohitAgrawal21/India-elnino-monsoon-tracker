@@ -211,16 +211,19 @@ function renderTilePanel(watchlist) {
       var c2 = f && f.status === 'ok' ? toCagr(f.return_2y_pct, 2) : null;
       var c5 = f && f.status === 'ok' ? toCagr(f.return_5y_pct, 5) : null;
       var isHurt = item.dir === 'hurt_by_drought';
-      var borderLeft = isHurt ? '#ff4757' : '#00e676';
+      var nameBg = isHurt ? '#cc0000' : '#00873e';
+      var nameColor = '#fff';
 
-      html += '<div class="tile" style="border-left:5px solid ' + borderLeft + '">';
+      html += '<div class="tile">';
 
       html += '<div class="tile-top">';
       if (domain) {
         html += '<img class="tile-logo" src="' + logoSrc(domain) + '" onerror="' + logoErr(s.name) + '" alt="" loading="lazy">';
       }
-      html += '<div><div class="tile-name">' + s.name + '</div><div class="tile-ticker">' + s.ticker.replace('.NS','') + '</div></div>';
-      html += '</div>';
+      html += '<div>';
+      html += '<div class="tile-name" style="background:' + nameBg + ';color:' + nameColor + ';padding:2px 8px;border-radius:4px;display:inline-block">' + s.name + '</div>';
+      html += '<div class="tile-ticker">' + s.ticker.replace('.NS','') + '</div>';
+      html += '</div></div>';
 
       html += '<div class="tile-cmp">₹' + (cmp ? cmp.toLocaleString() : '-') + '</div>';
       html += '<div class="tile-row"><span class="tile-lbl">52W H / L</span><span class="tile-val">' + fmtPrice(high52) + ' / ' + fmtPrice(low52) + '</span></div>';
