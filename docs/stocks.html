@@ -84,6 +84,14 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; col
 .fund-analyst { margin-top: 6px; padding: 6px 8px; background: #0e0e16; border-radius: 6px; font-size: 0.62rem; }
 .fund-analyst .target { color: #6bcb77; font-weight: 700; }
 .fund-src { font-size: 0.55rem; color: #444; margin-top: 4px; }
+.corr-box { margin-top: 8px; padding: 8px 10px; background: #0e0e16; border: 1px solid #1e1e30; border-radius: 8px; }
+.corr-title { font-size: 0.62rem; font-weight: 700; color: #ffd93d; margin-bottom: 6px; }
+.corr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.corr-card { background: #12121a; border: 1px solid #1e1e2e; border-radius: 6px; padding: 8px; text-align: center; }
+.corr-period { font-size: 0.55rem; color: #666; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 4px; }
+.corr-proj { font-size: 1rem; font-weight: 800; }
+.corr-meta { font-size: 0.5rem; color: #555; margin-top: 3px; }
+.corr-note { font-size: 0.5rem; color: #444; margin-top: 6px; font-style: italic; }
 
 .footer { border-top: 1px solid #1a1a28; padding: 20px 0; margin-top: 30px; font-size: 0.68rem; color: #555; text-align: center; }
 .footer a { color: #4ecdc4; text-decoration: none; }
@@ -103,14 +111,17 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; col
 </div>
 <script>
 var fundData = null;
+var corrData = null;
 async function loadData() {
   try {
     var cb = '?v=' + Date.now();
-    const [analysis, funds] = await Promise.all([
+    const [analysis, funds, corr] = await Promise.all([
       fetch('analysis.json' + cb).then(r => r.json()),
-      fetch('stock_fundamentals.json' + cb).then(r => r.json()).catch(function() { return null; })
+      fetch('stock_fundamentals.json' + cb).then(r => r.json()).catch(function() { return null; }),
+      fetch('rainfall_correlation.json' + cb).then(r => r.json()).catch(function() { return null; })
     ]);
     fundData = funds;
+    corrData = corr;
     render(analysis);
   } catch(e) {
     document.getElementById('app').innerHTML = '<p style="color:#ff6b6b">Error: ' + e.message + '</p>';
@@ -310,6 +321,22 @@ function render(a) {
     html += '</div>';
   });
 
+  // Methodology note for correlation
+  if (corrData) {
+    html += '<div style="background:#1a1a28;border:1px solid #ffd93d33;border-radius:10px;padding:16px;margin-top:20px">';
+    html += '<div style="font-size:0.78rem;font-weight:700;color:#ffd93d;margin-bottom:6px">Monsoon × Stock Return: Methodology</div>';
+    html += '<div style="font-size:0.72rem;color:#aaa;line-height:1.7">';
+    html += 'For each stock, we ran a <strong>simple linear regression</strong> of post-monsoon returns (6-month: Oct–Mar, and 1-year: Oct–Sep) against India\'s total June–September (JJAS) monsoon rainfall. ';
+    html += 'Data covers <strong>9 monsoon seasons (2014–2024)</strong>, excluding 2020 and 2021 (COVID years distorted market behavior). ';
+    html += 'Rainfall data is from the <strong>India Meteorological Department (IMD)</strong>; stock prices from <strong>Yahoo Finance</strong>. ';
+    html += 'The 2026 estimated rainfall of <strong>' + corrData.estimated_rainfall_2026_mm + ' mm</strong> is a weighted estimate from our probability model: P(Low=760mm)=55%, P(Normal=880mm)=40%, P(High=950mm)=5%. ';
+    html += '<br><br><strong>Important:</strong> These are estimations based on historical correlation, <strong>not projections or recommendations</strong>. ';
+    html += 'Correlation (r) measures the linear relationship strength; R² shows how much of the return variation is explained by rainfall alone. ';
+    html += 'Many factors beyond rainfall affect stock prices. Low R² means the rainfall-return relationship is weak for that stock. ';
+    html += '<strong>Past trends do not guarantee future results.</strong>';
+    html += '</div></div>';
+  }
+
   html += '<div class="footer"><a href="about.html">Methodology</a> | <a href="index.html">&larr; Weather Dashboard</a></div>';
   document.getElementById('app').innerHTML = html;
 }
@@ -367,6 +394,40 @@ function renderStock(s, w) {
   } else {
     html += '<div style="font-size:0.65rem;color:#555;padding:8px">Fundamentals loading...</div>';
   }
+
+  var cr = corrData && corrData.stocks ? corrData.stocks[s.ticker] : null;
+  if (cr) {
+    html += '<div class="corr-box">';
+    html += '<div class="corr-title">Monsoon Rainfall × Stock Return</div>';
+    html += '<div class="corr-grid">';
+
+    if (cr.projected_return_6m_pct !== null) {
+      var v6 = cr.projected_return_6m_pct;
+      var c6 = v6 > 0 ? '#6bcb77' : v6 < 0 ? '#ff6b6b' : '#888';
+      var r6 = cr.regression_6m;
+      html += '<div class="corr-card">';
+      html += '<div class="corr-period">Est. 6-Month Return</div>';
+      html += '<div class="corr-proj" style="color:' + c6 + '">' + (v6 > 0 ? '+' : '') + v6 + '%</div>';
+      html += '<div class="corr-meta">r = ' + (r6 ? r6.correlation.toFixed(2) : '?') + ' | R² = ' + (r6 ? r6.r_squared.toFixed(2) : '?') + ' | n = ' + (r6 ? r6.n_years : '?') + ' yrs</div>';
+      html += '</div>';
+    }
+
+    if (cr.projected_return_1y_pct !== null) {
+      var v1 = cr.projected_return_1y_pct;
+      var c1 = v1 > 0 ? '#6bcb77' : v1 < 0 ? '#ff6b6b' : '#888';
+      var r1 = cr.regression_1y;
+      html += '<div class="corr-card">';
+      html += '<div class="corr-period">Est. 1-Year Return</div>';
+      html += '<div class="corr-proj" style="color:' + c1 + '">' + (v1 > 0 ? '+' : '') + v1 + '%</div>';
+      html += '<div class="corr-meta">r = ' + (r1 ? r1.correlation.toFixed(2) : '?') + ' | R² = ' + (r1 ? r1.r_squared.toFixed(2) : '?') + ' | n = ' + (r1 ? r1.n_years : '?') + ' yrs</div>';
+      html += '</div>';
+    }
+
+    html += '</div>';
+    html += '<div class="corr-note">Based on est. 2026 rainfall of ' + cr.estimated_rainfall_2026_mm + ' mm. Historical trend only — not a projection.</div>';
+    html += '</div>';
+  }
+
   html += '</div>';
   html += '</div>';
   return html;

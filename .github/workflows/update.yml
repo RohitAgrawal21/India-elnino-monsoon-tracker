@@ -41,11 +41,14 @@ jobs:
       - name: Run analysis engine
         run: python scraper/analysis_runner.py
 
+      - name: Run rainfall-stock correlation
+        run: python scraper/rainfall_stock_correlation.py
+
       - name: Commit and push updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/latest.json data/history.json docs/latest.json docs/history.json docs/analysis.json docs/sector_returns.json docs/stock_fundamentals.json
+          git add data/latest.json data/history.json docs/latest.json docs/history.json docs/analysis.json docs/sector_returns.json docs/stock_fundamentals.json docs/rainfall_correlation.json
           git diff --cached --quiet || git commit -m "Daily data update $(date -u +%Y-%m-%d)"
           git push
 

@@ -1,0 +1,4039 @@
+{
+  "generated_at": "2026-06-17T14:27:10.847021+00:00",
+  "methodology": {
+    "description": "Linear regression of post-monsoon stock returns against JJAS monsoon rainfall",
+    "rainfall_source": "India Meteorological Department (IMD)",
+    "price_source": "Yahoo Finance",
+    "years_used": [
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2022,
+      2023,
+      2024
+    ],
+    "excluded_years": [
+      2020,
+      2021
+    ],
+    "exclusion_reason": "COVID-19 pandemic distorted market behavior",
+    "return_periods": {
+      "6m": "September 30 to March 31 of next year",
+      "1y": "September 30 to September 30 of next year"
+    },
+    "model": "Simple OLS linear regression: return = intercept + slope * rainfall_mm",
+    "disclaimer": "This is an estimation based on historical trends, not a projection or investment advice. Correlation does not imply causation. Many factors beyond rainfall affect stock prices."
+  },
+  "estimated_rainfall_2026_mm": 818.0,
+  "rainfall_2026_basis": "Weighted estimate: P(LOW=760mm)=55%, P(NORMAL=880mm)=40%, P(HIGH=950mm)=5%",
+  "stocks": {
+    "NESTLEIND.NS": {
+      "ticker": "NESTLEIND.NS",
+      "name": "Nestle India",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 271.5,
+          "return_6m_pct": 9.95,
+          "return_1y_pct": 0.71
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 273.43,
+          "return_6m_pct": -13.68,
+          "return_1y_pct": 4.74
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 286.38,
+          "return_6m_pct": 1.01,
+          "return_1y_pct": 11.8
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 320.16,
+          "return_6m_pct": 15.42,
+          "return_1y_pct": 37.33
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 439.68,
+          "return_6m_pct": 14.7,
+          "return_1y_pct": 45.47
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 639.59,
+          "return_6m_pct": 10.38,
+          "return_1y_pct": 15.27
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 905.26,
+          "return_6m_pct": 1.16,
+          "return_1y_pct": 20.94
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 1094.82,
+          "return_6m_pct": 17.36,
+          "return_1y_pct": 23.41
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 1351.11,
+          "return_6m_pct": -17.5,
+          "return_1y_pct": -15.16
+        }
+      },
+      "regression_6m": {
+        "intercept": 30.1568,
+        "slope": -0.0302,
+        "r_squared": 0.0293,
+        "correlation": -0.1712,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 61.4605,
+        "slope": -0.053,
+        "r_squared": 0.0424,
+        "correlation": -0.2059,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 5.5,
+      "projected_return_1y_pct": 18.1
+    },
+    "BRITANNIA.NS": {
+      "ticker": "BRITANNIA.NS",
+      "name": "Britannia",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 612.0,
+          "return_6m_pct": 52.9,
+          "return_1y_pct": 108.5
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 1275.99,
+          "return_6m_pct": -10.11,
+          "return_1y_pct": 17.36
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 1497.49,
+          "return_6m_pct": -1.9,
+          "return_1y_pct": 28.21
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 1919.91,
+          "return_6m_pct": 14.54,
+          "return_1y_pct": 34.71
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 2586.38,
+          "return_6m_pct": 6.35,
+          "return_1y_pct": 4.15
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 2693.69,
+          "return_6m_pct": -16.11,
+          "return_1y_pct": 28.06
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 3691.2,
+          "return_6m_pct": 9.0,
+          "return_1y_pct": 19.44
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 4408.64,
+          "return_6m_pct": 8.55,
+          "return_1y_pct": 40.35
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 6187.71,
+          "return_6m_pct": -21.25,
+          "return_1y_pct": -4.18
+        }
+      },
+      "regression_6m": {
+        "intercept": 143.7961,
+        "slope": -0.1625,
+        "r_squared": 0.2864,
+        "correlation": -0.5352,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 184.1929,
+        "slope": -0.1793,
+        "r_squared": 0.1587,
+        "correlation": -0.3983,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 10.9,
+      "projected_return_1y_pct": 37.5
+    },
+    "TCS.NS": {
+      "ticker": "TCS.NS",
+      "name": "TCS",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 1058.75,
+          "return_6m_pct": -8.78,
+          "return_1y_pct": -4.84
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 1007.52,
+          "return_6m_pct": -4.2,
+          "return_1y_pct": -4.93
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 957.84,
+          "return_6m_pct": 0.84,
+          "return_1y_pct": 4.21
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 998.19,
+          "return_6m_pct": 15.64,
+          "return_1y_pct": 79.09
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 1787.68,
+          "return_6m_pct": -8.01,
+          "return_1y_pct": -4.45
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 1708.08,
+          "return_6m_pct": -8.4,
+          "return_1y_pct": 22.45
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 2686.28,
+          "return_6m_pct": 5.25,
+          "return_1y_pct": 20.67
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 3241.4,
+          "return_6m_pct": 10.65,
+          "return_1y_pct": 24.17
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 4024.99,
+          "return_6m_pct": -14.56,
+          "return_1y_pct": -30.54
+        }
+      },
+      "regression_6m": {
+        "intercept": 17.2492,
+        "slope": -0.0217,
+        "r_squared": 0.0239,
+        "correlation": -0.1547,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 0.9472,
+        "slope": 0.0126,
+        "r_squared": 0.0009,
+        "correlation": 0.0296,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": -0.5,
+      "projected_return_1y_pct": 11.3
+    },
+    "INFY.NS": {
+      "ticker": "INFY.NS",
+      "name": "Infosys",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 339.15,
+          "return_6m_pct": 18.38,
+          "return_1y_pct": 20.67
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 409.25,
+          "return_6m_pct": 9.99,
+          "return_1y_pct": -4.06
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 392.65,
+          "return_6m_pct": 0.7,
+          "return_1y_pct": -11.5
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 347.5,
+          "return_6m_pct": 28.08,
+          "return_1y_pct": 69.28
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 588.27,
+          "return_6m_pct": 2.72,
+          "return_1y_pct": 10.44
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 649.7,
+          "return_6m_pct": -15.51,
+          "return_1y_pct": 32.58
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 1238.49,
+          "return_6m_pct": -0.15,
+          "return_1y_pct": 5.74
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 1309.56,
+          "return_6m_pct": 5.42,
+          "return_1y_pct": 36.86
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 1792.31,
+          "return_6m_pct": -16.69,
+          "return_1y_pct": -22.45
+        }
+      },
+      "regression_6m": {
+        "intercept": 129.4232,
+        "slope": -0.1469,
+        "r_squared": 0.5386,
+        "correlation": -0.7339,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 54.1293,
+        "slope": -0.0454,
+        "r_squared": 0.0135,
+        "correlation": -0.1161,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 9.3,
+      "projected_return_1y_pct": 17.0
+    },
+    "SUNPHARMA.NS": {
+      "ticker": "SUNPHARMA.NS",
+      "name": "Sun Pharma",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 765.39,
+          "return_6m_pct": 20.99,
+          "return_1y_pct": 3.02
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 788.47,
+          "return_6m_pct": -5.7,
+          "return_1y_pct": -10.76
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 703.61,
+          "return_6m_pct": -8.66,
+          "return_1y_pct": -34.29
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 462.35,
+          "return_6m_pct": -0.82,
+          "return_1y_pct": 25.23
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 578.98,
+          "return_6m_pct": -23.71,
+          "return_1y_pct": -35.13
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 375.59,
+          "return_6m_pct": -15.19,
+          "return_1y_pct": 28.15
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 885.72,
+          "return_6m_pct": 8.03,
+          "return_1y_pct": 24.73
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 1104.76,
+          "return_6m_pct": 43.94,
+          "return_1y_pct": 73.63
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 1918.21,
+          "return_6m_pct": -10.45,
+          "return_1y_pct": -17.68
+        }
+      },
+      "regression_6m": {
+        "intercept": 70.9589,
+        "slope": -0.0818,
+        "r_squared": 0.0807,
+        "correlation": -0.2841,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": -51.7504,
+        "slope": 0.0678,
+        "r_squared": 0.0192,
+        "correlation": 0.1385,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 4.0,
+      "projected_return_1y_pct": 3.7
+    },
+    "ITC.NS": {
+      "ticker": "ITC.NS",
+      "name": "ITC Ltd",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 156.5,
+          "return_6m_pct": -13.28,
+          "return_1y_pct": -10.98
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 139.31,
+          "return_6m_pct": 1.0,
+          "return_1y_pct": 18.95
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 165.71,
+          "return_6m_pct": 13.59,
+          "return_1y_pct": 7.57
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 178.26,
+          "return_6m_pct": -2.31,
+          "return_1y_pct": 16.1
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 206.96,
+          "return_6m_pct": 0.76,
+          "return_1y_pct": -13.35
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 179.32,
+          "return_6m_pct": -35.48,
+          "return_1y_pct": -27.82
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 268.4,
+          "return_6m_pct": 18.78,
+          "return_1y_pct": 40.96
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 378.32,
+          "return_6m_pct": -1.33,
+          "return_1y_pct": 22.62
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 463.9,
+          "return_6m_pct": -17.3,
+          "return_1y_pct": -16.3
+        }
+      },
+      "regression_6m": {
+        "intercept": 58.3161,
+        "slope": -0.0727,
+        "r_squared": 0.1026,
+        "correlation": -0.3202,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 61.365,
+        "slope": -0.0668,
+        "r_squared": 0.0457,
+        "correlation": -0.2139,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": -1.2,
+      "projected_return_1y_pct": 6.7
+    },
+    "RELIANCE.NS": {
+      "ticker": "RELIANCE.NS",
+      "name": "Reliance Industries",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 198.76,
+          "return_6m_pct": -13.02,
+          "return_1y_pct": -9.47
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 179.94,
+          "return_6m_pct": 23.69,
+          "return_1y_pct": 32.21
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 237.89,
+          "return_6m_pct": 14.22,
+          "return_1y_pct": 45.36
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 345.8,
+          "return_6m_pct": 12.24,
+          "return_1y_pct": 61.02
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 556.82,
+          "return_6m_pct": 8.11,
+          "return_1y_pct": 4.69
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 582.91,
+          "return_6m_pct": -18.6,
+          "return_1y_pct": 71.6
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 1059.86,
+          "return_6m_pct": -3.62,
+          "return_1y_pct": 8.8
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 1153.14,
+          "return_6m_pct": 27.32,
+          "return_1y_pct": 31.22
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 1513.11,
+          "return_6m_pct": -16.45,
+          "return_1y_pct": -9.69
+        }
+      },
+      "regression_6m": {
+        "intercept": 133.6527,
+        "slope": -0.1517,
+        "r_squared": 0.3984,
+        "correlation": -0.6312,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": -49.9558,
+        "slope": 0.089,
+        "r_squared": 0.0467,
+        "correlation": 0.2161,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 9.6,
+      "projected_return_1y_pct": 22.8
+    },
+    "NTPC.NS": {
+      "ticker": "NTPC.NS",
+      "name": "NTPC",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 77.71,
+          "return_6m_pct": 5.3,
+          "return_1y_pct": -11.2
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 69.01,
+          "return_6m_pct": 8.15,
+          "return_1y_pct": 29.28
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 89.21,
+          "return_6m_pct": 9.66,
+          "return_1y_pct": 11.86
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 99.79,
+          "return_6m_pct": 3.91,
+          "return_1y_pct": 3.64
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 103.42,
+          "return_6m_pct": 0.23,
+          "return_1y_pct": -11.8
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 91.22,
+          "return_6m_pct": -28.64,
+          "return_1y_pct": -22.46
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 141.95,
+          "return_6m_pct": 11.74,
+          "return_1y_pct": 56.16
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 221.66,
+          "return_6m_pct": 44.42,
+          "return_1y_pct": 89.39
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 419.79,
+          "return_6m_pct": -17.0,
+          "return_1y_pct": -20.07
+        }
+      },
+      "regression_6m": {
+        "intercept": 137.4797,
+        "slope": -0.1557,
+        "r_squared": 0.308,
+        "correlation": -0.5549,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 107.9764,
+        "slope": -0.1099,
+        "r_squared": 0.0432,
+        "correlation": -0.2079,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 10.1,
+      "projected_return_1y_pct": 18.1
+    },
+    "M&M.NS": {
+      "ticker": "M&M.NS",
+      "name": "Mahindra & Mahindra",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 625.55,
+          "return_6m_pct": -14.08,
+          "return_1y_pct": -10.86
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 557.64,
+          "return_6m_pct": 1.82,
+          "return_1y_pct": 13.63
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 633.67,
+          "return_6m_pct": -7.25,
+          "return_1y_pct": -9.77
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 571.78,
+          "return_6m_pct": 20.09,
+          "return_1y_pct": 41.07
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 806.59,
+          "return_6m_pct": -23.81,
+          "return_1y_pct": -34.63
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 527.3,
+          "return_6m_pct": -46.95,
+          "return_1y_pct": 11.31
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 1210.85,
+          "return_6m_pct": -9.18,
+          "return_1y_pct": 26.56
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 1532.43,
+          "return_6m_pct": 23.48,
+          "return_1y_pct": 106.1
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 3158.28,
+          "return_6m_pct": -16.27,
+          "return_1y_pct": 8.23
+        }
+      },
+      "regression_6m": {
+        "intercept": 121.4281,
+        "slope": -0.1512,
+        "r_squared": 0.2528,
+        "correlation": -0.5028,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 3.2471,
+        "slope": 0.0159,
+        "r_squared": 0.0008,
+        "correlation": 0.0285,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": -2.3,
+      "projected_return_1y_pct": 16.3
+    },
+    "HINDUNILVR.NS": {
+      "ticker": "HINDUNILVR.NS",
+      "name": "Hindustan Unilever",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 618.08,
+          "return_6m_pct": 14.98,
+          "return_1y_pct": 7.92
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 667.01,
+          "return_6m_pct": 10.14,
+          "return_1y_pct": 14.39
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 763.0,
+          "return_6m_pct": 2.66,
+          "return_1y_pct": 37.95
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 1052.58,
+          "return_6m_pct": 11.58,
+          "return_1y_pct": 35.61
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 1427.37,
+          "return_6m_pct": 5.29,
+          "return_1y_pct": 26.65
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 1807.72,
+          "return_6m_pct": 7.0,
+          "return_1y_pct": 4.29
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 2540.46,
+          "return_6m_pct": -7.5,
+          "return_1y_pct": -7.59
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 2347.71,
+          "return_6m_pct": -7.29,
+          "return_1y_pct": 22.63
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 2878.99,
+          "return_6m_pct": -22.96,
+          "return_1y_pct": -13.91
+        }
+      },
+      "regression_6m": {
+        "intercept": 78.805,
+        "slope": -0.0903,
+        "r_squared": 0.2911,
+        "correlation": -0.5396,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 128.0107,
+        "slope": -0.1329,
+        "r_squared": 0.2765,
+        "correlation": -0.5258,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 4.9,
+      "projected_return_1y_pct": 19.3
+    },
+    "HEROMOTOCO.NS": {
+      "ticker": "HEROMOTOCO.NS",
+      "name": "Hero MotoCorp",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 2023.95,
+          "return_6m_pct": -9.94,
+          "return_1y_pct": -16.94
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 1681.09,
+          "return_6m_pct": 22.95,
+          "return_1y_pct": 50.35
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 2527.5,
+          "return_6m_pct": -2.03,
+          "return_1y_pct": 11.04
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 2806.48,
+          "return_6m_pct": -3.8,
+          "return_1y_pct": -19.45
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 2260.49,
+          "return_6m_pct": -12.25,
+          "return_1y_pct": -3.98
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 2170.6,
+          "return_6m_pct": -37.4,
+          "return_1y_pct": 17.45
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 2286.8,
+          "return_6m_pct": -10.93,
+          "return_1y_pct": 18.93
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 2719.58,
+          "return_6m_pct": 62.48,
+          "return_1y_pct": 106.48
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 5615.51,
+          "return_6m_pct": -35.94,
+          "return_1y_pct": -7.41
+        }
+      },
+      "regression_6m": {
+        "intercept": 217.0924,
+        "slope": -0.2571,
+        "r_squared": 0.3691,
+        "correlation": -0.6075,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 95.747,
+        "slope": -0.0915,
+        "r_squared": 0.0274,
+        "correlation": -0.1656,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 6.8,
+      "projected_return_1y_pct": 20.9
+    },
+    "DABUR.NS": {
+      "ticker": "DABUR.NS",
+      "name": "Dabur India",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 197.81,
+          "return_6m_pct": 20.2,
+          "return_1y_pct": 24.97
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 247.2,
+          "return_6m_pct": -10.88,
+          "return_1y_pct": 1.8
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 251.64,
+          "return_6m_pct": -0.52,
+          "return_1y_pct": 12.94
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 284.2,
+          "return_6m_pct": 6.05,
+          "return_1y_pct": 40.13
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 398.27,
+          "return_6m_pct": -3.41,
+          "return_1y_pct": 5.45
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 419.98,
+          "return_6m_pct": -5.11,
+          "return_1y_pct": 13.25
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 542.49,
+          "return_6m_pct": -4.94,
+          "return_1y_pct": -2.09
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 531.17,
+          "return_6m_pct": -3.91,
+          "return_1y_pct": 16.77
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 620.22,
+          "return_6m_pct": -19.57,
+          "return_1y_pct": -20.95
+        }
+      },
+      "regression_6m": {
+        "intercept": 54.4597,
+        "slope": -0.0665,
+        "r_squared": 0.1891,
+        "correlation": -0.4349,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 87.3778,
+        "slope": -0.0901,
+        "r_squared": 0.141,
+        "correlation": -0.3755,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 0.1,
+      "projected_return_1y_pct": 13.7
+    },
+    "ICICIBANK.NS": {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 243.45,
+          "return_6m_pct": 7.83,
+          "return_1y_pct": -6.51
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 227.6,
+          "return_6m_pct": -15.91,
+          "return_1y_pct": -0.74
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 225.92,
+          "return_6m_pct": 6.23,
+          "return_1y_pct": 17.33
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 265.06,
+          "return_6m_pct": 0.87,
+          "return_1y_pct": 11.22
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 294.8,
+          "return_6m_pct": 31.09,
+          "return_1y_pct": 47.37
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 434.46,
+          "return_6m_pct": -24.34,
+          "return_1y_pct": -19.19
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 828.98,
+          "return_6m_pct": 0.62,
+          "return_1y_pct": 11.87
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 927.4,
+          "return_6m_pct": 15.99,
+          "return_1y_pct": 39.81
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 1296.6,
+          "return_6m_pct": 3.2,
+          "return_1y_pct": 3.97
+        }
+      },
+      "regression_6m": {
+        "intercept": 80.0708,
+        "slope": -0.0902,
+        "r_squared": 0.1602,
+        "correlation": -0.4003,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 102.5946,
+        "slope": -0.1062,
+        "r_squared": 0.1301,
+        "correlation": -0.3607,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 6.3,
+      "projected_return_1y_pct": 15.7
+    },
+    "SBIN.NS": {
+      "ticker": "SBIN.NS",
+      "name": "State Bank of India",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 214.49,
+          "return_6m_pct": 7.61,
+          "return_1y_pct": -1.02
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 212.3,
+          "return_6m_pct": -21.36,
+          "return_1y_pct": 7.36
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 227.93,
+          "return_6m_pct": 11.17,
+          "return_1y_pct": 0.43
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 228.91,
+          "return_6m_pct": -1.05,
+          "return_1y_pct": 5.13
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 240.64,
+          "return_6m_pct": 20.15,
+          "return_1y_pct": 5.91
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 254.87,
+          "return_6m_pct": -30.32,
+          "return_1y_pct": -33.41
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 487.6,
+          "return_6m_pct": -3.19,
+          "return_1y_pct": 14.59
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 558.73,
+          "return_6m_pct": 27.53,
+          "return_1y_pct": 38.34
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 772.92,
+          "return_6m_pct": -3.88,
+          "return_1y_pct": 10.66
+        }
+      },
+      "regression_6m": {
+        "intercept": 93.8149,
+        "slope": -0.1087,
+        "r_squared": 0.1787,
+        "correlation": -0.4227,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 92.733,
+        "slope": -0.1021,
+        "r_squared": 0.1559,
+        "correlation": -0.3948,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 4.9,
+      "projected_return_1y_pct": 9.2
+    },
+    "TITAN.NS": {
+      "ticker": "TITAN.NS",
+      "name": "Titan Company",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 380.06,
+          "return_6m_pct": -1.28,
+          "return_1y_pct": -17.51
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 313.49,
+          "return_6m_pct": 1.05,
+          "return_1y_pct": 26.45
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 396.41,
+          "return_6m_pct": 10.73,
+          "return_1y_pct": 41.18
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 559.66,
+          "return_6m_pct": 63.69,
+          "return_1y_pct": 40.56
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 786.65,
+          "return_6m_pct": 40.8,
+          "return_1y_pct": 60.11
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 1259.54,
+          "return_6m_pct": -27.02,
+          "return_1y_pct": -10.97
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 2552.57,
+          "return_6m_pct": -2.97,
+          "return_1y_pct": 22.92
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 3137.51,
+          "return_6m_pct": 20.41,
+          "return_1y_pct": 21.28
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 3805.25,
+          "return_6m_pct": -19.74,
+          "return_1y_pct": -10.62
+        }
+      },
+      "regression_6m": {
+        "intercept": 186.118,
+        "slope": -0.2063,
+        "r_squared": 0.2687,
+        "correlation": -0.5184,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 138.8826,
+        "slope": -0.1397,
+        "r_squared": 0.1389,
+        "correlation": -0.3727,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 17.4,
+      "projected_return_1y_pct": 24.6
+    },
+    "BAJAJ-AUTO.NS": {
+      "ticker": "BAJAJ-AUTO.NS",
+      "name": "Bajaj Auto",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 1710.59,
+          "return_6m_pct": -12.5,
+          "return_1y_pct": 0.63
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 1721.31,
+          "return_6m_pct": 5.97,
+          "return_1y_pct": 31.24
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 2259.03,
+          "return_6m_pct": -3.06,
+          "return_1y_pct": 6.42
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 2404.07,
+          "return_6m_pct": -9.7,
+          "return_1y_pct": -9.76
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 2169.35,
+          "return_6m_pct": 9.72,
+          "return_1y_pct": 12.51
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 2440.78,
+          "return_6m_pct": -27.45,
+          "return_1y_pct": 4.8
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 3282.35,
+          "return_6m_pct": 6.93,
+          "return_1y_pct": 45.51
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 4776.27,
+          "return_6m_pct": 82.72,
+          "return_1y_pct": 155.05
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 12181.88,
+          "return_6m_pct": -37.8,
+          "return_1y_pct": -29.43
+        }
+      },
+      "regression_6m": {
+        "intercept": 177.3059,
+        "slope": -0.2052,
+        "r_squared": 0.185,
+        "correlation": -0.4302,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 177.9865,
+        "slope": -0.1798,
+        "r_squared": 0.0582,
+        "correlation": -0.2412,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 9.5,
+      "projected_return_1y_pct": 30.9
+    },
+    "MARICO.NS": {
+      "ticker": "MARICO.NS",
+      "name": "Marico",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 125.85,
+          "return_6m_pct": 31.38,
+          "return_1y_pct": 35.1
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 170.03,
+          "return_6m_pct": 21.41,
+          "return_1y_pct": 45.35
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 247.14,
+          "return_6m_pct": 3.72,
+          "return_1y_pct": 10.9
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 274.07,
+          "return_6m_pct": 6.13,
+          "return_1y_pct": 8.41
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 297.12,
+          "return_6m_pct": 2.74,
+          "return_1y_pct": 19.01
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 353.61,
+          "return_6m_pct": -33.9,
+          "return_1y_pct": -5.83
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 524.63,
+          "return_6m_pct": -11.65,
+          "return_1y_pct": 3.19
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 541.38,
+          "return_6m_pct": -9.55,
+          "return_1y_pct": 25.97
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 681.99,
+          "return_6m_pct": -5.39,
+          "return_1y_pct": 2.45
+        }
+      },
+      "regression_6m": {
+        "intercept": 189.711,
+        "slope": -0.221,
+        "r_squared": 0.6973,
+        "correlation": -0.8351,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 199.5978,
+        "slope": -0.2144,
+        "r_squared": 0.8502,
+        "correlation": -0.9221,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 8.9,
+      "projected_return_1y_pct": 24.2
+    },
+    "UPL.NS": {
+      "ticker": "UPL.NS",
+      "name": "UPL Ltd",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 207.75,
+          "return_6m_pct": 25.43,
+          "return_1y_pct": 32.14
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 274.52,
+          "return_6m_pct": -0.59,
+          "return_1y_pct": 51.57
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 416.09,
+          "return_6m_pct": 5.73,
+          "return_1y_pct": 13.06
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 470.42,
+          "return_6m_pct": -4.69,
+          "return_1y_pct": -12.26
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 412.74,
+          "return_6m_pct": 39.85,
+          "return_1y_pct": 32.42
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 546.56,
+          "return_6m_pct": -44.64,
+          "return_1y_pct": -11.39
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 646.37,
+          "return_6m_pct": 7.68,
+          "return_1y_pct": -7.41
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 598.48,
+          "return_6m_pct": -24.63,
+          "return_1y_pct": 1.11
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 605.11,
+          "return_6m_pct": 4.19,
+          "return_1y_pct": 8.11
+        }
+      },
+      "regression_6m": {
+        "intercept": 146.6868,
+        "slope": -0.1703,
+        "r_squared": 0.2425,
+        "correlation": -0.4925,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 210.5483,
+        "slope": -0.232,
+        "r_squared": 0.5533,
+        "correlation": -0.7438,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 7.4,
+      "projected_return_1y_pct": 20.8
+    },
+    "WABAG.NS": {
+      "ticker": "WABAG.NS",
+      "name": "VA Tech Wabag",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 824.88,
+          "return_6m_pct": -6.01,
+          "return_1y_pct": -20.74
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 653.78,
+          "return_6m_pct": -21.1,
+          "return_1y_pct": -15.12
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 554.95,
+          "return_6m_pct": 18.53,
+          "return_1y_pct": 5.21
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 583.85,
+          "return_6m_pct": -17.15,
+          "return_1y_pct": -49.74
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 293.44,
+          "return_6m_pct": 10.54,
+          "return_1y_pct": -6.29
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 274.99,
+          "return_6m_pct": -67.14,
+          "return_1y_pct": -31.12
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 254.59,
+          "return_6m_pct": 30.71,
+          "return_1y_pct": 77.9
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 452.93,
+          "return_6m_pct": 68.12,
+          "return_1y_pct": 231.76
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 1502.63,
+          "return_6m_pct": -3.44,
+          "return_1y_pct": -5.62
+        }
+      },
+      "regression_6m": {
+        "intercept": 123.6251,
+        "slope": -0.1427,
+        "r_squared": 0.0747,
+        "correlation": -0.2733,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 77.507,
+        "slope": -0.0664,
+        "r_squared": 0.003,
+        "correlation": -0.0551,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 6.9,
+      "projected_return_1y_pct": 23.2
+    },
+    "SHAKTIPUMP.NS": {
+      "ticker": "SHAKTIPUMP.NS",
+      "name": "Shakti Pumps",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 37.48,
+          "return_6m_pct": -24.05,
+          "return_1y_pct": -48.63
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 19.26,
+          "return_6m_pct": 12.22,
+          "return_1y_pct": 7.09
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 20.62,
+          "return_6m_pct": 53.17,
+          "return_1y_pct": 274.11
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 77.15,
+          "return_6m_pct": 12.6,
+          "return_1y_pct": -34.96
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 50.18,
+          "return_6m_pct": 22.76,
+          "return_1y_pct": -3.31
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 48.52,
+          "return_6m_pct": -61.14,
+          "return_1y_pct": -41.28
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 83.82,
+          "return_6m_pct": -21.03,
+          "return_1y_pct": 69.83
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 142.35,
+          "return_6m_pct": 55.81,
+          "return_1y_pct": 375.67
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 677.11,
+          "return_6m_pct": 44.66,
+          "return_1y_pct": 21.52
+        }
+      },
+      "regression_6m": {
+        "intercept": 157.8525,
+        "slope": -0.1721,
+        "r_squared": 0.0981,
+        "correlation": -0.3132,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 192.3095,
+        "slope": -0.1442,
+        "r_squared": 0.0047,
+        "correlation": -0.0684,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 17.1,
+      "projected_return_1y_pct": 74.4
+    },
+    "KSB.NS": {
+      "ticker": "KSB.NS",
+      "name": "KSB Ltd",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 98.93,
+          "return_6m_pct": 27.63,
+          "return_1y_pct": 7.44
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 106.29,
+          "return_6m_pct": 13.42,
+          "return_1y_pct": 6.99
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 113.72,
+          "return_6m_pct": 8.46,
+          "return_1y_pct": 22.87
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 139.72,
+          "return_6m_pct": 6.2,
+          "return_1y_pct": -1.63
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 137.44,
+          "return_6m_pct": -8.76,
+          "return_1y_pct": -7.97
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 126.48,
+          "return_6m_pct": -34.93,
+          "return_1y_pct": -28.55
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 378.98,
+          "return_6m_pct": 6.39,
+          "return_1y_pct": 53.55
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 581.9,
+          "return_6m_pct": 30.67,
+          "return_1y_pct": 51.44
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 881.24,
+          "return_6m_pct": -19.84,
+          "return_1y_pct": -8.61
+        }
+      },
+      "regression_6m": {
+        "intercept": 188.4983,
+        "slope": -0.2164,
+        "r_squared": 0.535,
+        "correlation": -0.7314,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 64.074,
+        "slope": -0.0625,
+        "r_squared": 0.0266,
+        "correlation": -0.1631,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 11.5,
+      "projected_return_1y_pct": 12.9
+    },
+    "CGPOWER.NS": {
+      "ticker": "CGPOWER.NS",
+      "name": "CG Power",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 67.2,
+          "return_6m_pct": -16.33,
+          "return_1y_pct": -12.84
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 58.57,
+          "return_6m_pct": -20.31,
+          "return_1y_pct": 34.5
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 78.78,
+          "return_6m_pct": -3.45,
+          "return_1y_pct": -3.82
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 75.77,
+          "return_6m_pct": 1.17,
+          "return_1y_pct": -41.59
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 44.26,
+          "return_6m_pct": -3.12,
+          "return_1y_pct": -66.85
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 14.67,
+          "return_6m_pct": -65.66,
+          "return_1y_pct": 47.47
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 230.76,
+          "return_6m_pct": 24.59,
+          "return_1y_pct": 87.82
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 433.41,
+          "return_6m_pct": 24.28,
+          "return_1y_pct": 75.02
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 758.56,
+          "return_6m_pct": -16.01,
+          "return_1y_pct": -1.7
+        }
+      },
+      "regression_6m": {
+        "intercept": 87.3317,
+        "slope": -0.1117,
+        "r_squared": 0.0886,
+        "correlation": -0.2977,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": -204.771,
+        "slope": 0.2545,
+        "r_squared": 0.1243,
+        "correlation": 0.3526,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": -4.0,
+      "projected_return_1y_pct": 3.4
+    },
+    "TATAPOWER.NS": {
+      "ticker": "TATAPOWER.NS",
+      "name": "Tata Power",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 71.45,
+          "return_6m_pct": -10.67,
+          "return_1y_pct": -20.52
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 56.79,
+          "return_6m_pct": -6.95,
+          "return_1y_pct": 18.14
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 67.09,
+          "return_6m_pct": 16.69,
+          "return_1y_pct": 3.24
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 69.26,
+          "return_6m_pct": 2.27,
+          "return_1y_pct": -13.19
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 60.12,
+          "return_6m_pct": 8.66,
+          "return_1y_pct": -3.87
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 57.8,
+          "return_6m_pct": -45.33,
+          "return_1y_pct": -9.99
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 209.72,
+          "return_6m_pct": -14.0,
+          "return_1y_pct": 21.76
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 255.36,
+          "return_6m_pct": 52.76,
+          "return_1y_pct": 89.01
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 482.66,
+          "return_6m_pct": -22.68,
+          "return_1y_pct": -19.6
+        }
+      },
+      "regression_6m": {
+        "intercept": 177.1397,
+        "slope": -0.2094,
+        "r_squared": 0.3018,
+        "correlation": -0.5493,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 89.9941,
+        "slope": -0.0967,
+        "r_squared": 0.0414,
+        "correlation": -0.2035,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 5.9,
+      "projected_return_1y_pct": 10.9
+    },
+    "PERSISTENT.NS": {
+      "ticker": "PERSISTENT.NS",
+      "name": "Persistent Systems",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 305.17,
+          "return_6m_pct": 3.85,
+          "return_1y_pct": -1.14
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 301.68,
+          "return_6m_pct": 10.29,
+          "return_1y_pct": -7.05
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 280.43,
+          "return_6m_pct": -3.68,
+          "return_1y_pct": 4.62
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 293.38,
+          "return_6m_pct": 8.79,
+          "return_1y_pct": 24.03
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 363.88,
+          "return_6m_pct": -18.17,
+          "return_1y_pct": -26.05
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 269.1,
+          "return_6m_pct": -3.97,
+          "return_1y_pct": 126.53
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 1559.58,
+          "return_6m_pct": 39.04,
+          "return_1y_pct": 81.1
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 2824.43,
+          "return_6m_pct": 39.42,
+          "return_1y_pct": 90.66
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 5385.16,
+          "return_6m_pct": 1.75,
+          "return_1y_pct": -9.88
+        }
+      },
+      "regression_6m": {
+        "intercept": -3.1572,
+        "slope": 0.0137,
+        "r_squared": 0.0026,
+        "correlation": 0.0512,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": -331.0283,
+        "slope": 0.4234,
+        "r_squared": 0.3185,
+        "correlation": 0.5644,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 8.0,
+      "projected_return_1y_pct": 15.3
+    },
+    "TORNTPHARM.NS": {
+      "ticker": "TORNTPHARM.NS",
+      "name": "Torrent Pharma",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 372.0,
+          "return_6m_pct": 31.45,
+          "return_1y_pct": 62.08
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 602.92,
+          "return_6m_pct": 0.51,
+          "return_1y_pct": 21.13
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 730.34,
+          "return_6m_pct": -11.5,
+          "return_1y_pct": -24.96
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 548.03,
+          "return_6m_pct": 2.94,
+          "return_1y_pct": 36.59
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 748.55,
+          "return_6m_pct": 17.83,
+          "return_1y_pct": 3.46
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 774.42,
+          "return_6m_pct": 11.66,
+          "return_1y_pct": 61.68
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 1432.36,
+          "return_6m_pct": 4.27,
+          "return_1y_pct": 26.4
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 1810.51,
+          "return_6m_pct": 40.71,
+          "return_1y_pct": 88.83
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 3418.8,
+          "return_6m_pct": -6.59,
+          "return_1y_pct": 3.99
+        }
+      },
+      "regression_6m": {
+        "intercept": 88.2857,
+        "slope": -0.0913,
+        "r_squared": 0.1454,
+        "correlation": -0.3813,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 62.0318,
+        "slope": -0.0362,
+        "r_squared": 0.0054,
+        "correlation": -0.0737,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 13.6,
+      "projected_return_1y_pct": 32.4
+    },
+    "CONCOR.NS": {
+      "ticker": "CONCOR.NS",
+      "name": "Container Corp",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 380.26,
+          "return_6m_pct": 15.69,
+          "return_1y_pct": -1.55
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 374.36,
+          "return_6m_pct": -6.68,
+          "return_1y_pct": 4.02
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 389.4,
+          "return_6m_pct": -8.14,
+          "return_1y_pct": 22.31
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 476.29,
+          "return_6m_pct": -5.08,
+          "return_1y_pct": -3.9
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 457.71,
+          "return_6m_pct": 1.84,
+          "return_1y_pct": 19.51
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 547.02,
+          "return_6m_pct": -47.64,
+          "return_1y_pct": -35.22
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 653.25,
+          "return_6m_pct": -17.26,
+          "return_1y_pct": 4.81
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 684.66,
+          "return_6m_pct": 25.03,
+          "return_1y_pct": 29.65
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 887.66,
+          "return_6m_pct": -38.73,
+          "return_1y_pct": -41.74
+        }
+      },
+      "regression_6m": {
+        "intercept": 220.5773,
+        "slope": -0.2682,
+        "r_squared": 0.6855,
+        "correlation": -0.8279,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 185.8951,
+        "slope": -0.2174,
+        "r_squared": 0.4088,
+        "correlation": -0.6394,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 1.2,
+      "projected_return_1y_pct": 8.1
+    },
+    "ESCORTS.NS": {
+      "ticker": "ESCORTS.NS",
+      "name": "Escorts Kubota",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 147.83,
+          "return_6m_pct": -19.57,
+          "return_1y_pct": -1.29
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 145.92,
+          "return_6m_pct": -10.98,
+          "return_1y_pct": 153.68
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 370.16,
+          "return_6m_pct": 35.37,
+          "return_1y_pct": 64.8
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 610.03,
+          "return_6m_pct": 28.65,
+          "return_1y_pct": -3.58
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 588.22,
+          "return_6m_pct": 29.53,
+          "return_1y_pct": -3.1
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 570.01,
+          "return_6m_pct": 10.96,
+          "return_1y_pct": 120.05
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 1988.6,
+          "return_6m_pct": -7.15,
+          "return_1y_pct": 58.34
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 3148.79,
+          "return_6m_pct": -13.38,
+          "return_1y_pct": 35.58
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 4269.08,
+          "return_6m_pct": -24.66,
+          "return_1y_pct": -19.27
+        }
+      },
+      "regression_6m": {
+        "intercept": 3.9642,
+        "slope": -0.0009,
+        "r_squared": 0.0,
+        "correlation": -0.0028,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 10.8901,
+        "slope": 0.0399,
+        "r_squared": 0.0023,
+        "correlation": 0.0476,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 3.2,
+      "projected_return_1y_pct": 43.5
+    },
+    "TVSMOTOR.NS": {
+      "ticker": "TVSMOTOR.NS",
+      "name": "TVS Motor",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 213.12,
+          "return_6m_pct": 19.27,
+          "return_1y_pct": 2.28
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 217.98,
+          "return_6m_pct": 36.95,
+          "return_1y_pct": 52.49
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 332.39,
+          "return_6m_pct": 24.0,
+          "return_1y_pct": 84.85
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 614.42,
+          "return_6m_pct": -3.48,
+          "return_1y_pct": -12.71
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 536.3,
+          "return_6m_pct": -15.25,
+          "return_1y_pct": -25.86
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 397.64,
+          "return_6m_pct": -25.7,
+          "return_1y_pct": 15.24
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 1004.54,
+          "return_6m_pct": 1.78,
+          "return_1y_pct": 49.96
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 1506.37,
+          "return_6m_pct": 41.77,
+          "return_1y_pct": 94.33
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 2927.29,
+          "return_6m_pct": -17.62,
+          "return_1y_pct": 17.09
+        }
+      },
+      "regression_6m": {
+        "intercept": 200.6195,
+        "slope": -0.2264,
+        "r_squared": 0.4379,
+        "correlation": -0.6617,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 23.1468,
+        "slope": 0.009,
+        "r_squared": 0.0002,
+        "correlation": 0.0154,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 15.4,
+      "projected_return_1y_pct": 30.5
+    },
+    "GODREJCP.NS": {
+      "ticker": "GODREJCP.NS",
+      "name": "Godrej Consumer",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 306.38,
+          "return_6m_pct": 4.82,
+          "return_1y_pct": 16.41
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 356.65,
+          "return_6m_pct": 13.46,
+          "return_1y_pct": 37.46
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 490.24,
+          "return_6m_pct": 5.87,
+          "return_1y_pct": 13.42
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 556.04,
+          "return_6m_pct": 21.7,
+          "return_1y_pct": 29.33
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 719.12,
+          "return_6m_pct": -8.99,
+          "return_1y_pct": -8.58
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 657.38,
+          "return_6m_pct": -27.43,
+          "return_1y_pct": 3.63
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 845.37,
+          "return_6m_pct": 8.31,
+          "return_1y_pct": 11.92
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 946.14,
+          "return_6m_pct": 27.0,
+          "return_1y_pct": 42.46
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 1347.9,
+          "return_6m_pct": -15.84,
+          "return_1y_pct": -13.82
+        }
+      },
+      "regression_6m": {
+        "intercept": 129.3769,
+        "slope": -0.1474,
+        "r_squared": 0.3605,
+        "correlation": -0.6004,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 135.9284,
+        "slope": -0.1416,
+        "r_squared": 0.278,
+        "correlation": -0.5272,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 8.8,
+      "projected_return_1y_pct": 20.1
+    },
+    "EMAMILTD.NS": {
+      "ticker": "EMAMILTD.NS",
+      "name": "Emami",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 291.9,
+          "return_6m_pct": 46.28,
+          "return_1y_pct": 62.61
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 474.66,
+          "return_6m_pct": -18.61,
+          "return_1y_pct": 5.15
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 499.09,
+          "return_6m_pct": -13.13,
+          "return_1y_pct": -5.9
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 469.64,
+          "return_6m_pct": -2.39,
+          "return_1y_pct": -8.5
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 429.72,
+          "return_6m_pct": -19.56,
+          "return_1y_pct": -34.43
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 281.78,
+          "return_6m_pct": -50.21,
+          "return_1y_pct": 13.01
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 463.78,
+          "return_6m_pct": -25.47,
+          "return_1y_pct": 4.57
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 484.99,
+          "return_6m_pct": -14.86,
+          "return_1y_pct": 49.06
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 722.92,
+          "return_6m_pct": -21.86,
+          "return_1y_pct": -24.88
+        }
+      },
+      "regression_6m": {
+        "intercept": 180.4704,
+        "slope": -0.2264,
+        "r_squared": 0.3993,
+        "correlation": -0.6319,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 113.0826,
+        "slope": -0.1242,
+        "r_squared": 0.0795,
+        "correlation": -0.282,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": -4.7,
+      "projected_return_1y_pct": 11.5
+    },
+    "BALRAMCHIN.NS": {
+      "ticker": "BALRAMCHIN.NS",
+      "name": "Balrampur Chini",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 43.09,
+          "return_6m_pct": -1.32,
+          "return_1y_pct": 8.32
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 46.68,
+          "return_6m_pct": 88.39,
+          "return_1y_pct": 114.18
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 99.98,
+          "return_6m_pct": 32.01,
+          "return_1y_pct": 44.14
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 144.1,
+          "return_6m_pct": -51.97,
+          "return_1y_pct": -54.89
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 65.01,
+          "return_6m_pct": 94.76,
+          "return_1y_pct": 134.59
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 152.5,
+          "return_6m_pct": -43.65,
+          "return_1y_pct": -5.73
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 334.8,
+          "return_6m_pct": 5.12,
+          "return_1y_pct": 29.93
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 435.0,
+          "return_6m_pct": -17.9,
+          "return_1y_pct": 48.53
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 646.1,
+          "return_6m_pct": -15.9,
+          "return_1y_pct": -30.64
+        }
+      },
+      "regression_6m": {
+        "intercept": 359.1953,
+        "slope": -0.408,
+        "r_squared": 0.3119,
+        "correlation": -0.5585,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 433.3789,
+        "slope": -0.4688,
+        "r_squared": 0.2926,
+        "correlation": -0.5409,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 25.5,
+      "projected_return_1y_pct": 49.9
+    },
+    "COROMANDEL.NS": {
+      "ticker": "COROMANDEL.NS",
+      "name": "Coromandel International",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 272.09,
+          "return_6m_pct": -16.08,
+          "return_1y_pct": -48.6
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 139.84,
+          "return_6m_pct": 16.34,
+          "return_1y_pct": 57.28
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 219.95,
+          "return_6m_pct": 28.53,
+          "return_1y_pct": 73.88
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 382.44,
+          "return_6m_pct": 24.7,
+          "return_1y_pct": -3.22
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 370.14,
+          "return_6m_pct": 23.57,
+          "return_1y_pct": 3.17
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 381.86,
+          "return_6m_pct": 27.11,
+          "return_1y_pct": 98.52
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 955.47,
+          "return_6m_pct": -11.02,
+          "return_1y_pct": 15.91
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 1107.44,
+          "return_6m_pct": -4.33,
+          "return_1y_pct": 48.0
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 1639.0,
+          "return_6m_pct": 20.0,
+          "return_1y_pct": 36.04
+        }
+      },
+      "regression_6m": {
+        "intercept": -35.6475,
+        "slope": 0.0558,
+        "r_squared": 0.0523,
+        "correlation": 0.2288,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": -218.8999,
+        "slope": 0.2922,
+        "r_squared": 0.2225,
+        "correlation": 0.4717,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 10.0,
+      "projected_return_1y_pct": 20.1
+    },
+    "PIIND.NS": {
+      "ticker": "PIIND.NS",
+      "name": "PI Industries",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 436.39,
+          "return_6m_pct": 38.54,
+          "return_1y_pct": 40.67
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 613.86,
+          "return_6m_pct": -11.53,
+          "return_1y_pct": 28.03
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 785.93,
+          "return_6m_pct": 4.93,
+          "return_1y_pct": -8.27
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 720.91,
+          "return_6m_pct": 19.58,
+          "return_1y_pct": -3.53
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 695.47,
+          "return_6m_pct": 44.5,
+          "return_1y_pct": 87.5
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 1303.99,
+          "return_6m_pct": -18.43,
+          "return_1y_pct": 46.72
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 2931.0,
+          "return_6m_pct": -2.02,
+          "return_1y_pct": 14.72
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 3362.48,
+          "return_6m_pct": 14.1,
+          "return_1y_pct": 37.56
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 4625.33,
+          "return_6m_pct": -26.18,
+          "return_1y_pct": -24.62
+        }
+      },
+      "regression_6m": {
+        "intercept": 196.395,
+        "slope": -0.2212,
+        "r_squared": 0.4239,
+        "correlation": -0.6511,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 170.5735,
+        "slope": -0.1709,
+        "r_squared": 0.1306,
+        "correlation": -0.3613,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 15.5,
+      "projected_return_1y_pct": 30.8
+    },
+    "MANAPPURAM.NS": {
+      "ticker": "MANAPPURAM.NS",
+      "name": "Manappuram Finance",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 21.3,
+          "return_6m_pct": 13.75,
+          "return_1y_pct": -14.96
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 18.12,
+          "return_6m_pct": 55.52,
+          "return_1y_pct": 350.42
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 81.6,
+          "return_6m_pct": 4.85,
+          "return_1y_pct": -0.68
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 81.05,
+          "return_6m_pct": 15.75,
+          "return_1y_pct": -22.38
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 62.9,
+          "return_6m_pct": 76.33,
+          "return_1y_pct": 102.17
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 127.18,
+          "return_6m_pct": -24.77,
+          "return_1y_pct": 10.38
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 87.72,
+          "return_6m_pct": 28.3,
+          "return_1y_pct": 62.29
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 142.36,
+          "return_6m_pct": 17.86,
+          "return_1y_pct": 39.45
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 198.52,
+          "return_6m_pct": 16.17,
+          "return_1y_pct": 41.7
+        }
+      },
+      "regression_6m": {
+        "intercept": 236.6486,
+        "slope": -0.25,
+        "r_squared": 0.384,
+        "correlation": -0.6197,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 641.4763,
+        "slope": -0.6756,
+        "r_squared": 0.1797,
+        "correlation": -0.4239,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 32.1,
+      "projected_return_1y_pct": 88.8
+    },
+    "CANBK.NS": {
+      "ticker": "CANBK.NS",
+      "name": "Canara Bank",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 56.5,
+          "return_6m_pct": 1.92,
+          "return_1y_pct": -19.14
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 45.68,
+          "return_6m_pct": -34.52,
+          "return_1y_pct": 12.27
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 51.29,
+          "return_6m_pct": -2.19,
+          "return_1y_pct": 4.22
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 53.46,
+          "return_6m_pct": -16.43,
+          "return_1y_pct": -30.07
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 37.38,
+          "return_6m_pct": 34.23,
+          "return_1y_pct": -14.15
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 32.09,
+          "return_6m_pct": -52.51,
+          "return_1y_pct": -52.0
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 36.76,
+          "return_6m_pct": 31.02,
+          "return_1y_pct": 85.42
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 68.16,
+          "return_6m_pct": 55.13,
+          "return_1y_pct": 55.08
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 105.7,
+          "return_6m_pct": -21.31,
+          "return_1y_pct": 10.34
+        }
+      },
+      "regression_6m": {
+        "intercept": 122.4505,
+        "slope": -0.1437,
+        "r_squared": 0.0869,
+        "correlation": -0.2947,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": -4.2316,
+        "slope": 0.0117,
+        "r_squared": 0.0004,
+        "correlation": 0.0198,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 4.9,
+      "projected_return_1y_pct": 5.3
+    },
+    "FEDERALBNK.NS": {
+      "ticker": "FEDERALBNK.NS",
+      "name": "Federal Bank",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 56.53,
+          "return_6m_pct": 4.86,
+          "return_1y_pct": 3.85
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 58.71,
+          "return_6m_pct": -25.95,
+          "return_1y_pct": 19.06
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 69.9,
+          "return_6m_pct": 19.85,
+          "return_1y_pct": 48.5
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 103.8,
+          "return_6m_pct": -19.86,
+          "return_1y_pct": -35.74
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 66.7,
+          "return_6m_pct": 32.46,
+          "return_1y_pct": 34.14
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 89.47,
+          "return_6m_pct": -52.51,
+          "return_1y_pct": -46.05
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 109.7,
+          "return_6m_pct": 12.38,
+          "return_1y_pct": 31.51
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 144.26,
+          "return_6m_pct": 2.88,
+          "return_1y_pct": 33.47
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 192.54,
+          "return_6m_pct": -0.51,
+          "return_1y_pct": -1.28
+        }
+      },
+      "regression_6m": {
+        "intercept": 88.9332,
+        "slope": -0.1073,
+        "r_squared": 0.0888,
+        "correlation": -0.2979,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 157.8207,
+        "slope": -0.173,
+        "r_squared": 0.1451,
+        "correlation": -0.3809,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 1.2,
+      "projected_return_1y_pct": 16.3
+    },
+    "IONEXCHANG.NS": {
+      "ticker": "IONEXCHANG.NS",
+      "name": "Ion Exchange India",
+      "year_data": {
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 199.94,
+          "return_6m_pct": 61.1,
+          "return_1y_pct": 150.45
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 500.73,
+          "return_6m_pct": 0.6,
+          "return_1y_pct": 29.23
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 647.1,
+          "return_6m_pct": -28.06,
+          "return_1y_pct": -37.41
+        }
+      },
+      "regression_6m": {
+        "intercept": -71.3324,
+        "slope": 0.0924,
+        "r_squared": 0.0166,
+        "correlation": 0.1289,
+        "n_years": 3
+      },
+      "regression_1y": {
+        "intercept": -75.8437,
+        "slope": 0.138,
+        "r_squared": 0.0085,
+        "correlation": 0.092,
+        "n_years": 3
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 4.3,
+      "projected_return_1y_pct": 37.0
+    },
+    "KIRLOSBROS.NS": {
+      "ticker": "KIRLOSBROS.NS",
+      "name": "Kirloskar Brothers",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 233.57,
+          "return_6m_pct": -27.61,
+          "return_1y_pct": -19.96
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 186.95,
+          "return_6m_pct": -42.2,
+          "return_1y_pct": -13.55
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 161.62,
+          "return_6m_pct": 41.2,
+          "return_1y_pct": 35.47
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 218.95,
+          "return_6m_pct": 32.44,
+          "return_1y_pct": -1.91
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 214.77,
+          "return_6m_pct": -27.23,
+          "return_1y_pct": -27.56
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 155.58,
+          "return_6m_pct": -42.87,
+          "return_1y_pct": -29.2
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 336.79,
+          "return_6m_pct": 13.21,
+          "return_1y_pct": 147.04
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 832.01,
+          "return_6m_pct": 30.81,
+          "return_1y_pct": 109.52
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 1743.25,
+          "return_6m_pct": -2.09,
+          "return_1y_pct": 10.73
+        }
+      },
+      "regression_6m": {
+        "intercept": -41.2433,
+        "slope": 0.045,
+        "r_squared": 0.0094,
+        "correlation": 0.097,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": -147.1851,
+        "slope": 0.1993,
+        "r_squared": 0.0511,
+        "correlation": 0.226,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": -4.4,
+      "projected_return_1y_pct": 15.8
+    },
+    "KRBL.NS": {
+      "ticker": "KRBL.NS",
+      "name": "KRBL (India Gate Rice)",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 89.81,
+          "return_6m_pct": 54.75,
+          "return_1y_pct": 59.9
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 143.61,
+          "return_6m_pct": 35.39,
+          "return_1y_pct": 65.25
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 237.32,
+          "return_6m_pct": 54.59,
+          "return_1y_pct": 85.34
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 439.85,
+          "return_6m_pct": -8.23,
+          "return_1y_pct": -30.7
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 304.81,
+          "return_6m_pct": 3.68,
+          "return_1y_pct": -30.96
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 210.44,
+          "return_6m_pct": -49.53,
+          "return_1y_pct": 29.42
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 360.88,
+          "return_6m_pct": -9.59,
+          "return_1y_pct": 10.45
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 398.59,
+          "return_6m_pct": -31.92,
+          "return_1y_pct": -25.23
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 298.04,
+          "return_6m_pct": -8.66,
+          "return_1y_pct": 16.46
+        }
+      },
+      "regression_6m": {
+        "intercept": 267.0197,
+        "slope": -0.3067,
+        "r_squared": 0.3622,
+        "correlation": -0.6019,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 49.7313,
+        "slope": -0.0347,
+        "r_squared": 0.0033,
+        "correlation": -0.0572,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 16.1,
+      "projected_return_1y_pct": 21.3
+    },
+    "HATSUN.NS": {
+      "ticker": "HATSUN.NS",
+      "name": "Hatsun Agro",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 152.85,
+          "return_6m_pct": -2.23,
+          "return_1y_pct": 25.96
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 192.53,
+          "return_6m_pct": 1.15,
+          "return_1y_pct": 19.25
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 229.59,
+          "return_6m_pct": 50.1,
+          "return_1y_pct": 103.11
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 466.32,
+          "return_6m_pct": 0.45,
+          "return_1y_pct": 4.65
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 488.0,
+          "return_6m_pct": 1.3,
+          "return_1y_pct": -9.66
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 440.85,
+          "return_6m_pct": -15.21,
+          "return_1y_pct": 25.52
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 977.46,
+          "return_6m_pct": -17.83,
+          "return_1y_pct": 14.25
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 1116.71,
+          "return_6m_pct": -11.39,
+          "return_1y_pct": 2.62
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 1145.92,
+          "return_6m_pct": -17.28,
+          "return_1y_pct": -21.34
+        }
+      },
+      "regression_6m": {
+        "intercept": 72.7525,
+        "slope": -0.0864,
+        "r_squared": 0.0889,
+        "correlation": -0.2982,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 27.8877,
+        "slope": -0.0112,
+        "r_squared": 0.0005,
+        "correlation": -0.0228,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 2.1,
+      "projected_return_1y_pct": 18.7
+    },
+    "BECTORFOOD.NS": {
+      "ticker": "BECTORFOOD.NS",
+      "name": "Mrs Bectors Food",
+      "year_data": {
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 71.64,
+          "return_6m_pct": 44.44,
+          "return_1y_pct": 180.21
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 200.74,
+          "return_6m_pct": 10.16,
+          "return_1y_pct": 93.3
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 388.03,
+          "return_6m_pct": -25.04,
+          "return_1y_pct": -34.62
+        }
+      },
+      "regression_6m": {
+        "intercept": 49.7507,
+        "slope": -0.0447,
+        "r_squared": 0.0067,
+        "correlation": -0.0816,
+        "n_years": 3
+      },
+      "regression_1y": {
+        "intercept": 357.5734,
+        "slope": -0.3111,
+        "r_squared": 0.0334,
+        "correlation": -0.1828,
+        "n_years": 3
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 13.2,
+      "projected_return_1y_pct": 103.1
+    },
+    "PRIVISCL.NS": {
+      "ticker": "PRIVISCL.NS",
+      "name": "Privi Speciality",
+      "year_data": {
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 143.09,
+          "return_6m_pct": 34.31,
+          "return_1y_pct": 123.45
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 319.74,
+          "return_6m_pct": 28.93,
+          "return_1y_pct": -8.15
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 293.68,
+          "return_6m_pct": -3.93,
+          "return_1y_pct": -3.52
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 283.34,
+          "return_6m_pct": 23.56,
+          "return_1y_pct": 34.65
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 381.53,
+          "return_6m_pct": -20.4,
+          "return_1y_pct": 41.7
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 1428.7,
+          "return_6m_pct": -28.29,
+          "return_1y_pct": -13.94
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 1229.48,
+          "return_6m_pct": -19.66,
+          "return_1y_pct": 18.49
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 1456.75,
+          "return_6m_pct": 16.8,
+          "return_1y_pct": 69.69
+        }
+      },
+      "regression_6m": {
+        "intercept": 165.2082,
+        "slope": -0.1864,
+        "r_squared": 0.2821,
+        "correlation": -0.5312,
+        "n_years": 8
+      },
+      "regression_1y": {
+        "intercept": 199.2386,
+        "slope": -0.1924,
+        "r_squared": 0.0868,
+        "correlation": -0.2946,
+        "n_years": 8
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 12.7,
+      "projected_return_1y_pct": 41.9
+    },
+    "GPPL.NS": {
+      "ticker": "GPPL.NS",
+      "name": "Gujarat Pipavav Port",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 105.05,
+          "return_6m_pct": 43.94,
+          "return_1y_pct": 10.89
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 116.49,
+          "return_6m_pct": -1.76,
+          "return_1y_pct": -1.84
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 114.35,
+          "return_6m_pct": -2.99,
+          "return_1y_pct": -19.97
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 91.52,
+          "return_6m_pct": 7.03,
+          "return_1y_pct": -25.05
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 68.6,
+          "return_6m_pct": 1.71,
+          "return_1y_pct": -9.79
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 61.88,
+          "return_6m_pct": -37.43,
+          "return_1y_pct": 4.13
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 76.17,
+          "return_6m_pct": 26.46,
+          "return_1y_pct": 44.6
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 110.14,
+          "return_6m_pct": 75.23,
+          "return_1y_pct": 83.84
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 202.48,
+          "return_6m_pct": -35.63,
+          "return_1y_pct": -24.69
+        }
+      },
+      "regression_6m": {
+        "intercept": 239.0131,
+        "slope": -0.2693,
+        "r_squared": 0.2899,
+        "correlation": -0.5384,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 32.6613,
+        "slope": -0.0301,
+        "r_squared": 0.0036,
+        "correlation": -0.0599,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 18.7,
+      "projected_return_1y_pct": 8.0
+    },
+    "SUNTV.NS": {
+      "ticker": "SUNTV.NS",
+      "name": "Sun TV Network",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 242.11,
+          "return_6m_pct": 29.78,
+          "return_1y_pct": 11.62
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 270.23,
+          "return_6m_pct": 4.62,
+          "return_1y_pct": 44.79
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 391.27,
+          "return_6m_pct": 57.31,
+          "return_1y_pct": 48.21
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 579.9,
+          "return_6m_pct": 16.63,
+          "return_1y_pct": -15.04
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 492.7,
+          "return_6m_pct": -0.1,
+          "return_1y_pct": -19.94
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 394.46,
+          "return_6m_pct": -36.78,
+          "return_1y_pct": 3.05
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 451.53,
+          "return_6m_pct": -17.86,
+          "return_1y_pct": 21.03
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 546.5,
+          "return_6m_pct": 4.71,
+          "return_1y_pct": 47.28
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 804.91,
+          "return_6m_pct": -20.98,
+          "return_1y_pct": -35.35
+        }
+      },
+      "regression_6m": {
+        "intercept": 204.1009,
+        "slope": -0.2336,
+        "r_squared": 0.3509,
+        "correlation": -0.5924,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 135.016,
+        "slope": -0.144,
+        "r_squared": 0.1105,
+        "correlation": -0.3324,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 13.0,
+      "projected_return_1y_pct": 17.2
+    },
+    "DHAMPURSUG.NS": {
+      "ticker": "DHAMPURSUG.NS",
+      "name": "Dhampur Sugar",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 37.49,
+          "return_6m_pct": -25.57,
+          "return_1y_pct": -34.97
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 24.38,
+          "return_6m_pct": 175.13,
+          "return_1y_pct": 301.51
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 97.88,
+          "return_6m_pct": 89.97,
+          "return_1y_pct": 121.13
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 216.44,
+          "return_6m_pct": -46.24,
+          "return_1y_pct": -56.72
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 93.67,
+          "return_6m_pct": 113.18,
+          "return_1y_pct": 111.85
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 198.45,
+          "return_6m_pct": -65.41,
+          "return_1y_pct": -35.4
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 201.88,
+          "return_6m_pct": 1.79,
+          "return_1y_pct": 48.51
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 299.82,
+          "return_6m_pct": -31.64,
+          "return_1y_pct": -25.32
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 223.91,
+          "return_6m_pct": -47.25,
+          "return_1y_pct": -40.78
+        }
+      },
+      "regression_6m": {
+        "intercept": 601.2739,
+        "slope": -0.6811,
+        "r_squared": 0.3267,
+        "correlation": -0.5716,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 695.3724,
+        "slope": -0.7618,
+        "r_squared": 0.2157,
+        "correlation": -0.4645,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 44.1,
+      "projected_return_1y_pct": 72.2
+    },
+    "TRIVENI.NS": {
+      "ticker": "TRIVENI.NS",
+      "name": "Triveni Engineering",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 19.33,
+          "return_6m_pct": -14.15,
+          "return_1y_pct": 14.86
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 22.2,
+          "return_6m_pct": 98.15,
+          "return_1y_pct": 149.9
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 55.47,
+          "return_6m_pct": 41.58,
+          "return_1y_pct": 38.76
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 76.97,
+          "return_6m_pct": -51.72,
+          "return_1y_pct": -53.92
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 35.47,
+          "return_6m_pct": 56.24,
+          "return_1y_pct": 62.24
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 57.54,
+          "return_6m_pct": -46.04,
+          "return_1y_pct": 25.54
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 232.33,
+          "return_6m_pct": 5.64,
+          "return_1y_pct": 62.25
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 376.95,
+          "return_6m_pct": -18.6,
+          "return_1y_pct": 23.34
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 464.94,
+          "return_6m_pct": -18.23,
+          "return_1y_pct": -28.7
+        }
+      },
+      "regression_6m": {
+        "intercept": 319.2116,
+        "slope": -0.366,
+        "r_squared": 0.279,
+        "correlation": -0.5282,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 293.4838,
+        "slope": -0.3047,
+        "r_squared": 0.1413,
+        "correlation": -0.3759,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 19.8,
+      "projected_return_1y_pct": 44.2
+    },
+    "RALLIS.NS": {
+      "ticker": "RALLIS.NS",
+      "name": "Rallis India",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 194.57,
+          "return_6m_pct": -4.23,
+          "return_1y_pct": 0.45
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 195.44,
+          "return_6m_pct": -24.34,
+          "return_1y_pct": 1.15
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 197.69,
+          "return_6m_pct": 8.04,
+          "return_1y_pct": -6.31
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 185.22,
+          "return_6m_pct": 15.63,
+          "return_1y_pct": -10.51
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 165.75,
+          "return_6m_pct": -11.67,
+          "return_1y_pct": -2.78
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 161.14,
+          "return_6m_pct": -2.47,
+          "return_1y_pct": 66.83
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 203.03,
+          "return_6m_pct": -10.82,
+          "return_1y_pct": -1.57
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 199.85,
+          "return_6m_pct": 21.6,
+          "return_1y_pct": 60.94
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 321.63,
+          "return_6m_pct": -34.73,
+          "return_1y_pct": -4.45
+        }
+      },
+      "regression_6m": {
+        "intercept": 28.5253,
+        "slope": -0.0389,
+        "r_squared": 0.0237,
+        "correlation": -0.154,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": -91.7681,
+        "slope": 0.1207,
+        "r_squared": 0.0843,
+        "correlation": 0.2903,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": -3.3,
+      "projected_return_1y_pct": 7.0
+    },
+    "GNFC.NS": {
+      "ticker": "GNFC.NS",
+      "name": "GNFC",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 71.23,
+          "return_6m_pct": -27.87,
+          "return_1y_pct": -36.01
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 45.58,
+          "return_6m_pct": 32.51,
+          "return_1y_pct": 210.38
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 141.46,
+          "return_6m_pct": 45.31,
+          "return_1y_pct": 69.93
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 240.38,
+          "return_6m_pct": 20.87,
+          "return_1y_pct": 18.21
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 284.15,
+          "return_6m_pct": -10.39,
+          "return_1y_pct": -37.71
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 176.99,
+          "return_6m_pct": -49.36,
+          "return_1y_pct": 3.44
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 554.95,
+          "return_6m_pct": -20.42,
+          "return_1y_pct": 1.9
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 565.49,
+          "return_6m_pct": 4.34,
+          "return_1y_pct": 15.41
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 652.63,
+          "return_6m_pct": -26.48,
+          "return_1y_pct": -24.23
+        }
+      },
+      "regression_6m": {
+        "intercept": 193.559,
+        "slope": -0.2302,
+        "r_squared": 0.2784,
+        "correlation": -0.5277,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 356.2604,
+        "slope": -0.3875,
+        "r_squared": 0.1308,
+        "correlation": -0.3617,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 5.3,
+      "projected_return_1y_pct": 39.3
+    },
+    "VSTTILLERS.NS": {
+      "ticker": "VSTTILLERS.NS",
+      "name": "VST Tillers",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 1387.58,
+          "return_6m_pct": -21.08,
+          "return_1y_pct": -13.97
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 1193.8,
+          "return_6m_pct": 15.29,
+          "return_1y_pct": 45.34
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 1735.07,
+          "return_6m_pct": -6.04,
+          "return_1y_pct": 7.31
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 1861.85,
+          "return_6m_pct": 23.12,
+          "return_1y_pct": -10.19
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 1672.12,
+          "return_6m_pct": -26.66,
+          "return_1y_pct": -35.58
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 1077.21,
+          "return_6m_pct": -38.08,
+          "return_1y_pct": 51.3
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 2235.43,
+          "return_6m_pct": -0.5,
+          "return_1y_pct": 62.88
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 3641.0,
+          "return_6m_pct": -11.77,
+          "return_1y_pct": 26.07
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 4590.28,
+          "return_6m_pct": -15.76,
+          "return_1y_pct": 10.7
+        }
+      },
+      "regression_6m": {
+        "intercept": 72.7351,
+        "slope": -0.0955,
+        "r_squared": 0.1238,
+        "correlation": -0.3518,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": -170.7527,
+        "slope": 0.2182,
+        "r_squared": 0.2255,
+        "correlation": 0.4748,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": -5.4,
+      "projected_return_1y_pct": 7.7
+    },
+    "JISLJALEQS.NS": {
+      "ticker": "JISLJALEQS.NS",
+      "name": "Jain Irrigation",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 75.25,
+          "return_6m_pct": -24.95,
+          "return_1y_pct": -26.02
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 55.67,
+          "return_6m_pct": -4.26,
+          "return_1y_pct": 59.2
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 88.62,
+          "return_6m_pct": -0.21,
+          "return_1y_pct": -0.77
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 87.94,
+          "return_6m_pct": 14.09,
+          "return_1y_pct": -33.77
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 58.24,
+          "return_6m_pct": -4.18,
+          "return_1y_pct": -65.32
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 20.2,
+          "return_6m_pct": -83.66,
+          "return_1y_pct": -28.47
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 37.6,
+          "return_6m_pct": -21.68,
+          "return_1y_pct": 64.63
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 61.9,
+          "return_6m_pct": -21.0,
+          "return_1y_pct": 5.83
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 65.51,
+          "return_6m_pct": -12.38,
+          "return_1y_pct": -21.03
+        }
+      },
+      "regression_6m": {
+        "intercept": 166.0785,
+        "slope": -0.2146,
+        "r_squared": 0.311,
+        "correlation": -0.5577,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": -3.6759,
+        "slope": -0.0016,
+        "r_squared": 0.0,
+        "correlation": -0.0027,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": -9.5,
+      "projected_return_1y_pct": -5.0
+    },
+    "BASF.NS": {
+      "ticker": "BASF.NS",
+      "name": "BASF India",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 1292.59,
+          "return_6m_pct": -21.37,
+          "return_1y_pct": -19.72
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 1037.73,
+          "return_6m_pct": -16.33,
+          "return_1y_pct": 16.15
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 1205.33,
+          "return_6m_pct": 1.09,
+          "return_1y_pct": 20.21
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 1448.91,
+          "return_6m_pct": 29.71,
+          "return_1y_pct": 26.2
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 1828.51,
+          "return_6m_pct": -20.68,
+          "return_1y_pct": -45.23
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 1001.46,
+          "return_6m_pct": 7.85,
+          "return_1y_pct": 42.34
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 2909.79,
+          "return_6m_pct": -23.6,
+          "return_1y_pct": -13.53
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 2516.1,
+          "return_6m_pct": 31.78,
+          "return_1y_pct": 187.61
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 7236.49,
+          "return_6m_pct": -39.11,
+          "return_1y_pct": -38.9
+        }
+      },
+      "regression_6m": {
+        "intercept": 21.1273,
+        "slope": -0.0313,
+        "r_squared": 0.0083,
+        "correlation": -0.0909,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 98.8399,
+        "slope": -0.0927,
+        "r_squared": 0.0091,
+        "correlation": -0.0955,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": -4.5,
+      "projected_return_1y_pct": 23.0
+    },
+    "RCF.NS": {
+      "ticker": "RCF.NS",
+      "name": "RCF",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 40.1,
+          "return_6m_pct": -1.59,
+          "return_1y_pct": -8.91
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 36.52,
+          "return_6m_pct": -21.95,
+          "return_1y_pct": -0.44
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 36.36,
+          "return_6m_pct": 54.63,
+          "return_1y_pct": 94.28
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 70.65,
+          "return_6m_pct": -16.91,
+          "return_1y_pct": -31.67
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 48.28,
+          "return_6m_pct": -1.26,
+          "return_1y_pct": -14.4
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 41.32,
+          "return_6m_pct": -47.96,
+          "return_1y_pct": -12.74
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 84.68,
+          "return_6m_pct": 2.37,
+          "return_1y_pct": 40.97
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 119.37,
+          "return_6m_pct": 4.95,
+          "return_1y_pct": 50.67
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 179.86,
+          "return_6m_pct": -31.36,
+          "return_1y_pct": -20.74
+        }
+      },
+      "regression_6m": {
+        "intercept": 98.4408,
+        "slope": -0.1227,
+        "r_squared": 0.0934,
+        "correlation": -0.3056,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": -0.2578,
+        "slope": 0.0129,
+        "r_squared": 0.0005,
+        "correlation": 0.0222,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": -1.9,
+      "projected_return_1y_pct": 10.3
+    },
+    "CHAMBLFERT.NS": {
+      "ticker": "CHAMBLFERT.NS",
+      "name": "Chambal Fertilisers",
+      "year_data": {
+        "2014": {
+          "rainfall_mm": 781.9,
+          "sep_price": 45.0,
+          "return_6m_pct": 11.68,
+          "return_1y_pct": 3.36
+        },
+        "2015": {
+          "rainfall_mm": 766.0,
+          "sep_price": 46.51,
+          "return_6m_pct": -8.32,
+          "return_1y_pct": 4.99
+        },
+        "2016": {
+          "rainfall_mm": 862.6,
+          "sep_price": 48.83,
+          "return_6m_pct": 38.4,
+          "return_1y_pct": 132.31
+        },
+        "2017": {
+          "rainfall_mm": 840.5,
+          "sep_price": 113.44,
+          "return_6m_pct": 20.71,
+          "return_1y_pct": 12.53
+        },
+        "2018": {
+          "rainfall_mm": 804.1,
+          "sep_price": 127.66,
+          "return_6m_pct": 11.71,
+          "return_1y_pct": 6.26
+        },
+        "2019": {
+          "rainfall_mm": 968.3,
+          "sep_price": 135.65,
+          "return_6m_pct": -28.48,
+          "return_1y_pct": -0.48
+        },
+        "2022": {
+          "rainfall_mm": 925.4,
+          "sep_price": 280.41,
+          "return_6m_pct": -16.0,
+          "return_1y_pct": -7.61
+        },
+        "2023": {
+          "rainfall_mm": 820.4,
+          "sep_price": 259.08,
+          "return_6m_pct": 27.25,
+          "return_1y_pct": 96.55
+        },
+        "2024": {
+          "rainfall_mm": 934.8,
+          "sep_price": 509.22,
+          "return_6m_pct": 20.38,
+          "return_1y_pct": -1.23
+        }
+      },
+      "regression_6m": {
+        "intercept": 100.7474,
+        "slope": -0.1077,
+        "r_squared": 0.1263,
+        "correlation": -0.3553,
+        "n_years": 9
+      },
+      "regression_1y": {
+        "intercept": 119.4654,
+        "slope": -0.1075,
+        "r_squared": 0.0236,
+        "correlation": -0.1535,
+        "n_years": 9
+      },
+      "estimated_rainfall_2026_mm": 818.0,
+      "projected_return_6m_pct": 12.6,
+      "projected_return_1y_pct": 31.5
+    }
+  },
+  "total_analyzed": 53,
+  "insufficient_data": 1
+}
