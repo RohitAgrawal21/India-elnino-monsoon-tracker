@@ -8,7 +8,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: auto; }
 body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
 .container { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
 .header { text-align: center; padding: 20px 0 10px; }
@@ -287,33 +287,28 @@ function render(a) {
     if (!capData) return;
     html += '<div class="cap-section">';
     html += '<div class="cap-title">' + capLabels[capKey] + '</div>';
-    var benefit = (capData.benefit_from_drought || []).filter(function(s) { return !SKIP_TICKERS[s.ticker]; });
-    if (benefit.length) {
-      html += '<div class="direction-label direction-benefit">&#9650; LIKELY BENEFIT or UNAFFECTED (' + benefit.length + ' stocks)</div>';
-      html += '<div class="direction-explain">These stocks are insulated from monsoon risk or benefit when rainfall is low.</div>';
-      html += '<div class="stock-grid">';
-      benefit.forEach(function(s) { html += renderStock(s, w); });
-      html += '</div>';
-    }
-    var hurt = (capData.hurt_by_drought || []).filter(function(s) { return !SKIP_TICKERS[s.ticker]; });
-    if (hurt.length) {
-      html += '<div class="direction-label direction-hurt">&#9660; LIKELY HURT by Low Rainfall (' + hurt.length + ' stocks)</div>';
-      html += '<div class="direction-explain">These stocks historically underperform when monsoon is weak.</div>';
-      html += '<div class="stock-grid">';
-      hurt.forEach(function(s) { html += renderStock(s, w); });
-      html += '</div>';
-    }
+    var sorted = getSortedStocks(capData);
+    var lastDir = '';
+    sorted.forEach(function(item) {
+      if (item.dir !== lastDir) {
+        if (lastDir) html += '</div>';
+        if (item.dir === 'benefit_from_drought') {
+          var bc = sorted.filter(function(x){return x.dir==='benefit_from_drought'}).length;
+          html += '<div class="direction-label direction-benefit">&#9650; LIKELY BENEFIT or UNAFFECTED (' + bc + ' stocks)</div>';
+          html += '<div class="direction-explain">These stocks are insulated from monsoon risk or benefit when rainfall is low.</div>';
+        } else {
+          var hc = sorted.filter(function(x){return x.dir==='hurt_by_drought'}).length;
+          html += '<div class="direction-label direction-hurt">&#9660; LIKELY HURT by Low Rainfall (' + hc + ' stocks)</div>';
+          html += '<div class="direction-explain">These stocks historically underperform when monsoon is weak.</div>';
+        }
+        html += '<div class="stock-grid">';
+        lastDir = item.dir;
+      }
+      html += renderStock(item.s, w);
+    });
+    if (lastDir) html += '</div>';
     html += '</div>';
   });
-
-  // Analyst note
-  html += '<div style="background:#1a1a28;border:1px solid #ffa50233;border-radius:10px;padding:16px;margin-top:16px">';
-  html += '<div style="font-size:0.78rem;font-weight:700;color:#ffa502;margin-bottom:6px">About Analyst Targets</div>';
-  html += '<div style="font-size:0.72rem;color:#aaa;line-height:1.7">';
-  html += 'Consensus targets are from Yahoo Finance, which aggregates sell-side broker reports. These are <strong>trailing consensus figures</strong> — Yahoo Finance does not disclose which reports are included or how recent they are. ';
-  html += '<strong>Sell-side analysts have a known bullish bias</strong> — "Buy" ratings outnumber "Sell" roughly 5:1 industry-wide. ';
-  html += '<strong>Do not treat these as reliable price predictions.</strong> Analyst count matters: 30+ = well-covered; &lt;5 = thinly covered.';
-  html += '</div></div>';
 
   html += '<div class="footer"><a href="about.html">Methodology</a> | <a href="index.html">&larr; Weather Dashboard</a></div>';
   document.getElementById('app').innerHTML = html;
@@ -366,20 +361,6 @@ function renderStock(s, w) {
     html += '<div class="fund-row"><span class="fund-lbl">Industry Median PE</span><span class="fund-val">' + fmt(f.industry_median_pe, 'x') + '</span></div>';
     html += '<div class="fund-row"><span class="fund-lbl">Industry Median EV/EBITDA</span><span class="fund-val">' + fmt(f.industry_median_ev_ebitda, 'x') + '</span></div>';
     html += '</div>';
-    if (f.analyst_target_mean) {
-      html += '<div class="fund-analyst">';
-      var upside = f.analyst_upside_pct;
-      var uColor = upside > 0 ? 'val-green' : 'val-red';
-      html += '<span class="fund-lbl">Consensus Target: </span><span class="target">₹' + f.analyst_target_mean + '</span>';
-      if (f.analyst_target_low && f.analyst_target_high) {
-        html += ' <span style="color:#555">(₹' + f.analyst_target_low + ' – ₹' + f.analyst_target_high + ')</span>';
-      }
-      if (upside !== undefined) {
-        html += ' <span class="' + uColor + '">' + (upside > 0 ? '+' : '') + upside + '%</span>';
-      }
-      if (f.analyst_count) html += ' <span style="color:#555">(' + f.analyst_count + ' analysts)</span>';
-      html += '</div>';
-    }
     html += '<div class="fund-src">Source: Yahoo Finance | as of ' + (f.fetched_at ? f.fetched_at.substring(0,10) : '?') + '</div>';
   } else if (f && f.status === 'error') {
     html += '<div style="font-size:0.65rem;color:#ff6b6b;padding:8px">SOURCE UNREACHABLE<br><span style="color:#555">' + (f.error || 'ticker not found') + '</span></div>';
@@ -391,6 +372,14 @@ function renderStock(s, w) {
   return html;
 }
 
+document.addEventListener('click', function(e) {
+  var a = e.target.closest('a[href^="#stock-"]');
+  if (a) {
+    e.preventDefault();
+    var el = document.getElementById(a.getAttribute('href').substring(1));
+    if (el) el.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+});
 loadData();
 </script>
 </body>
