@@ -427,6 +427,67 @@ canvas { width: 100% !important; height: 200px !important; }
 .disclaimer-banner a { color: #2a6a90; text-decoration: none; }
 .disclaimer-banner a:hover { text-decoration: underline; }
 
+/* El Nino Explainer */
+.elnino-explainer {
+  background: linear-gradient(135deg, #f0f7fb 0%, #faf8f4 100%);
+  border: 1px solid #d4e4ee;
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+.elnino-explainer h2 {
+  font-size: 1.1rem;
+  color: #1a2a38;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+.elnino-explainer .elnino-subtitle {
+  font-size: 0.82rem;
+  color: #4a5560;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+.elnino-explainer .elnino-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+.elnino-explainer .elnino-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 14px 16px;
+  border: 1px solid #e4ecf2;
+}
+.elnino-explainer .elnino-card h3 {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #2a6a90;
+  margin: 0 0 6px 0;
+}
+.elnino-explainer .elnino-card p {
+  font-size: 0.78rem;
+  color: #3a4550;
+  margin: 0;
+  line-height: 1.6;
+}
+.elnino-explainer .elnino-intro {
+  font-size: 0.82rem;
+  color: #3a4550;
+}
+.elnino-explainer .elnino-cta {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  color: #2a6a90;
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .elnino-explainer .elnino-grid { grid-template-columns: 1fr; }
+  .elnino-explainer { padding: 16px 18px; }
+}
+
 /* Data Freshness Banner */
 .freshness-banner {
   display: flex;
@@ -687,6 +748,33 @@ canvas { width: 100% !important; height: 200px !important; }
   <div class="disclaimer-banner">
     <strong>&#9888; Not an official forecast.</strong> This is an independent data dashboard, not affiliated with IMD or any government agency. For official monsoon forecasts, see <a href="https://mausam.imd.gov.in/" target="_blank" rel="noopener">IMD (mausam.imd.gov.in)</a>. &bull; <a href="about.html">About &amp; Methodology</a>
   </div>
+
+  <div class="elnino-explainer">
+    <h2>What is El Ni&ntilde;o &mdash; and why should you care?</h2>
+    <p class="elnino-intro">
+      El Ni&ntilde;o is an abnormal warming of the Pacific Ocean near the equator. It happens every 2&ndash;7 years and lasts 9&ndash;12 months. For India, it matters because the <strong>Indian monsoon&rsquo;s engine runs on a temperature difference between the Indian Ocean and the Pacific</strong>. When the Pacific warms (El Ni&ntilde;o), that engine weakens &mdash; moisture-laden winds lose strength, and India gets less rain. Historically, <strong>6 of India&rsquo;s 7 worst droughts since 1950 occurred during El Ni&ntilde;o years</strong>.
+    </p>
+    <div class="elnino-grid">
+      <div class="elnino-card">
+        <h3>Macro Impact</h3>
+        <p>Agriculture is 15% of GDP but employs 45% of the workforce. A 10% rainfall deficit can shave 0.3&ndash;0.5% off GDP growth, spike food inflation by 2&ndash;4%, and force RBI to hold rates longer &mdash; slowing the entire economy.</p>
+      </div>
+      <div class="elnino-card">
+        <h3>Industry Impact</h3>
+        <p>Water-intensive sectors (sugar, textiles, power) face supply squeezes. FMCG companies lose rural demand. Conversely, water infrastructure, packaged food, and thermal power benefit from the scarcity.</p>
+      </div>
+      <div class="elnino-card">
+        <h3>Stock Market Impact</h3>
+        <p>Monsoon-sensitive stocks can swing 15&ndash;30% in excess returns based on rainfall. Rural-facing companies (tractors, two-wheelers, fertilizers) underperform; defensive and export-oriented names outperform.</p>
+      </div>
+      <div class="elnino-card">
+        <h3>Personal Impact</h3>
+        <p>Higher grocery bills (vegetables, pulses, cereals), more expensive electricity (AC usage + lower hydro supply), and potential water restrictions in cities that depend on rain-fed reservoirs.</p>
+      </div>
+    </div>
+    <p class="elnino-cta">&#8595; This dashboard tracks the current monsoon season and connects rainfall data to its economic consequences &mdash; from GDP to your grocery bill.</p>
+  </div>
+
   <div id="app" class="loading">Loading latest data...</div>
 </div>
 

@@ -93,6 +93,12 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #faf8f5; col
 .corr-meta { font-size: 0.5rem; color: #6a7a88; margin-top: 3px; }
 .corr-note { font-size: 0.5rem; color: #6a6050; margin-top: 6px; font-style: italic; }
 
+.stock-insight { margin-top: 8px; padding: 10px 12px; background: #f8f6f2; border-left: 3px solid #4a90b8; border-radius: 0 8px 8px 0; font-size: 0.72rem; line-height: 1.6; color: #3a4550; }
+.stock-insight strong { color: #1a2a38; }
+.stock-insight .insight-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #4a90b8; margin-bottom: 4px; }
+.stock-insight .insight-2026 { margin-top: 6px; padding-top: 6px; border-top: 1px solid #e8e4dc; }
+.stock-insight .insight-2026 .insight-label { color: #b07800; }
+
 .footer { border-top: 1px solid #f0ece5; padding: 20px 0; margin-top: 30px; font-size: 0.68rem; color: #6a6050; text-align: center; }
 .footer a { color: #2a6a90; text-decoration: none; }
 </style>
@@ -365,6 +371,238 @@ function valColor(v, invert) {
   return v > 0 ? 'val-green' : v < 0 ? 'val-red' : '';
 }
 
+var STOCK_INSIGHTS = {
+  // === LARGE CAP ===
+  'NESTLEIND.NS': {
+    past: 'Drought inflates vegetable and grain prices, pushing households toward packaged alternatives — Maggi, KitKat, Nescafé. Nestle\'s <strong>zero dependence on raw agri inputs</strong> (imports most ingredients) means costs don\'t spike even when food inflation does. Urban-skewed demand (70%+) insulates volume.',
+    now: 'This thesis holds. Premiumization trend is accelerating — rural consumers are trading up to branded packaged food even in normal years. A weak monsoon only strengthens the shift. <strong>No structural change to challenge this pattern.</strong>'
+  },
+  'BRITANNIA.NS': {
+    past: 'Biscuits are India\'s cheapest branded snack — ₹5-10 packs are a staple substitute when fresh snacks get expensive. Britannia\'s <strong>flour hedging program</strong> locks in wheat costs 3-6 months ahead, so input cost spikes from drought barely dent margins in the affected quarter.',
+    now: 'Britannia has <strong>expanded rural distribution by 30%</strong> since 2022. Paradoxically, this means more rural exposure — but at price points (₹5-10) that hold up even when farm incomes dip. The hedging advantage remains intact.'
+  },
+  'TCS.NS': {
+    past: 'Zero monsoon linkage — <strong>95%+ revenue is USD-denominated</strong> from global clients. In drought years, FII flows often rotate into IT as a "safe haven" within Indian equities, providing an artificial tailwind beyond fundamentals.',
+    now: 'AI-driven deal ramp is the dominant narrative now, not monsoon. However, <strong>any rupee weakness from drought-led current account pressure</strong> directly boosts reported earnings (every 1% INR depreciation = ~40bps margin benefit). Safe haven logic still applies.'
+  },
+  'INFY.NS': {
+    past: 'Same USD-revenue insulation as TCS. Infosys historically gets a <strong>slightly larger safe-haven premium</strong> because its margin profile is more volatile — investors see more "upside optionality" in a flight-to-quality rotation.',
+    now: 'Mega-deal momentum and margin recovery are the focus. Monsoon is irrelevant to the business, but the <strong>INR depreciation tailwind</strong> from any drought-driven macro stress helps. Pattern should repeat.'
+  },
+  'SUNPHARMA.NS': {
+    past: 'Healthcare demand is perfectly inelastic — people don\'t skip medicines in drought. Sun Pharma\'s <strong>65% domestic revenue</strong> acts as a defensive anchor, while specialty exports add growth. Drought years see pharma P/E multiples expand as markets seek safety.',
+    now: 'Specialty portfolio (Ilumya, Winlevi) is scaling, making Sun less dependent on India generics than before. <strong>Defensive thesis is intact</strong> but the stock is also more expensive (35x+ PE) — less room for multiple expansion than in prior drought cycles.'
+  },
+  'ITC.NS': {
+    past: 'ITC\'s agri-commodity division (one of India\'s largest wheat/soy/rice traders) <strong>directly profits from food price spikes</strong>. Cigarettes are recession-proof. Hotels and FMCG provide diversification. Unique among large caps — it\'s a net beneficiary of food inflation.',
+    now: 'FMCG business is now 20%+ of revenue (up from ~12% in 2019), diluting the agri trading upside. Hotel demerger creates clarity but removes one defensive leg. <strong>Agri trading tailwind is real but structurally smaller</strong> as a percentage of the whole.'
+  },
+  'RELIANCE.NS': {
+    past: 'Counter-intuitive beneficiary: <strong>drought increases diesel demand</strong> as farmers run diesel pumps for groundwater irrigation. Jio (45% of value) and Retail (25%) have zero monsoon linkage. Refining margins are global, not monsoon-driven.',
+    now: 'New energy pivot (solar, green hydrogen) adds a new dimension. Retail expansion into rural India is the one risk — but it\'s still <5% of Retail revenue. <strong>The diesel pump thesis specifically still holds</strong> for the O2C segment.'
+  },
+  'NTPC.NS': {
+    past: 'Simple physics: <strong>drought = less water in reservoirs = hydro plants run below capacity</strong>. The gap is filled by thermal plants running at higher PLF. NTPC, operating 70+ GW of thermal capacity, directly captures this demand shift. Regulated returns mean revenue upside flows to the bottom line.',
+    now: 'NTPC is now 40% into renewables (solar, wind). A drought <strong>actually helps the legacy thermal fleet more</strong> (higher PLF) while solar output is unaffected. The thermal tailwind thesis is intact and possibly stronger as India\'s base power demand has grown 30% since the last major El Nino.'
+  },
+  'M&M.NS': {
+    past: '<strong>40% of India\'s tractor market.</strong> Tractor purchases are directly funded by farm income — in drought years, sales drop 10-15% as farmers defer. The auto segment (SUVs) is less affected but tractor sentiment drags the stock.',
+    now: 'Farm equipment segment is now <30% of revenue (vs 40% in 2018). SUV market share gains (XUV700, Thar) have structurally reduced tractor dependency. <strong>The hit will be smaller than history suggests</strong> — but the stock still trades on tractor sentiment in monsoon season.'
+  },
+  'HINDUNILVR.NS': {
+    past: '<strong>35% revenue from rural India.</strong> Drought means less disposable income in villages — consumers downgrade from 100g to 50g packs or switch to unbranded alternatives. HUL\'s volume growth has historically turned negative in severe drought quarters.',
+    now: 'Quick commerce (Blinkit, Zepto) is reshuffling urban FMCG dynamics but doesn\'t help rural. HUL\'s <strong>rural recovery was already fragile</strong> pre-monsoon — a deficit would extend the demand compression. The pattern is likely to repeat.'
+  },
+  'HEROMOTOCO.NS': {
+    past: '<strong>50%+ sales in rural/semi-urban India.</strong> Two-wheeler purchases in tier-3/4 towns are funded by farm income. Entry-level bikes (Splendor, HF Deluxe) see the sharpest demand drop — exactly Hero\'s bread and butter.',
+    now: 'EV transition is Hero\'s challenge, but the rural ICE bike buyer hasn\'t shifted. <strong>Rural 2W demand is still Hero\'s core</strong> and still monsoon-dependent. No structural change weakens this link.'
+  },
+  'DABUR.NS': {
+    past: '<strong>Highest rural revenue share (~45%) among large FMCGs.</strong> Products like hair oil, honey, and Chyawanprash face direct volume pressure in drought. Unlike HUL, Dabur has fewer urban premium brands to offset rural weakness.',
+    now: 'Digital-first launches and modern trade are growing but still <20% of sales. <strong>The rural dependency is structural</strong> — Dabur\'s distribution moat is in exactly the markets most affected by drought.'
+  },
+  'ICICIBANK.NS': {
+    past: 'Agri loan book is ~8% of total. Drought increases farm loan stress and provisions. However, ICICI\'s <strong>diversified retail/corporate book absorbs the impact</strong> — the stock underperforms Nifty only mildly in drought years.',
+    now: 'Credit quality is at a cyclical best, with NPAs at decade lows. A drought would <strong>cause a small uptick in agri slippages</strong> but the bank has ₹13,000 Cr+ in contingency provisions. Impact should be muted.'
+  },
+  'SBIN.NS': {
+    past: '<strong>India\'s largest agri lender</strong> — farm loan exposure is 3-4x ICICI\'s in absolute terms. Drought triggers two risks: NPA spikes in the rural book and political pressure for farm loan waivers (which hit the P&L).',
+    now: 'SBI has cleaned up its balance sheet dramatically since 2020. But <strong>the political loan-waiver risk is structural</strong> — it\'s a PSU bank and state elections always coincide with drought relief demands. This vulnerability doesn\'t change.'
+  },
+  'TITAN.NS': {
+    past: '<strong>~40% of India\'s gold buying is rural/semi-urban.</strong> Drought means farmers skip gold purchases at weddings. Titan\'s jewellery segment (85% of revenue) sees same-store-growth compression. The stock\'s premium valuation amplifies the de-rating.',
+    now: 'Titan is aggressively expanding in wedding jewellery and franchising. <strong>But the core buyer behavior hasn\'t changed</strong> — rural gold demand is still correlated to farm income. At 60x+ PE, even a small earnings miss causes disproportionate stock reaction.'
+  },
+  'BAJAJ-AUTO.NS': {
+    past: 'Lower rural exposure than Hero (~30% vs 50%), plus <strong>strong export revenue (40%+)</strong> acts as a natural hedge. Africa/ASEAN demand is monsoon-independent. Bajaj historically outperforms Hero in drought years within the 2W space.',
+    now: 'Export markets are growing (Africa, LatAm) and the Chetak EV is urban-focused. <strong>The rural insulation is actually improving</strong> — making Bajaj a relative winner within autos if monsoon weakens.'
+  },
+  'MARICO.NS': {
+    past: 'Parachute coconut oil is 30%+ of revenue — pricing power is strong and <strong>coconut is actually surplus in drought years</strong> (coconut palms are rain-fed perennials that tolerate moderate drought). Rural volumes dip but copra cost savings partially offset.',
+    now: 'Value-added portfolio (Saffola oats, digital brands) is now ~30% of revenue, reducing Parachute dependency. <strong>The coconut cost benefit still applies</strong> and the new portfolio is more urban, making Marico incrementally more drought-resilient.'
+  },
+  'UPL.NS': {
+    past: 'Counter-intuitive: drought <strong>increases pesticide demand per acre</strong> as water stress makes crops more vulnerable to pests. UPL\'s global footprint (75% revenue from outside India) provides additional insulation.',
+    now: 'UPL is recovering from a debt/inventory crisis in 2023-24. <strong>The drought-benefit thesis is intact fundamentally</strong> but balance sheet stress means the stock may not respond to monsoon signals as cleanly as before.'
+  },
+
+  // === MID CAP ===
+  'WABAG.NS': {
+    past: '<strong>India\'s largest water treatment company.</strong> Drought accelerates government spending on desalination, recycling, and water reuse projects. Order inflows spike 6-12 months after a deficit monsoon.',
+    now: 'Order book is at all-time highs. Jal Jeevan Mission (government\'s ₹3.6L Cr rural water program) provides a structural demand floor. <strong>Drought would accelerate order conversion</strong> as states fast-track water projects.'
+  },
+  'SHAKTIPUMP.NS': {
+    past: '<strong>Solar pump manufacturer.</strong> After drought, government solar pump subsidies surge (PM-KUSUM scheme). Farmers also independently invest in solar pumps to reduce dependence on rain-fed irrigation.',
+    now: 'PM-KUSUM Phase 3 is expanding the subsidy pool. <strong>Solar pump adoption is a secular trend</strong> that drought accelerates. Order pipeline visibility is strong regardless of monsoon, but a deficit adds urgency.'
+  },
+  'KSB.NS': {
+    past: '<strong>Industrial pump maker</strong> with agriculture and water infrastructure exposure. Drought increases demand for irrigation pumps and water transfer systems. KSB\'s German engineering pedigree gives it pricing power in large municipal projects.',
+    now: 'Urban water infrastructure spending is growing independently of monsoon. <strong>The drought tailwind is additive</strong> to an already strong order cycle. No structural change weakens this link.'
+  },
+  'CGPOWER.NS': {
+    past: 'CG Power supplies <strong>motors and transformers to the agricultural pump market</strong>. Drought-driven pump installations directly increase motor demand. The industrial segment provides baseline stability.',
+    now: 'The stock has re-rated 10x since 2021 on the broader capex cycle. <strong>Monsoon sensitivity is now a smaller driver</strong> relative to industrial/EV motor demand. The agricultural motor thesis is intact but less dominant in the investment case.'
+  },
+  'TATAPOWER.NS': {
+    past: 'Mix of thermal, hydro, and solar. <strong>Drought hurts Tata Power\'s hydro assets</strong> (lower generation) but benefits thermal plants. Net effect has been mildly positive historically because thermal is a larger share of capacity.',
+    now: 'Tata Power is pivoting hard to solar and EV charging — renewables are now 35%+ of capacity. <strong>The thermal tailwind is shrinking</strong> as hydro and solar grow. Net monsoon impact is becoming negligible.'
+  },
+  'PERSISTENT.NS': {
+    past: '<strong>US-focused IT mid-cap</strong> (85%+ revenue from Americas). Same USD-revenue insulation as large-cap IT. The stock\'s drought-year outperformance reflects sector rotation into IT, not any business-level benefit.',
+    now: 'Healthcare IT and BFSI verticals are growing fast. <strong>Monsoon is completely irrelevant to the business</strong> — any outperformance would again be a sector-rotation artifact, not fundamental.'
+  },
+  'TORNTPHARM.NS': {
+    past: '<strong>Chronic therapy focus</strong> (cardiovascular, diabetes) means demand is non-discretionary. Patients don\'t skip hypertension medication because of drought. Defensive nature attracts flows during domestic stress.',
+    now: 'Curatio acquisition has expanded dermatology portfolio. <strong>The defensive thesis is fully intact</strong> — chronic therapy is perhaps the most monsoon-immune segment in the entire market.'
+  },
+  'CONCOR.NS': {
+    past: '<strong>India\'s largest container logistics operator.</strong> Drought reduces agri-commodity export volumes (cotton, rice, sugar) which travel in containers. Port throughput and rail container utilization both dip.',
+    now: 'DFC (Dedicated Freight Corridor) commissioning is a game-changer for CONCOR\'s cost structure. <strong>But agri-commodity volumes still matter</strong> — cotton and rice exports are 15-20% of containerized cargo. A deficit monsoon still hurts.'
+  },
+  'ESCORTS.NS': {
+    past: '<strong>India\'s #3 tractor maker.</strong> Same farm income dependency as M&M. Drought years see 10-15% volume declines. Escorts has less pricing power than M&M, so margin impact is often worse.',
+    now: 'Kubota partnership brings technology and export access. <strong>Export tractors are monsoon-independent</strong> and now 8-10% of volumes. Domestic tractor demand remains as monsoon-sensitive as ever — but the export cushion is new.'
+  },
+  'TVSMOTOR.NS': {
+    past: '<strong>30-35% rural exposure</strong> in two-wheelers. Less affected than Hero (lower rural share) but more than Bajaj. Mopeds and entry scooters (Jupiter) see the sharpest volume pressure in drought.',
+    now: 'TVS iQube (EV scooter) is gaining share in urban markets, <strong>structurally reducing rural dependency</strong>. Export markets (Africa, Middle East) are also growing. Drought impact should be milder than historical precedent suggests.'
+  },
+  'GODREJCP.NS': {
+    past: '<strong>~30% rural revenue.</strong> Hair colour (Godrej Expert) and household insecticides (Good Knight, Hit) see volume pressure in drought. However, insecticide demand can actually rise in hot/dry conditions (more mosquitoes near stagnant water).',
+    now: 'Indonesia business (25% of revenue) provides geographic diversification that didn\'t exist in earlier drought cycles. <strong>The net India rural hit is real but structurally smaller</strong> as a share of total revenue.'
+  },
+  'EMAMILTD.NS': {
+    past: '<strong>Heavy rural skew (~50% of domestic sales).</strong> Navratna oil, BoroPlus, and Fair & Handsome all face volume compression in drought. Emami is among the most rurally exposed FMCGs after Dabur.',
+    now: 'Male grooming and digital brands are growing but still small. <strong>Rural dependency remains the highest among mid-cap FMCGs.</strong> No structural shift reduces drought vulnerability.'
+  },
+  'BALRAMCHIN.NS': {
+    past: '<strong>Sugar production is directly tied to sugarcane yield</strong>, which depends on irrigation (not just rain). But drought years reduce overall cane availability, pushing sugar prices higher. Balrampur benefits from price spikes even if its own cane supply tightens.',
+    now: 'Ethanol blending mandate (20% by 2025) provides a price floor for sugarcane-based production. <strong>Drought actually amplifies the ethanol economics</strong> — less sugar supply means higher prices for both sugar and ethanol. Thesis strengthened.'
+  },
+  'COROMANDEL.NS': {
+    past: '<strong>India\'s #2 phosphatic fertilizer maker.</strong> Fertilizer is subsidized — farmers buy it regardless of rainfall. However, drought reduces total acreage sown, which means <strong>lower total fertilizer volumes even if per-acre usage is stable</strong>.',
+    now: 'Crop protection segment (20% of revenue) actually benefits from drought (pest pressure rises). <strong>The fertilizer volume hit vs. crop protection benefit roughly offsets</strong> — making Coromandel relatively neutral to monsoon.'
+  },
+  'PIIND.NS': {
+    past: '<strong>CSM exports (60% of revenue) are monsoon-independent</strong> — products are manufactured for global agrochemical majors. The domestic agchem business benefits from drought as pest pressure increases.',
+    now: 'Pharma CDMO entry diversifies further away from Indian agriculture. <strong>The drought-neutral-to-positive thesis is strengthening</strong> as CSM and pharma grow faster than domestic agchem.'
+  },
+  'MANAPPURAM.NS': {
+    past: '<strong>Gold loan demand surges in drought.</strong> When farm income falls, rural households pledge gold jewellery for working capital. Manappuram\'s gold loan AUM grows 15-20% faster in deficit monsoon years.',
+    now: 'Microfinance stress (Asirvad subsidiary) is the current headwind, but <strong>the core gold loan thesis is as strong as ever</strong>. Rural gold pledging behavior is deeply structural — drought accelerates it every time.'
+  },
+  'CANBK.NS': {
+    past: '<strong>Large PSU bank with significant agri exposure.</strong> Same farm loan stress dynamics as SBI but with a weaker balance sheet historically. Drought-year NPA spikes hit Canara harder on a relative basis.',
+    now: 'Balance sheet cleanup has improved asset quality significantly. <strong>But PSU banks remain politically exposed to loan waiver demands</strong> — Canara\'s agri book is still large enough to cause earnings volatility in drought.'
+  },
+  'FEDERALBNK.NS': {
+    past: '<strong>Kerala-focused bank.</strong> Kerala\'s economy is remittance-driven (Gulf money), not agriculture-driven. Federal Bank has lower agri exposure than national peers. Drought impact is muted because <strong>the customer base isn\'t farming-dependent</strong>.',
+    now: 'Digital banking and credit card growth are accelerating. <strong>Kerala\'s remittance economy provides genuine monsoon insulation.</strong> This is one of the few banks where drought doesn\'t meaningfully change the credit quality outlook.'
+  },
+
+  // === SMALL CAP ===
+  'IONEXCHANG.NS': {
+    past: '<strong>Water treatment and recycling specialist.</strong> Drought forces industries and municipalities to recycle/reuse water — Ion Exchange\'s core business. Order inflows rise with water scarcity awareness.',
+    now: 'ZLD (Zero Liquid Discharge) regulations are tightening regardless of monsoon. <strong>Drought adds urgency to an already growing regulatory tailwind.</strong> The thesis is structural, not just cyclical.'
+  },
+  'KIRLOSBROS.NS': {
+    past: '<strong>India\'s oldest pump manufacturer.</strong> Municipal and agricultural pump demand rises in drought. Kirloskar\'s large infrastructure pumps (flood control, water supply) see accelerated government procurement.',
+    now: 'Smart water metering and IoT-enabled pumps are new growth areas. <strong>The core drought-driven pump demand thesis is intact</strong> and enhanced by government push for water infrastructure modernization.'
+  },
+  'KRBL.NS': {
+    past: '<strong>India\'s largest basmati rice exporter (India Gate brand).</strong> Drought reduces paddy supply → rice prices spike → KRBL benefits from inventory revaluation and higher realizations on existing stock.',
+    now: 'Government rice export restrictions (imposed in 2023) are the wildcard. <strong>If export curbs stay, the domestic price benefit from drought is capped.</strong> Policy risk partially weakens the historical thesis.'
+  },
+  'HATSUN.NS': {
+    past: '<strong>South India\'s largest dairy company.</strong> Drought reduces fodder availability, which paradoxically <strong>increases milk procurement costs but also forces small farmers to sell cows</strong>, increasing supply temporarily. Net effect has been mixed.',
+    now: 'Hatsun is expanding into value-added products (curd, ice cream) with better margins. <strong>The input cost volatility from drought remains</strong> but downstream pricing power is improving.'
+  },
+  'BECTORFOOD.NS': {
+    past: '<strong>Bakery products (English Oven bread, Cremica biscuits).</strong> Same "packaged food substitute" thesis as Britannia but at a much smaller scale. Wheat cost increases are passed through with a 1-quarter lag.',
+    now: 'QSR supply chain (buns for McDonald\'s, Burger King) is a growing, monsoon-independent segment. <strong>The bakery retail thesis still holds</strong> but the institutional business provides new insulation.'
+  },
+  'PRIVISCL.NS': {
+    past: '<strong>Aroma chemicals from natural products.</strong> Some raw materials (lemongrass, mentha) are rain-dependent, but Privi\'s shift to <strong>synthetic routes reduces agricultural input dependency</strong>. Global demand for fragrances is monsoon-independent.',
+    now: 'Synthetic aroma capacity expansion is underway. <strong>Monsoon impact is diminishing</strong> as the company moves further from natural-source dependency. Historical patterns may not repeat.'
+  },
+  'GPPL.NS': {
+    past: '<strong>Gujarat\'s largest private port.</strong> Container and bulk cargo volumes correlate with agricultural export activity. Drought reduces cotton, grain, and oilseed exports from the Gujarat hinterland.',
+    now: 'Non-agri cargo (chemicals, automobiles, project cargo) is growing as a share of throughput. <strong>Agri-commodity exposure is diluting</strong> but still meaningful — a sharp drought would still dent volumes.'
+  },
+  'SJVN.NS': {
+    past: '<strong>Hydro power producer.</strong> Drought directly reduces reservoir levels and hydro generation. SJVN\'s revenue is almost entirely generation-linked — <strong>less water = less power = less revenue</strong>. Most directly monsoon-exposed stock on this list.',
+    now: 'Solar capacity addition (target: 5 GW by 2030) will eventually diversify away from hydro. <strong>But today, 85%+ of operating capacity is hydro.</strong> The drought vulnerability is near-peak — any diversification benefit is still 2-3 years away.'
+  },
+  'SUNTV.NS': {
+    past: '<strong>Tamil Nadu media monopoly.</strong> Ad revenues are linked to FMCG ad spends, which hold up in drought (brands advertise more during stress to defend market share). Content costs are fixed. <strong>Operating leverage works in Sun TV\'s favor</strong> during slowdowns.',
+    now: 'OTT platform (Sun NXT) is growing but still small. The <strong>core ad revenue resilience thesis is unchanged</strong> — Tamil Nadu\'s economy is also less agriculture-dependent than north India, providing natural insulation.'
+  },
+  'CESC.NS': {
+    past: '<strong>Kolkata\'s power distribution monopoly.</strong> Drought increases cooling demand (higher temperatures = more AC usage), boosting distribution volumes. Regulated returns mean volume upside flows through.',
+    now: 'Expansion outside Kolkata (Rajasthan, Bihar DISCOMs) adds growth but also monsoon exposure in agri states. <strong>The Kolkata cooling-demand thesis is intact</strong> but new geographies add complexity.'
+  },
+  'DHAMPURSUG.NS': {
+    past: '<strong>Sugar + ethanol play.</strong> Same thesis as Balrampur Chini — drought tightens cane supply, pushing sugar and ethanol prices higher. Dhampur\'s smaller scale means it benefits proportionally more from price spikes.',
+    now: 'Ethanol capacity expansion is ongoing. <strong>The supply-squeeze-to-price-spike mechanism is fully intact.</strong> Smaller sugar mills often benefit more in drought because they can pivot faster to ethanol.'
+  },
+  'TRIVENI.NS': {
+    past: '<strong>Sugar + power + engineering conglomerate.</strong> Sugar segment benefits from the same drought-price-spike thesis. The engineering division (gears, water turbines) is monsoon-independent, providing a floor.',
+    now: 'Defence gear orders are a new growth engine. <strong>The sugar thesis still works</strong> but the stock is increasingly an engineering/defence play where monsoon is less relevant.'
+  },
+  'RALLIS.NS': {
+    past: '<strong>Tata group crop protection company.</strong> Pesticide demand should theoretically rise in drought (stressed crops = more pests). But <strong>if acreage itself falls sharply, total volume drops</strong> — Rallis has seen mixed results.',
+    now: 'International business is growing but still <25% of revenue. <strong>The domestic volume-vs-price tension in drought years remains unresolved.</strong> This is genuinely uncertain — not a clean drought play in either direction.'
+  },
+  'GNFC.NS': {
+    past: '<strong>Fertilizer + industrial chemicals.</strong> Fertilizer sales depend on sown acreage — drought reduces it. But <strong>industrial chemicals (60% of revenue) are monsoon-independent</strong>, limiting the downside.',
+    now: 'TDI (industrial chemical) prices are the real earnings driver, not fertilizers. <strong>Monsoon impact is becoming secondary</strong> to global chemical pricing cycles. The drought signal is noise in the investment case.'
+  },
+  'VSTTILLERS.NS': {
+    past: '<strong>Small tractor and tiller manufacturer.</strong> Power tillers are used by marginal farmers who are most drought-vulnerable. <strong>Volume drops of 20%+ are common in deficit years</strong> — sharper than large tractor makers.',
+    now: 'No meaningful diversification away from farm equipment. <strong>This remains one of the purest drought-negative plays</strong> in the small-cap space. The thesis is unchanged.'
+  },
+  'WATERBASE.NS': {
+    past: '<strong>Shrimp feed and aquaculture.</strong> Drought affects freshwater prawn farming and reduces water availability in aquaculture ponds. <strong>Feed volumes directly track pond stocking rates</strong>, which fall in water-scarce years.',
+    now: 'Waterbase is expanding into brackish water (less rain-dependent) aquaculture. <strong>But the core freshwater thesis still applies</strong> — and the stock has very low liquidity, amplifying any sentiment shift.'
+  },
+  'JISLJALEQS.NS': {
+    past: '<strong>Micro-irrigation pioneer (drip, sprinkler systems).</strong> Drought should theoretically boost demand — but in practice, <strong>farmer cash flows collapse in drought, so they can\'t afford new irrigation systems</strong>. Subsidies lag by 6-12 months. Jain historically underperforms in the drought year itself.',
+    now: 'Debt restructuring has stabilized the balance sheet. <strong>The "farmers can\'t afford it during drought" paradox is structural</strong> — demand recovery only comes 1-2 years post-drought when government subsidies flow. Timing mismatch persists.'
+  },
+  'BASF.NS': {
+    past: '<strong>German agri-chemical MNC.</strong> Crop protection demand should rise in drought but <strong>BASF India\'s product mix skews toward herbicides (which need moisture to work)</strong> rather than insecticides. Volume impact is mixed.',
+    now: 'Performance chemicals segment is growing. <strong>The herbicide-specific drought weakness is real</strong> but becoming a smaller part of the total. Still not a clean drought play.'
+  },
+  'RCF.NS': {
+    past: '<strong>PSU fertilizer company.</strong> Subsidized urea sales are volume-dependent — drought reduces acreage and therefore total fertilizer demand. <strong>Government subsidy delays compound the cash flow stress</strong> in deficit years.',
+    now: 'No structural change. <strong>RCF remains fully exposed to acreage-driven demand</strong> and subsidy payment cycles. The PSU overhang adds to drought-year de-rating.'
+  },
+  'CHAMBLFERT.NS': {
+    past: '<strong>India\'s most efficient private urea manufacturer.</strong> Same acreage-driven volume dynamics as RCF. However, Chambal\'s <strong>lower cost structure means it\'s profitable even at reduced utilization</strong> — it doesn\'t bleed in drought like less efficient players.',
+    now: 'Technical ammonium nitrate (for mining/defense) is a growing, non-agri segment. <strong>The urea volume hit still applies</strong> but the diversification reduces its dominance in the P&L. Better positioned than RCF.'
+  },
+};
+
 function renderStock(s, w) {
   var html = '<div class="stock-item" id="' + stockId(s.ticker) + '">';
   html += '<div class="stock-left">';
@@ -372,6 +610,15 @@ function renderStock(s, w) {
   html += '<div class="stock-item-name">' + logoHtml + '<span>' + s.name + ' <span class="stock-item-ticker">' + s.ticker + '</span></span></div>';
   html += '<div class="stock-item-sector">' + s.sector + '</div>';
   html += '<div class="stock-item-why">' + s.why + '</div>';
+  var ins = STOCK_INSIGHTS[s.ticker];
+  if (ins) {
+    html += '<div class="stock-insight">';
+    html += '<div class="insight-label">Why this pattern?</div>';
+    html += '<div>' + ins.past + '</div>';
+    html += '<div class="insight-2026"><div class="insight-label">2026 Outlook</div>';
+    html += '<div>' + ins.now + '</div></div>';
+    html += '</div>';
+  }
   if (s.analysis && s.analysis.outlook_2026) {
     var o = s.analysis.outlook_2026;
     var mc = o.weighted_mean < -2 ? 'val-red' : o.weighted_mean > 2 ? 'val-green' : '';
