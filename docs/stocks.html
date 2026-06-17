@@ -9,92 +9,92 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: auto; }
-body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: #faf8f5; color: #1a2a38; line-height: 1.6; min-height: 100vh; }
 .container { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
-.header { text-align: center; padding: 20px 0 10px; }
-.header h1 { font-size: 1.6rem; font-weight: 900; background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.header { text-align: center; padding: 20px 0 10px; background: linear-gradient(135deg, #f0f5fa, #f8f5f0); border-radius: 12px; margin-bottom: 4px; }
+.header h1 { font-size: 1.6rem; font-weight: 900; color: #1a2a38; }
 .tab-nav { display: flex; justify-content: center; gap: 4px; margin: 16px 0; flex-wrap: wrap; }
-.tab-nav a { padding: 8px 16px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #888; text-decoration: none; border-radius: 6px; border: 1px solid transparent; transition: all 0.2s; }
-.tab-nav a:hover { color: #ddd; border-color: #2a2a3a; background: #1a1a28; }
-.tab-nav a.active { color: #4ecdc4; border-color: #4ecdc444; background: #4ecdc410; }
-.disclaimer { background: #1a1a28; border: 1px solid #ff6b6b33; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; font-size: 0.75rem; color: #bbb; text-align: center; }
-.disclaimer strong { color: #ff6b6b; }
+.tab-nav a { padding: 8px 16px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #5a6a78; text-decoration: none; border-radius: 6px; border: 1px solid transparent; transition: all 0.2s; }
+.tab-nav a:hover { color: #1a2a38; border-color: #c5d0d8; background: #f0f5fa; }
+.tab-nav a.active { color: #fff; border-color: #4a90b8; background: #4a90b8; }
+.disclaimer { background: #fef6f5; border: 1px solid #f0d0cc; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; font-size: 0.75rem; color: #4a5560; text-align: center; }
+.disclaimer strong { color: #c43030; }
 
-.summary-box { background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid #2a2a4a; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
-.summary-box h2 { font-size: 1rem; font-weight: 800; color: #ffd93d; margin-bottom: 10px; }
-.summary-box p { font-size: 0.82rem; color: #bbb; margin-bottom: 8px; }
-.summary-box .highlight { color: #fff; font-weight: 700; }
+.summary-box { background: #f5f2ec; border: 1px solid #ebe6dc; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
+.summary-box h2 { font-size: 1rem; font-weight: 800; color: #3d3020; margin-bottom: 10px; }
+.summary-box p { font-size: 0.82rem; color: #5a4e3a; margin-bottom: 8px; }
+.summary-box .highlight { color: #1a2a38; font-weight: 700; }
 
 /* Tile panel */
 .panel-cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 32px; }
 @media (max-width: 900px) { .panel-cols { grid-template-columns: 1fr; } }
-.panel-col { background: #0e0e16; border: 1px solid #1e1e2e; border-radius: 12px; overflow: hidden; }
+.panel-col { background: #fff; border: 1px solid #e2e8ed; border-radius: 12px; overflow: hidden; }
 .panel-header { padding: 10px 14px; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
-.panel-header-large { background: linear-gradient(135deg, #1a1a2e, #12121a); color: #4ecdc4; border-bottom: 1px solid #4ecdc433; }
-.panel-header-mid { background: linear-gradient(135deg, #1a1a2e, #12121a); color: #ffd93d; border-bottom: 1px solid #ffd93d33; }
-.panel-header-small { background: linear-gradient(135deg, #1a1a2e, #12121a); color: #ff6b6b; border-bottom: 1px solid #ff6b6b33; }
+.panel-header-large { background: #eef4f9; color: #2a6a90; border-bottom: 1px solid #d5e2ec; }
+.panel-header-mid { background: #f5f2ec; color: #6a5530; border-bottom: 1px solid #ebe6dc; }
+.panel-header-small { background: #f7f0e8; color: #7a5530; border-bottom: 1px solid #ecdcc8; }
 .tile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; }
 @media (max-width: 600px) { .tile-grid { grid-template-columns: 1fr; } }
 
-.tile { border-radius: 8px; padding: 10px; background: #12121a; border: 1px solid #1e1e2e; transition: border-color 0.2s; position: relative; overflow: hidden; }
-.tile:hover { border-color: #3a3a5a; }
+.tile { border-radius: 8px; padding: 10px; background: #faf8f5; border: 1px solid #f0ece5; transition: border-color 0.2s; position: relative; overflow: hidden; }
+.tile:hover { border-color: #c5d0d8; }
 .tile-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-.tile-logo { width: 32px; height: 32px; border-radius: 6px; background: #1a1a28; object-fit: contain; border: 1px solid #2a2a3a; flex-shrink: 0; }
-.tile-name { font-size: 0.68rem; font-weight: 700; color: #fff; line-height: 1.2; }
-.tile-ticker { font-size: 0.52rem; color: #555; font-family: monospace; }
-.tile-cmp { font-size: 1rem; font-weight: 900; margin: 4px 0 6px; }
+.tile-logo { width: 32px; height: 32px; border-radius: 6px; background: #fff; object-fit: contain; border: 1px solid #e2e8ed; flex-shrink: 0; }
+.tile-name { font-size: 0.68rem; font-weight: 700; color: #1a2a38; line-height: 1.2; }
+.tile-ticker { font-size: 0.52rem; color: #6a7a88; font-family: monospace; }
+.tile-cmp { font-size: 1rem; font-weight: 900; color: #1a2a38; margin: 4px 0 6px; }
 .tile-row { display: flex; justify-content: space-between; font-size: 0.58rem; padding: 1px 0; }
-.tile-lbl { color: #555; }
-.tile-val { font-weight: 600; }
+.tile-lbl { color: #6a6050; }
+.tile-val { font-weight: 600; color: #4a5560; }
 .tile-returns { display: flex; gap: 4px; margin-top: 6px; }
 .tile-ret { flex: 1; text-align: center; padding: 3px 2px; border-radius: 4px; font-size: 0.55rem; font-weight: 700; }
-.tile-ret .ret-label { font-size: 0.45rem; color: #888; display: block; margin-bottom: 1px; font-weight: 400; }
+.tile-ret .ret-label { font-size: 0.45rem; color: #6a7a88; display: block; margin-bottom: 1px; font-weight: 400; }
 .tile-direction { position: absolute; top: 4px; right: 6px; font-size: 0.5rem; font-weight: 700; padding: 1px 4px; border-radius: 3px; }
 
 /* Deep dive section */
 .cap-section { margin-bottom: 32px; }
-.cap-title { font-size: 1.1rem; font-weight: 800; color: #fff; margin-bottom: 4px; padding: 12px 0; border-bottom: 2px solid #1e1e2e; }
+.cap-title { font-size: 1.1rem; font-weight: 800; color: #1a2a38; margin-bottom: 4px; padding: 12px 0; border-bottom: 2px solid #e2e8ed; }
 .direction-label { font-size: 0.8rem; font-weight: 700; padding: 8px 14px; margin: 16px 0 10px; border-radius: 6px; display: inline-block; }
-.direction-hurt { background: #ff6b6b18; color: #ff6b6b; border: 1px solid #ff6b6b33; }
-.direction-benefit { background: #6bcb7718; color: #6bcb77; border: 1px solid #6bcb7733; }
-.direction-explain { font-size: 0.72rem; color: #888; margin: 0 0 12px 0; }
+.direction-hurt { background: #fceaea; color: #c43030; border: 1px solid #f0c0c0; }
+.direction-benefit { background: #eaf5ef; color: #157a3e; border: 1px solid #c0e0cc; }
+.direction-explain { font-size: 0.72rem; color: #4a5560; margin: 0 0 12px 0; }
 .stock-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
-.stock-item { background: #12121a; border: 1px solid #1e1e2e; border-radius: 10px; padding: 14px 16px; transition: border-color 0.2s; display: flex; gap: 16px; }
-.stock-item:hover { border-color: #2a2a4a; }
+.stock-item { background: #fff; border: 1px solid #e2e8ed; border-radius: 10px; padding: 14px 16px; transition: border-color 0.2s; display: flex; gap: 16px; }
+.stock-item:hover { border-color: #c5d0d8; }
 .stock-left { flex: 1; min-width: 0; }
-.stock-right { flex: 0 0 340px; border-left: 1px solid #1e1e2e; padding-left: 14px; }
-@media (max-width: 800px) { .stock-item { flex-direction: column; } .stock-right { flex: none; border-left: none; padding-left: 0; border-top: 1px solid #1e1e2e; padding-top: 10px; } }
-.stock-logo { width: 28px; height: 28px; border-radius: 6px; background: #1a1a28; object-fit: contain; border: 1px solid #2a2a3a; vertical-align: middle; margin-right: 8px; }
-.stock-item-name { font-size: 0.82rem; font-weight: 700; color: #fff; display: flex; align-items: center; }
-.stock-item-ticker { font-size: 0.62rem; color: #555; font-family: monospace; }
-.stock-item-sector { font-size: 0.62rem; color: #4ecdc4; margin-top: 2px; }
-.stock-item-why { font-size: 0.72rem; color: #999; margin-top: 6px; line-height: 1.5; }
+.stock-right { flex: 0 0 340px; border-left: 1px solid #f0ece5; padding-left: 14px; }
+@media (max-width: 800px) { .stock-item { flex-direction: column; } .stock-right { flex: none; border-left: none; padding-left: 0; border-top: 1px solid #f0ece5; padding-top: 10px; } }
+.stock-logo { width: 28px; height: 28px; border-radius: 6px; background: #fff; object-fit: contain; border: 1px solid #e2e8ed; vertical-align: middle; margin-right: 8px; }
+.stock-item-name { font-size: 0.82rem; font-weight: 700; color: #1a2a38; display: flex; align-items: center; }
+.stock-item-ticker { font-size: 0.62rem; color: #6a7a88; font-family: monospace; }
+.stock-item-sector { font-size: 0.62rem; color: #2a6a90; margin-top: 2px; }
+.stock-item-why { font-size: 0.72rem; color: #4a5560; margin-top: 6px; line-height: 1.5; }
 .stock-item-stats { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
 .stock-stat { font-size: 0.65rem; }
-.stock-stat .stat-label { color: #555; }
+.stock-stat .stat-label { color: #6a6050; }
 .stock-stat .stat-value { font-weight: 700; }
-.val-red { color: #ff6b6b; }
-.val-green { color: #6bcb77; }
-.val-amber { color: #ffa502; }
+.val-red { color: #c43030; }
+.val-green { color: #157a3e; }
+.val-amber { color: #b07800; }
 .fund-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 10px; font-size: 0.65rem; }
-.fund-row { display: flex; justify-content: space-between; padding: 2px 0; border-bottom: 1px solid #0e0e16; }
-.fund-lbl { color: #666; }
-.fund-val { font-weight: 600; color: #ccc; text-align: right; }
-.fund-val.stale { color: #ff6b6b; font-style: italic; }
-.fund-analyst { margin-top: 6px; padding: 6px 8px; background: #0e0e16; border-radius: 6px; font-size: 0.62rem; }
-.fund-analyst .target { color: #6bcb77; font-weight: 700; }
-.fund-src { font-size: 0.55rem; color: #444; margin-top: 4px; }
-.corr-box { margin-top: 8px; padding: 8px 10px; background: #0e0e16; border: 1px solid #1e1e30; border-radius: 8px; }
-.corr-title { font-size: 0.62rem; font-weight: 700; color: #ffd93d; margin-bottom: 6px; }
+.fund-row { display: flex; justify-content: space-between; padding: 2px 0; border-bottom: 1px solid #f0ece5; }
+.fund-lbl { color: #6a6050; }
+.fund-val { font-weight: 600; color: #1a2a38; text-align: right; }
+.fund-val.stale { color: #c43030; font-style: italic; }
+.fund-analyst { margin-top: 6px; padding: 6px 8px; background: #f5f2ec; border-radius: 6px; font-size: 0.62rem; }
+.fund-analyst .target { color: #157a3e; font-weight: 700; }
+.fund-src { font-size: 0.55rem; color: #6a7a88; margin-top: 4px; }
+.corr-box { margin-top: 8px; padding: 8px 10px; background: #f2f6fa; border: 1px solid #dce6ee; border-radius: 8px; }
+.corr-title { font-size: 0.62rem; font-weight: 700; color: #2a6a90; margin-bottom: 6px; }
 .corr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.corr-card { background: #12121a; border: 1px solid #1e1e2e; border-radius: 6px; padding: 8px; text-align: center; }
-.corr-period { font-size: 0.55rem; color: #666; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 4px; }
+.corr-card { background: #fff; border: 1px solid #dce6ee; border-radius: 6px; padding: 8px; text-align: center; }
+.corr-period { font-size: 0.55rem; color: #6a7a88; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 4px; }
 .corr-proj { font-size: 1rem; font-weight: 800; }
-.corr-meta { font-size: 0.5rem; color: #555; margin-top: 3px; }
-.corr-note { font-size: 0.5rem; color: #444; margin-top: 6px; font-style: italic; }
+.corr-meta { font-size: 0.5rem; color: #6a7a88; margin-top: 3px; }
+.corr-note { font-size: 0.5rem; color: #6a6050; margin-top: 6px; font-style: italic; }
 
-.footer { border-top: 1px solid #1a1a28; padding: 20px 0; margin-top: 30px; font-size: 0.68rem; color: #555; text-align: center; }
-.footer a { color: #4ecdc4; text-decoration: none; }
+.footer { border-top: 1px solid #f0ece5; padding: 20px 0; margin-top: 30px; font-size: 0.68rem; color: #6a6050; text-align: center; }
+.footer a { color: #2a6a90; text-decoration: none; }
 </style>
 </head>
 <body>
@@ -124,7 +124,7 @@ async function loadData() {
     corrData = corr;
     render(analysis);
   } catch(e) {
-    document.getElementById('app').innerHTML = '<p style="color:#ff6b6b">Error: ' + e.message + '</p>';
+    document.getElementById('app').innerHTML = '<p style="color:#c43030">Error: ' + e.message + '</p>';
   }
 }
 
@@ -161,13 +161,13 @@ function toCagr(totalRetPct, years) {
 }
 
 function retColor(v) {
-  if (v === null || v === undefined) return '#555';
-  if (v > 25) return '#4ade80';
-  if (v > 10) return '#6bcb77';
-  if (v > 0) return '#86efac';
-  if (v > -10) return '#fca5a5';
-  if (v > -25) return '#ff6b6b';
-  return '#ff4757';
+  if (v === null || v === undefined) return '#6a7a88';
+  if (v > 25) return '#0e6830';
+  if (v > 10) return '#157a3e';
+  if (v > 0) return '#2a8a50';
+  if (v > -10) return '#c44040';
+  if (v > -25) return '#c43030';
+  return '#a02020';
 }
 
 function fmtPrice(v) {
@@ -240,7 +240,7 @@ function renderTilePanel(watchlist) {
       var c2 = f && f.status === 'ok' ? toCagr(f.return_2y_pct, 2) : null;
       var c5 = f && f.status === 'ok' ? toCagr(f.return_5y_pct, 5) : null;
       var isHurt = item.dir === 'hurt_by_drought';
-      var nameBg = isHurt ? '#cc0000' : '#00873e';
+      var nameBg = isHurt ? '#c43030' : '#157a3e';
       var nameColor = '#fff';
       var sid = stockId(s.ticker);
 
@@ -256,7 +256,7 @@ function renderTilePanel(watchlist) {
       html += '<div class="tile-cmp">₹' + (cmp ? cmp.toLocaleString() : '-') + '</div>';
       html += '<div class="tile-row"><span class="tile-lbl">52W H / L</span><span class="tile-val">' + fmtPrice(high52) + ' / ' + fmtPrice(low52) + '</span></div>';
 
-      html += '<div style="margin-top:6px;font-size:0.5rem;color:#555;text-transform:uppercase;letter-spacing:0.5px">Share Price CAGR</div>';
+      html += '<div style="margin-top:6px;font-size:0.5rem;color:#6a7a88;text-transform:uppercase;letter-spacing:0.5px">Share Price CAGR</div>';
       html += '<div class="tile-returns">';
       html += '<div class="tile-ret"><span class="ret-label">1Y</span><span style="color:' + retColor(c1) + '">' + fmtCagr(c1) + '</span></div>';
       html += '<div class="tile-ret"><span class="ret-label">2Y</span><span style="color:' + retColor(c2) + '">' + fmtCagr(c2) + '</span></div>';
@@ -280,18 +280,18 @@ function render(a) {
   html += '<div class="summary-box">';
   html += '<h2>The Simple Idea</h2>';
   html += '<p>If the monsoon is weak (which we think has a <span class="highlight">' + Math.round(w.LOW * 100) + '% chance</span> this year), some companies get hurt and some actually benefit.</p>';
-  html += '<p><span class="highlight" style="color:#6bcb77">▲ Green tiles = Positive estimated excess return</span> — historically outperformed Nifty 50 in low-rainfall years (based on regression model).</p>';
-  html += '<p><span class="highlight" style="color:#ff6b6b">▼ Red tiles = Negative estimated excess return</span> — historically underperformed Nifty 50 in low-rainfall years (based on regression model).</p>';
-  html += '<p style="font-size:0.72rem;color:#888;margin-top:4px">Stocks are ordered from <strong style="color:#6bcb77">highest positive excess return</strong> (top) to <strong style="color:#ff6b6b">most negative excess return</strong> (bottom). Color-coding is data-driven — based on historical correlation, not industry assumptions. Click any stock name to jump to its detailed analysis.</p>';
+  html += '<p><span class="highlight" style="color:#157a3e">▲ Green tiles = Positive estimated excess return</span> — historically outperformed Nifty 50 in low-rainfall years (based on regression model).</p>';
+  html += '<p><span class="highlight" style="color:#c43030">▼ Red tiles = Negative estimated excess return</span> — historically underperformed Nifty 50 in low-rainfall years (based on regression model).</p>';
+  html += '<p style="font-size:0.72rem;color:#6a6050;margin-top:4px">Stocks are ordered from <strong style="color:#157a3e">highest positive excess return</strong> (top) to <strong style="color:#c43030">most negative excess return</strong> (bottom). Color-coding is data-driven — based on historical correlation, not industry assumptions. Click any stock name to jump to its detailed analysis.</p>';
   html += '</div>';
 
   // Summary tile panel
   html += renderTilePanel(a.watchlist);
 
   // Deep dive header
-  html += '<div style="text-align:center;margin:32px 0 16px;padding:16px;background:#12121a;border-radius:10px;border:1px solid #1e1e2e">';
-  html += '<div style="font-size:1rem;font-weight:800;color:#fff">Deep Dive: Stock-by-Stock Analysis</div>';
-  html += '<div style="font-size:0.72rem;color:#666;margin-top:4px">Fundamentals, analyst targets, and monsoon sensitivity for each stock</div>';
+  html += '<div style="text-align:center;margin:32px 0 16px;padding:16px;background:#fff;border-radius:10px;border:1px solid #e2e8ed">';
+  html += '<div style="font-size:1rem;font-weight:800;color:#1a2a38">Deep Dive: Stock-by-Stock Analysis</div>';
+  html += '<div style="font-size:0.72rem;color:#6a7a88;margin-top:4px">Fundamentals, analyst targets, and monsoon sensitivity for each stock</div>';
   html += '</div>';
 
   // Render each cap segment (detailed)
@@ -328,9 +328,9 @@ function render(a) {
 
   // Methodology note for correlation
   if (corrData) {
-    html += '<div style="background:#1a1a28;border:1px solid #ffd93d33;border-radius:10px;padding:16px;margin-top:20px">';
-    html += '<div style="font-size:0.78rem;font-weight:700;color:#ffd93d;margin-bottom:6px">Monsoon × Stock Return: Methodology</div>';
-    html += '<div style="font-size:0.72rem;color:#aaa;line-height:1.7">';
+    html += '<div style="background:#f2f6fa;border:1px solid #dce6ee;border-radius:10px;padding:16px;margin-top:20px">';
+    html += '<div style="font-size:0.78rem;font-weight:700;color:#2a6a90;margin-bottom:6px">Monsoon × Stock Return: Methodology</div>';
+    html += '<div style="font-size:0.72rem;color:#4a5560;line-height:1.7">';
     html += 'For each stock, we ran a <strong>simple linear regression</strong> of post-monsoon <strong>excess returns</strong> (stock return minus Nifty 50 return) against India\'s total June–September (JJAS) monsoon rainfall. ';
     html += 'Using excess returns strips out the broader market movement and isolates the monsoon-specific effect on each stock. ';
     html += 'Data covers <strong>up to 9 monsoon seasons (2014–2024)</strong>, excluding 2020 and 2021 (COVID years distorted market behavior). Some newer stocks have fewer years of data — these are flagged with a warning. ';
@@ -374,7 +374,7 @@ function renderStock(s, w) {
   html += '<div class="stock-item-why">' + s.why + '</div>';
   if (s.analysis && s.analysis.outlook_2026) {
     var o = s.analysis.outlook_2026;
-    var mc = o.weighted_mean < -2 ? 'val-red' : o.weighted_mean > 2 ? 'val-green' : 'val-amber';
+    var mc = o.weighted_mean < -2 ? 'val-red' : o.weighted_mean > 2 ? 'val-green' : '';
     html += '<div class="stock-item-stats">';
     html += '<div class="stock-stat"><span class="stat-label">Sector proxy: </span><span class="stat-value ' + mc + '">' + (o.weighted_mean > 0 ? '+' : '') + o.weighted_mean + '%</span></div>';
     html += '<div class="stock-stat"><span class="stat-label">P(underperform): </span><span class="stat-value">' + o.p_negative + '%</span></div>';
@@ -398,41 +398,41 @@ function renderStock(s, w) {
     html += '</div>';
     html += '<div class="fund-src">Source: Yahoo Finance | as of ' + (f.fetched_at ? f.fetched_at.substring(0,10) : '?') + '</div>';
   } else if (f && f.status === 'error') {
-    html += '<div style="font-size:0.65rem;color:#ff6b6b;padding:8px">SOURCE UNREACHABLE<br><span style="color:#555">' + (f.error || 'ticker not found') + '</span></div>';
+    html += '<div style="font-size:0.65rem;color:#c43030;padding:8px">SOURCE UNREACHABLE<br><span style="color:#6a7a88">' + (f.error || 'ticker not found') + '</span></div>';
   } else {
-    html += '<div style="font-size:0.65rem;color:#555;padding:8px">Fundamentals loading...</div>';
+    html += '<div style="font-size:0.65rem;color:#6a7a88;padding:8px">Fundamentals loading...</div>';
   }
 
   var cr = corrData && corrData.stocks ? corrData.stocks[s.ticker] : null;
   if (cr) {
     html += '<div class="corr-box">';
-    html += '<div class="corr-title">Monsoon Rainfall × Excess Return <span style="font-weight:400;color:#666">(vs Nifty 50)</span></div>';
+    html += '<div class="corr-title">Monsoon Rainfall × Excess Return <span style="font-weight:400;color:#6a7a88">(vs Nifty 50)</span></div>';
     html += '<div class="corr-grid">';
 
     if (cr.projected_excess_return_6m_pct !== null && cr.projected_excess_return_6m_pct !== undefined) {
       var v6 = cr.projected_excess_return_6m_pct;
-      var c6 = v6 > 0 ? '#6bcb77' : v6 < 0 ? '#ff6b6b' : '#888';
+      var c6 = v6 > 0 ? '#157a3e' : v6 < 0 ? '#c43030' : '#6a7a88';
       var r6 = cr.regression_6m;
       html += '<div class="corr-card">';
       html += '<div class="corr-period">Est. 6M Excess Return</div>';
       html += '<div class="corr-proj" style="color:' + c6 + '">' + (v6 > 0 ? '+' : '') + v6 + '%</div>';
       html += '<div class="corr-meta">r = ' + (r6 ? r6.correlation.toFixed(2) : '?') + ' | R² = ' + (r6 ? r6.r_squared.toFixed(2) : '?') + ' | n = ' + (r6 ? r6.n_years : '?') + ' yrs</div>';
       if (cr.sample_flag_6m) {
-        html += '<div style="font-size:0.5rem;color:#ffa502;margin-top:3px">⚠ ' + cr.sample_flag_6m + '</div>';
+        html += '<div style="font-size:0.5rem;color:#b07800;margin-top:3px">⚠ ' + cr.sample_flag_6m + '</div>';
       }
       html += '</div>';
     }
 
     if (cr.projected_excess_return_1y_pct !== null && cr.projected_excess_return_1y_pct !== undefined) {
       var v1y = cr.projected_excess_return_1y_pct;
-      var c1y = v1y > 0 ? '#6bcb77' : v1y < 0 ? '#ff6b6b' : '#888';
+      var c1y = v1y > 0 ? '#157a3e' : v1y < 0 ? '#c43030' : '#6a7a88';
       var r1y = cr.regression_1y;
       html += '<div class="corr-card">';
       html += '<div class="corr-period">Est. 1Y Excess Return</div>';
       html += '<div class="corr-proj" style="color:' + c1y + '">' + (v1y > 0 ? '+' : '') + v1y + '%</div>';
       html += '<div class="corr-meta">r = ' + (r1y ? r1y.correlation.toFixed(2) : '?') + ' | R² = ' + (r1y ? r1y.r_squared.toFixed(2) : '?') + ' | n = ' + (r1y ? r1y.n_years : '?') + ' yrs</div>';
       if (cr.sample_flag_1y) {
-        html += '<div style="font-size:0.5rem;color:#ffa502;margin-top:3px">⚠ ' + cr.sample_flag_1y + '</div>';
+        html += '<div style="font-size:0.5rem;color:#b07800;margin-top:3px">⚠ ' + cr.sample_flag_1y + '</div>';
       }
       html += '</div>';
     }

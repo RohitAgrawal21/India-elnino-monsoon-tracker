@@ -8,50 +8,50 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: #faf8f5; color: #1a2a38; line-height: 1.6; min-height: 100vh; }
 .container { max-width: 900px; margin: 0 auto; padding: 20px 16px; }
-.header { text-align: center; padding: 20px 0 10px; }
-.header h1 { font-size: 1.6rem; font-weight: 900; background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.header { text-align: center; padding: 20px 0 10px; background: linear-gradient(135deg, #f0f5fa, #f8f5f0); border-radius: 12px; margin-bottom: 4px; }
+.header h1 { font-size: 1.6rem; font-weight: 900; color: #1a2a38; }
 .tab-nav { display: flex; justify-content: center; gap: 4px; margin: 16px 0; flex-wrap: wrap; }
-.tab-nav a { padding: 8px 16px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #888; text-decoration: none; border-radius: 6px; border: 1px solid transparent; transition: all 0.2s; }
-.tab-nav a:hover { color: #ddd; border-color: #2a2a3a; background: #1a1a28; }
-.tab-nav a.active { color: #4ecdc4; border-color: #4ecdc444; background: #4ecdc410; }
-.disclaimer { background: #1a1a28; border: 1px solid #ff6b6b33; border-radius: 8px; padding: 10px 16px; margin-bottom: 20px; font-size: 0.72rem; color: #bbb; text-align: center; }
-.disclaimer strong { color: #ff6b6b; }
+.tab-nav a { padding: 8px 16px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #5a6a78; text-decoration: none; border-radius: 6px; border: 1px solid transparent; transition: all 0.2s; }
+.tab-nav a:hover { color: #1a2a38; border-color: #c5d0d8; background: #f0f5fa; }
+.tab-nav a.active { color: #fff; border-color: #4a90b8; background: #4a90b8; }
+.disclaimer { background: #fef6f5; border: 1px solid #f0d0cc; border-radius: 8px; padding: 10px 16px; margin-bottom: 20px; font-size: 0.72rem; color: #4a5560; text-align: center; }
+.disclaimer strong { color: #c43030; }
 
-.summary-box { background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid #2a2a4a; border-radius: 12px; padding: 22px 26px; margin-bottom: 24px; }
-.summary-box h2 { font-size: 1rem; font-weight: 800; color: #ffd93d; margin-bottom: 10px; }
-.summary-box p { font-size: 0.82rem; color: #ccc; margin-bottom: 8px; line-height: 1.7; }
-.summary-box .hl { color: #fff; font-weight: 700; }
+.summary-box { background: #f5f2ec; border: 1px solid #ebe6dc; border-radius: 12px; padding: 22px 26px; margin-bottom: 24px; }
+.summary-box h2 { font-size: 1rem; font-weight: 800; color: #3d3020; margin-bottom: 10px; }
+.summary-box p { font-size: 0.82rem; color: #5a4e3a; margin-bottom: 8px; line-height: 1.7; }
+.summary-box .hl { color: #1a2a38; font-weight: 700; }
 
 .ranking-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.78rem; }
-.ranking-table th { background: #1a1a28; color: #888; font-weight: 600; text-align: left; padding: 10px 12px; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.3px; }
-.ranking-table td { padding: 12px; border-bottom: 1px solid #1a1a28; vertical-align: middle; }
-.ranking-table tr:hover { background: #12121a; }
-.sector-name { font-weight: 700; color: #fff; }
-.sector-mechanism { font-size: 0.7rem; color: #888; margin-top: 2px; }
-.bar-container { width: 100%; height: 6px; background: #1a1a28; border-radius: 3px; overflow: hidden; margin-top: 4px; }
+.ranking-table th { background: #f0f5fa; color: #6a7a88; font-weight: 600; text-align: left; padding: 10px 12px; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.3px; }
+.ranking-table td { padding: 12px; border-bottom: 1px solid #f0ece5; vertical-align: middle; }
+.ranking-table tr:hover { background: #f5f8fa; }
+.sector-name { font-weight: 700; color: #1a2a38; }
+.sector-mechanism { font-size: 0.7rem; color: #6a7a88; margin-top: 2px; }
+.bar-container { width: 100%; height: 6px; background: #e8edf2; border-radius: 3px; overflow: hidden; margin-top: 4px; }
 .bar-fill { height: 100%; border-radius: 3px; }
 .logo-row { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
-.logo-row img { width: 22px; height: 22px; border-radius: 50%; background: #222; object-fit: contain; border: 1px solid #2a2a3a; }
+.logo-row img { width: 22px; height: 22px; border-radius: 50%; background: #f0f5fa; object-fit: contain; border: 1px solid #e2e8ed; }
 .mini-gauge { display: inline-block; width: 52px; height: 30px; vertical-align: middle; margin-right: 4px; }
 .excess-pill { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; }
 .prob-ring { display: inline-flex; align-items: center; gap: 4px; }
 
-.section-title { font-size: 0.9rem; font-weight: 800; color: #fff; margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 1px solid #1e1e2e; }
-.card { background: #12121a; border: 1px solid #1e1e2e; border-radius: 12px; padding: 18px; margin-bottom: 12px; }
-.card h3 { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
-.card .plain { font-size: 0.76rem; color: #aaa; margin: 6px 0; line-height: 1.6; }
+.section-title { font-size: 0.9rem; font-weight: 800; color: #1a2a38; margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 1px solid #e2e8ed; }
+.card { background: #fff; border: 1px solid #e2e8ed; border-radius: 12px; padding: 18px; margin-bottom: 12px; }
+.card h3 { font-size: 0.85rem; font-weight: 700; color: #1a2a38; margin-bottom: 4px; }
+.card .plain { font-size: 0.76rem; color: #4a5560; margin: 6px 0; line-height: 1.6; }
 .stat-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0; }
-.stat-box { background: #0e0e16; border: 1px solid #1e1e30; border-radius: 8px; padding: 8px 12px; text-align: center; min-width: 100px; }
+.stat-box { background: #faf8f5; border: 1px solid #f0ece5; border-radius: 8px; padding: 8px 12px; text-align: center; min-width: 100px; }
 .stat-box .num { font-size: 1.2rem; font-weight: 800; }
-.stat-box .lbl { font-size: 0.58rem; color: #666; text-transform: uppercase; margin-top: 2px; }
-.val-red { color: #ff6b6b; }
-.val-green { color: #6bcb77; }
-.val-amber { color: #ffa502; }
+.stat-box .lbl { font-size: 0.58rem; color: #6a7a88; text-transform: uppercase; margin-top: 2px; }
+.val-red { color: #c43030; }
+.val-green { color: #157a3e; }
+.val-amber { color: #b07800; }
 
-.footer { border-top: 1px solid #1a1a28; padding: 20px 0; margin-top: 30px; font-size: 0.68rem; color: #555; text-align: center; }
-.footer a { color: #4ecdc4; text-decoration: none; }
+.footer { border-top: 1px solid #f0ece5; padding: 20px 0; margin-top: 30px; font-size: 0.68rem; color: #6a6050; text-align: center; }
+.footer a { color: #2a6a90; text-decoration: none; }
 @media (max-width: 600px) {
   .ranking-table { font-size: 0.7rem; }
   .ranking-table th, .ranking-table td { padding: 8px 6px; }
@@ -77,7 +77,7 @@ async function loadData() {
     const analysis = await fetch('analysis.json?v=' + Date.now()).then(r => r.json());
     render(analysis);
   } catch(e) {
-    document.getElementById('app').innerHTML = '<p style="color:#ff6b6b">Error: ' + e.message + '</p>';
+    document.getElementById('app').innerHTML = '<p style="color:#c43030">Error: ' + e.message + '</p>';
   }
 }
 
@@ -96,40 +96,40 @@ var SECTOR_LOGOS = {
 function logoImg(domain, name) {
   var initials = (name || domain.split('.')[0]).substring(0, 2).toUpperCase();
   var c = initials.charCodeAt(0) % 6;
-  var colors = ['%234ecdc4','%23ff6b6b','%236bcb77','%23ffd93d','%23ffa502','%23a78bfa'];
+  var colors = ['%232a6a90','%23c43030','%23157a3e','%23b07800','%234a90b8','%237a5530'];
   var fallbackSvg = "data:image/svg+xml," +
     "<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2264%22 height=%2264%22>" +
-    "<rect width=%2264%22 height=%2264%22 rx=%2232%22 fill=%22%231a1a28%22/>" +
+    "<rect width=%2264%22 height=%2264%22 rx=%2232%22 fill=%22%23f0f5fa%22/>" +
     "<text x=%2232%22 y=%2240%22 text-anchor=%22middle%22 fill=%22" + colors[c] + "%22 font-size=%2222%22 font-weight=%22700%22 font-family=%22Inter,sans-serif%22>" + initials + "</text></svg>";
   return '<span class="logo-wrap">' +
     '<img src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://' + domain + '&size=128" ' +
     'onerror="this.onerror=null;this.src=\'' + fallbackSvg + '\'" ' +
-    'alt="' + (name||'') + '" loading="lazy" style="width:22px;height:22px;border-radius:50%;background:#222;object-fit:contain;border:1px solid #2a2a3a">' +
+    'alt="' + (name||'') + '" loading="lazy" style="width:22px;height:22px;border-radius:50%;background:#f0f5fa;object-fit:contain;border:1px solid #e2e8ed">' +
     '</span>';
 }
 
 function miniGaugeSVG(pct, maxAbs) {
   var w = 52, h = 28, r = 10, cx = 26, cy = 22;
   var frac = Math.min(1, Math.abs(pct) / Math.max(maxAbs, 1));
-  var color = pct > 2 ? '#6bcb77' : pct < -2 ? '#ff6b6b' : '#ffa502';
+  var color = pct > 2 ? '#157a3e' : pct < -2 ? '#c43030' : '#b07800';
   var angle = frac * Math.PI;
   var dir = pct >= 0 ? -1 : 1;
   var ex = cx + dir * r * Math.cos(Math.PI - angle);
   var ey = cy - r * Math.sin(Math.PI - angle);
   var lf = angle > Math.PI/2 ? 1 : 0;
   return '<svg class="mini-gauge" viewBox="0 0 '+w+' '+h+'">' +
-    '<path d="M'+(cx-r)+' '+cy+' A '+r+' '+r+' 0 1 1 '+(cx+r)+' '+cy+'" fill="none" stroke="#1e1e2e" stroke-width="3" stroke-linecap="round"/>' +
+    '<path d="M'+(cx-r)+' '+cy+' A '+r+' '+r+' 0 1 1 '+(cx+r)+' '+cy+'" fill="none" stroke="#e2e8ed" stroke-width="3" stroke-linecap="round"/>' +
     '<path d="M'+cx+' '+(cy-r)+' A '+r+' '+r+' 0 '+lf+' '+(pct>=0?0:1)+' '+ex.toFixed(1)+' '+ey.toFixed(1)+'" fill="none" stroke="'+color+'" stroke-width="3" stroke-linecap="round"/>' +
     '</svg>';
 }
 
 function probRingSVG(pct) {
   var r = 11, cx = 13, cy = 13, sw = 3;
-  var color = pct > 60 ? '#ff6b6b' : pct > 40 ? '#ffa502' : '#6bcb77';
+  var color = pct > 60 ? '#c43030' : pct > 40 ? '#b07800' : '#157a3e';
   var circ = 2 * Math.PI * r;
   var offset = circ * (1 - pct / 100);
   return '<svg width="26" height="26" viewBox="0 0 26 26">' +
-    '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="#1e1e2e" stroke-width="'+sw+'"/>' +
+    '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="#e2e8ed" stroke-width="'+sw+'"/>' +
     '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+color+'" stroke-width="'+sw+'" ' +
     'stroke-dasharray="'+circ.toFixed(1)+'" stroke-dashoffset="'+offset.toFixed(1)+'" transform="rotate(-90 '+cx+' '+cy+')" stroke-linecap="round"/>' +
     '</svg>';
@@ -143,8 +143,8 @@ function render(a) {
   // Compact intro + how to read (#6 - moved up, shorter)
   html += '<div class="summary-box">';
   html += '<h2>Which Sectors Win or Lose in a Weak Monsoon?</h2>';
-  html += '<p><span class="hl">"Excess return"</span> = how much a sector beats or lags the Nifty50 during Jun-Sep. Example: if Nifty50 returns +5% and Auto returns +2%, Auto\'s excess is <span class="hl" style="color:#ff6b6b">-3%</span>. We use excess (not absolute) because in 2009, every sector rallied 76% on global QE during a severe drought — excess return shows who still lags <em>relative</em> to the market.</p>';
-  html += '<p><span class="hl" style="color:#ff6b6b">Red</span> = tends to underperform Nifty in drought &nbsp;|&nbsp; <span class="hl" style="color:#6bcb77">Green</span> = tends to outperform &nbsp;|&nbsp; <strong>P(Underperform)</strong> = probability of doing worse than Nifty50.</p>';
+  html += '<p><span class="hl">"Excess return"</span> = how much a sector beats or lags the Nifty50 during Jun-Sep. Example: if Nifty50 returns +5% and Auto returns +2%, Auto\'s excess is <span class="hl" style="color:#c43030">-3%</span>. We use excess (not absolute) because in 2009, every sector rallied 76% on global QE during a severe drought — excess return shows who still lags <em>relative</em> to the market.</p>';
+  html += '<p><span class="hl" style="color:#c43030">Red</span> = tends to underperform Nifty in drought &nbsp;|&nbsp; <span class="hl" style="color:#157a3e">Green</span> = tends to outperform &nbsp;|&nbsp; <strong>P(Underperform)</strong> = probability of doing worse than Nifty50.</p>';
   html += '</div>';
 
   // Rankings table with logos (#7, #8)
@@ -158,11 +158,11 @@ function render(a) {
     html += '<tr><th>#</th><th>Sector</th><th>Expected Excess Return</th><th>P(Underperform)</th><th>Key Stocks</th></tr>';
 
     sorted.forEach(function(r, i) {
-      var color = r.weighted_mean_excess > 2 ? '#6bcb77' : r.weighted_mean_excess < -2 ? '#ff6b6b' : '#ffa502';
+      var color = r.weighted_mean_excess > 2 ? '#157a3e' : r.weighted_mean_excess < -2 ? '#c43030' : '#b07800';
       var barWidth = Math.abs(r.weighted_mean_excess) / maxAbs * 100;
-      var pColor = r.p_negative > 60 ? '#ff6b6b' : r.p_negative > 40 ? '#ffa502' : '#6bcb77';
+      var pColor = r.p_negative > 60 ? '#c43030' : r.p_negative > 40 ? '#b07800' : '#157a3e';
       html += '<tr>';
-      html += '<td style="color:#555;font-weight:700;font-size:0.9rem">' + (i+1) + '</td>';
+      html += '<td style="color:#6a7a88;font-weight:700;font-size:0.9rem">' + (i+1) + '</td>';
       html += '<td><div class="sector-name">' + r.sector + '</div></td>';
       // Excess return with visual bar
       html += '<td>';
@@ -194,7 +194,7 @@ function render(a) {
       if (!monsoon || !monsoon.outlook_2026) return;
       var o = monsoon.outlook_2026;
       var color = o.weighted_mean < -2 ? 'val-red' : o.weighted_mean > 2 ? 'val-green' : 'val-amber';
-      var hexColor = o.weighted_mean < -2 ? '#ff6b6b' : o.weighted_mean > 2 ? '#6bcb77' : '#ffa502';
+      var hexColor = o.weighted_mean < -2 ? '#c43030' : o.weighted_mean > 2 ? '#157a3e' : '#b07800';
 
       html += '<div class="card">';
       html += '<h3>' + s.name + '</h3>';
@@ -224,7 +224,7 @@ function render(a) {
       var logos = SECTOR_LOGOS[key] || [];
       if (logos.length) {
         html += '<div style="margin-top:8px" class="logo-row">';
-        logos.forEach(function(l) { html += logoImg(l.d) + '<span style="font-size:0.6rem;color:#555">' + l.n + '</span> '; });
+        logos.forEach(function(l) { html += logoImg(l.d) + '<span style="font-size:0.6rem;color:#6a7a88">' + l.n + '</span> '; });
         html += '</div>';
       }
       html += '</div>';
@@ -234,8 +234,8 @@ function render(a) {
   // Data source
   var dataSource = (sectors && sectors.data_source) ? sectors.data_source : 'Estimated';
   var isReal = dataSource.indexOf('Yahoo Finance') >= 0;
-  html += '<div class="card" style="border-color:' + (isReal ? '#6bcb7733' : '#ff6b6b33') + '">';
-  html += '<h3 style="color:' + (isReal ? '#6bcb77' : '#ff6b6b') + '">' + (isReal ? 'Data: Real NSE Index Prices via Yahoo Finance' : 'Data Reliability Warning') + '</h3>';
+  html += '<div class="card" style="border-color:' + (isReal ? '#157a3e33' : '#c4303033') + '">';
+  html += '<h3 style="color:' + (isReal ? '#157a3e' : '#c43030') + '">' + (isReal ? 'Data: Real NSE Index Prices via Yahoo Finance' : 'Data Reliability Warning') + '</h3>';
   html += '<div class="plain">';
   if (isReal) html += 'Monthly close-to-close sector returns minus Nifty50 returns. ~10-18 years per sector. ';
   html += 'Small samples + global macro can overwhelm monsoon signals. <strong>Directional indicators, not precise forecasts.</strong>';

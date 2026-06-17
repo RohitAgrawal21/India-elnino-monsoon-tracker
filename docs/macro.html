@@ -8,47 +8,47 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: #faf8f5; color: #1a2a38; line-height: 1.6; min-height: 100vh; }
 .container { max-width: 900px; margin: 0 auto; padding: 20px 16px; }
-.header { text-align: center; padding: 20px 0 10px; }
-.header h1 { font-size: 1.6rem; font-weight: 900; background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.header { text-align: center; padding: 20px 0 10px; background: linear-gradient(135deg, #f0f5fa, #f8f5f0); border-radius: 12px; margin-bottom: 4px; }
+.header h1 { font-size: 1.6rem; font-weight: 900; color: #1a2a38; }
 .tab-nav { display: flex; justify-content: center; gap: 4px; margin: 16px 0; flex-wrap: wrap; }
-.tab-nav a { padding: 8px 16px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #888; text-decoration: none; border-radius: 6px; border: 1px solid transparent; transition: all 0.2s; }
-.tab-nav a:hover { color: #ddd; border-color: #2a2a3a; background: #1a1a28; }
-.tab-nav a.active { color: #4ecdc4; border-color: #4ecdc444; background: #4ecdc410; }
-.disclaimer { background: #1a1a28; border: 1px solid #ff6b6b33; border-radius: 8px; padding: 10px 16px; margin-bottom: 20px; font-size: 0.72rem; color: #bbb; text-align: center; }
-.disclaimer strong { color: #ff6b6b; }
+.tab-nav a { padding: 8px 16px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #5a6a78; text-decoration: none; border-radius: 6px; border: 1px solid transparent; transition: all 0.2s; }
+.tab-nav a:hover { color: #1a2a38; border-color: #c5d0d8; background: #f0f5fa; }
+.tab-nav a.active { color: #fff; border-color: #4a90b8; background: #4a90b8; }
+.disclaimer { background: #fef6f5; border: 1px solid #f0d0cc; border-radius: 8px; padding: 10px 16px; margin-bottom: 20px; font-size: 0.72rem; color: #4a5560; text-align: center; }
+.disclaimer strong { color: #c43030; }
 
-.summary-box { background: linear-gradient(135deg, #1a1a2e, #16213e); border: 1px solid #2a2a4a; border-radius: 12px; padding: 22px 26px; margin-bottom: 24px; }
-.summary-box h2 { font-size: 1rem; font-weight: 800; color: #ffd93d; margin-bottom: 12px; }
-.summary-box p { font-size: 0.85rem; color: #ccc; margin-bottom: 10px; line-height: 1.7; }
-.summary-box .hl { color: #fff; font-weight: 700; }
-.summary-box .hl-red { color: #ff6b6b; font-weight: 700; }
-.summary-box .hl-green { color: #6bcb77; font-weight: 700; }
+.summary-box { background: #f5f2ec; border: 1px solid #ebe6dc; border-radius: 12px; padding: 22px 26px; margin-bottom: 24px; }
+.summary-box h2 { font-size: 1rem; font-weight: 800; color: #3d3020; margin-bottom: 12px; }
+.summary-box p { font-size: 0.85rem; color: #5a4e3a; margin-bottom: 10px; line-height: 1.7; }
+.summary-box .hl { color: #1a2a38; font-weight: 700; }
+.summary-box .hl-red { color: #c43030; font-weight: 700; }
+.summary-box .hl-green { color: #157a3e; font-weight: 700; }
 
-.chain { margin: 20px 0; padding: 16px 20px; background: #12121a; border: 1px solid #1e1e2e; border-radius: 10px; }
-.chain h3 { font-size: 0.85rem; font-weight: 700; color: #4ecdc4; margin-bottom: 10px; }
-.chain-step { display: flex; align-items: center; gap: 8px; margin: 6px 0; font-size: 0.8rem; color: #bbb; }
-.chain-arrow { color: #ffd93d; font-weight: 700; }
+.chain { margin: 20px 0; padding: 16px 20px; background: #fff; border: 1px solid #e2e8ed; border-radius: 10px; }
+.chain h3 { font-size: 0.85rem; font-weight: 700; color: #2a6a90; margin-bottom: 10px; }
+.chain-step { display: flex; align-items: center; gap: 8px; margin: 6px 0; font-size: 0.8rem; color: #4a5560; }
+.chain-arrow { color: #b07800; font-weight: 700; }
 
-.card { background: #12121a; border: 1px solid #1e1e2e; border-radius: 12px; padding: 20px; margin-bottom: 14px; }
-.card h3 { font-size: 0.88rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
-.card .plain { font-size: 0.78rem; color: #aaa; margin: 8px 0; line-height: 1.6; }
-.card .plain strong { color: #ddd; }
-.card .source { font-size: 0.62rem; color: #555; }
+.card { background: #fff; border: 1px solid #e2e8ed; border-radius: 12px; padding: 20px; margin-bottom: 14px; }
+.card h3 { font-size: 0.88rem; font-weight: 800; color: #1a2a38; margin-bottom: 4px; }
+.card .plain { font-size: 0.78rem; color: #4a5560; margin: 8px 0; line-height: 1.6; }
+.card .plain strong { color: #1a2a38; }
+.card .source { font-size: 0.62rem; color: #6a7a88; }
 .stat-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
-.stat-box { background: #0e0e16; border: 1px solid #1e1e30; border-radius: 8px; padding: 10px 14px; flex: 1; min-width: 130px; text-align: center; }
+.stat-box { background: #faf8f5; border: 1px solid #f0ece5; border-radius: 8px; padding: 10px 14px; flex: 1; min-width: 130px; text-align: center; }
 .stat-box .num { font-size: 1.4rem; font-weight: 800; }
-.stat-box .lbl { font-size: 0.6rem; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
-.val-red { color: #ff6b6b; }
-.val-green { color: #6bcb77; }
-.val-amber { color: #ffa502; }
-.val-blue { color: #4ecdc4; }
+.stat-box .lbl { font-size: 0.6rem; color: #6a7a88; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
+.val-red { color: #c43030; }
+.val-green { color: #157a3e; }
+.val-amber { color: #b07800; }
+.val-blue { color: #2a6a90; }
 
-.caveat { font-size: 0.7rem; color: #666; font-style: italic; margin-top: 8px; padding-left: 10px; border-left: 2px solid #333; }
-.footnote { font-size: 0.68rem; color: #555; margin-top: 20px; padding: 12px 16px; background: #0e0e16; border-radius: 8px; }
-.footer { border-top: 1px solid #1a1a28; padding: 20px 0; margin-top: 30px; font-size: 0.68rem; color: #555; text-align: center; }
-.footer a { color: #4ecdc4; text-decoration: none; }
+.caveat { font-size: 0.7rem; color: #6a7a88; font-style: italic; margin-top: 8px; padding-left: 10px; border-left: 2px solid #c5d0d8; }
+.footnote { font-size: 0.68rem; color: #6a6050; margin-top: 20px; padding: 12px 16px; background: #faf8f5; border-radius: 8px; }
+.footer { border-top: 1px solid #f0ece5; padding: 20px 0; margin-top: 30px; font-size: 0.68rem; color: #6a6050; text-align: center; }
+.footer a { color: #2a6a90; text-decoration: none; }
 @media (max-width: 600px) {
   .stat-row { flex-direction: column; }
   .stat-box { min-width: unset; }
@@ -76,7 +76,7 @@ async function loadData() {
     ]);
     render(analysis, latest);
   } catch(e) {
-    document.getElementById('app').innerHTML = '<p style="color:#ff6b6b">Error: ' + e.message + '</p>';
+    document.getElementById('app').innerHTML = '<p style="color:#c43030">Error: ' + e.message + '</p>';
   }
 }
 
@@ -102,7 +102,7 @@ function render(a, latest) {
   html += '</div>';
 
   // 2026 scenario
-  html += '<div class="summary-box" style="border-color:#ff6b6b44">';
+  html += '<div class="summary-box" style="border-color:#c4303044">';
   html += '<h2>What Does This Mean for 2026?</h2>';
   html += '<p>We estimate a <span class="hl-red">' + Math.round(w.LOW * 100) + '% chance of drought</span> this year (based on El Nino probability + IMD forecast of 90% rainfall). If that happens, here\'s what history suggests:</p>';
   html += '</div>';
@@ -120,7 +120,7 @@ function render(a, latest) {
     var kpLow = kp.by_rainfall_bucket && kp.by_rainfall_bucket.LOW;
     var kpNorm = kp.by_rainfall_bucket && kp.by_rainfall_bucket.NORMAL;
     html += '<div class="stat-row">';
-    if (kpLow) html += '<div class="stat-box" style="border:1px solid #ff6b6b33"><div class="num val-red">' + kpLow.mean + '%</div><div class="lbl">IF DROUGHT (n=' + kpLow.n + ')</div></div>';
+    if (kpLow) html += '<div class="stat-box" style="border:1px solid #c4303033"><div class="num val-red">' + kpLow.mean + '%</div><div class="lbl">IF DROUGHT (n=' + kpLow.n + ')</div></div>';
     if (kpNorm) html += '<div class="stat-box"><div class="num val-green">' + kpNorm.mean + '%</div><div class="lbl">IF NORMAL RAIN (n=' + kpNorm.n + ')</div></div>';
     html += '<div class="stat-box"><div class="num val-amber">' + ko.weighted_mean + '%</div><div class="lbl">BLENDED 2026</div></div>';
     html += '</div>';
@@ -139,7 +139,7 @@ function render(a, latest) {
     var fiLow = fi.by_rainfall_bucket && fi.by_rainfall_bucket.LOW;
     var fiNorm = fi.by_rainfall_bucket && fi.by_rainfall_bucket.NORMAL;
     html += '<div class="stat-row">';
-    if (fiLow) html += '<div class="stat-box" style="border:1px solid #ff6b6b33"><div class="num val-red">' + fiLow.mean + '%</div><div class="lbl">IF DROUGHT (n=' + fiLow.n + ')</div></div>';
+    if (fiLow) html += '<div class="stat-box" style="border:1px solid #c4303033"><div class="num val-red">' + fiLow.mean + '%</div><div class="lbl">IF DROUGHT (n=' + fiLow.n + ')</div></div>';
     if (fiNorm) html += '<div class="stat-box"><div class="num val-green">' + fiNorm.mean + '%</div><div class="lbl">IF NORMAL RAIN (n=' + fiNorm.n + ')</div></div>';
     var fiColor = fo.weighted_mean > 7 ? 'val-red' : fo.weighted_mean > 5 ? 'val-amber' : 'val-green';
     html += '<div class="stat-box"><div class="num ' + fiColor + '">' + fo.weighted_mean + '%</div><div class="lbl">BLENDED 2026</div></div>';
@@ -159,7 +159,7 @@ function render(a, latest) {
     var agLow = ag.by_rainfall_bucket && ag.by_rainfall_bucket.LOW;
     var agNorm = ag.by_rainfall_bucket && ag.by_rainfall_bucket.NORMAL;
     html += '<div class="stat-row">';
-    if (agLow) html += '<div class="stat-box" style="border:1px solid #ff6b6b33"><div class="num val-red">' + agLow.mean + '%</div><div class="lbl">IF DROUGHT (n=' + agLow.n + ')</div></div>';
+    if (agLow) html += '<div class="stat-box" style="border:1px solid #c4303033"><div class="num val-red">' + agLow.mean + '%</div><div class="lbl">IF DROUGHT (n=' + agLow.n + ')</div></div>';
     if (agNorm) html += '<div class="stat-box"><div class="num val-green">' + agNorm.mean + '%</div><div class="lbl">IF NORMAL RAIN (n=' + agNorm.n + ')</div></div>';
     var agColor = ao.weighted_mean < 0 ? 'val-red' : ao.weighted_mean < 2 ? 'val-amber' : 'val-green';
     html += '<div class="stat-box"><div class="num ' + agColor + '">' + ao.weighted_mean + '%</div><div class="lbl">BLENDED 2026</div></div>';
@@ -184,7 +184,7 @@ function render(a, latest) {
     html += '<div class="plain">Tractor and two-wheeler sales are the best proxy for "how much money do farmers have?" This ripples through auto companies, dealers, and rural finance.</div>';
     html += '<div class="stat-row">';
     if (tsLow) {
-      html += '<div class="stat-box" style="border:1px solid #ff6b6b33"><div class="num val-red">' + tsLow.mean + '%</div><div class="lbl">IF DROUGHT (n=' + tsLow.n + ')</div></div>';
+      html += '<div class="stat-box" style="border:1px solid #c4303033"><div class="num val-red">' + tsLow.mean + '%</div><div class="lbl">IF DROUGHT (n=' + tsLow.n + ')</div></div>';
     }
     if (tsNorm) {
       html += '<div class="stat-box"><div class="num val-green">' + tsNorm.mean + '%</div><div class="lbl">IF NORMAL RAIN (n=' + tsNorm.n + ')</div></div>';
@@ -201,7 +201,7 @@ function render(a, latest) {
   if (macro.published_sensitivities) {
     var ps = macro.published_sensitivities;
     html += '<div class="footnote">';
-    html += '<strong style="color:#4ecdc4">Cross-check from RBI/Economic Survey:</strong><br>';
+    html += '<strong style="color:#2a6a90">Cross-check from RBI/Economic Survey:</strong><br>';
     html += '• 1% monsoon shortfall → ' + ps.monsoon_gdp_sensitivity.overall_gdp + ' GDP impact<br>';
     html += '• Drought food inflation: typically ' + ps.drought_food_inflation.typical_range + ' above normal<br>';
     html += '• RBI response: ' + ps.drought_rbi_response.typical + '<br>';
@@ -210,8 +210,8 @@ function render(a, latest) {
   }
 
   // Where this went wrong
-  html += '<div class="card" style="border-color:#ffd93d33">';
-  html += '<h3 style="color:#ffd93d">When Did This Pattern Break?</h3>';
+  html += '<div class="card" style="border-color:#b0780033">';
+  html += '<h3 style="color:#b07800">When Did This Pattern Break?</h3>';
   html += '<div class="plain">';
   html += '<strong>2009:</strong> Severe drought (-22% rainfall) yet the economy recovered quickly — global stimulus (QE) flooded markets with money.<br><br>';
   html += '<strong>2004:</strong> Deficit monsoon (-13%) but agri barely fell — because irrigation coverage had expanded, making farms less rain-dependent.<br><br>';
