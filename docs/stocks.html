@@ -116,39 +116,28 @@ async function loadData() {
   }
 }
 
-// Ticker -> short label + brand color for logo badges
-var TICKER_LOGO = {
-  'M&M.NS':['M&M','#e03131'],'HINDUNILVR.NS':['HUL','#1864ab'],'HEROMOTOCO.NS':['HMC','#c92a2a'],
-  'DABUR.NS':['DAB','#2b8a3e'],'ICICIBANK.NS':['ICICI','#f76707'],'SBIN.NS':['SBI','#364fc7'],
-  'TITAN.NS':['TTN','#862e9c'],'BAJAJ-AUTO.NS':['BAJ','#1864ab'],'MARICO.NS':['MRC','#087f5b'],
-  'UPL.NS':['UPL','#0b7285'],'NESTLEIND.NS':['NES','#e8590c'],'BRITANNIA.NS':['BRT','#d9480f'],
-  'TCS.NS':['TCS','#364fc7'],'INFY.NS':['INFY','#1864ab'],'SUNPHARMA.NS':['SUN','#e67700'],
-  'ITC.NS':['ITC','#2b8a3e'],'RELIANCE.NS':['RIL','#1864ab'],'NTPC.NS':['NTPC','#5f3dc4'],
-  'ESCORTS.NS':['ESC','#c92a2a'],'TVSMOTOR.NS':['TVS','#1864ab'],'GODREJCP.NS':['GCP','#2b8a3e'],
-  'EMAMILTD.NS':['EMA','#0b7285'],'BALRAMCHIN.NS':['BRC','#e67700'],'COROMANDEL.NS':['COR','#087f5b'],
-  'PIIND.NS':['PI','#5c7cfa'],'MANAPPURAM.NS':['MFL','#e67700'],'CANBK.NS':['CNB','#364fc7'],
-  'FEDERALBNK.NS':['FBK','#1864ab'],'WABAG.NS':['WAB','#0b7285'],'SHAKTIPUMP.NS':['SKP','#e03131'],
-  'KSB.NS':['KSB','#2b8a3e'],'CGPOWER.NS':['CGP','#862e9c'],'TATAPOWER.NS':['TPW','#1864ab'],
-  'PERSISTENT.NS':['PSYS','#5f3dc4'],'TORNTPHARM.NS':['TRP','#c92a2a'],'CONCOR.NS':['CCR','#364fc7'],
-  'DHAMPURSUG.NS':['DHS','#e67700'],'TRIVENI.NS':['TRV','#087f5b'],'RALLIS.NS':['RAL','#2b8a3e'],
-  'GNFC.NS':['GNFC','#0b7285'],'VSTTILLERS.NS':['VST','#c92a2a'],'BASF.NS':['BASF','#364fc7'],
-  'RCF.NS':['RCF','#087f5b'],'CHAMBLFERT.NS':['CFL','#e67700'],'IONEXCHANG.NS':['ION','#0b7285'],
-  'KIRLOSBROS.NS':['KBL','#862e9c'],'KRBL.NS':['KRBL','#e67700'],'HATSUN.NS':['HAT','#1864ab'],
-  'BECTORFOOD.NS':['BEC','#d9480f'],'PRIVISCL.NS':['PRI','#5f3dc4'],'GPPL.NS':['GPPL','#087f5b'],
-  'SJVN.NS':['SJVN','#364fc7'],'SUNTV.NS':['STV','#e03131'],'CESC.NS':['CESC','#c92a2a'],
-  'WATERBASE.NS':['WTR','#0b7285'],'JISLJALEQS.NS':['JAIN','#2b8a3e'],
+// Ticker -> local logo file (png = real logo, svg = styled badge fallback)
+var TICKER_LOGO_EXT = {
+  'M&M.NS':'svg','HINDUNILVR.NS':'png','HEROMOTOCO.NS':'png','DABUR.NS':'png',
+  'ICICIBANK.NS':'png','SBIN.NS':'png','TITAN.NS':'png','BAJAJ-AUTO.NS':'png',
+  'MARICO.NS':'png','UPL.NS':'png','NESTLEIND.NS':'png','BRITANNIA.NS':'svg',
+  'TCS.NS':'png','INFY.NS':'png','SUNPHARMA.NS':'png','ITC.NS':'png',
+  'RELIANCE.NS':'png','NTPC.NS':'png','ESCORTS.NS':'png','TVSMOTOR.NS':'png',
+  'GODREJCP.NS':'png','EMAMILTD.NS':'png','BALRAMCHIN.NS':'png','COROMANDEL.NS':'png',
+  'PIIND.NS':'png','MANAPPURAM.NS':'png','CANBK.NS':'png','FEDERALBNK.NS':'png',
+  'WABAG.NS':'png','SHAKTIPUMP.NS':'png','KSB.NS':'png','CGPOWER.NS':'png',
+  'TATAPOWER.NS':'png','PERSISTENT.NS':'png','TORNTPHARM.NS':'png','CONCOR.NS':'png',
+  'DHAMPURSUG.NS':'png','TRIVENI.NS':'png','RALLIS.NS':'png','GNFC.NS':'png',
+  'VSTTILLERS.NS':'svg','BASF.NS':'png','RCF.NS':'svg','CHAMBLFERT.NS':'svg',
+  'IONEXCHANG.NS':'svg','KIRLOSBROS.NS':'png','KRBL.NS':'svg','HATSUN.NS':'svg',
+  'BECTORFOOD.NS':'svg','PRIVISCL.NS':'svg','GPPL.NS':'svg','SJVN.NS':'png',
+  'SUNTV.NS':'png','CESC.NS':'png','WATERBASE.NS':'png','JISLJALEQS.NS':'png',
 };
 
-function logoSvg(ticker, name) {
-  var info = TICKER_LOGO[ticker];
-  var label = info ? info[0] : name.substring(0,3).toUpperCase();
-  var bg = info ? info[1] : '#555';
-  var fs = label.length > 3 ? 28 : label.length > 2 ? 32 : 38;
-  return "data:image/svg+xml," +
-    "<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22128%22 height=%22128%22>" +
-    "<rect width=%22128%22 height=%22128%22 rx=%2220%22 fill=%22" + bg.replace('#','%23') + "%22/>" +
-    "<text x=%2264%22 y=%2250%25%22 dy=%220.36em%22 text-anchor=%22middle%22 fill=%22%23fff%22 font-size=%22" + fs + "%22 font-weight=%22800%22 font-family=%22Inter,system-ui,sans-serif%22>" +
-    label.replace('&','%26') + "</text></svg>";
+function logoPath(ticker) {
+  var safe = ticker.replace('.NS','').replace('&','_').replace('-','_');
+  var ext = TICKER_LOGO_EXT[ticker] || 'svg';
+  return 'logos/' + safe + '.' + ext;
 }
 
 function toCagr(totalRetPct, years) {
@@ -215,7 +204,7 @@ function renderTilePanel(watchlist) {
       html += '<div class="tile">';
 
       html += '<div class="tile-top">';
-      html += '<img class="tile-logo" src="' + logoSvg(s.ticker, s.name) + '" alt="">';
+      html += '<img class="tile-logo" src="' + logoPath(s.ticker) + '" alt="">';
       html += '<div>';
       html += '<div class="tile-name" style="background:' + nameBg + ';color:' + nameColor + ';padding:2px 8px;border-radius:4px;display:inline-block">' + s.name + '</div>';
       html += '<div class="tile-ticker">' + s.ticker.replace('.NS','') + '</div>';
@@ -321,7 +310,7 @@ function valColor(v, invert) {
 function renderStock(s, w) {
   var html = '<div class="stock-item">';
   html += '<div class="stock-left">';
-  var logoHtml = '<img class="stock-logo" src="' + logoSvg(s.ticker, s.name) + '" alt="">';
+  var logoHtml = '<img class="stock-logo" src="' + logoPath(s.ticker) + '" alt="">';
   html += '<div class="stock-item-name">' + logoHtml + '<span>' + s.name + ' <span class="stock-item-ticker">' + s.ticker + '</span></span></div>';
   html += '<div class="stock-item-sector">' + s.sector + '</div>';
   html += '<div class="stock-item-why">' + s.why + '</div>';

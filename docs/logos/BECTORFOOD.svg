@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128">
+<rect width="128" height="128" rx="20" fill="#d9480f"/>
+<text x="64" y="50%" dy="0.36em" text-anchor="middle" fill="#fff"
+  font-size="32" font-weight="800" font-family="Inter,system-ui,sans-serif">BEC</text>
+</svg>
