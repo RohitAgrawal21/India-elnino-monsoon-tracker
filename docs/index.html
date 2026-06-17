@@ -436,17 +436,44 @@ canvas { width: 100% !important; height: 200px !important; }
   margin-bottom: 24px;
   line-height: 1.7;
 }
+.elnino-explainer .elnino-top {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.elnino-explainer .elnino-text-col {
+  flex: 1;
+  min-width: 0;
+}
+.elnino-explainer .elnino-video-col {
+  flex: 0 0 280px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #d4e4ee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: #000;
+}
+.elnino-explainer .elnino-video-col iframe {
+  display: block;
+  width: 280px;
+  height: 158px;
+  border: none;
+}
+.elnino-explainer .elnino-video-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6a7a88;
+  text-align: center;
+  padding: 5px 8px;
+  background: #f5f2ec;
+  font-weight: 600;
+}
 .elnino-explainer h2 {
   font-size: 1.1rem;
   color: #1a2a38;
   margin: 0 0 12px 0;
   font-weight: 700;
-}
-.elnino-explainer .elnino-subtitle {
-  font-size: 0.82rem;
-  color: #4a5560;
-  margin-bottom: 16px;
-  font-style: italic;
 }
 .elnino-explainer .elnino-grid {
   display: grid;
@@ -483,7 +510,10 @@ canvas { width: 100% !important; height: 200px !important; }
   color: #2a6a90;
   font-weight: 600;
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .elnino-explainer .elnino-top { flex-direction: column; }
+  .elnino-explainer .elnino-video-col { flex: none; width: 100%; max-width: 320px; align-self: center; }
+  .elnino-explainer .elnino-video-col iframe { width: 100%; height: auto; aspect-ratio: 16/9; }
   .elnino-explainer .elnino-grid { grid-template-columns: 1fr; }
   .elnino-explainer { padding: 16px 18px; }
 }
@@ -750,10 +780,18 @@ canvas { width: 100% !important; height: 200px !important; }
   </div>
 
   <div class="elnino-explainer">
-    <h2>What is El Ni&ntilde;o &mdash; and why should you care?</h2>
-    <p class="elnino-intro">
-      El Ni&ntilde;o is an abnormal warming of the Pacific Ocean near the equator. It happens every 2&ndash;7 years and lasts 9&ndash;12 months. For India, it matters because the <strong>Indian monsoon&rsquo;s engine runs on a temperature difference between the Indian Ocean and the Pacific</strong>. When the Pacific warms (El Ni&ntilde;o), that engine weakens &mdash; moisture-laden winds lose strength, and India gets less rain. Historically, <strong>6 of India&rsquo;s 7 worst droughts since 1950 occurred during El Ni&ntilde;o years</strong>.
-    </p>
+    <div class="elnino-top">
+      <div class="elnino-text-col">
+        <h2>What is El Ni&ntilde;o &mdash; and why should you care?</h2>
+        <p class="elnino-intro">
+          El Ni&ntilde;o is an abnormal warming of the Pacific Ocean near the equator. It happens every 2&ndash;7 years and lasts 9&ndash;12 months. For India, it matters because the <strong>Indian monsoon&rsquo;s engine runs on a temperature difference between the Indian Ocean and the Pacific</strong>. When the Pacific warms (El Ni&ntilde;o), that engine weakens &mdash; moisture-laden winds lose strength, and India gets less rain. Historically, <strong>6 of India&rsquo;s 7 worst droughts since 1950 occurred during El Ni&ntilde;o years</strong>.
+        </p>
+      </div>
+      <div class="elnino-video-col">
+        <iframe src="https://www.youtube.com/embed/JxS1ALnRBB4" title="El Nino Explained" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        <div class="elnino-video-label">&#9654; Watch: El Ni&ntilde;o Explained</div>
+      </div>
+    </div>
     <div class="elnino-grid">
       <div class="elnino-card">
         <h3>Macro Impact</h3>
@@ -846,7 +884,7 @@ function staleBlock(note) {
 
 function sourceLine(m) {
   if (!m) return '';
-  const ts = m.fetched_at ? new Date(m.fetched_at).toLocaleString('en-IN', {dateStyle:'medium',timeStyle:'short'}) : '?';
+  const ts = m.fetched_at ? new Date(m.fetched_at).toLocaleString('en-IN', {dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Kolkata'}) + ' IST' : '?';
   return '<div class="metric-source"><a href="' + (m.source_url||'#') + '" target="_blank">' + (m.source||'') + '</a> &bull; ' + ts + '</div>';
 }
 
@@ -1001,7 +1039,7 @@ function indiaMapSVG(subdivData) {
 
 function render(latest, history) {
   const m = latest.metrics;
-  const updatedAt = new Date(latest.last_updated).toLocaleString('en-IN', {dateStyle:'medium',timeStyle:'short'});
+  const updatedAt = new Date(latest.last_updated).toLocaleString('en-IN', {dateStyle:'medium',timeStyle:'short',timeZone:'Asia/Kolkata'}) + ' IST';
   const threat = getThreatLevel(m);
   const strength = m.nino34 ? getElNinoStrength(m.nino34.value) : { label: '?', color: 'val-neutral' };
   const stress = latest.stress_index || 50;
@@ -1014,9 +1052,9 @@ function render(latest, history) {
   if (ageHrs > 72) {
     html += '<div class="freshness-banner freshness-red">&#9888; Data is ' + Math.floor(ageHrs / 24) + ' days old — the daily update may be failing. Numbers below may be outdated.</div>';
   } else if (ageHrs > 24) {
-    html += '<div class="freshness-banner freshness-amber">&#9203; Data is ' + ageHrs + ' hours old (last update: ' + updatedAt + '). Next update expected at 4 AM IST.</div>';
+    html += '<div class="freshness-banner freshness-amber">&#9203; Data is ' + ageHrs + ' hours old (last update: ' + updatedAt + '). Next update expected at 8:00 PM IST.</div>';
   } else {
-    html += '<div class="freshness-banner freshness-ok">&#10003; Data is fresh (updated ' + updatedAt + ')</div>';
+    html += '<div class="freshness-banner freshness-ok">&#10003; Data is fresh (updated ' + updatedAt + '). All data refreshes daily at 8:00 PM IST.</div>';
   }
 
   // Hero with split numbers
@@ -1081,6 +1119,15 @@ function render(latest, history) {
   html += '<div class="hero-text">' + buildHeroText(m, strength) + '</div>';
   html += '<div class="hero-updated">Last updated: ' + updatedAt + '</div>';
   html += '</div>';
+
+  // Monsoon Stress Index chart — above the 3-column detail sections
+  if (history.length > 1) {
+    html += '<div class="chart-card">';
+    html += '<h3>&#128200; Monsoon Stress Index — Daily Trend</h3>';
+    html += '<div style="font-size:0.75rem;color:#6a7a88;margin-bottom:10px">How concerned should we be about drought? 0 = no worry, 100 = extreme concern. Combines El Nino strength, IOD, pressure, and actual rainfall.</div>';
+    html += '<canvas id="historyChart"></canvas>';
+    html += '</div>';
+  }
 
   // Three sections
   html += '<div class="sections">';
@@ -1382,15 +1429,6 @@ function render(latest, history) {
   html += '</div></div>'; // end India
 
   html += '</div>'; // end sections
-
-  // History
-  if (history.length > 1) {
-    html += '<div class="chart-card">';
-    html += '<h3>&#128200; Monsoon Stress Index — Daily Trend</h3>';
-    html += '<div style="font-size:0.75rem;color:#6a7a88;margin-bottom:10px">How concerned should we be about drought? 0 = no worry, 100 = extreme concern. Combines El Nino strength, IOD, pressure, and actual rainfall.</div>';
-    html += '<canvas id="historyChart"></canvas>';
-    html += '</div>';
-  }
 
   // 2026 vs Past El Nino Years comparison
   html += '<div class="chart-card">';

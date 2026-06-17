@@ -115,9 +115,14 @@ def calc_stress_index(results):
 
     dep = results.get("imd_rainfall", {}).get("country_departure_pct")
     if dep is not None:
-        if dep <= -40: score += 12
+        if dep <= -50: score += 18
+        elif dep <= -40: score += 14
+        elif dep <= -30: score += 10
         elif dep <= -20: score += 6
-        elif dep >= 20: score -= 6
+        elif dep <= -10: score += 3
+        elif dep >= 30: score -= 8
+        elif dep >= 20: score -= 5
+        elif dep >= 10: score -= 2
 
     pdo = results.get("pdo", {}).get("value")
     if pdo is not None:
