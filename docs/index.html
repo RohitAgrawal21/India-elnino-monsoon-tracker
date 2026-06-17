@@ -118,6 +118,7 @@ body {
   margin-bottom: 24px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 .hero::before {
   content: '';
@@ -199,6 +200,7 @@ body {
   border: 1px solid #e2e8ed;
   border-radius: 14px;
   overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 .section-header {
   padding: 14px 18px;
@@ -376,6 +378,7 @@ body {
   border-radius: 14px;
   padding: 20px;
   margin-bottom: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 .chart-card h3 {
   font-size: 0.85rem;
@@ -507,7 +510,7 @@ canvas { width: 100% !important; height: 200px !important; }
   display: flex;
   justify-content: space-between;
   font-size: 0.6rem;
-  color: #555;
+  color: #6a7a88;
   width: 140px;
   margin-top: 2px;
 }
@@ -518,7 +521,7 @@ canvas { width: 100% !important; height: 200px !important; }
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #888;
+  color: #4a5560;
   font-weight: 700;
 }
 .stress-info .stress-verdict {
@@ -528,7 +531,7 @@ canvas { width: 100% !important; height: 200px !important; }
 }
 .stress-info .stress-explain {
   font-size: 0.78rem;
-  color: #777;
+  color: #4a5560;
   line-height: 1.4;
 }
 
@@ -559,7 +562,7 @@ canvas { width: 100% !important; height: 200px !important; }
 .loading {
   text-align: center;
   padding: 80px 20px;
-  color: #555;
+  color: #6a7a88;
   font-size: 1.1rem;
 }
 
@@ -572,16 +575,17 @@ canvas { width: 100% !important; height: 200px !important; }
 @media (max-width: 600px) { .hero-split { flex-direction: column; gap: 12px; } }
 .hero-num-card {
   flex: 1;
-  background: rgba(0,0,0,0.25);
+  background: #fff;
   border-radius: 12px;
   padding: 16px 20px;
-  border: 1px solid #2a2a4a;
+  border: 1px solid #dce6ee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 .hero-num-label {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: #888;
+  color: #4a5560;
   font-weight: 700;
 }
 .hero-num-value {
@@ -592,7 +596,7 @@ canvas { width: 100% !important; height: 200px !important; }
 }
 .hero-num-sub {
   font-size: 0.78rem;
-  color: #999;
+  color: #6a7a88;
   line-height: 1.4;
 }
 
@@ -656,7 +660,7 @@ canvas { width: 100% !important; height: 200px !important; }
 }
 .gauge-label {
   font-size: 0.75rem;
-  color: #888;
+  color: #4a5560;
   min-width: 40px;
   text-align: right;
 }
@@ -701,7 +705,7 @@ async function loadData() {
   } catch (e) {
     document.getElementById('app').innerHTML =
       '<p style="color:#c43030;font-size:1.1rem">Could not load data: ' + e.message + '</p>' +
-      '<p style="margin-top:10px;color:#666">The scraper may not have run yet. Check back soon.</p>';
+      '<p style="margin-top:10px;color:#6a7a88">The scraper may not have run yet. Check back soon.</p>';
   }
 }
 
@@ -749,7 +753,7 @@ function trendBadge(t) {
 
 function staleBlock(note) {
   return '<div style="padding:10px 0"><span class="badge badge-stale">STALE / UNREACHABLE</span>' +
-    (note ? '<div style="font-size:0.75rem;color:#666;margin-top:6px">' + note + '</div>' : '') + '</div>';
+    (note ? '<div style="font-size:0.75rem;color:#6a7a88;margin-top:6px">' + note + '</div>' : '') + '</div>';
 }
 
 function sourceLine(m) {
@@ -888,7 +892,7 @@ function indiaMapSVG(subdivData) {
     if (!d) return;
     var xy = COORDS[key];
     var cc = d.category_code;
-    var bg = CAT_COLORS[cc] || '#555';
+    var bg = CAT_COLORS[cc] || '#a0a8b0';
     var dep = d.departure_pct;
     var lbl = LABELS[key] || key.substring(0,3);
     h += '<circle cx="' + xy[0] + '" cy="' + xy[1] + '" r="11" fill="' + bg + '" opacity="0.8" stroke="#fff" stroke-width="1">';
@@ -945,7 +949,7 @@ function render(latest, history) {
   var elninoVal = blendedProb || iriProb || 0;
   var elninoRound = Math.round(elninoVal);
   html += '<div class="hero-num-card">';
-  html += '<div class="hero-num-label">El Nino Probability <span style="font-size:0.55rem;color:#666;text-transform:none;letter-spacing:0">(blended model)</span></div>';
+  html += '<div class="hero-num-label">El Nino Probability <span style="font-size:0.55rem;color:#6a7a88;text-transform:none;letter-spacing:0">(blended model)</span></div>';
   html += '<div class="stress-wrap">';
   html += '<div><div class="stress-arc">' + probArcSVG(elninoRound) + '<div class="stress-number" style="color:#c43030">' + elninoRound + '%</div></div>';
   html += '<div class="stress-label-row"><span>0%</span><span>50%</span><span>100%</span></div></div>';
@@ -955,7 +959,7 @@ function render(latest, history) {
   if (blendedProb) {
     html += 'Blended from ' + blended.components.length + ' sources: ';
     html += blended.components.map(function(c) { return c.source + ' ' + c.probability + '%'; }).join(', ') + '.';
-    html += '<br><span style="font-size:0.65rem;color:#555">Confidence: ' + blended.confidence + '</span>';
+    html += '<br><span style="font-size:0.65rem;color:#6a7a88">Confidence: ' + blended.confidence + '</span>';
   } else if (iriProb) {
     html += 'IRI/Columbia model: <strong>' + iriProb + '%</strong> chance El Nino continues.';
   }
@@ -1178,7 +1182,7 @@ function render(latest, history) {
     html += '<div class="metric-sub">' + verdict + ' &bull; ' + (m.imd_rainfall.report_period || '') + '</div>';
     if (m.imd_rainfall.country_actual_mm !== null) {
       html += '<div class="gauge-wrap"><span style="font-size:0.72rem;color:#6a7a88;min-width:60px">Actual</span><div class="gauge"><div class="gauge-fill" style="width:' + Math.min(100, Math.max(5, (m.imd_rainfall.country_actual_mm / (m.imd_rainfall.country_normal_mm || 1)) * 100)) + '%;background:' + (dep < -20 ? '#c43030' : dep > 20 ? '#2a6a90' : '#157a3e') + '"></div></div><span class="gauge-label">' + m.imd_rainfall.country_actual_mm + ' mm</span></div>';
-      html += '<div class="gauge-wrap"><span style="font-size:0.72rem;color:#888;min-width:60px">Normal</span><div class="gauge"><div class="gauge-fill" style="width:100%;background:#444"></div></div><span class="gauge-label">' + m.imd_rainfall.country_normal_mm + ' mm</span></div>';
+      html += '<div class="gauge-wrap"><span style="font-size:0.72rem;color:#6a7a88;min-width:60px">Normal</span><div class="gauge"><div class="gauge-fill" style="width:100%;background:#b0bec5"></div></div><span class="gauge-label">' + m.imd_rainfall.country_normal_mm + ' mm</span></div>';
     }
     html += '<div class="explain"><strong>What this means:</strong> India has received <strong>' + (dep >= 0 ? dep + '% more' : Math.abs(dep) + '% less') + '</strong> rain than it should have by now. Negative = drought risk for crops. This updates daily during monsoon season (Jun-Sep).</div>';
   } else {
@@ -1295,7 +1299,7 @@ function render(latest, history) {
   if (history.length > 1) {
     html += '<div class="chart-card">';
     html += '<h3>&#128200; Monsoon Stress Index — Daily Trend</h3>';
-    html += '<div style="font-size:0.75rem;color:#666;margin-bottom:10px">How concerned should we be about drought? 0 = no worry, 100 = extreme concern. Combines El Nino strength, IOD, pressure, and actual rainfall.</div>';
+    html += '<div style="font-size:0.75rem;color:#6a7a88;margin-bottom:10px">How concerned should we be about drought? 0 = no worry, 100 = extreme concern. Combines El Nino strength, IOD, pressure, and actual rainfall.</div>';
     html += '<canvas id="historyChart"></canvas>';
     html += '</div>';
   }
@@ -1303,7 +1307,7 @@ function render(latest, history) {
   // 2026 vs Past El Nino Years comparison
   html += '<div class="chart-card">';
   html += '<h3>&#128202; 2026 vs Past El Nino Years</h3>';
-  html += '<div style="font-size:0.75rem;color:#666;margin-bottom:12px">How does the current situation compare with previous El Nino events? (Historical data from IMD/NOAA records)</div>';
+  html += '<div style="font-size:0.75rem;color:#6a7a88;margin-bottom:12px">How does the current situation compare with previous El Nino events? (Historical data from IMD/NOAA records)</div>';
   html += '<table class="comparison-table">';
   html += '<thead><tr><th>El Nino Year</th><th>ONI Peak</th><th>Monsoon Rainfall (% LPA)</th><th>Outcome</th></tr></thead>';
   html += '<tbody>';
@@ -1394,7 +1398,7 @@ function render(latest, history) {
   // Download buttons
   html += '<div class="chart-card" style="text-align:center;padding:16px">';
   html += '<h3 style="margin-bottom:10px">&#128229; Download Data</h3>';
-  html += '<div style="font-size:0.75rem;color:#666;margin-bottom:12px">Raw JSON data from all scrapers — use for your own analysis</div>';
+  html += '<div style="font-size:0.75rem;color:#6a7a88;margin-bottom:12px">Raw JSON data from all scrapers — use for your own analysis</div>';
   html += '<button class="share-btn" onclick="downloadCSV(\'latest.json\')">&#128196; latest.json</button> ';
   html += '<button class="share-btn" onclick="downloadCSV(\'history.json\')">&#128200; history.json (all days)</button>';
   html += '</div>';
@@ -1445,7 +1449,7 @@ function buildHeroText(m, strength) {
     t += 'India\'s monsoon rainfall is currently <strong>' + (dep >= 0 ? dep + '% above' : Math.abs(dep) + '% below') + ' normal</strong>. ';
   }
 
-  t += '<br><br><em style="color:#888;font-size:0.85rem">Note: El Nino makes drought more likely but is NOT a guarantee — the historical correlation is only about -0.5. Many El Nino years still had normal monsoons.</em>';
+  t += '<br><br><em style="color:#6a7a88;font-size:0.85rem">Note: El Nino makes drought more likely but is NOT a guarantee — the historical correlation is only about -0.5. Many El Nino years still had normal monsoons.</em>';
   return t;
 }
 
@@ -1475,7 +1479,7 @@ function drawChart(history) {
   const dates = uniqueDays.map(d => byDate[d].date);
 
   if (stress.length < 2) {
-    ctx.fillStyle = '#555';
+    ctx.fillStyle = '#6a7a88';
     ctx.font = '12px Inter, sans-serif';
     ctx.fillText('Need 2+ days of data for a trend line — check back tomorrow!', pad.left, H/2);
     return;
@@ -1572,7 +1576,7 @@ function drawChart(history) {
   }
 
   // Title below
-  ctx.fillStyle = '#666'; ctx.font = '10px Inter, sans-serif'; ctx.textAlign = 'center';
+  ctx.fillStyle = '#6a7a88'; ctx.font = '10px Inter, sans-serif'; ctx.textAlign = 'center';
   ctx.fillText('Monsoon Stress Index over time (0 = calm, 100 = extreme concern)', pad.left + cw / 2, H - 4);
 }
 
