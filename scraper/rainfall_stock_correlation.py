@@ -1,7 +1,9 @@
 """
-Correlate India monsoon rainfall (JJAS) with post-monsoon stock returns.
-For each stock: fetch 6-month and 1-year returns after each monsoon season,
-run linear regression against rainfall, and project 2026 returns.
+Correlate India monsoon rainfall (JJAS) with post-monsoon EXCESS stock returns.
+Excess return = stock return - Nifty 50 return (isolates monsoon-specific effect).
+
+For each stock: fetch 6-month and 1-year excess returns after each monsoon season,
+run linear regression against rainfall, and project 2026 excess returns.
 
 Uses last 10 years of data (2014-2024), excluding COVID years (2020, 2021).
 """
@@ -40,9 +42,9 @@ JJAS_RAINFALL_MM = {
 YEARS = sorted(JJAS_RAINFALL_MM.keys())
 
 # 2026 estimated rainfall from our probability model
-# P(LOW)=55% → ~760mm, P(NORMAL)=40% → ~880mm, P(HIGH)=5% → ~950mm
-# Weighted estimate
 ESTIMATED_2026_RAINFALL = round(0.55 * 760 + 0.40 * 880 + 0.05 * 950, 0)
+
+NIFTY_TICKER = "^NSEI"
 
 
 def get_price_on_date(hist, target_year, target_month, target_day=30):
@@ -60,16 +62,8 @@ def get_price_on_date(hist, target_year, target_month, target_day=30):
     return float(subset["Close"].iloc[idx])
 
 
-def compute_returns(ticker_symbol):
-    """For each monsoon year, compute 6M and 1Y post-monsoon returns."""
-    try:
-        t = yf.Ticker(ticker_symbol)
-        hist = t.history(start="2014-01-01", end="2026-04-01")
-        if hist.empty or len(hist) < 100:
-            return None
-    except Exception:
-        return None
-
+def compute_returns_for_hist(hist):
+    """Given a price history, compute 6M and 1Y returns for each monsoon year."""
     results = {}
     for year in YEARS:
         sep_price = get_price_on_date(hist, year, 9, 30)
@@ -80,19 +74,16 @@ def compute_returns(ticker_symbol):
             ret_6m = ((mar_price / sep_price) - 1) * 100 if mar_price else None
             ret_1y = ((sep_next_price / sep_price) - 1) * 100 if sep_next_price else None
             results[year] = {
-                "rainfall_mm": JJAS_RAINFALL_MM[year],
-                "sep_price": round(sep_price, 2),
                 "return_6m_pct": round(ret_6m, 2) if ret_6m is not None else None,
                 "return_1y_pct": round(ret_1y, 2) if ret_1y is not None else None,
             }
-
     return results
 
 
 def linear_regression(x_vals, y_vals):
-    """Simple OLS: y = a + b*x. Returns (a, b, r_squared, correlation)."""
+    """Simple OLS: y = a + b*x. Returns dict or None if <2 data points."""
     n = len(x_vals)
-    if n < 3:
+    if n < 2:
         return None
 
     sum_x = sum(x_vals)
@@ -118,41 +109,92 @@ def linear_regression(x_vals, y_vals):
     return {
         "intercept": round(a, 4),
         "slope": round(b, 4),
-        "r_squared": round(r_sq, 4),
+        "r_squared": round(max(0, r_sq), 4),
         "correlation": round(corr, 4),
         "n_years": n,
     }
 
 
-def analyze_stock(ticker, name):
-    """Full analysis for one stock."""
-    year_data = compute_returns(ticker)
-    if not year_data:
+def analyze_stock(ticker, name, nifty_returns):
+    """Full analysis for one stock using excess returns."""
+    try:
+        t = yf.Ticker(ticker)
+        hist = t.history(start="2014-01-01", end="2026-04-01")
+        if hist.empty or len(hist) < 50:
+            return None
+    except Exception:
         return None
 
-    rain_6m, ret_6m_vals = [], []
-    rain_1y, ret_1y_vals = [], []
+    stock_returns = compute_returns_for_hist(hist)
+    if not stock_returns:
+        return None
+
+    # Compute excess returns (stock - Nifty)
+    year_data = {}
+    for year in YEARS:
+        if year not in stock_returns or year not in nifty_returns:
+            continue
+        sr = stock_returns[year]
+        nr = nifty_returns[year]
+
+        excess_6m = None
+        excess_1y = None
+        if sr["return_6m_pct"] is not None and nr["return_6m_pct"] is not None:
+            excess_6m = round(sr["return_6m_pct"] - nr["return_6m_pct"], 2)
+        if sr["return_1y_pct"] is not None and nr["return_1y_pct"] is not None:
+            excess_1y = round(sr["return_1y_pct"] - nr["return_1y_pct"], 2)
+
+        year_data[year] = {
+            "rainfall_mm": JJAS_RAINFALL_MM[year],
+            "stock_return_6m": sr["return_6m_pct"],
+            "stock_return_1y": sr["return_1y_pct"],
+            "nifty_return_6m": nr["return_6m_pct"],
+            "nifty_return_1y": nr["return_1y_pct"],
+            "excess_return_6m": excess_6m,
+            "excess_return_1y": excess_1y,
+        }
+
+    # Build regression data
+    rain_6m, exc_6m_vals = [], []
+    rain_1y, exc_1y_vals = [], []
 
     for year in YEARS:
         if year not in year_data:
             continue
         d = year_data[year]
-        if d["return_6m_pct"] is not None:
+        if d["excess_return_6m"] is not None:
             rain_6m.append(d["rainfall_mm"])
-            ret_6m_vals.append(d["return_6m_pct"])
-        if d["return_1y_pct"] is not None:
+            exc_6m_vals.append(d["excess_return_6m"])
+        if d["excess_return_1y"] is not None:
             rain_1y.append(d["rainfall_mm"])
-            ret_1y_vals.append(d["return_1y_pct"])
+            exc_1y_vals.append(d["excess_return_1y"])
 
-    reg_6m = linear_regression(rain_6m, ret_6m_vals)
-    reg_1y = linear_regression(rain_1y, ret_1y_vals)
+    reg_6m = linear_regression(rain_6m, exc_6m_vals)
+    reg_1y = linear_regression(rain_1y, exc_1y_vals)
 
     proj_6m = None
     proj_1y = None
     if reg_6m:
-        proj_6m = round(reg_6m["intercept"] + reg_6m["slope"] * ESTIMATED_2026_RAINFALL, 1)
+        raw = reg_6m["intercept"] + reg_6m["slope"] * ESTIMATED_2026_RAINFALL
+        proj_6m = round(max(-50, min(50, raw)), 1)
     if reg_1y:
-        proj_1y = round(reg_1y["intercept"] + reg_1y["slope"] * ESTIMATED_2026_RAINFALL, 1)
+        raw = reg_1y["intercept"] + reg_1y["slope"] * ESTIMATED_2026_RAINFALL
+        proj_1y = round(max(-80, min(80, raw)), 1)
+
+    # Determine sample quality flag
+    n6 = reg_6m["n_years"] if reg_6m else 0
+    n1 = reg_1y["n_years"] if reg_1y else 0
+
+    sample_flag_6m = None
+    sample_flag_1y = None
+    if 0 < n6 <= 3:
+        sample_flag_6m = f"Very small sample ({n6} yr{'s' if n6 > 1 else ''}) — treat with caution"
+    elif 3 < n6 <= 5:
+        sample_flag_6m = f"Small sample ({n6} yrs)"
+    if 0 < n1 <= 3:
+        sample_flag_1y = f"Very small sample ({n1} yr{'s' if n1 > 1 else ''}) — treat with caution"
+    elif 3 < n1 <= 5:
+        sample_flag_1y = f"Small sample ({n1} yrs)"
 
     return {
         "ticker": ticker,
@@ -161,8 +203,10 @@ def analyze_stock(ticker, name):
         "regression_6m": reg_6m,
         "regression_1y": reg_1y,
         "estimated_rainfall_2026_mm": ESTIMATED_2026_RAINFALL,
-        "projected_return_6m_pct": proj_6m,
-        "projected_return_1y_pct": proj_1y,
+        "projected_excess_return_6m_pct": proj_6m,
+        "projected_excess_return_1y_pct": proj_1y,
+        "sample_flag_6m": sample_flag_6m,
+        "sample_flag_1y": sample_flag_1y,
     }
 
 
@@ -186,9 +230,20 @@ def get_all_tickers():
 
 
 def run():
-    print("=== Rainfall-Stock Correlation Analysis ===\n")
+    print("=== Rainfall-Stock Correlation (Excess Returns) ===\n")
     print(f"  Monsoon years: {YEARS}")
     print(f"  Estimated 2026 rainfall: {ESTIMATED_2026_RAINFALL} mm\n")
+
+    # First fetch Nifty 50 returns as benchmark
+    print("  Fetching Nifty 50 benchmark returns...", flush=True)
+    try:
+        nifty = yf.Ticker(NIFTY_TICKER)
+        nifty_hist = nifty.history(start="2014-01-01", end="2026-04-01")
+        nifty_returns = compute_returns_for_hist(nifty_hist)
+        print(f"  Nifty data: {len(nifty_returns)} years\n")
+    except Exception as e:
+        print(f"  FAILED to fetch Nifty: {e}")
+        return
 
     tickers = get_all_tickers()
     print(f"  {len(tickers)} stocks to analyze\n")
@@ -202,16 +257,21 @@ def run():
         name = stock["name"]
         print(f"  [{i+1}/{len(tickers)}] {name:30s} ({ticker:20s}) ... ", end="", flush=True)
 
-        result = analyze_stock(ticker, name)
-        if result and result["regression_6m"]:
+        result = analyze_stock(ticker, name, nifty_returns)
+        if result and (result["regression_6m"] or result["regression_1y"]):
             all_results[ticker] = result
-            corr6 = result["regression_6m"]["correlation"]
-            corr1 = result["regression_1y"]["correlation"] if result["regression_1y"] else None
-            p6 = result["projected_return_6m_pct"]
-            p1 = result["projected_return_1y_pct"]
-            c1s = f"{corr1:+.2f}" if corr1 is not None else "N/A"
+            n6 = result["regression_6m"]["n_years"] if result["regression_6m"] else 0
+            n1 = result["regression_1y"]["n_years"] if result["regression_1y"] else 0
+            c6 = result["regression_6m"]["correlation"] if result["regression_6m"] else 0
+            c1 = result["regression_1y"]["correlation"] if result["regression_1y"] else 0
+            p6 = result["projected_excess_return_6m_pct"]
+            p1 = result["projected_excess_return_1y_pct"]
+            p6s = f"{p6:+.1f}%" if p6 is not None else "N/A"
             p1s = f"{p1:+.1f}%" if p1 is not None else "N/A"
-            print(f"r6m={corr6:+.2f}  r1y={c1s}  proj6m={p6:+.1f}%  proj1y={p1s}")
+            flag = ""
+            if n6 <= 3 or n1 <= 3:
+                flag = " ** SMALL SAMPLE"
+            print(f"n={n6}/{n1}  r6m={c6:+.2f}  r1y={c1:+.2f}  exc6m={p6s}  exc1y={p1s}{flag}")
             ok += 1
         else:
             print("INSUFFICIENT DATA")
@@ -220,9 +280,10 @@ def run():
     output = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "methodology": {
-            "description": "Linear regression of post-monsoon stock returns against JJAS monsoon rainfall",
+            "description": "Linear regression of post-monsoon EXCESS stock returns (stock return minus Nifty 50 return) against JJAS monsoon rainfall. Excess returns isolate the monsoon-specific effect by stripping out the broader market movement.",
             "rainfall_source": "India Meteorological Department (IMD)",
             "price_source": "Yahoo Finance",
+            "benchmark": "Nifty 50 (^NSEI)",
             "years_used": YEARS,
             "excluded_years": [2020, 2021],
             "exclusion_reason": "COVID-19 pandemic distorted market behavior",
@@ -230,11 +291,13 @@ def run():
                 "6m": "September 30 to March 31 of next year",
                 "1y": "September 30 to September 30 of next year"
             },
-            "model": "Simple OLS linear regression: return = intercept + slope * rainfall_mm",
+            "model": "Simple OLS linear regression: excess_return = intercept + slope × rainfall_mm",
+            "projection_caps": "6M capped at ±50%, 1Y capped at ±80% to limit outlier influence",
             "disclaimer": "This is an estimation based on historical trends, not a projection or investment advice. Correlation does not imply causation. Many factors beyond rainfall affect stock prices."
         },
         "estimated_rainfall_2026_mm": ESTIMATED_2026_RAINFALL,
-        "rainfall_2026_basis": "Weighted estimate: P(LOW=760mm)=55%, P(NORMAL=880mm)=40%, P(HIGH=950mm)=5%",
+        "rainfall_2026_basis": "Weighted estimate: P(Low=760mm)=55%, P(Normal=880mm)=40%, P(High=950mm)=5%",
+        "nifty_returns": nifty_returns,
         "stocks": all_results,
         "total_analyzed": ok,
         "insufficient_data": fail,
