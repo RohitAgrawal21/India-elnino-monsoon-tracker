@@ -18,7 +18,7 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #faf8f5; col
 .tab-nav a:hover { color: #1a2a38; border-color: #c5d0d8; background: #f0f5fa; }
 .tab-nav a.active { color: #fff; border-color: #4a90b8; background: #4a90b8; }
 .disclaimer { background: #fef6f5; border: 1px solid #f0d0cc; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; font-size: 0.75rem; color: #4a5560; text-align: center; }
-.disclaimer strong { color: #c43030; }
+.disclaimer strong { color: #b82525; }
 
 .summary-box { background: #f5f2ec; border: 1px solid #ebe6dc; border-radius: 12px; padding: 20px 24px; margin-bottom: 24px; }
 .summary-box h2 { font-size: 1rem; font-weight: 800; color: #3d3020; margin-bottom: 10px; }
@@ -55,8 +55,8 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #faf8f5; col
 .cap-section { margin-bottom: 32px; }
 .cap-title { font-size: 1.1rem; font-weight: 800; color: #1a2a38; margin-bottom: 4px; padding: 12px 0; border-bottom: 2px solid #e2e8ed; }
 .direction-label { font-size: 0.8rem; font-weight: 700; padding: 8px 14px; margin: 16px 0 10px; border-radius: 6px; display: inline-block; }
-.direction-hurt { background: #fceaea; color: #c43030; border: 1px solid #f0c0c0; }
-.direction-benefit { background: #eaf5ef; color: #157a3e; border: 1px solid #c0e0cc; }
+.direction-hurt { background: #fceaea; color: #b82525; border: 1px solid #f0c0c0; }
+.direction-benefit { background: #e6f5ee; color: #0a7c42; border: 1px solid #b0dcc0; }
 .direction-explain { font-size: 0.72rem; color: #4a5560; margin: 0 0 12px 0; }
 .stock-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
 .stock-item { background: #fff; border: 1px solid #e2e8ed; border-radius: 10px; padding: 14px 16px; transition: border-color 0.2s; display: flex; gap: 16px; }
@@ -73,16 +73,16 @@ body { font-family: 'Inter', -apple-system, sans-serif; background: #faf8f5; col
 .stock-stat { font-size: 0.65rem; }
 .stock-stat .stat-label { color: #6a6050; }
 .stock-stat .stat-value { font-weight: 700; }
-.val-red { color: #c43030; }
-.val-green { color: #157a3e; }
+.val-red { color: #b82525; }
+.val-green { color: #0a7c42; }
 .val-amber { color: #b07800; }
 .fund-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 10px; font-size: 0.65rem; }
 .fund-row { display: flex; justify-content: space-between; padding: 2px 0; border-bottom: 1px solid #f0ece5; }
 .fund-lbl { color: #6a6050; }
 .fund-val { font-weight: 600; color: #1a2a38; text-align: right; }
-.fund-val.stale { color: #c43030; font-style: italic; }
+.fund-val.stale { color: #b82525; font-style: italic; }
 .fund-analyst { margin-top: 6px; padding: 6px 8px; background: #f5f2ec; border-radius: 6px; font-size: 0.62rem; }
-.fund-analyst .target { color: #157a3e; font-weight: 700; }
+.fund-analyst .target { color: #0a7c42; font-weight: 700; }
 .fund-src { font-size: 0.55rem; color: #6a7a88; margin-top: 4px; }
 .corr-box { margin-top: 8px; padding: 8px 10px; background: #f2f6fa; border: 1px solid #dce6ee; border-radius: 8px; }
 .corr-title { font-size: 0.62rem; font-weight: 700; color: #2a6a90; margin-bottom: 6px; }
@@ -162,12 +162,12 @@ function toCagr(totalRetPct, years) {
 
 function retColor(v) {
   if (v === null || v === undefined) return '#6a7a88';
-  if (v > 25) return '#0e6830';
-  if (v > 10) return '#157a3e';
-  if (v > 0) return '#2a8a50';
-  if (v > -10) return '#c44040';
-  if (v > -25) return '#c43030';
-  return '#a02020';
+  if (v > 25) return '#067535';
+  if (v > 10) return '#0a7c42';
+  if (v > 0) return '#1a9055';
+  if (v > -10) return '#c43838';
+  if (v > -25) return '#b82525';
+  return '#961c1c';
 }
 
 function fmtPrice(v) {
@@ -240,7 +240,7 @@ function renderTilePanel(watchlist) {
       var c2 = f && f.status === 'ok' ? toCagr(f.return_2y_pct, 2) : null;
       var c5 = f && f.status === 'ok' ? toCagr(f.return_5y_pct, 5) : null;
       var isHurt = item.dir === 'hurt_by_drought';
-      var nameBg = isHurt ? '#c43030' : '#157a3e';
+      var nameBg = isHurt ? '#b82525' : '#0a7c42';
       var nameColor = '#fff';
       var sid = stockId(s.ticker);
 
@@ -280,9 +280,9 @@ function render(a) {
   html += '<div class="summary-box">';
   html += '<h2>The Simple Idea</h2>';
   html += '<p>If the monsoon is weak (which we think has a <span class="highlight">' + Math.round(w.LOW * 100) + '% chance</span> this year), some companies get hurt and some actually benefit.</p>';
-  html += '<p><span class="highlight" style="color:#157a3e">▲ Green tiles = Positive estimated excess return</span> — historically outperformed Nifty 50 in low-rainfall years (based on regression model).</p>';
-  html += '<p><span class="highlight" style="color:#c43030">▼ Red tiles = Negative estimated excess return</span> — historically underperformed Nifty 50 in low-rainfall years (based on regression model).</p>';
-  html += '<p style="font-size:0.72rem;color:#6a6050;margin-top:4px">Stocks are ordered from <strong style="color:#157a3e">highest positive excess return</strong> (top) to <strong style="color:#c43030">most negative excess return</strong> (bottom). Color-coding is data-driven — based on historical correlation, not industry assumptions. Click any stock name to jump to its detailed analysis.</p>';
+  html += '<p><span class="highlight" style="color:#0a7c42">▲ Green tiles = Positive estimated excess return</span> — historically outperformed Nifty 50 in low-rainfall years (based on regression model).</p>';
+  html += '<p><span class="highlight" style="color:#b82525">▼ Red tiles = Negative estimated excess return</span> — historically underperformed Nifty 50 in low-rainfall years (based on regression model).</p>';
+  html += '<p style="font-size:0.72rem;color:#6a6050;margin-top:4px">Stocks are ordered from <strong style="color:#0a7c42">highest positive excess return</strong> (top) to <strong style="color:#b82525">most negative excess return</strong> (bottom). Color-coding is data-driven — based on historical correlation, not industry assumptions. Click any stock name to jump to its detailed analysis.</p>';
   html += '</div>';
 
   // Summary tile panel
@@ -398,7 +398,7 @@ function renderStock(s, w) {
     html += '</div>';
     html += '<div class="fund-src">Source: Yahoo Finance | as of ' + (f.fetched_at ? f.fetched_at.substring(0,10) : '?') + '</div>';
   } else if (f && f.status === 'error') {
-    html += '<div style="font-size:0.65rem;color:#c43030;padding:8px">SOURCE UNREACHABLE<br><span style="color:#6a7a88">' + (f.error || 'ticker not found') + '</span></div>';
+    html += '<div style="font-size:0.65rem;color:#b82525;padding:8px">SOURCE UNREACHABLE<br><span style="color:#6a7a88">' + (f.error || 'ticker not found') + '</span></div>';
   } else {
     html += '<div style="font-size:0.65rem;color:#6a7a88;padding:8px">Fundamentals loading...</div>';
   }
@@ -411,7 +411,7 @@ function renderStock(s, w) {
 
     if (cr.projected_excess_return_6m_pct !== null && cr.projected_excess_return_6m_pct !== undefined) {
       var v6 = cr.projected_excess_return_6m_pct;
-      var c6 = v6 > 0 ? '#157a3e' : v6 < 0 ? '#c43030' : '#6a7a88';
+      var c6 = v6 > 0 ? '#0a7c42' : v6 < 0 ? '#b82525' : '#6a7a88';
       var r6 = cr.regression_6m;
       html += '<div class="corr-card">';
       html += '<div class="corr-period">Est. 6M Excess Return</div>';
@@ -425,7 +425,7 @@ function renderStock(s, w) {
 
     if (cr.projected_excess_return_1y_pct !== null && cr.projected_excess_return_1y_pct !== undefined) {
       var v1y = cr.projected_excess_return_1y_pct;
-      var c1y = v1y > 0 ? '#157a3e' : v1y < 0 ? '#c43030' : '#6a7a88';
+      var c1y = v1y > 0 ? '#0a7c42' : v1y < 0 ? '#b82525' : '#6a7a88';
       var r1y = cr.regression_1y;
       html += '<div class="corr-card">';
       html += '<div class="corr-period">Est. 1Y Excess Return</div>';
