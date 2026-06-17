@@ -186,24 +186,29 @@ function stockId(ticker) {
   return 'stock-' + ticker.replace('.NS','').replace('&','').replace('-','').toLowerCase();
 }
 
-function getImpactScore(s) {
-  return s.analysis && s.analysis.outlook_2026 ? s.analysis.outlook_2026.weighted_mean : 0;
+function getCorrScore(ticker) {
+  var cr = corrData && corrData.stocks ? corrData.stocks[ticker] : null;
+  if (!cr) return 0;
+  var v6 = cr.projected_excess_return_6m_pct;
+  var v1 = cr.projected_excess_return_1y_pct;
+  if (v6 !== null && v6 !== undefined && v1 !== null && v1 !== undefined) return (v6 + v1) / 2;
+  if (v6 !== null && v6 !== undefined) return v6;
+  if (v1 !== null && v1 !== undefined) return v1;
+  return 0;
 }
 
 function getSortedStocks(capData) {
   var all = [];
-  (capData.benefit_from_drought || []).forEach(function(s) {
-    if (!SKIP_TICKERS[s.ticker]) all.push({s:s, dir:'benefit_from_drought'});
+  ['benefit_from_drought', 'hurt_by_drought'].forEach(function(dirKey) {
+    (capData[dirKey] || []).forEach(function(s) {
+      if (!SKIP_TICKERS[s.ticker]) {
+        var score = getCorrScore(s.ticker);
+        var dir = score >= 0 ? 'benefit_from_drought' : 'hurt_by_drought';
+        all.push({s:s, dir:dir, score:score});
+      }
+    });
   });
-  (capData.hurt_by_drought || []).forEach(function(s) {
-    if (!SKIP_TICKERS[s.ticker]) all.push({s:s, dir:'hurt_by_drought'});
-  });
-  all.sort(function(a, b) {
-    var aDir = a.dir === 'benefit_from_drought' ? 1 : 0;
-    var bDir = b.dir === 'benefit_from_drought' ? 1 : 0;
-    if (aDir !== bDir) return bDir - aDir;
-    return getImpactScore(b.s) - getImpactScore(a.s);
-  });
+  all.sort(function(a, b) { return b.score - a.score; });
   return all;
 }
 
@@ -275,9 +280,9 @@ function render(a) {
   html += '<div class="summary-box">';
   html += '<h2>The Simple Idea</h2>';
   html += '<p>If the monsoon is weak (which we think has a <span class="highlight">' + Math.round(w.LOW * 100) + '% chance</span> this year), some companies get hurt and some actually benefit.</p>';
-  html += '<p><span class="highlight" style="color:#ff6b6b">▼ Red tiles = Hurt by drought</span> — tractors, rural FMCG, agri-inputs, rural banks. Less rain → less farm income → less spending.</p>';
-  html += '<p><span class="highlight" style="color:#6bcb77">▲ Green tiles = Benefit or Unaffected</span> — IT, pharma, packaged food, drought solutions (pumps, water treatment, thermal power).</p>';
-  html += '<p style="font-size:0.72rem;color:#888;margin-top:4px">Stocks are ordered from <strong style="color:#6bcb77">most positively affected</strong> (top) to <strong style="color:#ff6b6b">most negatively affected</strong> (bottom). Click any stock name to jump to its detailed analysis.</p>';
+  html += '<p><span class="highlight" style="color:#6bcb77">▲ Green tiles = Positive estimated excess return</span> — historically outperformed Nifty 50 in low-rainfall years (based on regression model).</p>';
+  html += '<p><span class="highlight" style="color:#ff6b6b">▼ Red tiles = Negative estimated excess return</span> — historically underperformed Nifty 50 in low-rainfall years (based on regression model).</p>';
+  html += '<p style="font-size:0.72rem;color:#888;margin-top:4px">Stocks are ordered from <strong style="color:#6bcb77">highest positive excess return</strong> (top) to <strong style="color:#ff6b6b">most negative excess return</strong> (bottom). Color-coding is data-driven — based on historical correlation, not industry assumptions. Click any stock name to jump to its detailed analysis.</p>';
   html += '</div>';
 
   // Summary tile panel
@@ -305,12 +310,12 @@ function render(a) {
         if (lastDir) html += '</div>';
         if (item.dir === 'benefit_from_drought') {
           var bc = sorted.filter(function(x){return x.dir==='benefit_from_drought'}).length;
-          html += '<div class="direction-label direction-benefit">&#9650; LIKELY BENEFIT or UNAFFECTED (' + bc + ' stocks)</div>';
-          html += '<div class="direction-explain">These stocks are insulated from monsoon risk or benefit when rainfall is low.</div>';
+          html += '<div class="direction-label direction-benefit">&#9650; POSITIVE EXCESS RETURN (' + bc + ' stocks)</div>';
+          html += '<div class="direction-explain">These stocks historically outperformed Nifty 50 after low-rainfall monsoon seasons.</div>';
         } else {
           var hc = sorted.filter(function(x){return x.dir==='hurt_by_drought'}).length;
-          html += '<div class="direction-label direction-hurt">&#9660; LIKELY HURT by Low Rainfall (' + hc + ' stocks)</div>';
-          html += '<div class="direction-explain">These stocks historically underperform when monsoon is weak.</div>';
+          html += '<div class="direction-label direction-hurt">&#9660; NEGATIVE EXCESS RETURN (' + hc + ' stocks)</div>';
+          html += '<div class="direction-explain">These stocks historically underperformed Nifty 50 after low-rainfall monsoon seasons.</div>';
         }
         html += '<div class="stock-grid">';
         lastDir = item.dir;
