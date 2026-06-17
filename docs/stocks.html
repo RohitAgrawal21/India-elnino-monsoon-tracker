@@ -8,6 +8,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body { font-family: 'Inter', -apple-system, sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
 .container { max-width: 1200px; margin: 0 auto; padding: 20px 16px; }
 .header { text-align: center; padding: 20px 0 10px; }
@@ -168,6 +169,33 @@ function fmtCagr(v) {
   return (v > 0 ? '+' : '') + v.toFixed(1) + '%';
 }
 
+var SKIP_TICKERS = {'SJVN.NS':1, 'CESC.NS':1};
+
+function stockId(ticker) {
+  return 'stock-' + ticker.replace('.NS','').replace('&','').replace('-','').toLowerCase();
+}
+
+function getImpactScore(s) {
+  return s.analysis && s.analysis.outlook_2026 ? s.analysis.outlook_2026.weighted_mean : 0;
+}
+
+function getSortedStocks(capData) {
+  var all = [];
+  (capData.benefit_from_drought || []).forEach(function(s) {
+    if (!SKIP_TICKERS[s.ticker]) all.push({s:s, dir:'benefit_from_drought'});
+  });
+  (capData.hurt_by_drought || []).forEach(function(s) {
+    if (!SKIP_TICKERS[s.ticker]) all.push({s:s, dir:'hurt_by_drought'});
+  });
+  all.sort(function(a, b) {
+    var aDir = a.dir === 'benefit_from_drought' ? 1 : 0;
+    var bDir = b.dir === 'benefit_from_drought' ? 1 : 0;
+    if (aDir !== bDir) return bDir - aDir;
+    return getImpactScore(b.s) - getImpactScore(a.s);
+  });
+  return all;
+}
+
 function renderTilePanel(watchlist) {
   var caps = [
     {key:'large_cap', label:'Large Cap', cls:'panel-header-large'},
@@ -184,9 +212,7 @@ function renderTilePanel(watchlist) {
     html += '<div class="panel-header ' + cap.cls + '">' + cap.label + '</div>';
     html += '<div class="tile-grid">';
 
-    var allStocks = [];
-    (data.hurt_by_drought || []).forEach(function(s) { allStocks.push({s:s, dir:'hurt_by_drought'}); });
-    (data.benefit_from_drought || []).forEach(function(s) { allStocks.push({s:s, dir:'benefit_from_drought'}); });
+    var allStocks = getSortedStocks(data);
 
     allStocks.forEach(function(item) {
       var s = item.s;
@@ -200,13 +226,14 @@ function renderTilePanel(watchlist) {
       var isHurt = item.dir === 'hurt_by_drought';
       var nameBg = isHurt ? '#cc0000' : '#00873e';
       var nameColor = '#fff';
+      var sid = stockId(s.ticker);
 
       html += '<div class="tile">';
 
       html += '<div class="tile-top">';
       html += '<img class="tile-logo" src="' + logoPath(s.ticker) + '" alt="">';
       html += '<div>';
-      html += '<div class="tile-name" style="background:' + nameBg + ';color:' + nameColor + ';padding:2px 8px;border-radius:4px;display:inline-block">' + s.name + '</div>';
+      html += '<a href="#' + sid + '" class="tile-name" style="background:' + nameBg + ';color:' + nameColor + ';padding:2px 8px;border-radius:4px;display:inline-block;text-decoration:none">' + s.name + '</a>';
       html += '<div class="tile-ticker">' + s.ticker.replace('.NS','') + '</div>';
       html += '</div></div>';
 
@@ -239,6 +266,7 @@ function render(a) {
   html += '<p>If the monsoon is weak (which we think has a <span class="highlight">' + Math.round(w.LOW * 100) + '% chance</span> this year), some companies get hurt and some actually benefit.</p>';
   html += '<p><span class="highlight" style="color:#ff6b6b">▼ Red tiles = Hurt by drought</span> — tractors, rural FMCG, agri-inputs, rural banks. Less rain → less farm income → less spending.</p>';
   html += '<p><span class="highlight" style="color:#6bcb77">▲ Green tiles = Benefit or Unaffected</span> — IT, pharma, packaged food, drought solutions (pumps, water treatment, thermal power).</p>';
+  html += '<p style="font-size:0.72rem;color:#888;margin-top:4px">Stocks are ordered from <strong style="color:#6bcb77">most positively affected</strong> (top) to <strong style="color:#ff6b6b">most negatively affected</strong> (bottom). Click any stock name to jump to its detailed analysis.</p>';
   html += '</div>';
 
   // Summary tile panel
@@ -259,20 +287,20 @@ function render(a) {
     if (!capData) return;
     html += '<div class="cap-section">';
     html += '<div class="cap-title">' + capLabels[capKey] + '</div>';
-    var hurt = capData.hurt_by_drought || [];
-    if (hurt.length) {
-      html += '<div class="direction-label direction-hurt">&#9660; LIKELY HURT by Low Rainfall (' + hurt.length + ' stocks)</div>';
-      html += '<div class="direction-explain">These stocks historically underperform when monsoon is weak.</div>';
-      html += '<div class="stock-grid">';
-      hurt.forEach(function(s) { html += renderStock(s, w); });
-      html += '</div>';
-    }
-    var benefit = capData.benefit_from_drought || [];
+    var benefit = (capData.benefit_from_drought || []).filter(function(s) { return !SKIP_TICKERS[s.ticker]; });
     if (benefit.length) {
       html += '<div class="direction-label direction-benefit">&#9650; LIKELY BENEFIT or UNAFFECTED (' + benefit.length + ' stocks)</div>';
       html += '<div class="direction-explain">These stocks are insulated from monsoon risk or benefit when rainfall is low.</div>';
       html += '<div class="stock-grid">';
       benefit.forEach(function(s) { html += renderStock(s, w); });
+      html += '</div>';
+    }
+    var hurt = (capData.hurt_by_drought || []).filter(function(s) { return !SKIP_TICKERS[s.ticker]; });
+    if (hurt.length) {
+      html += '<div class="direction-label direction-hurt">&#9660; LIKELY HURT by Low Rainfall (' + hurt.length + ' stocks)</div>';
+      html += '<div class="direction-explain">These stocks historically underperform when monsoon is weak.</div>';
+      html += '<div class="stock-grid">';
+      hurt.forEach(function(s) { html += renderStock(s, w); });
       html += '</div>';
     }
     html += '</div>';
@@ -308,7 +336,7 @@ function valColor(v, invert) {
 }
 
 function renderStock(s, w) {
-  var html = '<div class="stock-item">';
+  var html = '<div class="stock-item" id="' + stockId(s.ticker) + '">';
   html += '<div class="stock-left">';
   var logoHtml = '<img class="stock-logo" src="' + logoPath(s.ticker) + '" alt="">';
   html += '<div class="stock-item-name">' + logoHtml + '<span>' + s.name + ' <span class="stock-item-ticker">' + s.ticker + '</span></span></div>';
