@@ -1,4 +1,5 @@
 import json
+import math
 import os
 import shutil
 import sys
@@ -9,6 +10,15 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scraper import noaa_oni, noaa_nino34, noaa_enso_discussion, noaa_soi
 from scraper import noaa_dmi, imd_rainfall, imd_lrf, cwc_reservoir, kharif_sowing
 from scraper import iri_forecast, noaa_pdo
+
+
+def _sigmoid(x, center=0.0, steepness=1.0):
+    """Sigmoid mapping: returns 0..1 continuously."""
+    return 1.0 / (1.0 + math.exp(-steepness * (x - center)))
+
+
+def _clamp(v, lo=0.0, hi=100.0):
+    return max(lo, min(hi, v))
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT_DIR, "data")
@@ -43,37 +53,23 @@ def calc_elnino_probability(results):
     if noaa_prob is not None:
         components.append(("NOAA CPC", float(noaa_prob), 0.25))
 
-    # Nino-3.4 signal → probability (20%)
+    # Nino-3.4 signal → probability (20%) — sigmoid centered at 0.5°C
     nino34 = results.get("nino34", {}).get("value")
     if nino34 is not None:
-        if nino34 >= 2.0: n_prob = 95
-        elif nino34 >= 1.5: n_prob = 85
-        elif nino34 >= 1.0: n_prob = 70
-        elif nino34 >= 0.5: n_prob = 55
-        elif nino34 >= 0.0: n_prob = 30
-        else: n_prob = 10
-        components.append(("Nino-3.4", n_prob, 0.20))
+        n_prob = _clamp(_sigmoid(nino34, center=0.5, steepness=2.5) * 100)
+        components.append(("Nino-3.4", round(n_prob, 1), 0.20))
 
-    # ONI → probability (12%)
+    # ONI → probability (12%) — sigmoid centered at 0.5°C
     oni = results.get("oni", {}).get("value")
     if oni is not None:
-        if oni >= 2.0: o_prob = 95
-        elif oni >= 1.5: o_prob = 85
-        elif oni >= 1.0: o_prob = 70
-        elif oni >= 0.5: o_prob = 55
-        elif oni >= 0.0: o_prob = 30
-        else: o_prob = 10
-        components.append(("ONI", o_prob, 0.12))
+        o_prob = _clamp(_sigmoid(oni, center=0.5, steepness=2.5) * 100)
+        components.append(("ONI", round(o_prob, 1), 0.12))
 
-    # SOI → probability (8%) - negative SOI = El Nino
+    # SOI → probability (8%) — negative SOI = El Nino; sigmoid centered at 0, inverted
     soi = results.get("soi", {}).get("value")
     if soi is not None:
-        if soi <= -15: s_prob = 85
-        elif soi <= -7: s_prob = 65
-        elif soi <= 0: s_prob = 45
-        elif soi <= 7: s_prob = 25
-        else: s_prob = 10
-        components.append(("SOI", s_prob, 0.08))
+        s_prob = _clamp(_sigmoid(-soi, center=5.0, steepness=0.3) * 100)
+        components.append(("SOI", round(s_prob, 1), 0.08))
 
     if not components:
         return None
@@ -91,45 +87,48 @@ def calc_elnino_probability(results):
 
 def calc_stress_index(results):
     """Monsoon Stress Index: 0 (no concern) to 100 (extreme concern).
-    Blends Nino-3.4, SOI, IOD, and rainfall departure."""
-    score = 50
+    Weighted blend of continuous sub-scores from Nino-3.4, SOI, IOD,
+    rainfall departure, and PDO. Each factor maps to 0..1 via sigmoid
+    or linear ramp, then combines with weights summing to ~1."""
+    components = []
+    weights = []
+
+    # Nino-3.4: 0°C→low stress, 2°C→high stress (weight 30%)
     nino34 = results.get("nino34", {}).get("value")
     if nino34 is not None:
-        if nino34 >= 2.0: score += 25
-        elif nino34 >= 1.5: score += 20
-        elif nino34 >= 1.0: score += 15
-        elif nino34 >= 0.5: score += 8
-        elif nino34 >= 0: score += 2
-        else: score -= 5
+        components.append(_sigmoid(nino34, center=0.8, steepness=2.0))
+        weights.append(0.30)
 
+    # SOI: negative→El Nino stress; -15 is very strong signal (weight 10%)
     soi = results.get("soi", {}).get("value")
     if soi is not None:
-        if soi <= -15: score += 10
-        elif soi <= -7: score += 5
-        elif soi >= 7: score -= 5
+        components.append(_sigmoid(-soi, center=5.0, steepness=0.25))
+        weights.append(0.10)
 
+    # IOD (DMI): negative→bad for India, positive→good (weight 15%)
     dmi = results.get("iod_dmi", {}).get("value")
     if dmi is not None:
-        if dmi < -0.4: score += 8
-        elif dmi > 0.4: score -= 8
+        components.append(_sigmoid(-dmi, center=0.0, steepness=4.0))
+        weights.append(0.15)
 
+    # Rainfall departure: 0%→neutral, -50%→extreme stress (weight 35%)
     dep = results.get("imd_rainfall", {}).get("country_departure_pct")
     if dep is not None:
-        if dep <= -50: score += 18
-        elif dep <= -40: score += 14
-        elif dep <= -30: score += 10
-        elif dep <= -20: score += 6
-        elif dep <= -10: score += 3
-        elif dep >= 30: score -= 8
-        elif dep >= 20: score -= 5
-        elif dep >= 10: score -= 2
+        components.append(_sigmoid(-dep, center=15.0, steepness=0.08))
+        weights.append(0.35)
 
+    # PDO: positive amplifies El Nino effect (weight 10%)
     pdo = results.get("pdo", {}).get("value")
     if pdo is not None:
-        if pdo > 0.5: score += 5
-        elif pdo < -0.5: score -= 5
+        components.append(_sigmoid(pdo, center=0.0, steepness=2.0))
+        weights.append(0.10)
 
-    return max(0, min(100, score))
+    if not weights:
+        return 50
+
+    total_w = sum(weights)
+    raw = sum(c * (w / total_w) for c, w in zip(components, weights))
+    return round(_clamp(raw * 100))
 
 def run():
     os.makedirs(DATA_DIR, exist_ok=True)

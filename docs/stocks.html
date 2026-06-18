@@ -168,12 +168,19 @@ function toCagr(totalRetPct, years) {
 
 function retColor(v) {
   if (v === null || v === undefined) return '#6a7a88';
-  if (v > 25) return '#067535';
-  if (v > 10) return '#0a7c42';
-  if (v > 0) return '#1a9055';
-  if (v > -10) return '#c43838';
-  if (v > -25) return '#b82525';
-  return '#961c1c';
+  var t = Math.max(-40, Math.min(40, v)) / 40;
+  var r, g, b;
+  if (t >= 0) {
+    r = Math.round(26 - 20 * t);
+    g = Math.round(144 + 33 * t);
+    b = Math.round(85 - 32 * t);
+  } else {
+    var s = -t;
+    r = Math.round(196 - 46 * s);
+    g = Math.round(56 - 28 * s);
+    b = Math.round(56 - 28 * s);
+  }
+  return 'rgb(' + r + ',' + g + ',' + b + ')';
 }
 
 function fmtPrice(v) {
@@ -658,7 +665,7 @@ function renderStock(s, w) {
 
     if (cr.projected_excess_return_6m_pct !== null && cr.projected_excess_return_6m_pct !== undefined) {
       var v6 = cr.projected_excess_return_6m_pct;
-      var c6 = v6 > 0 ? '#0a7c42' : v6 < 0 ? '#b82525' : '#6a7a88';
+      var c6 = retColor(v6);
       var r6 = cr.regression_6m;
       html += '<div class="corr-card">';
       html += '<div class="corr-period">Est. 6M Excess Return</div>';
@@ -672,7 +679,7 @@ function renderStock(s, w) {
 
     if (cr.projected_excess_return_1y_pct !== null && cr.projected_excess_return_1y_pct !== undefined) {
       var v1y = cr.projected_excess_return_1y_pct;
-      var c1y = v1y > 0 ? '#0a7c42' : v1y < 0 ? '#b82525' : '#6a7a88';
+      var c1y = retColor(v1y);
       var r1y = cr.regression_1y;
       html += '<div class="corr-card">';
       html += '<div class="corr-period">Est. 1Y Excess Return</div>';
