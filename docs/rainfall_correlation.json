@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-09T20:58:18.269614+00:00",
+  "generated_at": "2026-07-10T20:03:57.088814+00:00",
   "methodology": {
     "description": "Linear regression of post-monsoon EXCESS stock returns (stock return minus Nifty 50 return) against JJAS monsoon rainfall. Excess returns isolate the monsoon-specific effect by stripping out the broader market movement.",
     "rainfall_source": "India Meteorological Department (IMD)",
