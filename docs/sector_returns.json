@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-12T17:46:54.950917+00:00",
+  "generated_at": "2026-07-13T19:07:31.606768+00:00",
   "source": "Yahoo Finance (NSE sector indices)",
   "benchmark": "Nifty 50 (^NSEI)",
   "methodology": "Excess return = sector index % change - Nifty50 % change over same period. Monthly close-to-close.",
