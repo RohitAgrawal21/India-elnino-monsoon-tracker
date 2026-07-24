@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T16:11:13.069094+00:00",
+  "generated_at": "2026-07-24T15:57:28.504276+00:00",
   "methodology": {
     "description": "Linear regression of post-monsoon EXCESS stock returns (stock return minus Nifty 50 return) against JJAS monsoon rainfall. Excess returns isolate the monsoon-specific effect by stripping out the broader market movement.",
     "rainfall_source": "India Meteorological Department (IMD)",
@@ -5147,58 +5147,6 @@
       "sample_flag_6m": null,
       "sample_flag_1y": null
     },
-    "WATERBASE.NS": {
-      "ticker": "WATERBASE.NS",
-      "name": "Waterbase",
-      "year_data": {
-        "2019": {
-          "rainfall_mm": 968.3,
-          "stock_return_6m": -24.37,
-          "stock_return_1y": -13.04,
-          "nifty_return_6m": -24.77,
-          "nifty_return_1y": -2.47,
-          "excess_return_6m": 0.4,
-          "excess_return_1y": -10.57
-        },
-        "2022": {
-          "rainfall_mm": 925.4,
-          "stock_return_6m": -28.21,
-          "stock_return_1y": 3.86,
-          "nifty_return_6m": 0.55,
-          "nifty_return_1y": 15.81,
-          "excess_return_6m": -28.76,
-          "excess_return_1y": -11.95
-        },
-        "2023": {
-          "rainfall_mm": 820.4,
-          "stock_return_6m": null,
-          "stock_return_1y": null,
-          "nifty_return_6m": 14.36,
-          "nifty_return_1y": 34.09,
-          "excess_return_6m": null,
-          "excess_return_1y": null
-        }
-      },
-      "regression_6m": {
-        "intercept": -657.7731,
-        "slope": 0.6797,
-        "r_squared": 1.0,
-        "correlation": 1.0,
-        "n_years": 2
-      },
-      "regression_1y": {
-        "intercept": -41.7181,
-        "slope": 0.0322,
-        "r_squared": 1.0,
-        "correlation": 1.0,
-        "n_years": 2
-      },
-      "estimated_rainfall_2026_mm": 818.0,
-      "projected_excess_return_6m_pct": -50,
-      "projected_excess_return_1y_pct": -15.4,
-      "sample_flag_6m": "Very small sample (2 yrs) — treat with caution",
-      "sample_flag_1y": "Very small sample (2 yrs) — treat with caution"
-    },
     "JISLJALEQS.NS": {
       "ticker": "JISLJALEQS.NS",
       "name": "Jain Irrigation",
@@ -5624,6 +5572,6 @@
       "sample_flag_1y": null
     }
   },
-  "total_analyzed": 54,
-  "insufficient_data": 0
+  "total_analyzed": 53,
+  "insufficient_data": 1
 }
