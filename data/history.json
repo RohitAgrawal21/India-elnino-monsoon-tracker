@@ -833,5 +833,17 @@
     "stress_index": 54,
     "iri_elnino_prob": 100,
     "pdo": -2.71
+  },
+  {
+    "date": "2026-08-18T15:02:39.928708+00:00",
+    "oni": 1.39,
+    "nino34": 2.03,
+    "soi": -4.0,
+    "dmi": 0.146,
+    "rainfall_departure_pct": -13,
+    "alert_status": "El Niño Advisory",
+    "stress_index": 54,
+    "iri_elnino_prob": 100,
+    "pdo": -2.71
   }
 ]
