@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T17:48:59.582025+00:00",
+  "generated_at": "2026-09-11T17:51:11.180042+00:00",
   "source": "Yahoo Finance (NSE sector indices)",
   "benchmark": "Nifty 50 (^NSEI)",
   "methodology": "Excess return = sector index % change - Nifty50 % change over same period. Monthly close-to-close.",
@@ -35,7 +35,7 @@
         "2023": -4.92,
         "2024": -6.4,
         "2025": -1.43,
-        "2026": 4.41
+        "2026": 5.0
       },
       "post_monsoon_excess": {
         "2007": -11.54,
@@ -113,7 +113,7 @@
         "2023": 2.45,
         "2024": 14.96,
         "2025": -9.26,
-        "2026": -0.35
+        "2026": 0.09
       },
       "post_monsoon_excess": {
         "2007": -17.17,
@@ -179,7 +179,7 @@
         "2023": 15.69,
         "2024": 9.3,
         "2025": 0.62,
-        "2026": 9.37
+        "2026": 9.62
       },
       "post_monsoon_excess": {
         "2011": 4.28,
