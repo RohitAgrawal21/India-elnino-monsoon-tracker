@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T17:51:57.783108+00:00",
+  "generated_at": "2026-09-12T17:24:10.582924+00:00",
   "rainfall_weights_2026": {
     "LOW": 0.55,
     "NORMAL": 0.4,
@@ -1427,9 +1427,151 @@
         "mechanism": "Rural demand drives ~35% of auto sales (tractors, 2W, entry cars). Weak monsoon → delayed purchases.",
         "monsoon_window": {
           "variable": "Nifty Auto (Jun-Sep excess vs Nifty)",
-          "by_rainfall_bucket": {},
-          "by_elnino_bucket": {},
-          "outlook_2026": null,
+          "by_rainfall_bucket": {
+            "NORMAL": {
+              "n": 7,
+              "mean": -1.39,
+              "median": 1.02,
+              "min": -14.58,
+              "max": 9.48,
+              "values": [
+                1.02,
+                2.36,
+                9.48,
+                -2.29,
+                -14.58,
+                -12.22,
+                6.53
+              ],
+              "std": 9.06,
+              "years": [
+                {
+                  "year": 2012,
+                  "value": 1.02
+                },
+                {
+                  "year": 2013,
+                  "value": 2.36
+                },
+                {
+                  "year": 2016,
+                  "value": 9.48
+                },
+                {
+                  "year": 2017,
+                  "value": -2.29
+                },
+                {
+                  "year": 2018,
+                  "value": -14.58
+                },
+                {
+                  "year": 2021,
+                  "value": -12.22
+                },
+                {
+                  "year": 2022,
+                  "value": 6.53
+                }
+              ]
+            },
+            "LOW": {
+              "n": 2,
+              "mean": 5.1,
+              "median": 5.1,
+              "min": -3.36,
+              "max": 13.55,
+              "values": [
+                13.55,
+                -3.36
+              ],
+              "std": 11.96,
+              "years": [
+                {
+                  "year": 2014,
+                  "value": 13.55
+                },
+                {
+                  "year": 2015,
+                  "value": -3.36
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": 2.58,
+              "median": 2.58,
+              "min": -4.59,
+              "max": 9.76,
+              "values": [
+                -4.59,
+                9.76
+              ],
+              "std": 10.15,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -4.59
+                },
+                {
+                  "year": 2020,
+                  "value": 9.76
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 1,
+              "mean": -3.36,
+              "median": -3.36,
+              "min": -3.36,
+              "max": -3.36,
+              "values": [
+                -3.36
+              ],
+              "years": [
+                {
+                  "year": 2015,
+                  "value": -3.36
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": -4.59,
+              "median": -4.59,
+              "min": -4.59,
+              "max": -4.59,
+              "values": [
+                -4.59
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -4.59
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 2.38,
+            "weighted_range": [
+              -14.58,
+              13.55
+            ],
+            "p_negative": 47.1,
+            "p_worse_than_minus5": 11.4,
+            "p_worse_than_minus10": 11.4,
+            "p_better_than_5": 41.4,
+            "p_better_than_10": 27.5,
+            "total_analog_n": 11,
+            "caveats": [
+              "Based on 11 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
           "weights_used": {
             "LOW": 0.55,
             "NORMAL": 0.4,
@@ -1439,7 +1581,164 @@
           "ticker": "^CNXAUTO",
           "data_source": "Yahoo Finance (NSE sector indices)"
         },
-        "post_monsoon": null,
+        "post_monsoon": {
+          "variable": "Nifty Auto (Oct-Mar excess vs Nifty)",
+          "by_rainfall_bucket": {
+            "NORMAL": {
+              "n": 8,
+              "mean": -2.49,
+              "median": -3.09,
+              "min": -19.43,
+              "max": 11.39,
+              "values": [
+                11.39,
+                -2.95,
+                7.05,
+                -8.02,
+                -3.23,
+                -19.43,
+                0.43,
+                -5.14
+              ],
+              "std": 9.39,
+              "years": [
+                {
+                  "year": 2011,
+                  "value": 11.39
+                },
+                {
+                  "year": 2012,
+                  "value": -2.95
+                },
+                {
+                  "year": 2013,
+                  "value": 7.05
+                },
+                {
+                  "year": 2016,
+                  "value": -8.02
+                },
+                {
+                  "year": 2017,
+                  "value": -3.23
+                },
+                {
+                  "year": 2018,
+                  "value": -19.43
+                },
+                {
+                  "year": 2021,
+                  "value": 0.43
+                },
+                {
+                  "year": 2022,
+                  "value": -5.14
+                }
+              ]
+            },
+            "LOW": {
+              "n": 2,
+              "mean": 4.71,
+              "median": 4.71,
+              "min": 2.54,
+              "max": 6.88,
+              "values": [
+                2.54,
+                6.88
+              ],
+              "std": 3.07,
+              "years": [
+                {
+                  "year": 2014,
+                  "value": 2.54
+                },
+                {
+                  "year": 2015,
+                  "value": 6.88
+                }
+              ]
+            },
+            "HIGH": {
+              "n": 2,
+              "mean": -8.84,
+              "median": -8.84,
+              "min": -11.79,
+              "max": -5.9,
+              "values": [
+                -11.79,
+                -5.9
+              ],
+              "std": 4.16,
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -11.79
+                },
+                {
+                  "year": 2020,
+                  "value": -5.9
+                }
+              ]
+            }
+          },
+          "by_elnino_bucket": {
+            "ELNINO_LOW": {
+              "n": 1,
+              "mean": 6.88,
+              "median": 6.88,
+              "min": 6.88,
+              "max": 6.88,
+              "values": [
+                6.88
+              ],
+              "years": [
+                {
+                  "year": 2015,
+                  "value": 6.88
+                }
+              ]
+            },
+            "ELNINO_HIGH": {
+              "n": 1,
+              "mean": -11.79,
+              "median": -11.79,
+              "min": -11.79,
+              "max": -11.79,
+              "values": [
+                -11.79
+              ],
+              "years": [
+                {
+                  "year": 2019,
+                  "value": -11.79
+                }
+              ]
+            }
+          },
+          "outlook_2026": {
+            "weighted_mean": 1.15,
+            "weighted_range": [
+              -19.43,
+              11.39
+            ],
+            "p_negative": 30.0,
+            "p_worse_than_minus5": 20.0,
+            "p_worse_than_minus10": 7.5,
+            "p_better_than_5": 37.5,
+            "p_better_than_10": 5.0,
+            "total_analog_n": 12,
+            "caveats": [
+              "Based on 12 analog years — small sample, interpret with caution",
+              "Past distributions are not guarantees of future outcomes",
+              "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+            ]
+          },
+          "weights_used": {
+            "LOW": 0.55,
+            "NORMAL": 0.4,
+            "HIGH": 0.05
+          }
+        },
         "data_source": "Yahoo Finance (NSE sector indices)"
       },
       "bank": {
@@ -2844,6 +3143,17 @@
         ]
       },
       {
+        "sector": "Nifty Auto",
+        "key": "auto",
+        "weighted_mean_excess": 2.38,
+        "p_negative": 47.1,
+        "p_worse_than_minus5": 11.4,
+        "range": [
+          -14.58,
+          13.55
+        ]
+      },
+      {
         "sector": "Nifty Pharma",
         "key": "pharma",
         "weighted_mean_excess": 12.43,
@@ -3712,7 +4022,159 @@
           "why": "India's #1 tractor maker (40% share). Tractor sales drop 10-15% in drought years as farmers defer purchases.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Mahindra & Mahindra",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "HINDUNILVR.NS",
@@ -3730,7 +4192,159 @@
           "why": "Dominant in rural 2-wheeler market (~50% share). Farm income drives 2W purchase decisions in tier-3/4 towns.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Hero MotoCorp",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "DABUR.NS",
@@ -4205,7 +4819,159 @@
           "why": "Significant rural/semi-urban mix. 3-wheeler demand (rural transport) also affected by farm income.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Bajaj Auto",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "MARICO.NS",
@@ -4223,7 +4989,159 @@
           "why": "Crop protection demand falls when farmers sow less area. Less acreage = less spraying needed.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "UPL Ltd",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         }
       ],
       "benefit_from_drought": [
@@ -4934,7 +5852,159 @@
           "why": "Pure-play tractor company. Revenue is almost 100% dependent on farmer sentiment and monsoon timing.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Escorts Kubota",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "TVSMOTOR.NS",
@@ -4943,7 +6013,159 @@
           "why": "Strong rural dealer network. Mopeds and entry bikes are discretionary purchases that get cut first in drought.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "TVS Motor",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "GODREJCP.NS",
@@ -4979,7 +6201,159 @@
           "why": "Fertilizer + crop protection. Both volumes directly tied to how much area farmers actually sow.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Coromandel International",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "PIIND.NS",
@@ -4988,7 +6362,159 @@
           "why": "Domestic agrochem demand is acreage-driven. CSM exports are fine, but India business gets hit.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "PI Industries",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "MANAPPURAM.NS",
@@ -6583,7 +8109,159 @@
           "why": "Tata group agrochem. Revenue = f(acres sown). Drought → less sowing → less pesticide demand.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Rallis India",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "GNFC.NS",
@@ -6592,7 +8270,159 @@
           "why": "Gujarat-based fertilizer producer. Sowing delays in Gujarat during drought directly cut offtake.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "GNFC",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "VSTTILLERS.NS",
@@ -6601,7 +8431,159 @@
           "why": "Small tractor/tiller maker for marginal farmers. This segment is FIRST to cut spending in drought.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "VST Tillers",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "WATERBASE.NS",
@@ -6619,7 +8601,159 @@
           "why": "Drip/sprinkler systems. Farmers cut capex spending in drought — even though they need irrigation more.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Jain Irrigation",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "BASF.NS",
@@ -6628,7 +8762,159 @@
           "why": "Crop protection and seeds. Indian agri business directly hit when sowing area contracts.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "BASF India",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "RCF.NS",
@@ -6637,7 +8923,159 @@
           "why": "Government-controlled prices limit upside. Volume decline in drought directly hits topline.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "RCF",
+            "by_rainfall_bucket": {
+              "NORMAL": {
+                "n": 7,
+                "mean": -1.39,
+                "median": 1.02,
+                "min": -14.58,
+                "max": 9.48,
+                "values": [
+                  1.02,
+                  2.36,
+                  9.48,
+                  -2.29,
+                  -14.58,
+                  -12.22,
+                  6.53
+                ],
+                "std": 9.06,
+                "years": [
+                  {
+                    "year": 2012,
+                    "value": 1.02
+                  },
+                  {
+                    "year": 2013,
+                    "value": 2.36
+                  },
+                  {
+                    "year": 2016,
+                    "value": 9.48
+                  },
+                  {
+                    "year": 2017,
+                    "value": -2.29
+                  },
+                  {
+                    "year": 2018,
+                    "value": -14.58
+                  },
+                  {
+                    "year": 2021,
+                    "value": -12.22
+                  },
+                  {
+                    "year": 2022,
+                    "value": 6.53
+                  }
+                ]
+              },
+              "LOW": {
+                "n": 2,
+                "mean": 5.1,
+                "median": 5.1,
+                "min": -3.36,
+                "max": 13.55,
+                "values": [
+                  13.55,
+                  -3.36
+                ],
+                "std": 11.96,
+                "years": [
+                  {
+                    "year": 2014,
+                    "value": 13.55
+                  },
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "HIGH": {
+                "n": 2,
+                "mean": 2.58,
+                "median": 2.58,
+                "min": -4.59,
+                "max": 9.76,
+                "values": [
+                  -4.59,
+                  9.76
+                ],
+                "std": 10.15,
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  },
+                  {
+                    "year": 2020,
+                    "value": 9.76
+                  }
+                ]
+              }
+            },
+            "by_elnino_bucket": {
+              "ELNINO_LOW": {
+                "n": 1,
+                "mean": -3.36,
+                "median": -3.36,
+                "min": -3.36,
+                "max": -3.36,
+                "values": [
+                  -3.36
+                ],
+                "years": [
+                  {
+                    "year": 2015,
+                    "value": -3.36
+                  }
+                ]
+              },
+              "ELNINO_HIGH": {
+                "n": 1,
+                "mean": -4.59,
+                "median": -4.59,
+                "min": -4.59,
+                "max": -4.59,
+                "values": [
+                  -4.59
+                ],
+                "years": [
+                  {
+                    "year": 2019,
+                    "value": -4.59
+                  }
+                ]
+              }
+            },
+            "outlook_2026": {
+              "weighted_mean": 2.38,
+              "weighted_range": [
+                -14.58,
+                13.55
+              ],
+              "p_negative": 47.1,
+              "p_worse_than_minus5": 11.4,
+              "p_worse_than_minus10": 11.4,
+              "p_better_than_5": 41.4,
+              "p_better_than_10": 27.5,
+              "total_analog_n": 11,
+              "caveats": [
+                "Based on 11 analog years — small sample, interpret with caution",
+                "Past distributions are not guarantees of future outcomes",
+                "El Nino years with clean data: n=8 for LOW bucket, n=11 for NORMAL"
+              ]
+            },
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "CHAMBLFERT.NS",
