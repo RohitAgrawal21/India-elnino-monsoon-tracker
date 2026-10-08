@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-07T20:05:40.645374+00:00",
+  "last_updated": "2026-10-08T20:02:20.013927+00:00",
   "metrics": {
     "oni": {
       "metric": "ONI",
@@ -10,7 +10,7 @@
       "previous_value": 1.8,
       "source": "NOAA/CPC ONI",
       "source_url": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt",
-      "fetched_at": "2026-10-07T20:05:41.014957+00:00",
+      "fetched_at": "2026-10-08T20:02:20.103281+00:00",
       "status": "ok"
     },
     "nino34": {
@@ -25,19 +25,19 @@
       "nino4_anom": 0.95,
       "source": "NOAA/CPC Niño-3.4 Monthly",
       "source_url": "https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices",
-      "fetched_at": "2026-10-07T20:05:41.497960+00:00",
+      "fetched_at": "2026-10-08T20:02:20.271154+00:00",
       "status": "ok"
     },
     "enso_status": {
       "metric": "ENSO Alert Status",
       "alert_status": "El Niño Advisory",
-      "nino34_weekly": 2.5,
-      "elnino_probability": 90,
-      "strong_elnino_probability": null,
+      "nino34_weekly": 3.0,
+      "elnino_probability": 83,
+      "strong_elnino_probability": 83,
       "unit": "%",
       "source": "NOAA/CPC ENSO Discussion",
       "source_url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
-      "fetched_at": "2026-10-07T20:05:41.830874+00:00",
+      "fetched_at": "2026-10-08T20:02:20.452640+00:00",
       "status": "ok"
     },
     "soi": {
@@ -48,7 +48,7 @@
       "interpretation": "near neutral",
       "source": "NOAA/PSL SOI",
       "source_url": "https://psl.noaa.gov/data/correlation/soi.data",
-      "fetched_at": "2026-10-07T20:05:41.997796+00:00",
+      "fetched_at": "2026-10-08T20:02:20.735923+00:00",
       "status": "ok"
     },
     "iod_dmi": {
@@ -60,15 +60,15 @@
       "period": "May 2026",
       "source": "NOAA/PSL DMI (IOD)",
       "source_url": "https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmi.had.long.data",
-      "fetched_at": "2026-10-07T20:05:42.165937+00:00",
+      "fetched_at": "2026-10-08T20:02:20.905885+00:00",
       "status": "ok",
       "note": "DMI data lags 1-2 months; this is normal for this dataset"
     },
     "imd_rainfall": {
       "metric": "IMD Subdivision Rainfall",
-      "country_actual_mm": 7.1,
-      "country_normal_mm": 25.2,
-      "country_departure_pct": -72,
+      "country_actual_mm": 8.9,
+      "country_normal_mm": 28.3,
+      "country_departure_pct": -69,
       "country_category": "Large Deficient",
       "category_counts": {
         "Large Excess": {
@@ -76,12 +76,12 @@
           "pct_area": 0
         },
         "Excess": {
-          "subdivisions": 0,
-          "pct_area": 0
+          "subdivisions": 1,
+          "pct_area": 2
         },
         "Normal": {
           "subdivisions": 3,
-          "pct_area": 3
+          "pct_area": 9
         },
         "Deficient": {
           "subdivisions": 10,
@@ -89,81 +89,81 @@
         },
         "Large Deficient": {
           "subdivisions": 19,
-          "pct_area": 62
+          "pct_area": 57
         },
         "No Rain": {
-          "subdivisions": 4,
-          "pct_area": 14
+          "subdivisions": 3,
+          "pct_area": 11
         }
       },
       "subdivision_data": {
         "arunachal_pradesh": {
-          "departure_pct": -47,
+          "departure_pct": -52,
           "category": "Deficient",
           "category_code": "D"
         },
         "assam_meghalaya": {
-          "departure_pct": -55,
-          "category": "Deficient",
-          "category_code": "D"
+          "departure_pct": -60,
+          "category": "Large Deficient",
+          "category_code": "LD"
         },
         "nmmt": {
-          "departure_pct": -8,
+          "departure_pct": -17,
           "category": "Normal",
           "category_code": "N"
         },
         "shwb_sikkim": {
-          "departure_pct": -49,
+          "departure_pct": -55,
           "category": "Deficient",
           "category_code": "D"
         },
         "gangetic_wb": {
-          "departure_pct": -84,
+          "departure_pct": -80,
           "category": "Large Deficient",
           "category_code": "LD"
         },
         "jharkhand": {
-          "departure_pct": -72,
-          "category": "Large Deficient",
-          "category_code": "LD"
+          "departure_pct": -41,
+          "category": "Deficient",
+          "category_code": "D"
         },
         "bihar": {
-          "departure_pct": -84,
-          "category": "Large Deficient",
-          "category_code": "LD"
+          "departure_pct": -49,
+          "category": "Deficient",
+          "category_code": "D"
         },
         "east_up": {
+          "departure_pct": -19,
+          "category": "Normal",
+          "category_code": "N"
+        },
+        "west_up": {
           "departure_pct": -61,
           "category": "Large Deficient",
           "category_code": "LD"
         },
-        "west_up": {
-          "departure_pct": -100,
-          "category": "No Rain",
-          "category_code": "NR"
-        },
         "uttarakhand": {
-          "departure_pct": -24,
-          "category": "Deficient",
-          "category_code": "D"
+          "departure_pct": 37,
+          "category": "Excess",
+          "category_code": "E"
         },
         "haryana_delhi": {
-          "departure_pct": -93,
+          "departure_pct": -90,
           "category": "Large Deficient",
           "category_code": "LD"
         },
         "punjab": {
-          "departure_pct": -94,
+          "departure_pct": -61,
           "category": "Large Deficient",
           "category_code": "LD"
         },
         "himachal_pradesh": {
-          "departure_pct": -23,
-          "category": "Deficient",
-          "category_code": "D"
+          "departure_pct": -14,
+          "category": "Normal",
+          "category_code": "N"
         },
         "jammu_kashmir": {
-          "departure_pct": -59,
+          "departure_pct": -49,
           "category": "Deficient",
           "category_code": "D"
         },
@@ -178,7 +178,7 @@
           "category_code": "LD"
         },
         "odisha": {
-          "departure_pct": -97,
+          "departure_pct": -91,
           "category": "Large Deficient",
           "category_code": "LD"
         },
@@ -188,7 +188,7 @@
           "category_code": "LD"
         },
         "east_mp": {
-          "departure_pct": -97,
+          "departure_pct": -96,
           "category": "Large Deficient",
           "category_code": "LD"
         },
@@ -198,17 +198,17 @@
           "category_code": "NR"
         },
         "saurashtra_kutch": {
-          "departure_pct": -92,
-          "category": "Large Deficient",
-          "category_code": "LD"
-        },
-        "konkan_goa": {
           "departure_pct": -93,
           "category": "Large Deficient",
           "category_code": "LD"
         },
+        "konkan_goa": {
+          "departure_pct": -94,
+          "category": "Large Deficient",
+          "category_code": "LD"
+        },
         "madhya_maharashtra": {
-          "departure_pct": -95,
+          "departure_pct": -96,
           "category": "Large Deficient",
           "category_code": "LD"
         },
@@ -223,14 +223,14 @@
           "category_code": "LD"
         },
         "chhattisgarh": {
-          "departure_pct": -95,
+          "departure_pct": -92,
           "category": "Large Deficient",
           "category_code": "LD"
         },
         "andaman_nicobar": {
-          "departure_pct": -59,
-          "category": "Deficient",
-          "category_code": "D"
+          "departure_pct": -65,
+          "category": "Large Deficient",
+          "category_code": "LD"
         },
         "coastal_ap": {
           "departure_pct": -88,
@@ -243,7 +243,7 @@
           "category_code": "LD"
         },
         "tamilnadu": {
-          "departure_pct": -33,
+          "departure_pct": -39,
           "category": "Deficient",
           "category_code": "D"
         },
@@ -253,31 +253,31 @@
           "category_code": "D"
         },
         "north_interior_karnataka": {
-          "departure_pct": -90,
+          "departure_pct": -91,
           "category": "Large Deficient",
           "category_code": "LD"
         },
         "south_interior_karnataka": {
-          "departure_pct": -53,
+          "departure_pct": -55,
           "category": "Deficient",
           "category_code": "D"
         },
         "kerala": {
-          "departure_pct": -17,
-          "category": "Normal",
-          "category_code": "N"
+          "departure_pct": -25,
+          "category": "Deficient",
+          "category_code": "D"
         },
         "lakshadweep": {
-          "departure_pct": -19,
-          "category": "Normal",
-          "category_code": "N"
+          "departure_pct": -26,
+          "category": "Deficient",
+          "category_code": "D"
         }
       },
-      "report_period": "01-10-2026 to 07-10-2026",
+      "report_period": "01-10-2026 to 08-10-2026",
       "unit": "mm / %departure",
       "source": "IMD Subdivision Rainfall",
       "source_url": "https://mausam.imd.gov.in/Rainfall/SUBDIVISION_RAINFALL_DISTRIBUTION_COUNTRY_INDIA_cd.pdf",
-      "fetched_at": "2026-10-07T20:05:45.280278+00:00",
+      "fetched_at": "2026-10-08T20:02:23.742344+00:00",
       "status": "ok"
     },
     "imd_lrf": {
@@ -289,7 +289,7 @@
       "issue_date": "13 April,2026",
       "source": "IMD Long Range Forecast",
       "source_url": "https://mausam.imd.gov.in/Forecast/marquee_data/Long%20Range%20Forecast%20for%20Southwest%20Monsoon%20Season%20Rainfall_Press_release_13.4.2026.pdf",
-      "fetched_at": "2026-10-07T20:05:48.850715+00:00",
+      "fetched_at": "2026-10-08T20:02:26.877814+00:00",
       "status": "ok"
     },
     "cwc_reservoir": {
@@ -297,7 +297,7 @@
       "value": null,
       "source": "CWC Reservoir Storage",
       "source_url": "https://cwc.gov.in/en/reservoir-level-storage-bulletin",
-      "fetched_at": "2026-10-07T20:06:21.541513+00:00",
+      "fetched_at": "2026-10-08T20:03:00.802343+00:00",
       "status": "stale",
       "error": "Could not find latest reservoir bulletin PDF URL",
       "note": "CWC reservoir bulletin is updated weekly (Thursdays). PDF parsing is brittle."
@@ -317,7 +317,7 @@
       "sowing_window": "Kharif sowing runs June-August, peaking in July. Depends on monsoon onset and early rainfall.",
       "source": "Dept of Agriculture - Kharif Sowing",
       "source_url": "https://agricoop.gov.in/en/StatisticsReport",
-      "fetched_at": "2026-10-07T20:07:04.560880+00:00",
+      "fetched_at": "2026-10-08T20:03:12.169405+00:00",
       "status": "stale",
       "note": "Official kharif sowing data source (agricoop.gov.in) has persistent SSL issues. Weekly reports typically start late June."
     },
@@ -329,7 +329,7 @@
       "forecast_season": "June–August 2026",
       "source": "IRI/Columbia ENSO Forecast",
       "source_url": "https://iri.columbia.edu/our-expertise/climate/forecasts/enso/current/",
-      "fetched_at": "2026-10-07T20:07:05.127274+00:00",
+      "fetched_at": "2026-10-08T20:03:12.391571+00:00",
       "status": "ok"
     },
     "pdo": {
@@ -341,13 +341,13 @@
       "india_impact_note": "Negative PDO can weaken El Nino's drought effect on India — a mitigating factor",
       "source": "NOAA/PSL PDO",
       "source_url": "https://psl.noaa.gov/data/correlation/pdo.data",
-      "fetched_at": "2026-10-07T20:07:05.292389+00:00",
+      "fetched_at": "2026-10-08T20:03:12.669264+00:00",
       "status": "ok"
     }
   },
   "stress_index": 74,
   "elnino_blended": {
-    "blended_probability": 92.7,
+    "blended_probability": 90.9,
     "components": [
       {
         "source": "IRI/Columbia",
@@ -356,7 +356,7 @@
       },
       {
         "source": "NOAA CPC",
-        "probability": 90.0,
+        "probability": 83.0,
         "weight": 25.0
       },
       {
