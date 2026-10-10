@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T19:40:48.769642+00:00",
+  "generated_at": "2026-10-10T18:48:37.864563+00:00",
   "methodology": {
     "description": "Linear regression of post-monsoon EXCESS stock returns (stock return minus Nifty 50 return) against JJAS monsoon rainfall. Excess returns isolate the monsoon-specific effect by stripping out the broader market movement.",
     "rainfall_source": "India Meteorological Department (IMD)",
@@ -334,11 +334,11 @@
         "2019": {
           "rainfall_mm": 968.3,
           "stock_return_6m": -8.4,
-          "stock_return_1y": 22.44,
+          "stock_return_1y": 22.45,
           "nifty_return_6m": -24.77,
           "nifty_return_1y": -2.47,
           "excess_return_6m": 16.37,
-          "excess_return_1y": 24.91
+          "excess_return_1y": 24.92
         },
         "2022": {
           "rainfall_mm": 925.4,
@@ -376,10 +376,10 @@
         "n_years": 9
       },
       "regression_1y": {
-        "intercept": -53.1054,
+        "intercept": -53.1275,
         "slope": 0.0653,
         "r_squared": 0.0283,
-        "correlation": 0.1683,
+        "correlation": 0.1684,
         "n_years": 9
       },
       "estimated_rainfall_2026_mm": 818.0,
@@ -1454,11 +1454,11 @@
       "year_data": {
         "2014": {
           "rainfall_mm": 781.9,
-          "stock_return_6m": 7.6,
+          "stock_return_6m": 7.61,
           "stock_return_1y": -1.02,
           "nifty_return_6m": 4.81,
           "nifty_return_1y": -2.05,
-          "excess_return_6m": 2.79,
+          "excess_return_6m": 2.8,
           "excess_return_1y": 1.03
         },
         "2015": {
@@ -1535,10 +1535,10 @@
         }
       },
       "regression_6m": {
-        "intercept": 0.6611,
+        "intercept": 0.6775,
         "slope": 0.0006,
         "r_squared": 0.0,
-        "correlation": 0.0042,
+        "correlation": 0.0041,
         "n_years": 9
       },
       "regression_1y": {
