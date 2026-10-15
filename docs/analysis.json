@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T18:50:10.289656+00:00",
+  "generated_at": "2026-10-15T18:32:35.873540+00:00",
   "rainfall_weights_2026": {
     "LOW": 0.55,
     "NORMAL": 0.4,
@@ -3712,7 +3712,17 @@
           "why": "India's #1 tractor maker (40% share). Tractor sales drop 10-15% in drought years as farmers defer purchases.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Mahindra & Mahindra",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "HINDUNILVR.NS",
@@ -3721,7 +3731,17 @@
           "why": "35% revenue from rural India. Drought means less money in villages → people buy smaller packs or switch to cheaper brands.",
           "direction": "hurt_by_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Hindustan Unilever",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "HEROMOTOCO.NS",
@@ -3730,7 +3750,17 @@
           "why": "Dominant in rural 2-wheeler market (~50% share). Farm income drives 2W purchase decisions in tier-3/4 towns.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Hero MotoCorp",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "DABUR.NS",
@@ -3739,7 +3769,17 @@
           "why": "Highest rural revenue share (~45%) among large FMCGs. Products like hair oil, toothpaste see volume dips in drought.",
           "direction": "hurt_by_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Dabur India",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "ICICIBANK.NS",
@@ -4196,7 +4236,17 @@
           "why": "~40% of India's gold buying is rural/semi-urban. Drought → farmers don't buy gold at weddings → Titan's volume dips.",
           "direction": "hurt_by_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Titan Company",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "BAJAJ-AUTO.NS",
@@ -4205,7 +4255,17 @@
           "why": "Significant rural/semi-urban mix. 3-wheeler demand (rural transport) also affected by farm income.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Bajaj Auto",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "MARICO.NS",
@@ -4214,7 +4274,17 @@
           "why": "Parachute coconut oil = rural staple. Copra prices rise in drought (supply squeeze) hurting margins too.",
           "direction": "hurt_by_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Marico",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "UPL.NS",
@@ -4223,7 +4293,17 @@
           "why": "Crop protection demand falls when farmers sow less area. Less acreage = less spraying needed.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "UPL Ltd",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         }
       ],
       "benefit_from_drought": [
@@ -4234,7 +4314,17 @@
           "why": "When fresh food prices spike (drought inflation), consumers shift to packaged food. Maggi/Kitkat demand is drought-resilient.",
           "direction": "benefit_from_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Nestle India",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "BRITANNIA.NS",
@@ -4243,7 +4333,17 @@
           "why": "Biscuits are a staple substitute when fresh snacks get expensive. Urban-heavy revenue base shields from rural slowdown.",
           "direction": "benefit_from_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Britannia",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "TCS.NS",
@@ -4903,7 +5003,17 @@
           "why": "Agri-commodity business BENEFITS from food price spikes (ITC is a large wheat/soy trader). Cigarettes are recession-proof.",
           "direction": "benefit_from_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "ITC Ltd",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "RELIANCE.NS",
@@ -4912,7 +5022,17 @@
           "why": "Diesel demand actually rises in drought (farmers run diesel pumps for irrigation). Jio/Retail are monsoon-independent.",
           "direction": "benefit_from_drought",
           "proxy_sector": "energy",
-          "analysis": null
+          "analysis": {
+            "variable": "Reliance Industries",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "NTPC.NS",
@@ -4921,7 +5041,17 @@
           "why": "Drought → hydro power output falls → thermal plants run at higher utilization → better revenue for NTPC.",
           "direction": "benefit_from_drought",
           "proxy_sector": "energy",
-          "analysis": null
+          "analysis": {
+            "variable": "NTPC",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         }
       ]
     },
@@ -4934,7 +5064,17 @@
           "why": "Pure-play tractor company. Revenue is almost 100% dependent on farmer sentiment and monsoon timing.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Escorts Kubota",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "TVSMOTOR.NS",
@@ -4943,7 +5083,17 @@
           "why": "Strong rural dealer network. Mopeds and entry bikes are discretionary purchases that get cut first in drought.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "TVS Motor",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "GODREJCP.NS",
@@ -4952,7 +5102,17 @@
           "why": "Hair color (rural penetration), household insecticides — demand weakens when rural income drops.",
           "direction": "hurt_by_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Godrej Consumer",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "EMAMILTD.NS",
@@ -4961,7 +5121,17 @@
           "why": "Navratna oil, BoroPlus are rural-heavy brands. Summer products (cooling oil) also depend on monsoon timing.",
           "direction": "hurt_by_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Emami",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "BALRAMCHIN.NS",
@@ -4970,7 +5140,17 @@
           "why": "UP-based sugar mill. Sugarcane needs heavy water — drought years mean less cane, lower crushing volumes.",
           "direction": "hurt_by_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Balrampur Chini",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "COROMANDEL.NS",
@@ -4979,7 +5159,17 @@
           "why": "Fertilizer + crop protection. Both volumes directly tied to how much area farmers actually sow.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Coromandel International",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "PIIND.NS",
@@ -4988,7 +5178,17 @@
           "why": "Domestic agrochem demand is acreage-driven. CSM exports are fine, but India business gets hit.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "PI Industries",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "MANAPPURAM.NS",
@@ -5874,7 +6074,17 @@
           "why": "Farmers need MORE pumps in drought to extract groundwater. Solar pump subsidies (PM-KUSUM) accelerate in dry years.",
           "direction": "benefit_from_drought",
           "proxy_sector": "energy",
-          "analysis": null
+          "analysis": {
+            "variable": "Shakti Pumps",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "KSB.NS",
@@ -5883,7 +6093,17 @@
           "why": "Water infrastructure and irrigation pumps see demand spike when rainfall is deficient.",
           "direction": "benefit_from_drought",
           "proxy_sector": "energy",
-          "analysis": null
+          "analysis": {
+            "variable": "KSB Ltd",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "CGPOWER.NS",
@@ -5892,7 +6112,17 @@
           "why": "Transformer demand rises as rural India runs more borewells and pump sets during drought.",
           "direction": "benefit_from_drought",
           "proxy_sector": "energy",
-          "analysis": null
+          "analysis": {
+            "variable": "CG Power",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "TATAPOWER.NS",
@@ -5901,7 +6131,17 @@
           "why": "Thermal power sees higher utilization when hydro output drops. Solar business is monsoon-independent.",
           "direction": "benefit_from_drought",
           "proxy_sector": "energy",
-          "analysis": null
+          "analysis": {
+            "variable": "Tata Power",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "PERSISTENT.NS",
@@ -6565,7 +6805,17 @@
           "why": "Small sugar mill in UP. Entirely dependent on local cane supply — drought devastates operations.",
           "direction": "hurt_by_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Dhampur Sugar",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "TRIVENI.NS",
@@ -6574,7 +6824,17 @@
           "why": "Sugar division is the main revenue driver. Water-intensive cane crushing halts in drought years.",
           "direction": "hurt_by_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Triveni Engineering",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "RALLIS.NS",
@@ -6583,7 +6843,17 @@
           "why": "Tata group agrochem. Revenue = f(acres sown). Drought → less sowing → less pesticide demand.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Rallis India",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "GNFC.NS",
@@ -6592,7 +6862,17 @@
           "why": "Gujarat-based fertilizer producer. Sowing delays in Gujarat during drought directly cut offtake.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "GNFC",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "VSTTILLERS.NS",
@@ -6601,7 +6881,17 @@
           "why": "Small tractor/tiller maker for marginal farmers. This segment is FIRST to cut spending in drought.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "VST Tillers",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "WATERBASE.NS",
@@ -6610,7 +6900,17 @@
           "why": "Shrimp farming needs water. Drought → less freshwater availability for aquaculture → production falls.",
           "direction": "hurt_by_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Waterbase",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "JISLJALEQS.NS",
@@ -6619,7 +6919,17 @@
           "why": "Drip/sprinkler systems. Farmers cut capex spending in drought — even though they need irrigation more.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "Jain Irrigation",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "BASF.NS",
@@ -6628,7 +6938,17 @@
           "why": "Crop protection and seeds. Indian agri business directly hit when sowing area contracts.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "BASF India",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "RCF.NS",
@@ -6637,7 +6957,17 @@
           "why": "Government-controlled prices limit upside. Volume decline in drought directly hits topline.",
           "direction": "hurt_by_drought",
           "proxy_sector": "auto",
-          "analysis": null
+          "analysis": {
+            "variable": "RCF",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "CHAMBLFERT.NS",
@@ -6646,7 +6976,17 @@
           "why": "Urea maker. Kharif is peak urea season — drought-delayed sowing = delayed/lower urea demand.",
           "direction": "hurt_by_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Chambal Fertilisers",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         }
       ],
       "benefit_from_drought": [
@@ -6860,7 +7200,17 @@
           "why": "India's oldest pump maker. Agricultural + municipal pumping demand surges during water scarcity.",
           "direction": "benefit_from_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Kirloskar Brothers",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "KRBL.NS",
@@ -6869,7 +7219,17 @@
           "why": "Counter-intuitive: rice PRICES rise in drought (supply falls). KRBL holds inventory → sells at higher prices.",
           "direction": "benefit_from_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "KRBL (India Gate Rice)",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "HATSUN.NS",
@@ -6878,7 +7238,17 @@
           "why": "Milk prices rise in drought (fodder becomes expensive → supply tightens). Hatsun can pass through costs.",
           "direction": "benefit_from_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Hatsun Agro",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "BECTORFOOD.NS",
@@ -6887,7 +7257,17 @@
           "why": "Biscuits and bread — staple calories that people consume MORE when fresh food gets expensive.",
           "direction": "benefit_from_drought",
           "proxy_sector": "fmcg",
-          "analysis": null
+          "analysis": {
+            "variable": "Mrs Bectors Food",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "PRIVISCL.NS",
@@ -7323,7 +7703,17 @@
           "why": "Paradox: hydro output MAY fall, but SJVN's growing solar portfolio compensates. Government backing ensures stability.",
           "direction": "benefit_from_drought",
           "proxy_sector": "energy",
-          "analysis": null
+          "analysis": {
+            "variable": "SJVN Ltd",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         },
         {
           "ticker": "SUNTV.NS",
@@ -7556,7 +7946,17 @@
           "why": "Thermal power utility in Kolkata. Drought = hotter weather = more AC usage = higher power demand.",
           "direction": "benefit_from_drought",
           "proxy_sector": "energy",
-          "analysis": null
+          "analysis": {
+            "variable": "CESC",
+            "by_rainfall_bucket": {},
+            "by_elnino_bucket": {},
+            "outlook_2026": null,
+            "weights_used": {
+              "LOW": 0.55,
+              "NORMAL": 0.4,
+              "HIGH": 0.05
+            }
+          }
         }
       ]
     }
