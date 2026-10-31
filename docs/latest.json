@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-30T19:36:25.416379+00:00",
+  "last_updated": "2026-10-31T18:41:04.787262+00:00",
   "metrics": {
     "oni": {
       "metric": "ONI",
@@ -10,7 +10,7 @@
       "previous_value": 1.8,
       "source": "NOAA/CPC ONI",
       "source_url": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt",
-      "fetched_at": "2026-10-30T19:36:25.547385+00:00",
+      "fetched_at": "2026-10-31T18:41:04.968622+00:00",
       "status": "ok"
     },
     "nino34": {
@@ -25,7 +25,7 @@
       "nino4_anom": 0.95,
       "source": "NOAA/CPC Niño-3.4 Monthly",
       "source_url": "https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices",
-      "fetched_at": "2026-10-30T19:36:25.592047+00:00",
+      "fetched_at": "2026-10-31T18:41:05.251474+00:00",
       "status": "ok"
     },
     "enso_status": {
@@ -37,7 +37,7 @@
       "unit": "%",
       "source": "NOAA/CPC ENSO Discussion",
       "source_url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
-      "fetched_at": "2026-10-30T19:36:25.641173+00:00",
+      "fetched_at": "2026-10-31T18:41:05.514775+00:00",
       "status": "ok"
     },
     "soi": {
@@ -48,7 +48,7 @@
       "interpretation": "near neutral",
       "source": "NOAA/PSL SOI",
       "source_url": "https://psl.noaa.gov/data/correlation/soi.data",
-      "fetched_at": "2026-10-30T19:36:25.800988+00:00",
+      "fetched_at": "2026-10-31T18:41:05.684048+00:00",
       "status": "ok"
     },
     "iod_dmi": {
@@ -60,7 +60,7 @@
       "period": "May 2026",
       "source": "NOAA/PSL DMI (IOD)",
       "source_url": "https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmi.had.long.data",
-      "fetched_at": "2026-10-30T19:36:25.933769+00:00",
+      "fetched_at": "2026-10-31T18:41:05.838571+00:00",
       "status": "ok",
       "note": "DMI data lags 1-2 months; this is normal for this dataset"
     },
@@ -277,7 +277,7 @@
       "unit": "mm / %departure",
       "source": "IMD Subdivision Rainfall",
       "source_url": "https://mausam.imd.gov.in/Rainfall/SUBDIVISION_RAINFALL_DISTRIBUTION_COUNTRY_INDIA_cd.pdf",
-      "fetched_at": "2026-10-30T19:36:28.396481+00:00",
+      "fetched_at": "2026-10-31T18:41:08.654722+00:00",
       "status": "ok"
     },
     "imd_lrf": {
@@ -289,7 +289,7 @@
       "issue_date": "13 April,2026",
       "source": "IMD Long Range Forecast",
       "source_url": "https://mausam.imd.gov.in/Forecast/marquee_data/Long%20Range%20Forecast%20for%20Southwest%20Monsoon%20Season%20Rainfall_Press_release_13.4.2026.pdf",
-      "fetched_at": "2026-10-30T19:36:30.855975+00:00",
+      "fetched_at": "2026-10-31T18:41:11.632575+00:00",
       "status": "ok"
     },
     "cwc_reservoir": {
@@ -297,7 +297,7 @@
       "value": null,
       "source": "CWC Reservoir Storage",
       "source_url": "https://cwc.gov.in/en/reservoir-level-storage-bulletin",
-      "fetched_at": "2026-10-30T19:37:02.206455+00:00",
+      "fetched_at": "2026-10-31T18:41:49.282179+00:00",
       "status": "stale",
       "error": "Could not find latest reservoir bulletin PDF URL",
       "note": "CWC reservoir bulletin is updated weekly (Thursdays). PDF parsing is brittle."
@@ -317,7 +317,7 @@
       "sowing_window": "Kharif sowing runs June-August, peaking in July. Depends on monsoon onset and early rainfall.",
       "source": "Dept of Agriculture - Kharif Sowing",
       "source_url": "https://agricoop.gov.in/en/StatisticsReport",
-      "fetched_at": "2026-10-30T19:37:24.840675+00:00",
+      "fetched_at": "2026-10-31T18:42:10.669585+00:00",
       "status": "stale",
       "note": "Official kharif sowing data source (agricoop.gov.in) has persistent SSL issues. Weekly reports typically start late June."
     },
@@ -329,20 +329,23 @@
       "forecast_season": "July–September 2026",
       "source": "IRI/Columbia ENSO Forecast",
       "source_url": "https://iri.columbia.edu/our-expertise/climate/forecasts/enso/current/",
-      "fetched_at": "2026-10-30T19:37:25.014418+00:00",
+      "fetched_at": "2026-10-31T18:42:13.043674+00:00",
       "status": "ok"
     },
     "pdo": {
       "metric": "PDO",
-      "value": null,
+      "value": -2.71,
+      "unit": "index",
+      "period": "Aug 2025",
+      "phase": "Negative",
+      "india_impact_note": "Negative PDO can weaken El Nino's drought effect on India — a mitigating factor",
       "source": "NOAA/PSL PDO",
       "source_url": "https://psl.noaa.gov/data/correlation/pdo.data",
-      "fetched_at": "2026-10-30T19:37:32.584749+00:00",
-      "status": "error",
-      "error": "500 Server Error: Internal Server Error for url: https://psl.noaa.gov/data/correlation/pdo.data"
+      "fetched_at": "2026-10-31T18:42:13.208173+00:00",
+      "status": "ok"
     }
   },
-  "stress_index": 75,
+  "stress_index": 68,
   "elnino_blended": {
     "blended_probability": 90.9,
     "components": [
