@@ -1745,5 +1745,17 @@
     "stress_index": 67,
     "iri_elnino_prob": 100,
     "pdo": -2.71
+  },
+  {
+    "date": "2026-11-02T22:51:03.454908+00:00",
+    "oni": 2.16,
+    "nino34": 2.84,
+    "soi": -4.0,
+    "dmi": 0.146,
+    "rainfall_departure_pct": -32,
+    "alert_status": "El Niño Advisory",
+    "stress_index": 67,
+    "iri_elnino_prob": 100,
+    "pdo": -2.71
   }
 ]
