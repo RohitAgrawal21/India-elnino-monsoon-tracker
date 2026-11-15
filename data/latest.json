@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-14T19:23:56.366889+00:00",
+  "last_updated": "2026-11-15T19:54:40.684882+00:00",
   "metrics": {
     "oni": {
       "metric": "ONI",
@@ -10,7 +10,7 @@
       "previous_value": 2.16,
       "source": "NOAA/CPC ONI",
       "source_url": "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt",
-      "fetched_at": "2026-11-14T19:23:56.695475+00:00",
+      "fetched_at": "2026-11-15T19:54:40.849929+00:00",
       "status": "ok"
     },
     "nino34": {
@@ -25,7 +25,7 @@
       "nino4_anom": 1.2,
       "source": "NOAA/CPC Niño-3.4 Monthly",
       "source_url": "https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices",
-      "fetched_at": "2026-11-14T19:23:57.112005+00:00",
+      "fetched_at": "2026-11-15T19:54:40.933611+00:00",
       "status": "ok"
     },
     "enso_status": {
@@ -37,7 +37,7 @@
       "unit": "%",
       "source": "NOAA/CPC ENSO Discussion",
       "source_url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
-      "fetched_at": "2026-11-14T19:23:57.463786+00:00",
+      "fetched_at": "2026-11-15T19:54:41.025359+00:00",
       "status": "ok"
     },
     "soi": {
@@ -48,7 +48,7 @@
       "interpretation": "near neutral",
       "source": "NOAA/PSL SOI",
       "source_url": "https://psl.noaa.gov/data/correlation/soi.data",
-      "fetched_at": "2026-11-14T19:23:57.663904+00:00",
+      "fetched_at": "2026-11-15T19:54:41.296465+00:00",
       "status": "ok"
     },
     "iod_dmi": {
@@ -60,15 +60,15 @@
       "period": "May 2026",
       "source": "NOAA/PSL DMI (IOD)",
       "source_url": "https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmi.had.long.data",
-      "fetched_at": "2026-11-14T19:23:57.866597+00:00",
+      "fetched_at": "2026-11-15T19:54:41.479782+00:00",
       "status": "ok",
       "note": "DMI data lags 1-2 months; this is normal for this dataset"
     },
     "imd_rainfall": {
       "metric": "IMD Subdivision Rainfall",
-      "country_actual_mm": 62.1,
-      "country_normal_mm": 91.8,
-      "country_departure_pct": -32,
+      "country_actual_mm": 62.2,
+      "country_normal_mm": 92.8,
+      "country_departure_pct": -33,
       "country_category": "Deficient",
       "category_counts": {
         "Large Excess": {
@@ -84,12 +84,12 @@
           "pct_area": 28
         },
         "Deficient": {
-          "subdivisions": 8,
-          "pct_area": 17
+          "subdivisions": 9,
+          "pct_area": 23
         },
         "Large Deficient": {
-          "subdivisions": 13,
-          "pct_area": 44
+          "subdivisions": 12,
+          "pct_area": 38
         },
         "No Rain": {
           "subdivisions": 0,
@@ -138,7 +138,7 @@
           "category_code": "N"
         },
         "west_up": {
-          "departure_pct": 28,
+          "departure_pct": 27,
           "category": "Excess",
           "category_code": "E"
         },
@@ -153,24 +153,24 @@
           "category_code": "LE"
         },
         "punjab": {
-          "departure_pct": 159,
+          "departure_pct": 157,
           "category": "Large Excess",
           "category_code": "LE"
         },
         "himachal_pradesh": {
-          "departure_pct": -2,
+          "departure_pct": -3,
           "category": "Normal",
           "category_code": "N"
         },
         "jammu_kashmir": {
-          "departure_pct": 23,
+          "departure_pct": 20,
           "category": "Excess",
           "category_code": "E"
         },
         "west_rajasthan": {
-          "departure_pct": -70,
-          "category": "Large Deficient",
-          "category_code": "LD"
+          "departure_pct": -58,
+          "category": "Deficient",
+          "category_code": "D"
         },
         "east_rajasthan": {
           "departure_pct": -37,
@@ -183,7 +183,7 @@
           "category_code": "N"
         },
         "west_mp": {
-          "departure_pct": -84,
+          "departure_pct": -85,
           "category": "Large Deficient",
           "category_code": "LD"
         },
@@ -223,17 +223,17 @@
           "category_code": "LD"
         },
         "chhattisgarh": {
-          "departure_pct": -4,
+          "departure_pct": -5,
           "category": "Normal",
           "category_code": "N"
         },
         "andaman_nicobar": {
-          "departure_pct": 27,
+          "departure_pct": 28,
           "category": "Excess",
           "category_code": "E"
         },
         "coastal_ap": {
-          "departure_pct": 7,
+          "departure_pct": 6,
           "category": "Normal",
           "category_code": "N"
         },
@@ -243,12 +243,12 @@
           "category_code": "LD"
         },
         "tamilnadu": {
-          "departure_pct": -5,
+          "departure_pct": -6,
           "category": "Normal",
           "category_code": "N"
         },
         "coastal_karnataka": {
-          "departure_pct": -27,
+          "departure_pct": -28,
           "category": "Deficient",
           "category_code": "D"
         },
@@ -263,21 +263,21 @@
           "category_code": "D"
         },
         "kerala": {
-          "departure_pct": -20,
+          "departure_pct": -21,
           "category": "Deficient",
           "category_code": "D"
         },
         "lakshadweep": {
-          "departure_pct": -15,
+          "departure_pct": -17,
           "category": "Normal",
           "category_code": "N"
         }
       },
-      "report_period": "01-10-2026 to 14-11-2026",
+      "report_period": "01-10-2026 to 15-11-2026",
       "unit": "mm / %departure",
       "source": "IMD Subdivision Rainfall",
       "source_url": "https://mausam.imd.gov.in/Rainfall/SUBDIVISION_RAINFALL_DISTRIBUTION_COUNTRY_INDIA_cd.pdf",
-      "fetched_at": "2026-11-14T19:24:00.479742+00:00",
+      "fetched_at": "2026-11-15T19:54:43.894443+00:00",
       "status": "ok"
     },
     "imd_lrf": {
@@ -289,7 +289,7 @@
       "issue_date": "13 April,2026",
       "source": "IMD Long Range Forecast",
       "source_url": "https://mausam.imd.gov.in/Forecast/marquee_data/Long%20Range%20Forecast%20for%20Southwest%20Monsoon%20Season%20Rainfall_Press_release_13.4.2026.pdf",
-      "fetched_at": "2026-11-14T19:24:03.627506+00:00",
+      "fetched_at": "2026-11-15T19:54:46.540700+00:00",
       "status": "ok"
     },
     "cwc_reservoir": {
@@ -297,7 +297,7 @@
       "value": null,
       "source": "CWC Reservoir Storage",
       "source_url": "https://cwc.gov.in/en/reservoir-level-storage-bulletin",
-      "fetched_at": "2026-11-14T19:24:37.004058+00:00",
+      "fetched_at": "2026-11-15T19:55:19.419322+00:00",
       "status": "stale",
       "error": "Could not find latest reservoir bulletin PDF URL",
       "note": "CWC reservoir bulletin is updated weekly (Thursdays). PDF parsing is brittle."
@@ -312,7 +312,7 @@
       "sowing_window": "Kharif sowing runs June-August, peaking in July. Depends on monsoon onset and early rainfall.",
       "source": "Dept of Agriculture - Kharif Sowing",
       "source_url": "https://agricoop.gov.in/en/StatisticsReport",
-      "fetched_at": "2026-11-14T19:24:50.467466+00:00",
+      "fetched_at": "2026-11-15T19:55:37.607822+00:00",
       "status": "stale",
       "note": "Official kharif sowing data source (agricoop.gov.in) has persistent SSL issues. Weekly reports typically start late June."
     },
@@ -324,7 +324,7 @@
       "forecast_season": "July–September 2026",
       "source": "IRI/Columbia ENSO Forecast",
       "source_url": "https://iri.columbia.edu/our-expertise/climate/forecasts/enso/current/",
-      "fetched_at": "2026-11-14T19:24:50.918988+00:00",
+      "fetched_at": "2026-11-15T19:55:37.820824+00:00",
       "status": "ok"
     },
     "pdo": {
@@ -336,11 +336,11 @@
       "india_impact_note": "Negative PDO can weaken El Nino's drought effect on India — a mitigating factor",
       "source": "NOAA/PSL PDO",
       "source_url": "https://psl.noaa.gov/data/correlation/pdo.data",
-      "fetched_at": "2026-11-14T19:24:51.109865+00:00",
+      "fetched_at": "2026-11-15T19:55:38.099562+00:00",
       "status": "ok"
     }
   },
-  "stress_index": 67,
+  "stress_index": 68,
   "elnino_blended": {
     "blended_probability": 90.1,
     "components": [
